@@ -9,11 +9,19 @@ public class GameController : MonoSingleton<GameController>
     FollowerController follower;
     public Vector2Int startPos;
 
+    public enum Mode
+    {
+        build,
+        direct,
+        select
+    }
+
+    public Mode mode = Mode.select;
 
     void Start()
     {
         grid = GetComponent<Grid>();
-        startPos = new Vector2Int((int)Random.Range(0, grid.mapSize * grid.tileSize), (int)Random.Range(0, grid.mapSize * grid.tileSize));
+        startPos = new Vector2Int((int)((grid.mapSize / 2) * grid.tileSize), (int)((grid.mapSize / 2) * grid.tileSize));
         grid.Generate(startPos);
         mouse = GetComponent<MouseControl>();
         mouse.camera.transform.position = new Vector3(startPos.x, startPos.y, mouse.camera.transform.position.z);

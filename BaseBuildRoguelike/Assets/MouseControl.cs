@@ -7,11 +7,13 @@ public class MouseControl : MonoBehaviour
     public GameObject camera;
     public float camSpeed = 50, camDist = 10;
     FollowerController followers;
+    BuildingController buildings;
     Grid grid;
-    public LayerMask clickMask, taskMask;
+    public LayerMask tileMask, selectMask, directMask;
     private void Start()
     {
         followers = GetComponent<FollowerController>();
+        buildings = GetComponent<BuildingController>();
         grid = GetComponent<Grid>();
         Cursor.lockState = CursorLockMode.Confined;
     }
@@ -41,51 +43,74 @@ public class MouseControl : MonoBehaviour
 
     void ClickControl()
     {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+
+        if (GameController.Instance.mode == GameController.Mode.build)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero, 0, tileMask);
+
+            if (!grid.IsSelected(hit.collider))
+            {
+                grid.SelectTile(hit.collider);
+            }
+            // Build on tile
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
 
-            RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero, clickMask);
 
-            if (hit.collider != null)
+
+            if (GameController.Instance.mode == GameController.Mode.build)
             {
-                if (hit.collider.CompareTag("Follower"))
+                // Build on selected tile
+                buildings.Build(grid.selected);
+            }
+            else
+            {
+                RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero, 0, selectMask);
+                if (hit.collider == null)
                 {
-                    followers.SelectFollower(hit.collider);
-                    grid.DeselectTile();
-                    return;
-                }
-                else if (hit.collider.CompareTag("Tile"))
-                {
-                    grid.SelectTile(hit.collider);
                     followers.DeselectFollower();
-                    return;
+                    GameController.Instance.mode = GameController.Mode.select;
                 }
                 else
                 {
-                    grid.DeselectTile();
-                    followers.DeselectFollower();
+                    if (hit.collider.CompareTag("Follower"))
+                    {
+                        followers.SelectFollower(hit.collider);
+                        GameController.Instance.mode = GameController.Mode.direct;
+                        return;
+                    }
+                    else if (hit.collider.CompareTag("Building"))
+                    {
+                        followers.DeselectFollower();
+                        return;
+                    }
                 }
             }
         }
 
         if (Input.GetMouseButtonDown(1))
         {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-
-
-            GameObject targetObj = null;
-
-            RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero, taskMask);
-
-            if (hit.collider != null && hit.collider.CompareTag("Resource"))
+            if (GameController.Instance.mode == GameController.Mode.build)
             {
-                targetObj = hit.collider.gameObject;
+                GameController.Instance.mode = GameController.Mode.select;
+                grid.DeselectTile();
             }
+            else if (GameController.Instance.mode == GameController.Mode.direct)
+            { 
+                GameObject targetObj = null;
+                RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero, 0, directMask);
 
-            followers.DirectFollower(mousePos2D, targetObj);
+                if (hit.collider != null)
+                {
+                    targetObj = hit.collider.gameObject;
+                }
+
+                followers.DirectFollower(mousePos2D, targetObj);
+            }
         }
     }
 }

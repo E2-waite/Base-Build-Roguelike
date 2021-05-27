@@ -5,16 +5,18 @@ using UnityEngine;
 public class Grid : MonoBehaviour
 {
     public Tile[,] tiles;
+    public Tile selected = null;
     public int mapSize = 25;
     public float tileSize = 1;
     public GameObject tile;
     public Color healthyColour, deadColour;
-    Tile selected = null;
+
     public LayerMask tileMask;
     public float cleanRadius = 5;
     public Vector2Int startBase;
     public GameObject[] walls = new GameObject[7];
-
+    public GameObject treePrefab;
+    public int treeScale = 10;
     public class Tile
     {
         public bool corrupted;
@@ -85,6 +87,35 @@ public class Grid : MonoBehaviour
         {
             tiles[(int)(col.transform.position.x / tileSize), (int)(col.transform.position.y / tileSize)].SetColour(healthyColour, true);
             tiles[(int)(col.transform.position.x / tileSize), (int)(col.transform.position.y / tileSize)].corrupted = false;
+        }
+
+        // Place trees
+        int numTrees = treeScale * (mapSize / 10);
+        for (int i = 0; i < numTrees; i++)
+        {
+            bool treePlaced = false;
+            while (!treePlaced)
+            {
+                Vector2Int treePos = new Vector2Int((int)(Random.Range(0, mapSize * tileSize)), (int)(Random.Range(0, mapSize * tileSize)));
+                if (tiles[treePos.x, treePos.y].structure == null)
+                {
+                    tiles[treePos.x, treePos.y].structure = Instantiate(treePrefab, tiles[treePos.x, treePos.y].tile.transform.position, Quaternion.identity);
+                    treePlaced = true;
+                }
+            }
+        }
+    }
+
+    public bool IsSelected(Collider2D tile)
+    {
+        Vector2Int arrayPos = new Vector2Int((int)(tile.transform.position.x / tileSize), (int)(tile.transform.position.y / tileSize));
+        if (selected == tiles[arrayPos.x, arrayPos.y])
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
