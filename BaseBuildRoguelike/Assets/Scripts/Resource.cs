@@ -39,6 +39,7 @@ public class Resource : MonoBehaviour
         if (val <= 0)
         {
             Destroy(gameObject);
+            return false;
         }
         return true;
     }

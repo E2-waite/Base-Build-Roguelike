@@ -26,4 +26,27 @@ public class BuildingController : MonoSingleton<BuildingController>
             tile.structure.GetComponent<Construct>().Setup(selectedBuilding.woodCost, selectedBuilding.stoneCost);
         }
     }
+
+    public bool UseResource(Resource.Type type)
+    {
+        List<Building> resourceStorage = new List<Building>();
+
+        if (type == Resource.Type.wood)
+        {
+            resourceStorage = woodPiles;
+        }
+        else if (type == Resource.Type.stone)
+        {
+            resourceStorage = stonePiles;
+        }
+
+        foreach (Building building in resourceStorage)
+        {
+            if (building.storage.Withdraw())
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

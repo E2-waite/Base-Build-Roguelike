@@ -13,7 +13,8 @@ public class Building : MonoBehaviour
     public enum Type
     {
         house,
-        storage
+        storage,
+        wall
     }
     public Type type;
     private void Start()
@@ -28,9 +29,9 @@ public class Building : MonoBehaviour
     public void Constructed()
     {
         isConstructed = true;
-        storage = GetComponent<ResourceStorage>();
         if (type == Type.storage)
         {
+            storage = GetComponent<ResourceStorage>();
             if (storage.type == Resource.Type.wood)
             {
                 BuildingController.Instance.woodPiles.Add(this);

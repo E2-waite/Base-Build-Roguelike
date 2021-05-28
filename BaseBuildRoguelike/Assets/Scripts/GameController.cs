@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameController : MonoSingleton<GameController>
 {
+    public int wood = 0, stone = 0, maxWood, maxStone;
     public Grid grid;
     MouseControl mouse;
     FollowerController follower;

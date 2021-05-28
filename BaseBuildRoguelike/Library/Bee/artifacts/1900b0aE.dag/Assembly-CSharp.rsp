@@ -358,6 +358,7 @@
 "Assets/Scripts/Soldier.cs"
 "Assets/Scripts/Squad.cs"
 "Assets/Scripts/WoodPile.cs"
+"Assets/Wall.cs"
 -langversion:8.0
 
 /deterministic

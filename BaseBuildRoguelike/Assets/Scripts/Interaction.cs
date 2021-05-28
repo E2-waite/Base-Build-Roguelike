@@ -25,11 +25,4 @@ public class Interaction : MonoBehaviour
             building = GetComponent<Building>();
         }
     }
-
-    public void GatherResource(Inventory inv)
-    {
-        resource.Gather(inv);
-    }
-
-
 }

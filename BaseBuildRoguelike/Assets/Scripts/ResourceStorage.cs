@@ -19,19 +19,43 @@ public class ResourceStorage : MonoBehaviour
 
     public void Store(ref int val)
     {
+        int toStore = val;
         if (currentStorage + val > maxStorage)
         {
-            int diff = maxStorage - currentStorage;
-
-            currentStorage += diff;
-            val -= diff;
+            toStore = maxStorage - currentStorage;
         }
-        else
+
+        currentStorage += toStore;
+        val -= toStore;
+
+        if (type == Resource.Type.wood)
         {
-            currentStorage += val;
-            val = 0;
+            GameController.Instance.wood += toStore;
+        }
+        else if (type == Resource.Type.stone)
+        {
+            GameController.Instance.stone += toStore;
         }
 
         rend.sprite = stages[(int)Mathf.Ceil((currentStorage * (stages.Count - 1)) / maxStorage)];
+    }
+
+    public bool Withdraw()
+    {
+        if (currentStorage > 0)
+        {
+            currentStorage--;
+            if (type == Resource.Type.wood)
+            {
+                GameController.Instance.wood--;
+            }
+            else if (type == Resource.Type.stone)
+            {
+                GameController.Instance.stone--;
+            }
+            rend.sprite = stages[(int)Mathf.Ceil((currentStorage * (stages.Count - 1)) / maxStorage)];
+            return true;
+        }
+        else return false;
     }
 }

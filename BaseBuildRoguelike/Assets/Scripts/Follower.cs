@@ -101,7 +101,14 @@ public class Follower : MonoBehaviour
         {
             if (target == null)
             {
-                currentState = State.idle;
+                if ((currentState == State.chopWood || currentState == State.mineStone) && !inventory.AtCapacity())
+                {
+                    target = FindResource();
+                }
+                else
+                {
+                    currentState = State.idle;
+                }
             }
             else
             {
@@ -150,7 +157,6 @@ public class Follower : MonoBehaviour
             {
                 target = FindResource();
             }
-
         }
     }
 
@@ -165,7 +171,7 @@ public class Follower : MonoBehaviour
         }
         else
         {
-            currentState = State.store;
+            currentState = State.store; 
             return true;
         }
     }
@@ -209,12 +215,12 @@ public class Follower : MonoBehaviour
     {
         // Find closest resource 
         List<Interaction> resources = new List<Interaction>();
-        if (currentState == State.chopWood)
+        if (lastState == State.chopWood)
         {
             resources = GameController.Instance.grid.trees;
         }
 
-        if (currentState == State.mineStone)
+        if (lastState == State.mineStone)
         {
             resources = GameController.Instance.grid.stone;
         }
@@ -234,6 +240,8 @@ public class Follower : MonoBehaviour
             }
         }
 
+        currentState = lastState;
+
         return closestResource;
     }
 
@@ -244,11 +252,11 @@ public class Follower : MonoBehaviour
 
         if (target != null)
         {
-            target.GatherResource(inventory);
+            target.resource.Gather(inventory);
         }
 
         if (inventory.AtCapacity())
-        {
+        { 
             lastTarget = target;
             lastState = currentState;
             FindStorage();
@@ -264,7 +272,7 @@ public class Follower : MonoBehaviour
 
         if (target != null)
         {
-            target.building.construct.Build(inventory);
+            target.building.construct.Build();
         }
 
         canBuild = true;
