@@ -637,6 +637,8 @@ MonoBehaviour:
   - {fileID: 4934932577049063368, guid: d0e03e8e248fa914593471e618dbc75f, type: 3}
   treePrefab: {fileID: 8087232528035166766, guid: 85f336c396c38ed4f9d91d8e918eb583, type: 3}
   treeScale: 10
+  trees: []
+  stone: []
 --- !u!4 &1263100315
 Transform:
   m_ObjectHideFlags: 0
@@ -679,7 +681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 519420028}
-  camSpeed: 100
+  camSpeed: 50
   camDist: 10
   tileMask:
     serializedVersion: 2
@@ -703,6 +705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyOnLoad: 1
+  grid: {fileID: 0}
   startPos: {x: 0, y: 0}
   mode: 2
 --- !u!114 &1263100319
@@ -721,7 +724,7 @@ MonoBehaviour:
   buildingTypes:
   - prefab: {fileID: 5741391851399633439, guid: a3fb97f6d63357f4fb97fc3eb856ca7c, type: 3}
     woodCost: 10
-    stoneCost: 10
+    stoneCost: 0
   - prefab: {fileID: 938588659906107226, guid: 2c3345279267e0041910a93cc0662d62, type: 3}
     woodCost: 0
     stoneCost: 0
@@ -729,6 +732,8 @@ MonoBehaviour:
     prefab: {fileID: 5741391851399633439, guid: a3fb97f6d63357f4fb97fc3eb856ca7c, type: 3}
     woodCost: 10
     stoneCost: 10
+  woodPiles: []
+  stonePiles: []
 --- !u!1 &1717278184
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,10 +890,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   marker: {fileID: 2073610737}
   target: {fileID: 0}
+  lastTarget: {fileID: 0}
   speed: 15
   gatherTime: 2
+  buildTime: 1
   canGather: 1
+  canBuild: 1
+  resourceMask:
+    serializedVersion: 2
+    m_Bits: 0
   currentState: 0
+  lastState: 0
 --- !u!61 &2023242723
 BoxCollider2D:
   m_ObjectHideFlags: 0

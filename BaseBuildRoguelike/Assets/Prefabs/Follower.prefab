@@ -103,8 +103,10 @@ MonoBehaviour:
   marker: {fileID: 486432622879390999}
   target: {fileID: 0}
   speed: 15
-  gatherTime: 2
+  gatherTime: 1
+  buildTime: 1
   canGather: 1
+  canBuild: 1
   currentState: 0
 --- !u!61 &486432622345391605
 BoxCollider2D:
