@@ -48,5 +48,9 @@ public class Building : MonoBehaviour
             wall = GetComponent<Wall>();
             wall.Setup();
         }
+        else if (type == Type.house)
+        {
+            FollowerController.Instance.AdjustMaxFollowers(5);
+        }
     }
 }

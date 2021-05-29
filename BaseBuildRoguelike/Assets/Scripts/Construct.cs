@@ -24,24 +24,27 @@ public class Construct : MonoBehaviour
 
     public void Build()
     {
-        if (woodRemaining > 0 && GameController.Instance.wood > 0)
+        if (!building.isConstructed)
         {
-            if (BuildingController.Instance.UseResource(Resource.Type.wood))
+            if (woodRemaining > 0 && GameController.Instance.wood > 0)
             {
-                woodRemaining--;
+                if (BuildingController.Instance.UseResource(Resource.Type.wood))
+                {
+                    woodRemaining--;
+                }
             }
-        }
 
-        if (stoneRemaining > 0 && GameController.Instance.stone > 0)
-        {
-
-            if (BuildingController.Instance.UseResource(Resource.Type.stone))
+            if (stoneRemaining > 0 && GameController.Instance.stone > 0)
             {
-                stoneRemaining--;
-            }
-        }
 
-        CheckComplete();
+                if (BuildingController.Instance.UseResource(Resource.Type.stone))
+                {
+                    stoneRemaining--;
+                }
+            }
+
+            CheckComplete();
+        }
     }
 
     void CheckComplete()
