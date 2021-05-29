@@ -16,12 +16,21 @@ public class FollowerController : MonoSingleton<FollowerController>
 
     public void SelectFollower(Collider2D follower)
     {
+        if (selected != null)
+        {
+            selected.Deselect();
+        }
         selected = follower.GetComponent<Follower>();
+        selected.Select();
     }
 
     public void DeselectFollower()
     {
-        selected = null;
+        if (selected != null)
+        {
+            selected.Deselect();
+            selected = null;
+        }
     }
 
     public void DirectFollower(Vector2 pos, GameObject obj)

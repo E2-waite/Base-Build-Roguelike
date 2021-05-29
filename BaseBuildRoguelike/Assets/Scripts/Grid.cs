@@ -7,7 +7,6 @@ public class Grid : MonoBehaviour
     public Tile[,] tiles;
     public Tile selected = null;
     public int mapSize = 25;
-    public float tileSize = 1;
     public GameObject tile;
     public Color healthyColour, deadColour;
 
@@ -29,18 +28,13 @@ public class Grid : MonoBehaviour
         Color selectColour = Color.red, baseColour;
         
 
-        public Tile(GameObject tileObj, Vector2 tilePos, GameObject tileStructure, float size, Color colour, bool dead)
+        public Tile(GameObject tileObj, Vector2 tilePos, GameObject tileStructure, Color colour, bool dead)
         {
             tile = tileObj;
             position = tilePos;
             structure = tileStructure;
             baseColour = colour;
-            tile.transform.localScale = new Vector2(size, size);
             corrupted = dead;
-            if (tileStructure != null)
-            {
-                tileStructure.transform.localScale = new Vector2(size, size);
-            }
 
             SetColour(baseColour, true);
         }
@@ -77,8 +71,8 @@ public class Grid : MonoBehaviour
         {
             for (int x = 0; x < mapSize; x++)
             {
-                Vector2 pos = new Vector2(x * tileSize, y * tileSize);
-                tiles[x, y] = new Tile(Instantiate(tile, pos, Quaternion.identity), pos, null, tileSize, deadColour, true);
+                Vector2 pos = new Vector2(x, y);
+                tiles[x, y] = new Tile(Instantiate(tile, pos, Quaternion.identity), pos, null, deadColour, true);
             }
         }
 
@@ -88,8 +82,8 @@ public class Grid : MonoBehaviour
 
         foreach (Collider2D col in cols)
         {
-            tiles[(int)(col.transform.position.x / tileSize), (int)(col.transform.position.y / tileSize)].SetColour(healthyColour, true);
-            tiles[(int)(col.transform.position.x / tileSize), (int)(col.transform.position.y / tileSize)].corrupted = false;
+            tiles[(int)(col.transform.position.x), (int)(col.transform.position.y)].SetColour(healthyColour, true);
+            tiles[(int)(col.transform.position.x), (int)(col.transform.position.y)].corrupted = false;
         }
 
         // Place trees
@@ -99,7 +93,7 @@ public class Grid : MonoBehaviour
             bool treePlaced = false;
             while (!treePlaced)
             {
-                Vector2Int treePos = new Vector2Int((int)(Random.Range(0, mapSize * tileSize)), (int)(Random.Range(0, mapSize * tileSize)));
+                Vector2Int treePos = new Vector2Int((int)(Random.Range(0, mapSize)), (int)(Random.Range(0, mapSize)));
                 if (tiles[treePos.x, treePos.y].structure == null)
                 {
                     tiles[treePos.x, treePos.y].structure = Instantiate(treePrefab, tiles[treePos.x, treePos.y].tile.transform.position, Quaternion.identity);
@@ -115,7 +109,7 @@ public class Grid : MonoBehaviour
             bool stonePlaced = false;
             while (!stonePlaced)
             {
-                Vector2Int stonePos = new Vector2Int((int)(Random.Range(0, mapSize * tileSize)), (int)(Random.Range(0, mapSize * tileSize)));
+                Vector2Int stonePos = new Vector2Int((int)(Random.Range(0, mapSize)), (int)(Random.Range(0, mapSize)));
                 if (tiles[stonePos.x, stonePos.y].structure == null)
                 {
                     tiles[stonePos.x, stonePos.y].structure = Instantiate(stonePrefab, tiles[stonePos.x, stonePos.y].tile.transform.position, Quaternion.identity);
@@ -128,7 +122,7 @@ public class Grid : MonoBehaviour
 
     public bool IsSelected(Collider2D tile)
     {
-        Vector2Int arrayPos = new Vector2Int((int)(tile.transform.position.x / tileSize), (int)(tile.transform.position.y / tileSize));
+        Vector2Int arrayPos = new Vector2Int((int)(tile.transform.position.x), (int)(tile.transform.position.y));
         if (selected == tiles[arrayPos.x, arrayPos.y])
         {
             return true;
@@ -141,7 +135,7 @@ public class Grid : MonoBehaviour
 
     public void SelectTile(Collider2D tile)
     {
-        Vector2Int arrayPos = new Vector2Int((int)(tile.transform.position.x / tileSize), (int)(tile.transform.position.y / tileSize));
+        Vector2Int arrayPos = new Vector2Int((int)(tile.transform.position.x), (int)(tile.transform.position.y));
         if (selected != null)
         {
             selected.Deselect();

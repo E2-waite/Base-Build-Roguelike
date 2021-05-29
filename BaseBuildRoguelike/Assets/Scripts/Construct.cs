@@ -48,8 +48,8 @@ public class Construct : MonoBehaviour
     {
         if (woodRemaining <= 0 && stoneRemaining <= 0)
         {
-            building.Constructed();
             rend.sprite = constructed;
+            building.Constructed();
             Destroy(this);
         }
     }

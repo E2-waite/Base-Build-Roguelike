@@ -9,8 +9,9 @@ public class Follower : MonoBehaviour
     public GameObject marker;
     public Interaction target, lastTarget;
     public float speed = 15, gatherTime = 2, buildTime = 1;
-    public bool canGather = true, canBuild = true;
+    public bool canGather = true, canBuild = true, selected = false;
     public LayerMask resourceMask;
+    public GameObject highlight;
     public enum State
     {
         idle,
@@ -27,6 +28,18 @@ public class Follower : MonoBehaviour
     {
         inventory = GetComponent<Inventory>();
         anim = GetComponent<Animator>();
+    }
+
+    public void Select()
+    {
+        highlight.SetActive(true);
+        selected = true;
+    }
+
+    public void Deselect()
+    {
+        highlight.SetActive(false);
+        selected = false;
     }
 
     public void Direct(Vector2 pos, GameObject obj)

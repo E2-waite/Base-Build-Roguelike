@@ -22,7 +22,7 @@ public class GameController : MonoSingleton<GameController>
     void Start()
     {
         grid = GetComponent<Grid>();
-        startPos = new Vector2Int((int)((grid.mapSize / 2) * grid.tileSize), (int)((grid.mapSize / 2) * grid.tileSize));
+        startPos = new Vector2Int((int)(grid.mapSize / 2), (int)(grid.mapSize / 2));
         grid.Generate(startPos);
         mouse = GetComponent<MouseControl>();
         mouse.camera.transform.position = new Vector3(startPos.x, startPos.y, mouse.camera.transform.position.z);
@@ -31,5 +31,19 @@ public class GameController : MonoSingleton<GameController>
 
     }
 
+    public void AdjustResources(Resource.Type type, int val, int maxVal)
+    {
+        if (type == Resource.Type.wood)
+        {
+            wood += val;
+            maxWood += maxVal;
+        }
+        else if (type == Resource.Type.stone)
+        {
+            stone += val;
+            maxStone += maxVal;
+        }
 
+        HUD.Instance.UpdateResources(wood, maxWood, stone, maxStone);
+    }
 }

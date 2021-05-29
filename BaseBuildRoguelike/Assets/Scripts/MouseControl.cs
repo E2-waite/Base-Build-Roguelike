@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MouseControl : MonoBehaviour
 {
-    public GameObject camera;
-    public float camSpeed = 50, camDist = 10;
+    public Camera camera;
+    public float camSpeed = 50, camDist = 10, camMaxZoom = 25, camMinZoom = 10;
     FollowerController followers;
     BuildingController buildings;
     Grid grid;
@@ -31,6 +31,15 @@ public class MouseControl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H) && !camRecentering)
         {
             StartCoroutine(RecenterCam());
+        }
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f && camera.orthographicSize > camMinZoom) // forward
+        {
+            camera.orthographicSize--;
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f && camera.orthographicSize < camMaxZoom) // backwards
+        {
+            camera.orthographicSize++;
         }
 
         if ((mousePos.x <= 10 && Input.GetAxis("Mouse X") < 0) || (mousePos.x >= Screen.width - 10 && Input.GetAxis("Mouse X") > 0))

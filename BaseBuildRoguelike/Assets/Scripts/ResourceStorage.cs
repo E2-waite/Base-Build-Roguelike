@@ -28,14 +28,8 @@ public class ResourceStorage : MonoBehaviour
         currentStorage += toStore;
         val -= toStore;
 
-        if (type == Resource.Type.wood)
-        {
-            GameController.Instance.wood += toStore;
-        }
-        else if (type == Resource.Type.stone)
-        {
-            GameController.Instance.stone += toStore;
-        }
+
+        GameController.Instance.AdjustResources(type, toStore, 0);
 
         rend.sprite = stages[(int)Mathf.Ceil((currentStorage * (stages.Count - 1)) / maxStorage)];
     }
@@ -45,14 +39,9 @@ public class ResourceStorage : MonoBehaviour
         if (currentStorage > 0)
         {
             currentStorage--;
-            if (type == Resource.Type.wood)
-            {
-                GameController.Instance.wood--;
-            }
-            else if (type == Resource.Type.stone)
-            {
-                GameController.Instance.stone--;
-            }
+
+            GameController.Instance.AdjustResources(type, -1, 0);
+            
             rend.sprite = stages[(int)Mathf.Ceil((currentStorage * (stages.Count - 1)) / maxStorage)];
             return true;
         }

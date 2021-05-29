@@ -9,6 +9,7 @@ public class Building : MonoBehaviour
     [HideInInspector] public Construct construct;
     [HideInInspector] public ResourceStorage storage;
     [HideInInspector] public Interaction interaction;
+    [HideInInspector] public Wall wall;
 
     public enum Type
     {
@@ -40,6 +41,12 @@ public class Building : MonoBehaviour
             {
                 BuildingController.Instance.stonePiles.Add(this);
             }
+            GameController.Instance.AdjustResources(storage.type, 0, storage.maxStorage);
+        }
+        else if (type == Type.wall)
+        {
+            wall = GetComponent<Wall>();
+            wall.Setup();
         }
     }
 }

@@ -16,6 +16,12 @@ public class BuildingController : MonoSingleton<BuildingController>
 
     public List<Building> woodPiles = new List<Building>();
     public List<Building> stonePiles = new List<Building>();
+    public Wall[,] walls;
+
+    private void Start()
+    {
+        walls = new Wall[GameController.Instance.grid.mapSize, GameController.Instance.grid.mapSize];
+    }
 
     public void Build(Grid.Tile tile)
     {
