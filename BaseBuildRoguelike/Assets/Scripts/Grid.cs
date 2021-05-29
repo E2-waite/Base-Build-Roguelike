@@ -15,10 +15,10 @@ public class Grid : MonoBehaviour
     public float cleanRadius = 5;
     public Vector2Int startBase;
     public GameObject[] walls = new GameObject[7];
-    public GameObject treePrefab;
-    public int treeScale = 10;
+    public GameObject treePrefab, stonePrefab;
+    public int treeScale = 10, stoneScale = 10;
     public List<Interaction> trees = new List<Interaction>();
-    public List<Interaction> stone = new List<Interaction>();
+    public List<Interaction> stones = new List<Interaction>();
 
     public class Tile
     {
@@ -105,6 +105,22 @@ public class Grid : MonoBehaviour
                     tiles[treePos.x, treePos.y].structure = Instantiate(treePrefab, tiles[treePos.x, treePos.y].tile.transform.position, Quaternion.identity);
                     trees.Add(tiles[treePos.x, treePos.y].structure.GetComponent<Interaction>());
                     treePlaced = true;
+                }
+            }
+        }
+
+        int numStones = stoneScale * (mapSize / 10);
+        for (int i = 0; i < numStones; i++)
+        {
+            bool stonePlaced = false;
+            while (!stonePlaced)
+            {
+                Vector2Int stonePos = new Vector2Int((int)(Random.Range(0, mapSize * tileSize)), (int)(Random.Range(0, mapSize * tileSize)));
+                if (tiles[stonePos.x, stonePos.y].structure == null)
+                {
+                    tiles[stonePos.x, stonePos.y].structure = Instantiate(stonePrefab, tiles[stonePos.x, stonePos.y].tile.transform.position, Quaternion.identity);
+                    stones.Add(tiles[stonePos.x, stonePos.y].structure.GetComponent<Interaction>());
+                    stonePlaced = true;
                 }
             }
         }

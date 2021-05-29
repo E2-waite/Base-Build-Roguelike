@@ -7,6 +7,7 @@ TagManager:
   - Follower
   - Tile
   - Resource
+  - Building
   layers:
   - Default
   - TransparentFX

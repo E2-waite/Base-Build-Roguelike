@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 486432622345391610}
   - component: {fileID: 1109435119323051790}
   - component: {fileID: 990832519860798286}
+  - component: {fileID: 8738360834402476526}
   m_Layer: 7
   m_Name: FollowerObj
   m_TagString: Follower
@@ -102,12 +103,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   marker: {fileID: 486432622879390999}
   target: {fileID: 0}
+  lastTarget: {fileID: 0}
   speed: 15
   gatherTime: 1
   buildTime: 1
   canGather: 1
   canBuild: 1
+  resourceMask:
+    serializedVersion: 2
+    m_Bits: 0
   currentState: 0
+  lastState: 0
 --- !u!61 &486432622345391605
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -185,6 +191,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &8738360834402476526
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486432622345391607}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8689014cb2c2f7746a7169ca7e7f15fa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &486432622879390999
 GameObject:
   m_ObjectHideFlags: 0

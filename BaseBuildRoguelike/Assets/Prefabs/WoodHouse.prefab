@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -5139101483823335845}
   m_Layer: 9
   m_Name: WoodHouse
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  resource: {fileID: 0}
   building: {fileID: 0}
 --- !u!114 &4972683383579464941
 MonoBehaviour:
@@ -117,6 +118,7 @@ MonoBehaviour:
   isConstructed: 0
   construct: {fileID: 0}
   storage: {fileID: 0}
+  interaction: {fileID: 0}
   type: 0
 --- !u!114 &3410417643914874638
 MonoBehaviour:

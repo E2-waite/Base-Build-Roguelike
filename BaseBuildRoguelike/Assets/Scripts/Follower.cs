@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Follower : MonoBehaviour
 {
+    Animator anim;
     Inventory inventory;
     public GameObject marker;
     public Interaction target, lastTarget;
@@ -25,6 +26,7 @@ public class Follower : MonoBehaviour
     private void Start()
     {
         inventory = GetComponent<Inventory>();
+        anim = GetComponent<Animator>();
     }
 
     public void Direct(Vector2 pos, GameObject obj)
@@ -95,6 +97,8 @@ public class Follower : MonoBehaviour
             else
             {
                 transform.position = Vector2.MoveTowards(transform.position, marker.transform.position, speed * Time.deltaTime);
+                float diff =  marker.transform.position.y - transform.position.y;
+                anim.SetInteger("Direction", Mathf.RoundToInt(diff));
             }
         }
         else
@@ -112,7 +116,9 @@ public class Follower : MonoBehaviour
             }
             else
             {
-                if (Vector2.Distance(transform.position, target.transform.position) <= 0.1f)
+                float diff = target.transform.position.y - transform.position.y;
+                anim.SetInteger("Direction", Mathf.RoundToInt(diff));
+                if (Vector2.Distance(transform.position, target.transform.position) <= 0.25f)
                 {
                     if ((currentState == State.chopWood || currentState == State.mineStone) && canGather)
                     {
@@ -194,7 +200,7 @@ public class Follower : MonoBehaviour
         foreach (Building building in storage)
         {
             float dist = Vector2.Distance(transform.position, building.transform.position);
-            if (dist < closestDist)
+            if (dist < closestDist && building.storage.currentStorage < building.storage.maxStorage)
             {
                 closestDist = dist;
                 closestBuilding = building;
@@ -222,7 +228,7 @@ public class Follower : MonoBehaviour
 
         if (lastState == State.mineStone)
         {
-            resources = GameController.Instance.grid.stone;
+            resources = GameController.Instance.grid.stones;
         }
 
         Interaction closestResource = null;
