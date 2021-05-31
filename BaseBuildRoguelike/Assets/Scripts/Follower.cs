@@ -8,8 +8,9 @@ public class Follower : MonoBehaviour
     Inventory inventory;
     public GameObject marker;
     public Interaction target, lastTarget;
-    public float speed = 15, gatherTime = 2, buildTime = 1;
-    public bool canGather = true, canBuild = true, selected = false;
+    public float speed = 15, gatherTime = 2, buildTime = 1, hitTime = 0.5f;
+    public int hitDamage = 1;
+    public bool canGather = true, canBuild = true, canHit = true, selected = false;
     public LayerMask resourceMask;
     public GameObject highlight;
     public enum State
@@ -19,7 +20,8 @@ public class Follower : MonoBehaviour
         chopWood,
         mineStone,
         store,
-        build
+        build,
+        hunt
     }
 
     public State currentState = State.idle, lastState = State.idle;
@@ -86,6 +88,17 @@ public class Follower : MonoBehaviour
                     currentState = State.build;
                 }
             }
+            else if (target.type == Interaction.Type.creature)
+            {
+                if (inventory.AtCapacity())
+                {
+                    FindStorage();
+                }
+                else
+                {
+                    currentState = State.hunt;
+                }
+            }
 
             lastTarget = target;
             lastState = currentState;
@@ -144,6 +157,10 @@ public class Follower : MonoBehaviour
                     else if (currentState == State.build && canBuild)
                     {
                         StartCoroutine(BuildRoutine());
+                    }
+                    else if (currentState == State.hunt && canHit)
+                    {
+                        StartCoroutine(HitRoutine());
                     }
                 }
                 else
@@ -295,5 +312,22 @@ public class Follower : MonoBehaviour
         }
 
         canBuild = true;
+    }
+
+    IEnumerator HitRoutine()
+    {
+        canHit = false;
+        yield return new WaitForSeconds(hitTime);
+
+        if (target != null)
+        {
+            if (currentState == State.hunt && target.creature.Hit(hitDamage))
+            {
+                // If target creature dies, gather food
+                target.creature.GatherFood(inventory);
+            }
+        }
+
+        canHit = true;
     }
 }

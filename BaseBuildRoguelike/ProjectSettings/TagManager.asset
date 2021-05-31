@@ -8,6 +8,8 @@ TagManager:
   - Tile
   - Resource
   - Building
+  - Creature
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - Follower
   - Resource
   - Building
-  - 
-  - 
+  - Creature
+  - Enemy
   - 
   - 
   - 

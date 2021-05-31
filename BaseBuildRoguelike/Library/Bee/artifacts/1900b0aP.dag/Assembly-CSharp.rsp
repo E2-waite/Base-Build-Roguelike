@@ -292,6 +292,7 @@
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.VisualScripting.Flow.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.VisualScripting.State.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/UnityEngine.UI.ref.dll"
+"Assets/HUD.cs"
 "Assets/Scripts/Building.cs"
 "Assets/Scripts/BuildingController.cs"
 "Assets/Scripts/BuildingMenu.cs"

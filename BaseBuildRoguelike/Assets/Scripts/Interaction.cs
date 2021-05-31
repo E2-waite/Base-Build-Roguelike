@@ -7,13 +7,15 @@ public class Interaction : MonoBehaviour
     public enum Type
     {
         resource,
-        building
+        building,
+        creature,
+        enemy
     }
     public Type type;
 
     [HideInInspector] public Resource resource;
-
     [HideInInspector] public Building building;
+    [HideInInspector] public Creature creature;
     private void Start()
     {
         if (type == Type.resource)
@@ -23,6 +25,10 @@ public class Interaction : MonoBehaviour
         else if (type == Type.building)
         {
             building = GetComponent<Building>();
+        }
+        else if (type == Type.creature)
+        {
+            creature = GetComponent<Creature>();
         }
     }
 }
