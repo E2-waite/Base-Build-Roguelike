@@ -140,7 +140,7 @@ MonoBehaviour:
   speed: 1
   maxHealth: 3
   health: 0
-  food: 5
+  food: 1
 --- !u!114 &7843696977352902415
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ public class BuildingController : MonoSingleton<BuildingController>
 
     public List<Building> woodPiles = new List<Building>();
     public List<Building> stonePiles = new List<Building>();
+    public List<Building> foodPiles = new List<Building>();
     public Wall[,] walls;
 
     private void Start()
@@ -44,6 +45,10 @@ public class BuildingController : MonoSingleton<BuildingController>
         else if (type == Resource.Type.stone)
         {
             resourceStorage = stonePiles;
+        }
+        else if (type == Resource.Type.food)
+        {
+            resourceStorage = foodPiles;
         }
 
         foreach (Building building in resourceStorage)

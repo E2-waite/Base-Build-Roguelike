@@ -131,7 +131,7 @@ public class Follower : MonoBehaviour
         {
             if (target == null)
             {
-                if ((currentState == State.chopWood || currentState == State.mineStone) && !inventory.AtCapacity())
+                if ((currentState == State.chopWood || currentState == State.mineStone || currentState == State.hunt) && !inventory.AtCapacity())
                 {
                     target = FindResource();
                 }
@@ -181,8 +181,12 @@ public class Follower : MonoBehaviour
         {
             target.building.storage.Store(ref inventory.stone);
         }
+        else if (target.building.storage.type == Resource.Type.food)
+        {
+            target.building.storage.Store(ref inventory.food);
+        }
 
-        if (!FindStorage() && (lastState == State.chopWood || lastState == State.mineStone))
+        if (!FindStorage() && (lastState == State.chopWood || lastState == State.mineStone || lastState == State.hunt))
         {
             currentState = lastState;
             if (lastTarget != null)
@@ -202,7 +206,7 @@ public class Follower : MonoBehaviour
         target = ClosestStorage();
         if (target == null)
         {
-            Debug.Log("No Resource Storage");
+            Debug.Log("Either no resource storage available, or nothing to store...");
             return false;
         }
         else
@@ -214,10 +218,12 @@ public class Follower : MonoBehaviour
 
     Interaction ClosestStorage()
     {
+        // Returns closest resource storage
         float closestDist = 10000;
         Building closestBuilding = null;
         List<Building> storage = new List<Building>();
 
+        // Only checks resources that are in the follower's inventory
         if (inventory.wood > 0)
         {
             storage.AddRange(BuildingController.Instance.woodPiles);
@@ -225,6 +231,10 @@ public class Follower : MonoBehaviour
         if (inventory.stone > 0)
         {
             storage.AddRange(BuildingController.Instance.stonePiles);
+        }
+        if (inventory.food > 0)
+        {
+            storage.AddRange(BuildingController.Instance.foodPiles);
         }
 
         foreach (Building building in storage)
@@ -249,7 +259,7 @@ public class Follower : MonoBehaviour
 
     Interaction FindResource()
     {
-        // Find closest resource 
+        // Find closest resource of the correct type, based on the previous resource
         List<Interaction> resources = new List<Interaction>();
         if (lastState == State.chopWood)
         {
@@ -260,6 +270,12 @@ public class Follower : MonoBehaviour
         {
             resources = GameController.Instance.grid.stones;
         }
+
+        if (lastState == State.hunt)
+        {
+            resources = CreatureController.Instance.creatures;
+        }
+
 
         Interaction closestResource = null;
         float closestDist = 999999;
@@ -283,6 +299,7 @@ public class Follower : MonoBehaviour
 
     IEnumerator GatherRoutine()
     {
+        // Gather resource in range
         canGather = false;
         yield return new WaitForSeconds(gatherTime);
 
@@ -303,6 +320,7 @@ public class Follower : MonoBehaviour
 
     IEnumerator BuildRoutine()
     {
+        // Construct building in range
         canBuild = false;
         yield return new WaitForSeconds(buildTime);
 
@@ -316,6 +334,7 @@ public class Follower : MonoBehaviour
 
     IEnumerator HitRoutine()
     {
+        // Hit target in range
         canHit = false;
         yield return new WaitForSeconds(hitTime);
 
@@ -325,6 +344,14 @@ public class Follower : MonoBehaviour
             {
                 // If target creature dies, gather food
                 target.creature.GatherFood(inventory);
+
+                // Then check if inventory is full, if so stores resources
+                if (inventory.AtCapacity())
+                {
+                    lastTarget = target;
+                    lastState = currentState;
+                    FindStorage();
+                }
             }
         }
 

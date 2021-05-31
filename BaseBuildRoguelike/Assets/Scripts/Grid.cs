@@ -118,6 +118,8 @@ public class Grid : MonoBehaviour
                 }
             }
         }
+
+        CreatureController.Instance.SpawnCreatures(mapSize);
     }
 
     public bool IsSelected(Collider2D tile)

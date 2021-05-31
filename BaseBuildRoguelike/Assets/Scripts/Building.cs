@@ -41,6 +41,10 @@ public class Building : MonoBehaviour
             {
                 BuildingController.Instance.stonePiles.Add(this);
             }
+            else if (storage.type == Resource.Type.food)
+            {
+                BuildingController.Instance.foodPiles.Add(this);
+            }
             GameController.Instance.AdjustResources(storage.type, 0, storage.maxStorage);
         }
         else if (type == Type.wall)
