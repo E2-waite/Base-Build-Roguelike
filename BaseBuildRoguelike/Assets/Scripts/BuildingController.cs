@@ -34,7 +34,7 @@ public class BuildingController : MonoSingleton<BuildingController>
         }
     }
 
-    public bool UseResource(Resource.Type type)
+    public bool UseResource(Resource.Type type, int val)
     {
         List<Building> resourceStorage = new List<Building>();
 
@@ -53,7 +53,7 @@ public class BuildingController : MonoSingleton<BuildingController>
 
         foreach (Building building in resourceStorage)
         {
-            if (building.storage.Withdraw())
+            if (building.storage.Withdraw(ref val))
             {
                 return true;
             }

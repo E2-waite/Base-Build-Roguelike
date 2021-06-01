@@ -34,17 +34,25 @@ public class ResourceStorage : MonoBehaviour
         rend.sprite = stages[(int)Mathf.Ceil((currentStorage * (stages.Count - 1)) / maxStorage)];
     }
 
-    public bool Withdraw()
+    public bool Withdraw(ref int remaining)
     {
-        if (currentStorage > 0)
+        if (currentStorage >= remaining)
         {
-            currentStorage--;
+            currentStorage -= remaining;
+            GameController.Instance.AdjustResources(type, -remaining, 0);
+            remaining = 0;
 
-            GameController.Instance.AdjustResources(type, -1, 0);
-            
             rend.sprite = stages[(int)Mathf.Ceil((currentStorage * (stages.Count - 1)) / maxStorage)];
             return true;
         }
-        else return false;
+        else
+        {
+            remaining -= currentStorage;
+            GameController.Instance.AdjustResources(type, -currentStorage, 0);
+            currentStorage = 0;
+
+            rend.sprite = stages[(int)Mathf.Ceil((currentStorage * (stages.Count - 1)) / maxStorage)];
+            return false;
+        }
     }
 }

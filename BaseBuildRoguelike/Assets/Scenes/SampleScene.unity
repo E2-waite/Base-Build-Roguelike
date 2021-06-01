@@ -1405,10 +1405,13 @@ MonoBehaviour:
   DestroyOnLoad: 1
   wood: 0
   stone: 0
+  food: 0
   maxWood: 0
   maxStone: 0
+  maxFood: 0
   grid: {fileID: 0}
   startPos: {x: 0, y: 0}
+  firepitPrefab: {fileID: 7247006138620438559, guid: 952a997f4442c144ead6ee308f8ba8ce, type: 3}
   mode: 2
 --- !u!114 &1263100319
 MonoBehaviour:
@@ -2092,6 +2095,7 @@ MonoBehaviour:
   DestroyOnLoad: 1
   stoneVal: {fileID: 1827324882}
   woodVal: {fileID: 787572655}
+  foodVal: {fileID: 244273252}
   followersVal: {fileID: 1339298813}
 --- !u!1 &1906985567
 GameObject:

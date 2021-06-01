@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class GameController : MonoSingleton<GameController>
 {
-    public int wood = 0, stone = 0, maxWood, maxStone;
+    public int wood = 0, stone = 0, food = 0, maxWood, maxStone, maxFood;
     public Grid grid;
     MouseControl mouse;
     FollowerController follower;
     public Vector2Int startPos;
+    public GameObject firepitPrefab;
 
     public enum Mode
     {
@@ -28,7 +29,7 @@ public class GameController : MonoSingleton<GameController>
         mouse.camera.transform.position = new Vector3(startPos.x, startPos.y, mouse.camera.transform.position.z);
         follower = GetComponent<FollowerController>();
         follower.SpawnFollower(startPos);
-
+        grid.tiles[startPos.x, startPos.y].structure = Instantiate(firepitPrefab, new Vector3(startPos.x, startPos.y, 0), Quaternion.identity);
     }
 
     public void AdjustResources(Resource.Type type, int val, int maxVal)
@@ -43,7 +44,12 @@ public class GameController : MonoSingleton<GameController>
             stone += val;
             maxStone += maxVal;
         }
+        else if (type == Resource.Type.food)
+        {
+            food += val;
+            maxFood += maxVal;
+        }
 
-        HUD.Instance.UpdateResources(wood, maxWood, stone, maxStone);
+        HUD.Instance.UpdateResources(wood, maxWood, stone, maxStone, food, maxFood);
     }
 }

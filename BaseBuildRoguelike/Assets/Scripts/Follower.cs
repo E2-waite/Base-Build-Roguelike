@@ -56,22 +56,23 @@ public class Follower : MonoBehaviour
             Debug.Log(obj.name);
             target = obj.GetComponent<Interaction>();
 
+            marker.transform.position = obj.transform.position;
+
+
             if (target.type == Interaction.Type.resource)
             {
+                if (target.resource.type == Resource.Type.wood)
+                {
+                    currentState = State.chopWood;
+                }
+                else if (target.resource.type == Resource.Type.stone)
+                {
+                    currentState = State.mineStone;
+                }
+
                 if (inventory.AtCapacity())
                 {
                     FindStorage();
-                }
-                else
-                {
-                    if (target.resource.type == Resource.Type.wood)
-                    {
-                        currentState = State.chopWood;
-                    }
-                    else if (target.resource.type == Resource.Type.stone)
-                    {
-                        currentState = State.mineStone;
-                    }
                 }
             }
             else if (target.type == Interaction.Type.building)
@@ -90,20 +91,16 @@ public class Follower : MonoBehaviour
             }
             else if (target.type == Interaction.Type.creature)
             {
+                currentState = State.hunt;
+
                 if (inventory.AtCapacity())
                 {
                     FindStorage();
-                }
-                else
-                {
-                    currentState = State.hunt;
                 }
             }
 
             lastTarget = target;
             lastState = currentState;
-
-            marker.transform.position = obj.transform.position;
         }
         else
         {
@@ -309,9 +306,7 @@ public class Follower : MonoBehaviour
         }
 
         if (inventory.AtCapacity())
-        { 
-            lastTarget = target;
-            lastState = currentState;
+        {
             FindStorage();
         }
 
@@ -348,8 +343,6 @@ public class Follower : MonoBehaviour
                 // Then check if inventory is full, if so stores resources
                 if (inventory.AtCapacity())
                 {
-                    lastTarget = target;
-                    lastState = currentState;
                     FindStorage();
                 }
             }
