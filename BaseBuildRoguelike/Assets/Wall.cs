@@ -9,7 +9,6 @@ public class Wall : MonoBehaviour
 
     public void Setup()
     {
-        Debug.Log(BuildingController.Instance.walls[(int)transform.position.x, (int)transform.position.x]);
         rend = GetComponent<SpriteRenderer>();
         Vector2Int pos = new Vector2Int((int)transform.position.x, (int)transform.position.y);
         BuildingController.Instance.walls[pos.x, pos.y] = this;

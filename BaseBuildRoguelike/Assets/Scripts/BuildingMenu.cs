@@ -13,7 +13,7 @@ public class BuildingMenu : MonoBehaviour, IPointerClickHandler
         {
             if (eventData.pointerCurrentRaycast.gameObject == buildings[i])
             {
-                BuildingController.Instance.selectedBuilding = BuildingController.Instance.buildingTypes[i];
+                BuildingController.Instance.selectedTemplate = BuildingController.Instance.buildingTypes[i];
                 GameController.Instance.mode = GameController.Mode.build;
                 return;
             }

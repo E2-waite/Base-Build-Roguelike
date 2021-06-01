@@ -97,6 +97,7 @@ public class MouseControl : MonoBehaviour
                 if (hit.collider == null)
                 {
                     followers.DeselectFollower();
+                    buildings.Deselect();
                     GameController.Instance.mode = GameController.Mode.select;
                 }
                 else
@@ -105,12 +106,14 @@ public class MouseControl : MonoBehaviour
                     if (hit.collider.CompareTag("Follower"))
                     {
                         followers.SelectFollower(hit.collider);
+                        buildings.Deselect();
                         GameController.Instance.mode = GameController.Mode.direct;
                         return;
                     }
                     else if (hit.collider.CompareTag("Building"))
                     {
                         followers.DeselectFollower();
+                        buildings.Select(hit.collider.gameObject);
                         return;
                     }
                 }

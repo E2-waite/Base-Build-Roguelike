@@ -43,6 +43,8 @@ public class Construct : MonoBehaviour
                 }
             }
 
+            building.ReloadInspector();
+
             CheckComplete();
         }
     }

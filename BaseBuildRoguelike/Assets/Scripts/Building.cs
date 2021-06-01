@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
-    public bool isConstructed = false;
+    public bool isConstructed = false, selected = false;
 
     [HideInInspector] public Construct construct;
     [HideInInspector] public ResourceStorage storage;
@@ -15,7 +15,8 @@ public class Building : MonoBehaviour
     {
         house,
         storage,
-        wall
+        wall,
+        main
     }
     public Type type;
     private void Start()
@@ -55,6 +56,16 @@ public class Building : MonoBehaviour
         else if (type == Type.house)
         {
             FollowerController.Instance.AdjustMaxFollowers(5);
+        }
+
+        ReloadInspector();
+    }
+
+    public void ReloadInspector()
+    {
+        if (selected)
+        {
+            Inspector.Instance.Reload(this);
         }
     }
 }

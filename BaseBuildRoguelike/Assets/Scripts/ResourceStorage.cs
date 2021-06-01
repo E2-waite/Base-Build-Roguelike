@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ResourceStorage : MonoBehaviour
 {
+    Building building;
     public List<Sprite> stages = new List<Sprite>();
 
     public Resource.Type type;
@@ -13,6 +14,7 @@ public class ResourceStorage : MonoBehaviour
 
     private void Start()
     {
+        building = GetComponent<Building>();
         rend = GetComponent<SpriteRenderer>();
         rend.sprite = stages[0];
     }
@@ -32,6 +34,7 @@ public class ResourceStorage : MonoBehaviour
         GameController.Instance.AdjustResources(type, toStore, 0);
 
         rend.sprite = stages[(int)Mathf.Ceil((currentStorage * (stages.Count - 1)) / maxStorage)];
+        building.ReloadInspector();
     }
 
     public bool Withdraw(ref int remaining)
@@ -43,6 +46,7 @@ public class ResourceStorage : MonoBehaviour
             remaining = 0;
 
             rend.sprite = stages[(int)Mathf.Ceil((currentStorage * (stages.Count - 1)) / maxStorage)];
+            building.ReloadInspector();
             return true;
         }
         else
@@ -52,6 +56,7 @@ public class ResourceStorage : MonoBehaviour
             currentStorage = 0;
 
             rend.sprite = stages[(int)Mathf.Ceil((currentStorage * (stages.Count - 1)) / maxStorage)];
+            building.ReloadInspector();
             return false;
         }
     }

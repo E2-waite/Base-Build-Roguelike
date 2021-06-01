@@ -53,7 +53,7 @@ public class Follower : MonoBehaviour
         lastState = State.idle;
         if (obj != null)
         {
-            Debug.Log(obj.name);
+            Debug.Log("Target: " + obj.name);
             target = obj.GetComponent<Interaction>();
 
             marker.transform.position = obj.transform.position;
@@ -199,7 +199,6 @@ public class Follower : MonoBehaviour
 
     bool FindStorage()
     {
-        Debug.Log("Finding Storage");
         target = ClosestStorage();
         if (target == null)
         {
