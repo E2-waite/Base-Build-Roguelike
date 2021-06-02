@@ -28,7 +28,6 @@ public class Inspector : MonoSingleton<Inspector>
             if (building.type == Building.Type.storage)
             {
                 thisType = Type.resources;
-                resources.Reload(building);
             }
         }
         else
@@ -51,7 +50,8 @@ public class Inspector : MonoSingleton<Inspector>
     {
         if (currentType == Type.resources)
         {
-            resources.Reload(building);
+            ResourceStorage storage = (ResourceStorage)building;
+            resources.Reload(storage);
         }
         else if (currentType == Type.construction)
         {

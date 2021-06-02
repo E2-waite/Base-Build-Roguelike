@@ -8,19 +8,19 @@ public class ResourceDetails : MonoBehaviour
     public Image resourceIcon;
     public Sprite woodIcon, stoneIcon, foodIcon;
 
-    public void Reload(Building building)
+    public void Reload(ResourceStorage storage)
     {
-        resourcesText.text = building.storage.currentStorage.ToString() + "/" + building.storage.maxStorage.ToString();
+        resourcesText.text = storage.currentStorage.ToString() + "/" + storage.maxStorage.ToString();
 
-        if (building.storage.type == Resource.Type.wood)
+        if (storage.storageType == Resource.Type.wood)
         {
             resourceIcon.sprite = woodIcon;
         }
-        else if (building.storage.type == Resource.Type.stone)
+        else if (storage.storageType == Resource.Type.stone)
         {
             resourceIcon.sprite = stoneIcon;
         }
-        else if (building.storage.type == Resource.Type.food)
+        else if (storage.storageType == Resource.Type.food)
         {
             resourceIcon.sprite = foodIcon;
         }

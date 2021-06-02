@@ -12,7 +12,7 @@ public class FollowerController : MonoSingleton<FollowerController>
     public void SpawnFollower(Vector2 pos)
     {
         GameObject follower = Instantiate(followerPrefab, pos, Quaternion.identity);
-        followers.Add(follower.GetComponent<Follower>());
+        followers.Add(follower.GetComponent<Worker>());
         HUD.Instance.UpdateFollowers(followers.Count, maxFollowers);
     }
 
@@ -45,7 +45,16 @@ public class FollowerController : MonoSingleton<FollowerController>
     {
         if (selected != null)
         {
-            selected.Direct(pos, obj);
+            if (selected.type == Follower.Type.worker)
+            {
+                Worker worker = (Worker)selected;
+                worker.Direct(pos, obj);
+            }
+            else if (selected.type == Follower.Type.soldier)
+            {
+                Soldier soldier = (Soldier)selected;
+                soldier.Direct(pos, obj);
+            }
         }
     }
 

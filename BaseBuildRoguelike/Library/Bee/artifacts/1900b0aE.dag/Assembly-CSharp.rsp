@@ -340,6 +340,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/VSSettingsProvider.ref.dll"
 "Assets/EnemyController.cs"
+"Assets/Follower.cs"
 "Assets/Scripts/Building.cs"
 "Assets/Scripts/BuildingController.cs"
 "Assets/Scripts/BuildingMenu.cs"
@@ -349,7 +350,6 @@
 "Assets/Scripts/Creature.cs"
 "Assets/Scripts/CreatureController.cs"
 "Assets/Scripts/Enemy.cs"
-"Assets/Scripts/Follower.cs"
 "Assets/Scripts/FollowerController.cs"
 "Assets/Scripts/GameController.cs"
 "Assets/Scripts/Grid.cs"
@@ -367,6 +367,7 @@
 "Assets/Scripts/Squad.cs"
 "Assets/Scripts/Wall.cs"
 "Assets/Scripts/WoodPile.cs"
+"Assets/Scripts/Worker.cs"
 -langversion:8.0
 
 /deterministic

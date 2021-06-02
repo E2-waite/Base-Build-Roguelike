@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 7247006138620438553}
   - component: {fileID: 7247006138620438552}
   - component: {fileID: 6071322857001800222}
+  - component: {fileID: -2519841976408827179}
   - component: {fileID: -2701372812234469331}
+  - component: {fileID: -6450817036489288563}
   m_Layer: 9
   m_Name: Firepit
   m_TagString: Building
@@ -131,6 +133,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.75, y: 0.75}
   m_EdgeRadius: 0
+--- !u!114 &-2519841976408827179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7247006138620438559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d2e213492840494e8bb2a663856abf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  resource: {fileID: 0}
+  building: {fileID: 0}
+  creature: {fileID: 0}
+  enemy: {fileID: 0}
 --- !u!114 &-2701372812234469331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,8 +163,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isConstructed: 1
+  selected: 0
   construct: {fileID: 0}
   storage: {fileID: 0}
   interaction: {fileID: 0}
   wall: {fileID: 0}
   type: 3
+--- !u!114 &-6450817036489288563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7247006138620438559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9253cf6d0bc70c74caae7bb934c9b31c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  update: 0
+  tallTop: 0

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wall : MonoBehaviour
+public class Wall : Building
 {
     public Sprite[] wallSprites;
     SpriteRenderer rend;
@@ -46,22 +46,18 @@ public class Wall : MonoBehaviour
         bool[] dirs = new bool[4];
         if (CheckWall(new Vector2Int(pos.x, pos.y + 1)))
         {
-            Debug.Log("N");
             dirs[0] = true;
         }
         if (CheckWall(new Vector2Int(pos.x + 1, pos.y)))
         {
-            Debug.Log("E");
             dirs[1] = true;
         }
         if (CheckWall(new Vector2Int(pos.x, pos.y - 1)))
         {
-            Debug.Log("S");
             dirs[2] = true;
         }
         if (CheckWall(new Vector2Int(pos.x - 1, pos.y)))
         {
-            Debug.Log("W");
             dirs[3] = true;
         }
 
@@ -72,7 +68,6 @@ public class Wall : MonoBehaviour
     {
         if (BuildingController.Instance.walls[pos.x, pos.y] != null)
         {
-            Debug.Log(BuildingController.Instance.walls[pos.x, pos.y].ToString() + pos.ToString());
             return true;
         }
         return false;

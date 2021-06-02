@@ -2,21 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResourceStorage : MonoBehaviour
+public class ResourceStorage : Building
 {
-    Building building;
-    public List<Sprite> stages = new List<Sprite>();
-
-    public Resource.Type type;
+    [Header("Storage Settings")]
+    public Resource.Type storageType;
     public int maxStorage = 100, currentStorage = 0;
-
+    public List<Sprite> stages = new List<Sprite>();
     SpriteRenderer rend;
 
-    private void Start()
+    public void Setup()
     {
-        building = GetComponent<Building>();
         rend = GetComponent<SpriteRenderer>();
         rend.sprite = stages[0];
+
+        if (storageType == Resource.Type.wood)
+        {
+            BuildingController.Instance.woodPiles.Add(this);
+        }
+        else if (storageType == Resource.Type.stone)
+        {
+            BuildingController.Instance.stonePiles.Add(this);
+        }
+        else if (storageType == Resource.Type.food)
+        {
+            BuildingController.Instance.foodPiles.Add(this);
+        }
+
+        GameController.Instance.AdjustResources(storageType, 0, maxStorage);
     }
 
     public void Store(ref int val)
@@ -31,10 +43,10 @@ public class ResourceStorage : MonoBehaviour
         val -= toStore;
 
 
-        GameController.Instance.AdjustResources(type, toStore, 0);
+        GameController.Instance.AdjustResources(storageType, toStore, 0);
 
         rend.sprite = stages[(int)Mathf.Ceil((currentStorage * (stages.Count - 1)) / maxStorage)];
-        building.ReloadInspector();
+        ReloadInspector();
     }
 
     public bool Withdraw(ref int remaining)
@@ -42,21 +54,21 @@ public class ResourceStorage : MonoBehaviour
         if (currentStorage >= remaining)
         {
             currentStorage -= remaining;
-            GameController.Instance.AdjustResources(type, -remaining, 0);
+            GameController.Instance.AdjustResources(storageType, -remaining, 0);
             remaining = 0;
 
             rend.sprite = stages[(int)Mathf.Ceil((currentStorage * (stages.Count - 1)) / maxStorage)];
-            building.ReloadInspector();
+            ReloadInspector();
             return true;
         }
         else
         {
             remaining -= currentStorage;
-            GameController.Instance.AdjustResources(type, -currentStorage, 0);
+            GameController.Instance.AdjustResources(storageType, -currentStorage, 0);
             currentStorage = 0;
 
             rend.sprite = stages[(int)Mathf.Ceil((currentStorage * (stages.Count - 1)) / maxStorage)];
-            building.ReloadInspector();
+            ReloadInspector();
             return false;
         }
     }

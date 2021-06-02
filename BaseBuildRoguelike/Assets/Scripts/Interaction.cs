@@ -16,6 +16,7 @@ public class Interaction : MonoBehaviour
     [HideInInspector] public Resource resource;
     [HideInInspector] public Building building;
     [HideInInspector] public Creature creature;
+    [HideInInspector] public Enemy enemy;
     private void Start()
     {
         if (type == Type.resource)
@@ -29,6 +30,10 @@ public class Interaction : MonoBehaviour
         else if (type == Type.creature)
         {
             creature = GetComponent<Creature>();
+        }
+        else if (type == Type.enemy)
+        {
+            enemy = GetComponent<Enemy>();
         }
     }
 }

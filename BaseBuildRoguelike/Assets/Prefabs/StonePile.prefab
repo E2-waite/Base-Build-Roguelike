@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 938588659906107224}
   - component: {fileID: -2340091654746604224}
   - component: {fileID: 2344995489868549348}
-  - component: {fileID: 6786558936911127218}
   - component: {fileID: 938588659906107225}
   - component: {fileID: 136147720213854293}
   - component: {fileID: -1657563705475764115}
@@ -104,6 +103,8 @@ MonoBehaviour:
   type: 1
   resource: {fileID: 0}
   building: {fileID: 0}
+  creature: {fileID: 0}
+  enemy: {fileID: 0}
 --- !u!114 &2344995489868549348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,23 +123,6 @@ MonoBehaviour:
   stoneCost: 0
   woodRemaining: 0
   stoneRemaining: 0
---- !u!114 &6786558936911127218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 938588659906107226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc8e190913587c1419692552dce61c11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isConstructed: 0
-  construct: {fileID: 0}
-  storage: {fileID: 0}
-  interaction: {fileID: 0}
-  type: 1
 --- !u!114 &938588659906107225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +135,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8e74f438a792145b7bd202a05dc18f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 1
+  isConstructed: 0
+  selected: 0
+  construct: {fileID: 0}
+  interaction: {fileID: 0}
+  storageType: 1
+  maxStorage: 100
+  currentStorage: 0
   stages:
   - {fileID: 316267046205351191, guid: b6357c3d164f6444a98546d5f2e1596b, type: 3}
   - {fileID: 8787394236190523114, guid: b6357c3d164f6444a98546d5f2e1596b, type: 3}
@@ -162,9 +154,6 @@ MonoBehaviour:
   - {fileID: 2844759374942491093, guid: b6357c3d164f6444a98546d5f2e1596b, type: 3}
   - {fileID: 6602924682779439973, guid: b6357c3d164f6444a98546d5f2e1596b, type: 3}
   - {fileID: 7638442721857622090, guid: b6357c3d164f6444a98546d5f2e1596b, type: 3}
-  type: 1
-  maxStorage: 100
-  currentStorage: 0
 --- !u!61 &136147720213854293
 BoxCollider2D:
   m_ObjectHideFlags: 0

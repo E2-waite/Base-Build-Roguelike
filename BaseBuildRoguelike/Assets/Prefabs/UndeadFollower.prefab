@@ -106,6 +106,7 @@ MonoBehaviour:
   resource: {fileID: 0}
   building: {fileID: 0}
   creature: {fileID: 0}
+  enemy: {fileID: 0}
 --- !u!114 &6224268698703787921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,6 +120,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  maxHealth: 3
+  health: 0
+  hitDamage: 1
   speed: 3
 --- !u!114 &3438430402389115328
 MonoBehaviour:

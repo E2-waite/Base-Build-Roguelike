@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
-    public bool isConstructed = false, selected = false;
-
-    [HideInInspector] public Construct construct;
-    [HideInInspector] public ResourceStorage storage;
-    [HideInInspector] public Interaction interaction;
-    [HideInInspector] public Wall wall;
-
     public enum Type
     {
         house,
@@ -18,7 +11,15 @@ public class Building : MonoBehaviour
         wall,
         main
     }
+    [Header("Building Settings")]
     public Type type;
+    public bool isConstructed = false;
+    public bool selected = false;
+
+    [HideInInspector] public Construct construct;
+    [HideInInspector] public Interaction interaction;
+
+
     private void Start()
     {
         interaction = GetComponent<Interaction>();
@@ -33,24 +34,12 @@ public class Building : MonoBehaviour
         isConstructed = true;
         if (type == Type.storage)
         {
-            storage = GetComponent<ResourceStorage>();
-            if (storage.type == Resource.Type.wood)
-            {
-                BuildingController.Instance.woodPiles.Add(this);
-            }
-            else if (storage.type == Resource.Type.stone)
-            {
-                BuildingController.Instance.stonePiles.Add(this);
-            }
-            else if (storage.type == Resource.Type.food)
-            {
-                BuildingController.Instance.foodPiles.Add(this);
-            }
-            GameController.Instance.AdjustResources(storage.type, 0, storage.maxStorage);
+            ResourceStorage storage = GetComponent<ResourceStorage>();
+            storage.Setup();
         }
         else if (type == Type.wall)
         {
-            wall = GetComponent<Wall>();
+            Wall wall = GetComponent<Wall>();
             wall.Setup();
         }
         else if (type == Type.house)

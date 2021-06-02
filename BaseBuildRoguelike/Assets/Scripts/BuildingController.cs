@@ -16,9 +16,9 @@ public class BuildingController : MonoSingleton<BuildingController>
 
     public Building selected;
 
-    public List<Building> woodPiles = new List<Building>();
-    public List<Building> stonePiles = new List<Building>();
-    public List<Building> foodPiles = new List<Building>();
+    public List<ResourceStorage> woodPiles = new List<ResourceStorage>();
+    public List<ResourceStorage> stonePiles = new List<ResourceStorage>();
+    public List<ResourceStorage> foodPiles = new List<ResourceStorage>();
     public Wall[,] walls;
     public Inspector inspector;
     private void Start()
@@ -59,7 +59,7 @@ public class BuildingController : MonoSingleton<BuildingController>
 
     public bool UseResource(Resource.Type type, int val)
     {
-        List<Building> resourceStorage = new List<Building>();
+        List<ResourceStorage> resourceStorage = new List<ResourceStorage>();
 
         if (type == Resource.Type.wood)
         {
@@ -74,9 +74,9 @@ public class BuildingController : MonoSingleton<BuildingController>
             resourceStorage = foodPiles;
         }
 
-        foreach (Building building in resourceStorage)
+        foreach (ResourceStorage storage in resourceStorage)
         {
-            if (building.storage.Withdraw(ref val))
+            if (storage.Withdraw(ref val))
             {
                 return true;
             }
