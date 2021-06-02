@@ -15,11 +15,11 @@ D:/Files/Game Dev/Base-Build-Roguelike/BaseBuildRoguelike
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-53633
+56471
 Successfully changed project path to: D:/Files/Game Dev/Base-Build-Roguelike/BaseBuildRoguelike
 D:/Files/Game Dev/Base-Build-Roguelike/BaseBuildRoguelike
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 252.24 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 152.62 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.1.7f1 (d91830b65d9b)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/2021.1.7f1/Editor/Data/Resources/UnitySubsystems
@@ -35,25 +35,25 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/2021.1.7f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/2021.1.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/2021.1.7f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56020
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56608
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/2021.1.7f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/2021.1.7f1/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/2021.1.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/2021.1.7f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
-Registered in 0.008218 seconds.
+Registered in 0.012984 seconds.
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 144.03 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 153.61 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  5.726 seconds
+- Completed reload, in  4.636 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.005340 seconds.
+Registered in 0.005648 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
@@ -61,56 +61,38 @@ Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 138.55 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 180.01 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.758 seconds
+- Completed reload, in  2.365 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.09 seconds
-Refreshing native plugins compatible for Editor in 3.74 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
+Refreshing native plugins compatible for Editor in 0.77 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3394 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 3397 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 128.6 MB.
-System memory in use after: 128.6 MB.
+System memory in use after: 128.7 MB.
 
-Unloading 28 unused Assets to reduce memory usage. Loaded Objects now: 3849.
-Total: 4.251500 ms (FindLiveObjects: 0.337900 ms CreateObjectMapping: 0.183200 ms MarkObjects: 3.567000 ms  DeleteObjects: 0.161200 ms)
+Unloading 28 unused Assets to reduce memory usage. Loaded Objects now: 3852.
+Total: 3.924000 ms (FindLiveObjects: 0.332100 ms CreateObjectMapping: 0.151200 ms MarkObjects: 3.286300 ms  DeleteObjects: 0.152600 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Sprites/FirepitSheet.png
-  artifactKey: Guid(9e9ef5d5f8873ac4da6519b16036525c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/FirepitSheet.png using Guid(9e9ef5d5f8873ac4da6519b16036525c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b101e150da13249e2a4b3396f82a9da8') in 0.220098 seconds 
+  path: Assets/Scripts/Wall.cs
+  artifactKey: Guid(e647aab3e5d7d5f458c0242bbb73c7b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Wall.cs using Guid(e647aab3e5d7d5f458c0242bbb73c7b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '187cb12f8b1e6facc568ab110852dd2e') in 0.174844 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 2.626921 seconds.
-  path: Assets/Sprites/FirepitSheet.png
-  artifactKey: Guid(9e9ef5d5f8873ac4da6519b16036525c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/FirepitSheet.png using Guid(9e9ef5d5f8873ac4da6519b16036525c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '359696f0030f77f8f9f92f4063650296') in 0.019347 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 26.258548 seconds.
-  path: Assets/Sprites/FirepitSheet.png
-  artifactKey: Guid(9e9ef5d5f8873ac4da6519b16036525c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/FirepitSheet.png using Guid(9e9ef5d5f8873ac4da6519b16036525c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f51b8ef89cdb32a88eb4db0cd3dbae1') in 0.038826 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 23.644900 seconds.
-  path: Assets/Animation/FirePlace.anim
-  artifactKey: Guid(7dce41649df718b4cadfd825bdc939e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/FirePlace.anim using Guid(7dce41649df718b4cadfd825bdc939e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7cd1b77aeb5afcf9031fd65a1d94760b') in 0.019470 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 5.512185 seconds.
-  path: Assets/Animation/FirePit.anim
-  artifactKey: Guid(7dce41649df718b4cadfd825bdc939e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/FirePit.anim using Guid(7dce41649df718b4cadfd825bdc939e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69da6f9a6f8651b8d0da7c9a942c2e53') in 0.015433 seconds 
+  Time since last request: 0.000612 seconds.
+  path: Assets/StoneController.controller
+  artifactKey: Guid(0b4a75858e1c09b41bc676ee7f59a0aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StoneController.controller using Guid(0b4a75858e1c09b41bc676ee7f59a0aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1bb602e4c80e69b318e01db9eb9bcca') in 0.048672 seconds 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.015004 seconds.
+Registered in 0.006065 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
@@ -118,119 +100,72 @@ Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.80 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.81 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.555 seconds
+- Completed reload, in  1.979 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.80 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.44 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3390 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 133.5 MB.
-System memory in use after: 133.6 MB.
+Unloading 3392 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 128.7 MB.
+System memory in use after: 128.8 MB.
 
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3904.
-Total: 3.805400 ms (FindLiveObjects: 0.385800 ms CreateObjectMapping: 0.326400 ms MarkObjects: 2.954800 ms  DeleteObjects: 0.137200 ms)
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3856.
+Total: 3.335500 ms (FindLiveObjects: 0.284200 ms CreateObjectMapping: 0.147600 ms MarkObjects: 2.765200 ms  DeleteObjects: 0.136500 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 78.357955 seconds.
-  path: Assets/Sprites/FirepitSheet.png
-  artifactKey: Guid(9e9ef5d5f8873ac4da6519b16036525c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/FirepitSheet.png using Guid(9e9ef5d5f8873ac4da6519b16036525c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06d56f3cc3cbe4d76b82b8ccba1b096e') in 0.087878 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 15.318074 seconds.
-  path: Assets/Animation/FirepitSheet_0.controller
-  artifactKey: Guid(cf8644f31e192404294595be06b028dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/FirepitSheet_0.controller using Guid(cf8644f31e192404294595be06b028dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b342bb3797de46d821a3b3a6564d90b8') in 0.016841 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.010863 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.76 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.875 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.76 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3389 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 133.9 MB.
-System memory in use after: 134.0 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3923.
-Total: 2.818300 ms (FindLiveObjects: 0.315700 ms CreateObjectMapping: 0.156300 ms MarkObjects: 2.222400 ms  DeleteObjects: 0.122500 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.006650 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.80 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.133 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.76 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3389 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 133.9 MB.
-System memory in use after: 134.0 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3927.
-Total: 3.259500 ms (FindLiveObjects: 0.317500 ms CreateObjectMapping: 0.153300 ms MarkObjects: 2.655400 ms  DeleteObjects: 0.131400 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 456.075734 seconds.
+  Time since last request: 696.097435 seconds.
   path: Assets/Prefabs/Firepit.prefab
   artifactKey: Guid(952a997f4442c144ead6ee308f8ba8ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Firepit.prefab using Guid(952a997f4442c144ead6ee308f8ba8ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (FirepitSheet_0) you have used is not valid. Animations will not play
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
-UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
-UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
-UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
-UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
-UnityEditor.GameObjectInspector:GetPreviewData ()
-UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
-UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
-UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
-
-[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
-
-The Animator Controller (FirepitSheet_0) you have used is not valid. Animations will not play
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
-UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
-UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
-UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
-UnityEditor.GameObjectInspector:GetPreviewData ()
-UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
-UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
-UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
-
-[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
-
- -> (artifact id: 'fb229f44a31771b69602fe9f3d29d048') in 0.113166 seconds 
+Start importing Assets/Prefabs/Firepit.prefab using Guid(952a997f4442c144ead6ee308f8ba8ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c041e99af9ec41dbfa438e89dd5fd53') in 0.235787 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000363 seconds.
+  path: Assets/Prefabs/WoodPile.prefab
+  artifactKey: Guid(2c3345279267e0041910a93cc0662d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WoodPile.prefab using Guid(2c3345279267e0041910a93cc0662d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6af184c56e5d720aad8e5fbbf60ecfeb') in 0.019873 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000354 seconds.
+  path: Assets/Prefabs/StonePile.prefab
+  artifactKey: Guid(b1fea78638a9c694f93d370fd4ea0108) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/StonePile.prefab using Guid(b1fea78638a9c694f93d370fd4ea0108) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12dc72202d441257686a404dcf16afb8') in 0.020334 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000312 seconds.
+  path: Assets/Prefabs/WoodHouse.prefab
+  artifactKey: Guid(a3fb97f6d63357f4fb97fc3eb856ca7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WoodHouse.prefab using Guid(a3fb97f6d63357f4fb97fc3eb856ca7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3bfc3747f2d8c97899155e663c241c00') in 0.026991 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000264 seconds.
+  path: Assets/Prefabs/WoodenWall.prefab
+  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77bc136e5f7c3852927f599d4bb21748') in 0.065350 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000265 seconds.
+  path: Assets/Prefabs/FoodPile.prefab
+  artifactKey: Guid(7f2b48050d471ff44adb4d2a4be2f3f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/FoodPile.prefab using Guid(7f2b48050d471ff44adb4d2a4be2f3f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8542eaeea6763731747141886be8bc97') in 0.023822 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 292.969391 seconds.
+  path: Assets/Scripts/WoodPile.cs
+  artifactKey: Guid(3f0a1a7c47937b4488118fc47df74aac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/WoodPile.cs using Guid(3f0a1a7c47937b4488118fc47df74aac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c335dc25f61e6663a68ade1fb9442d7c') in 0.011853 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.145539 seconds.
+  path: Assets/Scripts/Enemy.cs
+  artifactKey: Guid(a255fc690194e144c9672eca65c47a07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Enemy.cs using Guid(a255fc690194e144c9672eca65c47a07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be7f408dbf5fa455043e3532b24ef08e') in 0.012432 seconds 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.011319 seconds.
+Registered in 0.005777 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
@@ -238,24 +173,127 @@ Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.87 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.333 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.80 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3393 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 132.9 MB.
+System memory in use after: 133.0 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3868.
+Total: 3.733600 ms (FindLiveObjects: 0.373100 ms CreateObjectMapping: 0.339200 ms MarkObjects: 2.838000 ms  DeleteObjects: 0.182000 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 163.403692 seconds.
+  path: Assets/Sprites/Necromancer.png
+  artifactKey: Guid(ab50be19b905c0c4cb6f1dd53641da9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Necromancer.png using Guid(ab50be19b905c0c4cb6f1dd53641da9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ce924504d139ff32fb74ce105ab29d5') in 0.158549 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000286 seconds.
+  path: Assets/Sprites/UndeadSoldier.png
+  artifactKey: Guid(28e9d1e52ece85f49983a361f62e3fa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/UndeadSoldier.png using Guid(28e9d1e52ece85f49983a361f62e3fa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0321b8ef7077e89ef6b54236cef0896') in 0.021272 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000486 seconds.
+  path: Assets/Sprites/UndeadFollower.png
+  artifactKey: Guid(79c314c19bd0e6644b8c457075a02a0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/UndeadFollower.png using Guid(79c314c19bd0e6644b8c457075a02a0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b00cb9b791bb3e7e818d2ab410b3bbff') in 0.032959 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 14.000401 seconds.
+  path: Assets/Sprites/UndeadSoldier.png
+  artifactKey: Guid(28e9d1e52ece85f49983a361f62e3fa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/UndeadSoldier.png using Guid(28e9d1e52ece85f49983a361f62e3fa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb8396ad4725ab40511a7f0ce4315c5e') in 0.027295 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.736591 seconds.
+  path: Assets/Sprites/UndeadFollower.png
+  artifactKey: Guid(79c314c19bd0e6644b8c457075a02a0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/UndeadFollower.png using Guid(79c314c19bd0e6644b8c457075a02a0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b5c2ce36e40de1bef92e6b3ef238022') in 0.026433 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 9.885055 seconds.
+  path: Assets/Sprites/Necromancer.png
+  artifactKey: Guid(ab50be19b905c0c4cb6f1dd53641da9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Necromancer.png using Guid(ab50be19b905c0c4cb6f1dd53641da9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8da1c4b4da5fd35e7e3ef31e3e459d82') in 0.032431 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 18.032498 seconds.
+  path: Assets/Prefabs/Follower 1.prefab
+  artifactKey: Guid(d482f64e83917df44b16a3de90dc698f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Follower 1.prefab using Guid(d482f64e83917df44b16a3de90dc698f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9298fe325296a9320c29be9930e722b') in 0.056999 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.444094 seconds.
+  path: Assets/Prefabs/UndeadFollower.prefab
+  artifactKey: Guid(d482f64e83917df44b16a3de90dc698f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UndeadFollower.prefab using Guid(d482f64e83917df44b16a3de90dc698f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '11af9232174fe280af0e1ec0fb43557b') in 0.031502 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 53.029912 seconds.
+  path: Assets/Prefabs/UndeadFollower.prefab
+  artifactKey: Guid(d482f64e83917df44b16a3de90dc698f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UndeadFollower.prefab using Guid(d482f64e83917df44b16a3de90dc698f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f61958b86b15703e567682c2d99eb3a') in 0.026163 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.296958 seconds.
+  path: Assets/Prefabs/UndeadFollower.prefab
+  artifactKey: Guid(d482f64e83917df44b16a3de90dc698f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UndeadFollower.prefab using Guid(d482f64e83917df44b16a3de90dc698f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e326280b00f618eba13c3c5e90d60c63') in 0.024149 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 20.689166 seconds.
+  path: Assets/Prefabs/UndeadFollower.prefab
+  artifactKey: Guid(d482f64e83917df44b16a3de90dc698f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UndeadFollower.prefab using Guid(d482f64e83917df44b16a3de90dc698f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22fa70e752597692af151326a794a2e2') in 0.024923 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.801704 seconds.
+  path: Assets/Prefabs/UndeadFollower.prefab
+  artifactKey: Guid(d482f64e83917df44b16a3de90dc698f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UndeadFollower.prefab using Guid(d482f64e83917df44b16a3de90dc698f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64605084cf72e2a510c7d09d32e04d72') in 0.020123 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 19.933122 seconds.
+  path: Assets/Prefabs/UndeadFollower.prefab
+  artifactKey: Guid(d482f64e83917df44b16a3de90dc698f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UndeadFollower.prefab using Guid(d482f64e83917df44b16a3de90dc698f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02988bea9251b97cd44e6bcdb2df5dec') in 0.041901 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006110 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.17 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.016 seconds
+Platform modules already initialized, skipping
 Refreshing native plugins compatible for Editor in 0.81 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  3.190 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 2.55 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3389 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 134.1 MB.
-System memory in use after: 134.2 MB.
+Unloading 3396 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 135.5 MB.
+System memory in use after: 135.6 MB.
 
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3936.
-Total: 10.859700 ms (FindLiveObjects: 0.337000 ms CreateObjectMapping: 0.171500 ms MarkObjects: 10.212700 ms  DeleteObjects: 0.136100 ms)
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3965.
+Total: 12.798300 ms (FindLiveObjects: 0.512200 ms CreateObjectMapping: 0.454400 ms MarkObjects: 11.667700 ms  DeleteObjects: 0.161600 ms)
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.007801 seconds.
+Registered in 0.005471 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
@@ -263,268 +301,18 @@ Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.79 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.82 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.989 seconds
+- Completed reload, in  1.428 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.76 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.89 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3389 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 134.1 MB.
-System memory in use after: 134.2 MB.
+Unloading 3393 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 135.4 MB.
+System memory in use after: 135.5 MB.
 
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3940.
-Total: 3.037500 ms (FindLiveObjects: 0.310800 ms CreateObjectMapping: 0.140700 ms MarkObjects: 2.459500 ms  DeleteObjects: 0.125000 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.009376 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.81 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.411 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.76 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3389 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 134.1 MB.
-System memory in use after: 134.2 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3944.
-Total: 2.925500 ms (FindLiveObjects: 0.309500 ms CreateObjectMapping: 0.152000 ms MarkObjects: 2.331100 ms  DeleteObjects: 0.131200 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.010500 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.96 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.634 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.78 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3389 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 134.1 MB.
-System memory in use after: 134.2 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3948.
-Total: 5.025100 ms (FindLiveObjects: 0.628600 ms CreateObjectMapping: 0.501300 ms MarkObjects: 3.674800 ms  DeleteObjects: 0.218200 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.008996 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.78 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.810 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.76 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3389 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 134.1 MB.
-System memory in use after: 134.2 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3952.
-Total: 2.988800 ms (FindLiveObjects: 0.301000 ms CreateObjectMapping: 0.147700 ms MarkObjects: 2.408300 ms  DeleteObjects: 0.130600 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005612 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.76 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.642 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.75 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3389 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 134.1 MB.
-System memory in use after: 134.2 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3956.
-Total: 2.887900 ms (FindLiveObjects: 0.281200 ms CreateObjectMapping: 0.161200 ms MarkObjects: 2.312700 ms  DeleteObjects: 0.131400 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005613 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.77 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.626 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.78 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3389 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 134.1 MB.
-System memory in use after: 134.2 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3960.
-Total: 3.369400 ms (FindLiveObjects: 0.285600 ms CreateObjectMapping: 0.141300 ms MarkObjects: 2.787200 ms  DeleteObjects: 0.153300 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005486 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.88 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.481 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.76 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3389 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 134.1 MB.
-System memory in use after: 134.2 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3964.
-Total: 2.804700 ms (FindLiveObjects: 0.297200 ms CreateObjectMapping: 0.150800 ms MarkObjects: 2.232800 ms  DeleteObjects: 0.122300 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005851 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.77 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.810 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.76 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3389 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 134.1 MB.
-System memory in use after: 134.2 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3968.
-Total: 3.069400 ms (FindLiveObjects: 0.321400 ms CreateObjectMapping: 0.146300 ms MarkObjects: 2.463900 ms  DeleteObjects: 0.136400 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.006046 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.77 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.385 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.76 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3389 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 134.1 MB.
-System memory in use after: 134.2 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3972.
-Total: 3.022300 ms (FindLiveObjects: 0.322700 ms CreateObjectMapping: 0.193000 ms MarkObjects: 2.375200 ms  DeleteObjects: 0.129500 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005608 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.01 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.656 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.76 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3389 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 134.2 MB.
-System memory in use after: 134.3 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3976.
-Total: 3.412300 ms (FindLiveObjects: 0.357700 ms CreateObjectMapping: 0.210900 ms MarkObjects: 2.695600 ms  DeleteObjects: 0.146300 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005999 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Base-Build-Roguelike\BaseBuildRoguelike\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 2.16 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.186 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 1.69 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3389 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 134.2 MB.
-System memory in use after: 134.3 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3980.
-Total: 3.814300 ms (FindLiveObjects: 0.437900 ms CreateObjectMapping: 0.363600 ms MarkObjects: 2.869700 ms  DeleteObjects: 0.141000 ms)
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 3969.
+Total: 4.458100 ms (FindLiveObjects: 0.361000 ms CreateObjectMapping: 0.375500 ms MarkObjects: 3.521800 ms  DeleteObjects: 0.197600 ms)
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

@@ -8,8 +8,10 @@ public class GameController : MonoSingleton<GameController>
     public Grid grid;
     MouseControl mouse;
     FollowerController follower;
+    EnemyController enemies;
     public Vector2Int startPos;
     public GameObject firepitPrefab;
+    public GameObject homeBuilding;
 
     public enum Mode
     {
@@ -28,8 +30,11 @@ public class GameController : MonoSingleton<GameController>
         mouse = GetComponent<MouseControl>();
         mouse.camera.transform.position = new Vector3(startPos.x, startPos.y, mouse.camera.transform.position.z);
         follower = GetComponent<FollowerController>();
+        enemies = GetComponent<EnemyController>();
         follower.SpawnFollower(startPos);
+        enemies.StartSpawning();
         grid.tiles[startPos.x, startPos.y].structure = Instantiate(firepitPrefab, new Vector3(startPos.x, startPos.y, 0), Quaternion.identity);
+        homeBuilding = grid.tiles[startPos.x, startPos.y].structure;
     }
 
     public void AdjustResources(Resource.Type type, int val, int maxVal)
