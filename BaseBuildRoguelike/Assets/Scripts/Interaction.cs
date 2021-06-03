@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {   
-    public enum Type
+    public enum InteractionType
     {
         resource,
         building,
         creature,
         enemy
     }
-    public Type type;
+    public InteractionType type;
 
     [HideInInspector] public Resource resource;
     [HideInInspector] public Building building;
@@ -19,19 +19,19 @@ public class Interaction : MonoBehaviour
     [HideInInspector] public Enemy enemy;
     private void Start()
     {
-        if (type == Type.resource)
+        if (type == InteractionType.resource)
         {
             resource = GetComponent<Resource>();
         }
-        else if (type == Type.building)
+        else if (type == InteractionType.building)
         {
             building = GetComponent<Building>();
         }
-        else if (type == Type.creature)
+        else if (type == InteractionType.creature)
         {
             creature = GetComponent<Creature>();
         }
-        else if (type == Type.enemy)
+        else if (type == InteractionType.enemy)
         {
             enemy = GetComponent<Enemy>();
         }
