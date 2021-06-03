@@ -8,7 +8,6 @@ public class BuildingController : MonoSingleton<BuildingController>
     public class BuildingTemplate
     {
         public GameObject prefab;
-        public int woodCost, stoneCost;
     }
 
     public List<BuildingTemplate> buildingTypes = new List<BuildingTemplate>();
@@ -32,7 +31,6 @@ public class BuildingController : MonoSingleton<BuildingController>
         {
             tile.structure = Instantiate(selectedTemplate.prefab, tile.tile.transform.position, Quaternion.identity);
             tile.structure.transform.parent = tile.tile.transform;
-            tile.structure.GetComponent<Construct>().Setup(selectedTemplate.woodCost, selectedTemplate.stoneCost);
         }
     }
 

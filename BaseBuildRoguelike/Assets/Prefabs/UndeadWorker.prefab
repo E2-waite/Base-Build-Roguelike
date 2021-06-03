@@ -102,7 +102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d2e213492840494e8bb2a663856abf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 3
+  type: 4
+  follower: {fileID: 0}
   resource: {fileID: 0}
   building: {fileID: 0}
   creature: {fileID: 0}
@@ -124,12 +125,15 @@ MonoBehaviour:
   health: 0
   hitDamage: 1
   speed: 2
-  targetDist: 0.25
+  targetDist: 1
+  interaction: {fileID: 0}
   target: {fileID: 0}
   buildingMask:
     serializedVersion: 2
     m_Bits: 512
   undeadType: 0
+  hitSpeed: 1
+  canAttack: 1
 --- !u!114 &3438430402389115328
 MonoBehaviour:
   m_ObjectHideFlags: 0

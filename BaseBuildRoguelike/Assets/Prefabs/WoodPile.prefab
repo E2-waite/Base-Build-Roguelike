@@ -100,7 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d2e213492840494e8bb2a663856abf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  type: 2
+  follower: {fileID: 0}
   resource: {fileID: 0}
   building: {fileID: 0}
   creature: {fileID: 0}
@@ -135,11 +136,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8e74f438a792145b7bd202a05dc18f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 1
   isConstructed: 0
   selected: 0
-  type: 1
+  repair: 0
+  maxRepair: 25
   construct: {fileID: 0}
   interaction: {fileID: 0}
+  storageType: 0
+  maxStorage: 100
+  currentStorage: 0
   stages:
   - {fileID: -4280781792942571977, guid: d8a4920f246412141a628bf06675648f, type: 3}
   - {fileID: 6000586586280672642, guid: d8a4920f246412141a628bf06675648f, type: 3}
@@ -148,9 +154,6 @@ MonoBehaviour:
   - {fileID: -1815520935422146028, guid: d8a4920f246412141a628bf06675648f, type: 3}
   - {fileID: 8632287575058414989, guid: d8a4920f246412141a628bf06675648f, type: 3}
   - {fileID: -8567814636022076339, guid: d8a4920f246412141a628bf06675648f, type: 3}
-  storageType: 0
-  maxStorage: 100
-  currentStorage: 0
 --- !u!61 &136147720213854293
 BoxCollider2D:
   m_ObjectHideFlags: 0

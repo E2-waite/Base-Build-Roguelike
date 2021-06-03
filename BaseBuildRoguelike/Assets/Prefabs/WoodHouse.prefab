@@ -100,9 +100,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d2e213492840494e8bb2a663856abf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  type: 2
+  follower: {fileID: 0}
   resource: {fileID: 0}
   building: {fileID: 0}
+  creature: {fileID: 0}
+  enemy: {fileID: 0}
 --- !u!114 &4972683383579464941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,11 +118,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc8e190913587c1419692552dce61c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isConstructed: 0
-  construct: {fileID: 0}
-  storage: {fileID: 0}
-  interaction: {fileID: 0}
   type: 0
+  isConstructed: 0
+  selected: 0
+  repair: 0
+  maxRepair: 25
+  construct: {fileID: 0}
+  interaction: {fileID: 0}
 --- !u!114 &3410417643914874638
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ public class Soldier : Follower
     public Squad squad;
     public Interaction target;
     public float hitSpeed = 1;
-    public bool canHit = true;
+    public bool canAttack = true;
 
 
     private void Update()
@@ -50,7 +50,7 @@ public class Soldier : Follower
             {
                 if (Vector2.Distance(transform.position, target.transform.position) <= targetDist)
                 {
-                    if (state == State.attack && canHit)
+                    if (state == State.attack && canAttack)
                     {
                         StartCoroutine(AttackRoutine());
                     }
@@ -63,10 +63,16 @@ public class Soldier : Follower
         }
     }
 
+    public void TargetEnemy(Enemy enemy)
+    {
+        canAttack = true;
+        target = enemy.interaction;
+        state = State.attack;
+    }
+
     public void Direct(Vector2 pos, GameObject obj)
     {
-        StopAllCoroutines();
-        canHit = true;
+        canAttack = true;
         marker.transform.position = pos;
         if (obj != null)
         {
@@ -97,12 +103,12 @@ public class Soldier : Follower
 
     IEnumerator AttackRoutine()
     {
-        canHit = false;
+        canAttack = false;
         yield return new WaitForSeconds(1 / hitSpeed);
-        if (target != null)
+        if (target != null && Vector2.Distance(transform.position, target.transform.position) <= targetDist)
         {
             target.enemy.Hit(hitDamage, this);
         }
-        canHit = true;
+        canAttack = true;
     }
 }

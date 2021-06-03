@@ -16,12 +16,15 @@ public class Building : MonoBehaviour
     public bool isConstructed = false;
     public bool selected = false;
 
+    public int repair, maxRepair = 25;
+
     [HideInInspector] public Construct construct;
     [HideInInspector] public Interaction interaction;
 
 
     private void Start()
     {
+        repair = maxRepair;
         interaction = GetComponent<Interaction>();
         if (!isConstructed)
         {
@@ -57,4 +60,18 @@ public class Building : MonoBehaviour
             Inspector.Instance.Reload(this);
         }
     }
+
+    public bool Hit(int damage)
+    {
+        repair -= damage;
+        Debug.Log("BUILDING HIT - Damage: " + damage.ToString() + " Repair: " + repair.ToString());
+
+        if (repair <= 0)
+        {
+            Destroy(gameObject);
+            return true;
+        }
+        return false;
+    }
+
 }

@@ -9,16 +9,13 @@ public class Construct : MonoBehaviour
     Building building;
     SpriteRenderer rend;
 
-    public void Setup(int wood, int stone)
+    private void Start()
     {
+        woodRemaining = woodCost;
+        stoneRemaining = stoneCost;
         rend = GetComponent<SpriteRenderer>();
         rend.sprite = contruction;
         building = GetComponent<Building>();
-        woodCost = wood;
-        woodRemaining = wood;
-        stoneCost = stone;
-        stoneRemaining = stone;
-
         CheckComplete();
     }
 

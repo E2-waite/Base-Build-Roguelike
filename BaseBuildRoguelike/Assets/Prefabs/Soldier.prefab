@@ -208,10 +208,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8840559668895825269}
   - component: {fileID: 8840559668895825226}
+  - component: {fileID: 310694705709962722}
   - component: {fileID: 8840559668895825268}
+  - component: {fileID: 520897613099791831}
   - component: {fileID: 8840559668895825270}
   - component: {fileID: 1886290311957092991}
-  - component: {fileID: 520897613099791831}
   m_Layer: 7
   m_Name: SoldierObj
   m_TagString: Follower
@@ -287,6 +288,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &310694705709962722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8840559668895825227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d2e213492840494e8bb2a663856abf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  follower: {fileID: 0}
+  resource: {fileID: 0}
+  building: {fileID: 0}
+  creature: {fileID: 0}
+  enemy: {fileID: 0}
 --- !u!114 &8840559668895825268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,15 +322,30 @@ MonoBehaviour:
   maxHealth: 10
   health: 0
   hitDamage: 1
-  targetDist: 0.25
+  targetDist: 1
   speed: 5
+  interaction: {fileID: 0}
   highlight: {fileID: 1158189135023345973}
   marker: {fileID: 8840559668946194276}
   state: 0
   squad: {fileID: 0}
   target: {fileID: 0}
   hitSpeed: 1
-  canHit: 1
+  canAttack: 1
+--- !u!114 &520897613099791831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8840559668895825227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9253cf6d0bc70c74caae7bb934c9b31c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  update: 1
+  tallTop: 0
 --- !u!61 &8840559668895825270
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -357,20 +391,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &520897613099791831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8840559668895825227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9253cf6d0bc70c74caae7bb934c9b31c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  update: 1
-  tallTop: 0
 --- !u!1 &8840559668946194276
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,15 +13,17 @@ public class Enemy : MonoBehaviour
     public Type type;
     public int maxHealth = 3, health, hitDamage = 1;
     public float speed = 2, targetDist = 0.25f;
+    [HideInInspector] public Interaction interaction;
     SpriteRenderer rend;
     Animator anim;
-    public GameObject target;
+    public Interaction target;
     public LayerMask buildingMask;
     private void Start()
     {
         health = maxHealth;
         anim = GetComponent<Animator>();
         rend = GetComponent<SpriteRenderer>();
+        interaction = GetComponent<Interaction>();
         target = GameController.Instance.homeBuilding;
     }
     public void Move(Vector3 position)
@@ -31,9 +33,9 @@ public class Enemy : MonoBehaviour
         anim.SetInteger("Direction", Mathf.RoundToInt(yDiff));
         RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(xDiff, yDiff), .2f, buildingMask);
 
-        if (hit.collider != null)
+        if (hit.collider != null && target.type != Interaction.InteractionType.follower && target.gameObject != hit.collider.gameObject)
         {
-            target = hit.collider.gameObject;
+            target = hit.collider.GetComponent<Interaction>();
         }
     }
 
@@ -42,7 +44,7 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("HIT");
         health -= damage;
-        target = attacker.gameObject;
+        target = attacker.interaction;
         StartCoroutine(HitRoutine());
 
         if (health <= 0)

@@ -12,7 +12,8 @@ public class Undead : Enemy
 
     [Header("Undead Settings")]
     public UndeadType undeadType;
-
+    public float hitSpeed = 1;
+    public bool canAttack = true;
 
     private void Update()
     {
@@ -22,9 +23,10 @@ public class Undead : Enemy
         }
         else
         {
-            if (Vector2.Distance(transform.position, target.transform.position) <= targetDist)
+            if (canAttack && Vector2.Distance(transform.position, target.transform.position) <= targetDist)
             {
                 // Attack
+                StartCoroutine(AttackRoutine());
 
             }
             else
@@ -35,5 +37,21 @@ public class Undead : Enemy
         }
     }
 
-
+    IEnumerator AttackRoutine()
+    {
+        canAttack = false;
+        yield return new WaitForSeconds(1 / hitSpeed);
+        if (target != null)
+        {
+            if (target.type == Interaction.InteractionType.follower && Vector2.Distance(transform.position, target.transform.position) <= targetDist)
+            {
+                target.follower.Hit(hitDamage, this);
+            }
+            else if (target.type == Interaction.InteractionType.building)
+            {
+                target.building.Hit(hitDamage);
+            }
+        }
+        canAttack = true;
+    }
 }

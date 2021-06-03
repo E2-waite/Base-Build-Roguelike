@@ -16,6 +16,7 @@ public class Follower : MonoBehaviour
     public Type type;
     public int maxHealth = 10, health, hitDamage = 1;
     public float targetDist = 0.25f, speed = 5f;
+    [HideInInspector] public Interaction interaction;
     Animator anim;
     SpriteRenderer rend;
     public GameObject highlight, marker;
@@ -27,6 +28,7 @@ public class Follower : MonoBehaviour
         health = maxHealth;
         anim = GetComponent<Animator>();
         rend = GetComponent<SpriteRenderer>();
+        interaction = GetComponent<Interaction>();
         if (type == Type.worker)
         {
             Worker worker = GetComponent<Worker>();
@@ -54,10 +56,16 @@ public class Follower : MonoBehaviour
         anim.SetInteger("Direction", Mathf.RoundToInt(diff));
     }
 
-    public bool Hit(int damage)
+    public bool Hit(int damage, Enemy attacker)
     {
         health -= damage;
         StartCoroutine(HitRoutine());
+
+        if (type == Type.soldier)
+        {
+            Soldier soldier = (Soldier)this;
+            soldier.TargetEnemy(attacker);
+        }
 
         if (health <= 0)
         {

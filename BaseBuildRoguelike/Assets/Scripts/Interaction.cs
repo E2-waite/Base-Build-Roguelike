@@ -6,6 +6,7 @@ public class Interaction : MonoBehaviour
 {   
     public enum InteractionType
     {
+        follower,
         resource,
         building,
         creature,
@@ -13,13 +14,19 @@ public class Interaction : MonoBehaviour
     }
     public InteractionType type;
 
+    [HideInInspector] public Follower follower;
     [HideInInspector] public Resource resource;
     [HideInInspector] public Building building;
     [HideInInspector] public Creature creature;
     [HideInInspector] public Enemy enemy;
+
     private void Start()
     {
-        if (type == InteractionType.resource)
+        if (type == InteractionType.follower)
+        {
+            follower = GetComponent<Follower>();
+        }
+        else if (type == InteractionType.resource)
         {
             resource = GetComponent<Resource>();
         }

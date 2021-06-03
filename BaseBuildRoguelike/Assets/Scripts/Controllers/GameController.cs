@@ -11,7 +11,7 @@ public class GameController : MonoSingleton<GameController>
     EnemyController enemies;
     public Vector2Int startPos;
     public GameObject firepitPrefab;
-    public GameObject homeBuilding;
+    public Interaction homeBuilding;
 
     public enum Mode
     {
@@ -34,7 +34,7 @@ public class GameController : MonoSingleton<GameController>
         follower.SpawnFollower(startPos);
         enemies.StartSpawning();
         grid.tiles[startPos.x, startPos.y].structure = Instantiate(firepitPrefab, new Vector3(startPos.x, startPos.y, 0), Quaternion.identity);
-        homeBuilding = grid.tiles[startPos.x, startPos.y].structure;
+        homeBuilding = grid.tiles[startPos.x, startPos.y].structure.GetComponent<Interaction>();
     }
 
     public void AdjustResources(Resource.Type type, int val, int maxVal)

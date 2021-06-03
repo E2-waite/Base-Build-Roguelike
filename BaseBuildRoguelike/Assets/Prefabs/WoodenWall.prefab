@@ -101,9 +101,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d2e213492840494e8bb2a663856abf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  type: 2
+  follower: {fileID: 0}
   resource: {fileID: 0}
   building: {fileID: 0}
+  creature: {fileID: 0}
+  enemy: {fileID: 0}
 --- !u!114 &3963982256496168286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,12 +119,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc8e190913587c1419692552dce61c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isConstructed: 0
-  construct: {fileID: 0}
-  storage: {fileID: 0}
-  interaction: {fileID: 0}
-  wall: {fileID: 0}
   type: 2
+  isConstructed: 0
+  selected: 0
+  repair: 0
+  maxRepair: 25
+  construct: {fileID: 0}
+  interaction: {fileID: 0}
 --- !u!114 &3963982256496168281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,6 +156,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e647aab3e5d7d5f458c0242bbb73c7b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  isConstructed: 0
+  selected: 0
+  repair: 0
+  maxRepair: 25
+  construct: {fileID: 0}
+  interaction: {fileID: 0}
   wallSprites:
   - {fileID: 6116906653869191027, guid: 12925ef923cad9849b017f1c26a508d7, type: 3}
   - {fileID: -9054878284588002444, guid: 12925ef923cad9849b017f1c26a508d7, type: 3}

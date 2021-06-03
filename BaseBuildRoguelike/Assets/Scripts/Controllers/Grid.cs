@@ -59,11 +59,6 @@ public class Grid : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-
-    }
-
     public void Generate(Vector2Int basePos)
     {
         tiles = new Tile[mapSize, mapSize];
