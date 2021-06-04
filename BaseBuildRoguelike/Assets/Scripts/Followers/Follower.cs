@@ -14,6 +14,7 @@ public class Follower : MonoBehaviour
 
     [Header("Follower Settings")]
     public Type type;
+    public Squad squad;
     public int maxHealth = 10, health, hitDamage = 1;
     public float targetDist = 0.25f, speed = 5f;
     [HideInInspector] public Interaction interaction;

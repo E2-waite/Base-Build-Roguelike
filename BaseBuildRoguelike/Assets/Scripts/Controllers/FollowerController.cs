@@ -8,6 +8,7 @@ public class FollowerController : MonoSingleton<FollowerController>
     public GameObject followerPrefab;
     List<Follower> followers = new List<Follower>();
     public Follower selected;
+    public Squad selectedSquad = null;
     public int maxFollowers = 1;
 
     public void SpawnFollower(Vector3 pos)
@@ -53,22 +54,27 @@ public class FollowerController : MonoSingleton<FollowerController>
 
     public void DirectFollower(Vector2 pos, GameObject obj)
     {
-        if (selected != null)
+        if (selectedSquad != null)
         {
+            selectedSquad.Direct(pos, obj);
+        }
+        else if (selected != null)
+        {
+            Interaction objInteraction = obj.GetComponent<Interaction>();
             if (selected.type == Follower.Type.worker)
             {
                 Worker worker = (Worker)selected;
-                worker.Direct(pos, obj);
+                worker.Direct(pos, objInteraction);
             }
             else if (selected.type == Follower.Type.soldier)
             {
                 Soldier soldier = (Soldier)selected;
-                soldier.Direct(pos, obj);
+                soldier.Direct(pos, objInteraction);
             }
             else if (selected.type == Follower.Type.archer)
             {
                 Archer archer = (Archer)selected;
-                archer.Direct(pos, obj);
+                archer.Direct(pos, objInteraction);
             }
         }
     }

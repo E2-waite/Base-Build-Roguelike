@@ -14,7 +14,6 @@ public class Soldier : Follower
 
     [Header("Soldier Settings")]
     public State state = State.idle;
-    public Squad squad;
     public Interaction target;
     public float hitSpeed = 1, targetRange = 15;
     public bool canAttack = true;
@@ -103,14 +102,14 @@ public class Soldier : Follower
         state = State.attack;
     }
 
-    public void Direct(Vector2 pos, GameObject obj)
+    public void Direct(Vector2 pos, Interaction obj)
     {
         canAttack = true;
         marker.transform.position = pos;
         if (obj != null)
         {
             Debug.Log("Target: " + obj.name);
-            target = obj.GetComponent<Interaction>();
+            target = obj;
 
             marker.transform.position = obj.transform.position;
 

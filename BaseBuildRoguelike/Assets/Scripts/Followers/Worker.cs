@@ -29,7 +29,7 @@ public class Worker : Follower
         inventory = GetComponent<Inventory>();
     }
 
-    public void Direct(Vector2 pos, GameObject obj)
+    public void Direct(Vector2 pos, Interaction obj)
     {
         StopAllCoroutines();
         canGather = true;
@@ -40,7 +40,7 @@ public class Worker : Follower
         if (obj != null)
         {
             Debug.Log("Target: " + obj.name);
-            target = obj.GetComponent<Interaction>();
+            target = obj;
 
             marker.transform.position = obj.transform.position;
 

@@ -11,24 +11,21 @@ public class Arrow : MonoBehaviour
 
     IEnumerator MoveTowardsTarget(Interaction target, Follower follower, float shotSpeed, int hitDamage)
     {
+        while (target != null && transform.position != follower.transform.position)
+        {
+            Debug.Log("ARROW MOVING");
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, shotSpeed * Time.deltaTime);
+            yield return null;
+        }
+
         if (target == null)
         {
             Destroy(gameObject);
         }
         else
         {
-            if (transform.position == target.transform.position)
-            {
-                target.enemy.Hit(hitDamage, follower);
-                Destroy(gameObject);
-            }
-            else
-            {
-                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, shotSpeed * Time.deltaTime);
-            }
-
-            yield return null;
-            StartCoroutine(MoveTowardsTarget(target, follower, shotSpeed, hitDamage));
-        } 
+            target.enemy.Hit(hitDamage, follower);
+            Destroy(gameObject);
+        }
     }
 }
