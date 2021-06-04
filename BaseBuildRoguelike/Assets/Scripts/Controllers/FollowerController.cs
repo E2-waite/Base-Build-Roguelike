@@ -65,6 +65,11 @@ public class FollowerController : MonoSingleton<FollowerController>
                 Soldier soldier = (Soldier)selected;
                 soldier.Direct(pos, obj);
             }
+            else if (selected.type == Follower.Type.archer)
+            {
+                Archer archer = (Archer)selected;
+                archer.Direct(pos, obj);
+            }
         }
     }
 

@@ -4,27 +4,34 @@ ScriptsOnlyBuild:
     - Building
     - BuildingController
     - BuildingMenu
-    - CameraControl
     - Construct
-    - Follower
+    - ConstructionDetails
+    - Creature
+    - CreatureController
+    - EnemyController
     - FollowerController
     - GameController
     - Grid
     - HUD
+    - HomeBase
+    - HomeDetails
+    - Inspector
     - Interaction
     - Inventory
     - MouseControl
     - Resource
+    - ResourceDetails
     - ResourceStorage
     - SetSortingLayer
     - Soldier
     - Squad
+    - Undead
     - Wall
+    - Worker
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
-    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.IK.Runtime.dll:
     - UnityEditor.U2D.IK.IKEditorManagerHelper
     Unity.2D.Tilemap.Editor.dll:
@@ -35,6 +42,12 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.TilemapPrefabStageHelper
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -95,35 +108,53 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3294}
     - Class: 114
-      Script: {instanceID: 4490}
+      Script: {instanceID: 3550}
     - Class: 114
-      Script: {instanceID: 4664}
+      Script: {instanceID: 3878}
     - Class: 114
-      Script: {instanceID: 4918}
+      Script: {instanceID: 4412}
     - Class: 114
-      Script: {instanceID: 5466}
+      Script: {instanceID: 4496}
     - Class: 114
-      Script: {instanceID: 5470}
+      Script: {instanceID: 4912}
     - Class: 114
-      Script: {instanceID: 5612}
+      Script: {instanceID: 4924}
     - Class: 114
-      Script: {instanceID: 5796}
+      Script: {instanceID: 5088}
     - Class: 114
-      Script: {instanceID: 6304}
+      Script: {instanceID: 5474}
     - Class: 114
-      Script: {instanceID: 6622}
+      Script: {instanceID: 5478}
+    - Class: 114
+      Script: {instanceID: 5620}
+    - Class: 114
+      Script: {instanceID: 5704}
+    - Class: 114
+      Script: {instanceID: 5806}
+    - Class: 114
+      Script: {instanceID: 6316}
     - Class: 114
       Script: {instanceID: 6634}
     - Class: 114
-      Script: {instanceID: 6814}
+      Script: {instanceID: 6646}
     - Class: 114
-      Script: {instanceID: 7224}
+      Script: {instanceID: 6656}
     - Class: 114
-      Script: {instanceID: 7322}
+      Script: {instanceID: 6828}
     - Class: 114
-      Script: {instanceID: 7918}
+      Script: {instanceID: 7132}
     - Class: 114
-      Script: {instanceID: 8096}
+      Script: {instanceID: 7240}
+    - Class: 114
+      Script: {instanceID: 7338}
+    - Class: 114
+      Script: {instanceID: 7536}
+    - Class: 114
+      Script: {instanceID: 7936}
+    - Class: 114
+      Script: {instanceID: 8114}
+    - Class: 114
+      Script: {instanceID: 22330}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -325,7 +356,7 @@ ScriptsOnlyBuild:
     className: UnityMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 65e480ec71735872f55601a2928f6c4e
+      Hash: 5e6d1df068b74d983aaafc0790f3ba68
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Wall
@@ -397,7 +428,7 @@ ScriptsOnlyBuild:
     className: UnityOnInputFieldEndEditMessageListener
   - hash:
       serializedVersion: 2
-      Hash: fda356a30de99e639c90a04cd69862e5
+      Hash: cd17ec930892a702d667967da242df50
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BuildingController
@@ -463,7 +494,7 @@ ScriptsOnlyBuild:
     className: VariablesAsset
   - hash:
       serializedVersion: 2
-      Hash: 372dcc0ffe47dc983442b71d0438ee9d
+      Hash: 1994dc1f6c5c3b5007502846ddf566bb
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameController
@@ -497,6 +528,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnControllerColliderHitMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 3e6a957c09c0cfdd6dc4c9e7ac0843fb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyController
   - hash:
       serializedVersion: 2
       Hash: 27ec3360f0c0a6803ba71cc3106480b8
@@ -533,6 +570,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnPointerExitMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: ff7fef328eb4d277de745abcbc45ff25
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Creature
   - hash:
       serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
@@ -613,6 +656,12 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
+      Hash: 1e92c5eafd520b2acccc1998ec38190a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HomeDetails
+  - hash:
+      serializedVersion: 2
       Hash: fd68d84f33fad85aac38f2739c0ee270
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -625,22 +674,22 @@ ScriptsOnlyBuild:
     className: UnityOnCancelMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 4ebc009febced786441be0a3c9dfce1e
+      Hash: 6519c2f4d68f713cb92689e69a46f664
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Building
+  - hash:
+      serializedVersion: 2
+      Hash: 35ca53182143dfd58fc258a963f44585
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Enemy
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnPointerClickMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CameraControl
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -662,15 +711,15 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: WoodPile
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnEndDragMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 4de5171143b5ad9023acad5df2d0bd24
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CreatureController
   - hash:
       serializedVersion: 2
       Hash: 5afcc5501fe275af5cacbcc9f4f83253
@@ -713,6 +762,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.IK.Runtime.dll
     namespaceName: UnityEngine.U2D.IK
     className: CCDSolver2D
+  - hash:
+      serializedVersion: 2
+      Hash: 2a677dcf1febace85e84dd055ee3d7eb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Undead
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -781,7 +836,7 @@ ScriptsOnlyBuild:
     className: Grid
   - hash:
       serializedVersion: 2
-      Hash: 29ff9a06012021d8f4ddf4410f27d449
+      Hash: a7acb0b1887c7e42bf9a7e1979836eef
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ResourceStorage
@@ -791,6 +846,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.State.dll
     namespaceName: Unity.VisualScripting
     className: StateGraphAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 83c5c63fa74a73c1c9a942bc425a5b2b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HomeBase
   - hash:
       serializedVersion: 2
       Hash: 5f170942ee57c7a568f5bcfc7521adea
@@ -821,6 +882,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextMeshProUGUI
+  - hash:
+      serializedVersion: 2
+      Hash: beca653b3c91962616b3d8629bff6582
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Follower
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -871,16 +938,22 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
-      Hash: a2fb087dfe0526021c95fd892f35a575
+      Hash: fafb0f3434a93bd6f60999f813179a85
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FollowerController
   - hash:
       serializedVersion: 2
-      Hash: 04191089ea95a8e17315132bd1b5bacb
+      Hash: 1965d6620e28ab4b32b8fe84c3e4f9b6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Interaction
+  - hash:
+      serializedVersion: 2
+      Hash: 06f859260f7b97f272b1fea127dbfddd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Inspector
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -973,6 +1046,12 @@ ScriptsOnlyBuild:
     className: EventTrigger
   - hash:
       serializedVersion: 2
+      Hash: 55d1cfda0e39cfc9647095a2fbd5cdf2
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ConstructionDetails
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
@@ -1003,10 +1082,10 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 5550df60eff52949999d9a09dd3caebb
+      Hash: eea487d256e4b76efb3ac0905a0f0d89
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Follower
+    className: Worker
   - hash:
       serializedVersion: 2
       Hash: dd0920c108efd7c9194c76b8f9db4893
@@ -1037,6 +1116,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: ScrollRect
+  - hash:
+      serializedVersion: 2
+      Hash: 9b97037f6f0431540f4b211f7339fc5b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ResourceDetails
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1099,13 +1184,13 @@ ScriptsOnlyBuild:
     className: SpriteLibrarySourceAsset
   - hash:
       serializedVersion: 2
-      Hash: 6ed6b4656c70977f93c1b490b444283b
+      Hash: bf7d89f1bdcf18ad7582aa6f2ab0ebd1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HUD
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: d2d3f01afe39bdbe722e89bb5f77aeeb
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Soldier

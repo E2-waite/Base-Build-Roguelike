@@ -16,7 +16,7 @@ public class Soldier : Follower
     public State state = State.idle;
     public Squad squad;
     public Interaction target;
-    public float hitSpeed = 1;
+    public float hitSpeed = 1, targetRange = 15;
     public bool canAttack = true;
 
 
@@ -39,7 +39,14 @@ public class Soldier : Follower
             {
                 if (state == State.attack)
                 {
-                    // Find target
+                    if (FindTarget())
+                    {
+                        Debug.Log("Target Found");
+                    }
+                    else
+                    {
+                        state = State.idle;
+                    }
                 }
                 else
                 {
@@ -61,6 +68,32 @@ public class Soldier : Follower
                 }
             }
         }
+    }
+
+    bool FindTarget()
+    {
+        Enemy newTarget = null;
+        float closestDist = 1000;
+        foreach(Enemy enemy in EnemyController.Instance.enemies)
+        {
+            if (enemy != null)
+            {
+                float dist = Vector3.Distance(transform.position, enemy.transform.position);
+
+                if (dist <= targetRange && dist < closestDist)
+                {
+                    closestDist = dist;
+                    newTarget = enemy;
+                }
+            }
+        }
+
+        if (newTarget != null)
+        {
+            target = newTarget.interaction;
+            return true;
+        }
+        return false;
     }
 
     public void TargetEnemy(Enemy enemy)

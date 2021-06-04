@@ -61,6 +61,7 @@ public class Enemy : MonoBehaviour
         rend.color = Color.white;
         if (health <= 0)
         {
+            EnemyController.Instance.Remove(this);
             Destroy(gameObject);
         }
     }
