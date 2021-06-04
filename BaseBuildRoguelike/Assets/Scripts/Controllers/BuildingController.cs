@@ -9,7 +9,7 @@ public class BuildingController : MonoSingleton<BuildingController>
     {
         public GameObject prefab;
     }
-
+    public GameObject firepitPrefab;
     public List<BuildingTemplate> buildingTypes = new List<BuildingTemplate>();
     public BuildingTemplate selectedTemplate = null;
 
@@ -18,11 +18,18 @@ public class BuildingController : MonoSingleton<BuildingController>
     public List<ResourceStorage> woodPiles = new List<ResourceStorage>();
     public List<ResourceStorage> stonePiles = new List<ResourceStorage>();
     public List<ResourceStorage> foodPiles = new List<ResourceStorage>();
+    public HomeBase homeBase;
     public Wall[,] walls;
     public Inspector inspector;
     private void Start()
     {
         walls = new Wall[GameController.Instance.grid.mapSize, GameController.Instance.grid.mapSize];
+    }
+
+    public void SpawnHome(Grid.Tile tile)
+    {
+        tile.structure = Instantiate(firepitPrefab, tile.tile.transform.position, Quaternion.identity);
+        homeBase = tile.structure.GetComponent<HomeBase>();
     }
 
     public void Build(Grid.Tile tile)

@@ -34,6 +34,7 @@ public class Worker : Follower
         StopAllCoroutines();
         canGather = true;
         canBuild = true;
+        canHit = true;
         marker.transform.position = pos;
         lastState = State.idle;
         if (obj != null)

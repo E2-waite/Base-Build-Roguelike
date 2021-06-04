@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7247006138620438552}
   - component: {fileID: 6071322857001800222}
   - component: {fileID: -2519841976408827179}
-  - component: {fileID: -2701372812234469331}
+  - component: {fileID: -7170404888659475051}
   - component: {fileID: -6450817036489288563}
   m_Layer: 9
   m_Name: Firepit
@@ -151,7 +151,7 @@ MonoBehaviour:
   building: {fileID: 0}
   creature: {fileID: 0}
   enemy: {fileID: 0}
---- !u!114 &-2701372812234469331
+--- !u!114 &-7170404888659475051
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7247006138620438559}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc8e190913587c1419692552dce61c11, type: 3}
+  m_Script: {fileID: 11500000, guid: 72294c90b24b66247a845faee6c52e63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
@@ -170,6 +170,7 @@ MonoBehaviour:
   maxRepair: 25
   construct: {fileID: 0}
   interaction: {fileID: 0}
+  followerCost: 10
 --- !u!114 &-6450817036489288563
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -46,6 +46,12 @@ public class ResourceStorage : Building
         GameController.Instance.AdjustResources(storageType, toStore, 0);
 
         rend.sprite = stages[(int)Mathf.Ceil((currentStorage * (stages.Count - 1)) / maxStorage)];
+
+        if (storageType == Resource.Type.food && BuildingController.Instance.selected == BuildingController.Instance.homeBase)
+        {
+            BuildingController.Instance.homeBase.ReloadInspector();
+        }
+
         ReloadInspector();
     }
 

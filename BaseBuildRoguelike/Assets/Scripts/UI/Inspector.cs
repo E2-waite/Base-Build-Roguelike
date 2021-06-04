@@ -2,19 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class Inspector : MonoSingleton<Inspector>
+using UnityEngine.EventSystems;
+public class Inspector : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public enum Type
     {
         none,
         resources,
-        construction
+        construction,
+        home
     }
     public Type currentType;
     public Text title;
 
     public ResourceDetails resources;
     public ConstructionDetails construction;
+    public HomeDetails home;
+    public bool mouseOver = false;
+    public void OnPointerEnter(PointerEventData pointerEventData)
+    {
+        mouseOver = true;
+    }
+
+    public void OnPointerExit(PointerEventData pointerEventData)
+    {
+        mouseOver = false;
+    }
 
     public void Reload(Building building)
     {
@@ -28,6 +41,10 @@ public class Inspector : MonoSingleton<Inspector>
             if (building.type == Building.Type.storage)
             {
                 thisType = Type.resources;
+            }
+            else if (building.type == Building.Type.home)
+            {
+                thisType = Type.home;
             }
         }
         else
@@ -57,6 +74,10 @@ public class Inspector : MonoSingleton<Inspector>
         {
             construction.Reload(building);
         }
+        else if (currentType == Type.home)
+        {
+            home.Reload(building);
+        }
     }
 
     void SwapDetails(Type type)
@@ -65,17 +86,31 @@ public class Inspector : MonoSingleton<Inspector>
         {
             resources.gameObject.SetActive(true);
             construction.gameObject.SetActive(false);
+            home.gameObject.SetActive(false);
         }
         else if (type == Type.construction)
         {
             resources.gameObject.SetActive(false);
             construction.gameObject.SetActive(true);
+            home.gameObject.SetActive(false);
+        }
+        else if (type == Type.home)
+        {
+            resources.gameObject.SetActive(false);
+            construction.gameObject.SetActive(true);
+            home.gameObject.SetActive(true);
         }
         else
         {
             resources.gameObject.SetActive(false);
             construction.gameObject.SetActive(false);
+            home.gameObject.SetActive(false);
         }
         currentType = type;
+    }
+
+    private void OnDestroy()
+    {
+        Debug.Log("DESTROYED");
     }
 }

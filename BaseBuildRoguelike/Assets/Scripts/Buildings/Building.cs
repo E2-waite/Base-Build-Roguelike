@@ -9,7 +9,7 @@ public class Building : MonoBehaviour
         house,
         storage,
         wall,
-        main
+        home
     }
     [Header("Building Settings")]
     public Type type;
@@ -57,7 +57,7 @@ public class Building : MonoBehaviour
     {
         if (selected)
         {
-            Inspector.Instance.Reload(this);
+            GameController.Instance.inspector.Reload(this);
         }
     }
 

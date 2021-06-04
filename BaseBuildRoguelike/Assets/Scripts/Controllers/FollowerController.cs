@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class FollowerController : MonoSingleton<FollowerController>
 {
+    public int followerCost = 10;
     public GameObject followerPrefab;
     List<Follower> followers = new List<Follower>();
     public Follower selected;
     public int maxFollowers = 1;
 
-    public void SpawnFollower(Vector2 pos)
+    public void SpawnFollower(Vector3 pos)
     {
         GameObject follower = Instantiate(followerPrefab, pos, Quaternion.identity);
         followers.Add(follower.GetComponent<Worker>());
@@ -20,6 +21,15 @@ public class FollowerController : MonoSingleton<FollowerController>
     {
         maxFollowers += val;
         HUD.Instance.UpdateFollowers(followers.Count, maxFollowers);
+    }
+
+    public bool IsMaxFollowers()
+    {
+        if (followers.Count >= maxFollowers)
+        {
+            return true;
+        }
+        return false;
     }
 
     public void SelectFollower(Collider2D follower)

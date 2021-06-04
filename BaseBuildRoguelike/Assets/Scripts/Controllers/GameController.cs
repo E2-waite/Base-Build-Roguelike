@@ -10,8 +10,9 @@ public class GameController : MonoSingleton<GameController>
     FollowerController follower;
     EnemyController enemies;
     public Vector2Int startPos;
-    public GameObject firepitPrefab;
+
     public Interaction homeBuilding;
+    public Inspector inspector;
 
     public enum Mode
     {
@@ -31,9 +32,9 @@ public class GameController : MonoSingleton<GameController>
         mouse.camera.transform.position = new Vector3(startPos.x, startPos.y, mouse.camera.transform.position.z);
         follower = GetComponent<FollowerController>();
         enemies = GetComponent<EnemyController>();
-        follower.SpawnFollower(startPos);
+        follower.SpawnFollower(new Vector3(startPos.x, startPos.y, 0));
         enemies.StartSpawning();
-        grid.tiles[startPos.x, startPos.y].structure = Instantiate(firepitPrefab, new Vector3(startPos.x, startPos.y, 0), Quaternion.identity);
+        BuildingController.Instance.SpawnHome(grid.tiles[startPos.x, startPos.y]);
         homeBuilding = grid.tiles[startPos.x, startPos.y].structure.GetComponent<Interaction>();
     }
 

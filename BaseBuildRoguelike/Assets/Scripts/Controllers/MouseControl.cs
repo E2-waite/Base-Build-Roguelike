@@ -96,9 +96,12 @@ public class MouseControl : MonoBehaviour
                 RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero, 0, selectMask);
                 if (hit.collider == null)
                 {
-                    followers.DeselectFollower();
-                    buildings.Deselect();
-                    GameController.Instance.mode = GameController.Mode.select;
+                    if (!GameController.Instance.inspector.mouseOver)
+                    {
+                        followers.DeselectFollower();
+                        buildings.Deselect();
+                        GameController.Instance.mode = GameController.Mode.select;
+                    }
                 }
                 else
                 {
