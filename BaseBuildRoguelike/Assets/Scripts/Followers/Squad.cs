@@ -16,6 +16,7 @@ public class Squad : MonoBehaviour
     public int maxFollowers = 5;
     public List<Follower> followers = new List<Follower>();
     public Interaction target;
+    public bool selected = false;
     public void Setup(Follower follower1, Follower follower2)
     {
         followers.Add(follower1);
@@ -67,5 +68,29 @@ public class Squad : MonoBehaviour
             }
         }
 
+    }
+
+    public void Select()
+    {
+        foreach (Follower follower in followers)
+        {
+            if (follower != null)
+            {
+                follower.Select();
+            }
+        }
+        selected = true;
+    }
+
+    public void Deselect()
+    {
+        foreach (Follower follower in followers)
+        {
+            if (follower != null)
+            {
+                follower.Deselect();
+            }
+        }
+        selected = false;
     }
 }

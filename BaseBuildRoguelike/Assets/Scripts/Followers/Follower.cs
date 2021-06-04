@@ -55,6 +55,21 @@ public class Follower : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, position, speed * Time.deltaTime);
         float diff = position.y - transform.position.y;
         anim.SetInteger("Direction", Mathf.RoundToInt(diff));
+        if (squad != null)
+        {
+            foreach (Follower follower in squad.followers)
+            {
+                if (follower != this && follower != null)
+                {
+                    float dist = Vector3.Distance(transform.position, follower.transform.position);
+                    if (dist <= 0.5)
+                    {
+                        Vector3 diffVec = transform.position - follower.transform.position;
+                        transform.position = Vector2.MoveTowards(transform.position, transform.position + diffVec, speed * Time.deltaTime);
+                    }
+                }
+            }
+        }
     }
 
     public bool Hit(int damage, Enemy attacker)

@@ -64,7 +64,6 @@ public class Building : MonoBehaviour
     public bool Hit(int damage)
     {
         repair -= damage;
-        Debug.Log("BUILDING HIT - Damage: " + damage.ToString() + " Repair: " + repair.ToString());
 
         if (repair <= 0)
         {

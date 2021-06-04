@@ -39,16 +39,37 @@ public class FollowerController : MonoSingleton<FollowerController>
         {
             selected.Deselect();
         }
+        if (selectedSquad != null)
+        {
+            selectedSquad.Deselect();
+            selectedSquad = null;
+        }
+
         selected = follower.GetComponent<Follower>();
-        selected.Select();
+        if (selected.squad != null)
+        {
+            selectedSquad = selected.squad;
+            selectedSquad.Select();
+        }
+        else
+        {
+            selected.Select();
+        }
     }
 
     public void DeselectFollower()
     {
-        if (selected != null)
+        if (selectedSquad != null)
+        {
+            selectedSquad.Deselect();
+            selected = null;
+            selectedSquad = null;
+        }
+        else if (selected != null)
         {
             selected.Deselect();
             selected = null;
+            selectedSquad = null;
         }
     }
 
@@ -60,7 +81,12 @@ public class FollowerController : MonoSingleton<FollowerController>
         }
         else if (selected != null)
         {
-            Interaction objInteraction = obj.GetComponent<Interaction>();
+            Interaction objInteraction = null;
+            if (obj != null)
+            {
+                objInteraction = obj.GetComponent<Interaction>();
+            }
+
             if (selected.type == Follower.Type.worker)
             {
                 Worker worker = (Worker)selected;
