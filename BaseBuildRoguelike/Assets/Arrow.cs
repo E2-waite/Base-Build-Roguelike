@@ -4,28 +4,41 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-    public void Move(Interaction target, Follower follower, float shotSpeed, int hitDamage)
+    Interaction target;
+    Follower follower;
+    float shotSpeed;
+    int hitDamage;
+    bool move = false;
+    public void Move(Interaction _target, Follower _follower, float _shotSpeed, int _hitDamage)
     {
-        StartCoroutine(MoveTowardsTarget(target, follower, shotSpeed, hitDamage));
+        target = _target;
+        follower = _follower;
+        shotSpeed = _shotSpeed;
+        hitDamage = _hitDamage;
+        move = true;
     }
 
-    IEnumerator MoveTowardsTarget(Interaction target, Follower follower, float shotSpeed, int hitDamage)
+    private void Update()
     {
-        while (target != null && transform.position != follower.transform.position)
+        if (move & target != null)
         {
-            Debug.Log("ARROW MOVING");
-            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, shotSpeed * Time.deltaTime);
-            yield return null;
-        }
-
-        if (target == null)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            target.enemy.Hit(hitDamage, follower);
-            Destroy(gameObject);
+            if (target == null)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                float dist = Vector3.Distance(transform.position, target.transform.position);
+                if (dist > 0.1f)
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, target.transform.position, shotSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    target.enemy.Hit(hitDamage, follower);
+                    Destroy(gameObject);
+                }
+            }
         }
     }
 }

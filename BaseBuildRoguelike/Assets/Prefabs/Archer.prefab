@@ -319,6 +319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
+  squad: {fileID: 0}
   maxHealth: 10
   health: 0
   hitDamage: 1
@@ -327,9 +328,11 @@ MonoBehaviour:
   interaction: {fileID: 0}
   highlight: {fileID: 1158189135023345973}
   marker: {fileID: 8840559668946194276}
+  squadPrefab: {fileID: 8437693019058054867, guid: 4f60460212a58984992ec2ab3a5e4e3b, type: 3}
   fireRange: 5
   shotCooldown: 2.5
-  shotSpeed: 5
+  shotSpeed: 10
+  targetRange: 15
   canAttack: 1
   arrowPrefab: {fileID: 2050808074673889753, guid: 9ff224e4cbde0cc40bd70de79571ab60, type: 3}
   state: 0

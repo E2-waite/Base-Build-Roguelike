@@ -20,7 +20,7 @@ public class Follower : MonoBehaviour
     [HideInInspector] public Interaction interaction;
     Animator anim;
     SpriteRenderer rend;
-    public GameObject highlight, marker;
+    public GameObject highlight, marker, squadPrefab;
     bool selected;
 
 
@@ -69,6 +69,32 @@ public class Follower : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+
+    public void JoinSquad(Follower follower)
+    {
+        if (follower.squad == null && squad == null)
+        {
+            // No squad - create one
+            GameObject newSquad = Instantiate(squadPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            squad = newSquad.GetComponent<Squad>();
+            squad.Setup(this, follower);
+            return;
+        }
+        else if (follower.squad != null  && squad == null)
+        {
+            follower.squad.AddFollower(this);
+            return;
+        }
+        else if (follower.squad == null && squad != null)
+        {
+            squad.AddFollower(follower);
+            return;
+        }
+        else
+        {
+            squad.Combine(follower.squad);
         }
     }
 

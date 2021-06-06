@@ -125,6 +125,13 @@ public class Soldier : Follower
                     state = State.defend;
                 }
             }
+            else if (target.type == Interaction.InteractionType.follower)
+            {
+                if (target.follower.type == Type.soldier || target.follower.type == Type.archer)
+                {
+                    JoinSquad(target.follower);
+                }
+            }
         }
         else
         {

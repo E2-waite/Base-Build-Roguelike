@@ -23,17 +23,31 @@ public class Squad : MonoBehaviour
         followers.Add(follower2);
         follower1.squad = this;
         follower2.squad = this;
+        FollowerController.Instance.selectedSquad = this;
+        Select();
     }
 
-    public bool AddFollower(Follower follower)
+    public void AddFollower(Follower follower)
     {
-        if (followers.Count < maxFollowers)
+        follower.squad = this;
+        followers.Add(follower);
+        FollowerController.Instance.selectedSquad = this;
+        Select();
+    }
+
+    public void Combine(Squad squad)
+    {
+        foreach (Follower follower in squad.followers)
         {
-            follower.squad = this;
-            followers.Add(follower);
-            return true;
+            if (follower != null)
+            {
+                follower.squad = this;
+            }
         }
-        return false;
+        followers.AddRange(squad.followers);
+        Destroy(squad.gameObject);
+        FollowerController.Instance.selectedSquad = this;
+        Select();
     }
 
     public void Direct(Vector2 pos, GameObject obj)

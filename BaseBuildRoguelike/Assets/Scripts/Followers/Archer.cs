@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Archer : Follower
 {
-    public float fireRange = 5f, shotCooldown = 2.5f, shotSpeed = 5, targetRange = 15f;
+    public float fireRange = 5f, shotCooldown = 2.5f, shotSpeed = 10, targetRange = 15f;
     public bool canAttack = true;
     public GameObject arrowPrefab;
     public enum State
@@ -92,6 +92,13 @@ public class Archer : Follower
                 if (target.building.isConstructed)
                 {
                     state = State.defend;
+                }
+            }
+            else if (target.type == Interaction.InteractionType.follower)
+            {
+                if (target.follower.type == Type.soldier || target.follower.type == Type.archer)
+                {
+                    JoinSquad(target.follower);
                 }
             }
         }
