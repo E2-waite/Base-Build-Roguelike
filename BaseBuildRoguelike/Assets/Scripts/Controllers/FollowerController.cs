@@ -87,23 +87,7 @@ public class FollowerController : MonoSingleton<FollowerController>
                 objInteraction = obj.GetComponent<Interaction>();
             }
 
-            if (selected.type == Follower.Type.worker)
-            {
-                Worker worker = (Worker)selected;
-                worker.Direct(pos, objInteraction);
-            }
-            else if (selected.type == Follower.Type.soldier)
-            {
-                Soldier soldier = (Soldier)selected;
-                soldier.Direct(pos, objInteraction);
-            }
-            else if (selected.type == Follower.Type.archer)
-            {
-                Archer archer = (Archer)selected;
-                archer.Direct(pos, objInteraction);
-            }
+            selected.Direct(pos, objInteraction);
         }
     }
-
-
 }

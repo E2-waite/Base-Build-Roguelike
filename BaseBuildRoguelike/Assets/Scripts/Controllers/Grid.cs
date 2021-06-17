@@ -8,7 +8,7 @@ public class Grid : MonoBehaviour
     public Tile selected = null;
     public int mapSize = 25;
     public GameObject tile;
-    public Color healthyColour, deadColour;
+    public Color healthyColour, deadColour, sandColour, waterColour;
 
     public LayerMask tileMask;
     public float cleanRadius = 5;
@@ -62,12 +62,34 @@ public class Grid : MonoBehaviour
     public void Generate(Vector2Int basePos)
     {
         tiles = new Tile[mapSize, mapSize];
+
+        Random.seed = System.DateTime.Now.Millisecond;
+        Vector2 noiseStart = new Vector2(Random.Range(0, 10000), Random.Range(0, 10000));
+        Debug.Log(noiseStart.ToString());
         for (int y = 0; y < mapSize; y++)
         {
             for (int x = 0; x < mapSize; x++)
             {
                 Vector2 pos = new Vector2(x, y);
                 tiles[x, y] = new Tile(Instantiate(tile, pos, Quaternion.identity), pos, null, deadColour, true);
+                float noise = Mathf.PerlinNoise((noiseStart.x + x) / (mapSize / 10), (noiseStart.y + y) / (mapSize / 10));
+                Debug.Log(noise.ToString());
+                if (noise < .25)
+                {
+                    tiles[x, y].SetColour(waterColour, true);
+                }
+                else if (noise >= .25 && noise < .35)
+                {
+                    tiles[x, y].SetColour(sandColour, true);
+                }
+                else if (noise >= .35 && noise < .75)
+                {
+                    tiles[x, y].SetColour(healthyColour, true);
+                }
+                else
+                {
+                    tiles[x, y].SetColour(deadColour, true);
+                }
             }
         }
 

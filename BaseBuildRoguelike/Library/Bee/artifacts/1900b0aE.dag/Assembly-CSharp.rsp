@@ -352,6 +352,7 @@
 "Assets/Scripts/Controllers/GameController.cs"
 "Assets/Scripts/Controllers/Grid.cs"
 "Assets/Scripts/Controllers/MouseControl.cs"
+"Assets/Scripts/Controllers/NoiseGen.cs"
 "Assets/Scripts/Creatures/Creature.cs"
 "Assets/Scripts/Enemies/Enemy.cs"
 "Assets/Scripts/Enemies/Undead.cs"

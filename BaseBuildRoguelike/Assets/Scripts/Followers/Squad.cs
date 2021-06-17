@@ -37,17 +37,20 @@ public class Squad : MonoBehaviour
 
     public void Combine(Squad squad)
     {
-        foreach (Follower follower in squad.followers)
+        if (squad != this)
         {
-            if (follower != null)
+            foreach (Follower follower in squad.followers)
             {
-                follower.squad = this;
+                if (follower != null)
+                {
+                    follower.squad = this;
+                }
             }
+            followers.AddRange(squad.followers);
+            Destroy(squad.gameObject);
+            FollowerController.Instance.selectedSquad = this;
+            Select();
         }
-        followers.AddRange(squad.followers);
-        Destroy(squad.gameObject);
-        FollowerController.Instance.selectedSquad = this;
-        Select();
     }
 
     public void Direct(Vector2 pos, GameObject obj)
@@ -69,15 +72,12 @@ public class Squad : MonoBehaviour
         {
             if (follower != null)
             {
-                if (follower.type == Follower.Type.soldier)
+                follower.Direct(pos, target);
+
+                // If target is a follower - only direct the first follower in the squad (prevents multiple instances of squad combination)
+                if (target != null && target.type == Interaction.InteractionType.follower)
                 {
-                    Soldier soldier = (Soldier)follower;
-                    soldier.Direct(pos, target);
-                }
-                else if (follower.type == Follower.Type.archer)
-                {
-                    Archer archer = (Archer)follower;
-                    archer.Direct(pos, target);
+                    return;
                 }
             }
         }

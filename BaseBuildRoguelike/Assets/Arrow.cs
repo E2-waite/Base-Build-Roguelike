@@ -22,23 +22,20 @@ public class Arrow : MonoBehaviour
     {
         if (move & target != null)
         {
-            if (target == null)
+            float dist = Vector3.Distance(transform.position, target.transform.position);
+            if (dist > 0.1f)
             {
-                Destroy(gameObject);
+                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, shotSpeed * Time.deltaTime);
             }
             else
             {
-                float dist = Vector3.Distance(transform.position, target.transform.position);
-                if (dist > 0.1f)
-                {
-                    transform.position = Vector2.MoveTowards(transform.position, target.transform.position, shotSpeed * Time.deltaTime);
-                }
-                else
-                {
-                    target.enemy.Hit(hitDamage, follower);
-                    Destroy(gameObject);
-                }
+                target.enemy.Hit(hitDamage, follower);
+                Destroy(gameObject);
             }
+        }
+        else if (target == null)
+        {
+            Destroy(gameObject);
         }
     }
 }

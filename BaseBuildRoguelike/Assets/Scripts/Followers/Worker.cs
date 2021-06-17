@@ -29,7 +29,7 @@ public class Worker : Follower
         inventory = GetComponent<Inventory>();
     }
 
-    public void Direct(Vector2 pos, Interaction obj)
+    public override void Direct(Vector2 pos, Interaction obj)
     {
         StopAllCoroutines();
         canGather = true;

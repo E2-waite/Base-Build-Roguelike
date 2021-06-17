@@ -82,7 +82,7 @@ public class Follower : MonoBehaviour
             squad.Setup(this, follower);
             return;
         }
-        else if (follower.squad != null  && squad == null)
+        else if (follower.squad != null && squad == null)
         {
             follower.squad.AddFollower(this);
             return;
@@ -98,6 +98,11 @@ public class Follower : MonoBehaviour
         }
     }
 
+
+    public virtual void Direct(Vector2 pos, Interaction obj)
+    {
+
+    }
     public bool Hit(int damage, Enemy attacker)
     {
         health -= damage;

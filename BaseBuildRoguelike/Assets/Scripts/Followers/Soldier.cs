@@ -102,7 +102,7 @@ public class Soldier : Follower
         state = State.attack;
     }
 
-    public void Direct(Vector2 pos, Interaction obj)
+    public override void Direct(Vector2 pos, Interaction obj)
     {
         canAttack = true;
         marker.transform.position = pos;

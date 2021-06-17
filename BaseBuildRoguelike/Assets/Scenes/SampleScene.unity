@@ -2217,7 +2217,9 @@ MonoBehaviour:
   mapSize: 100
   tile: {fileID: 3916451811984000970, guid: 4e21e39274b0428429e6a1ea457bcea8, type: 3}
   healthyColour: {r: 0.0080188215, g: 0.3207547, b: 0, a: 1}
-  deadColour: {r: 0.007843138, g: 0.32156864, b: 0, a: 1}
+  deadColour: {r: 0.0048320247, g: 0.1981132, b: 0, a: 1}
+  sandColour: {r: 0.6886792, g: 0.46383077, b: 0.18516374, a: 1}
+  waterColour: {r: 0, g: 0.32277256, b: 0.49056602, a: 1}
   tileMask:
     serializedVersion: 2
     m_Bits: 64
