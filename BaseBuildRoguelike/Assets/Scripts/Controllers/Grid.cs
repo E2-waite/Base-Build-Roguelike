@@ -7,8 +7,7 @@ public class Grid : MonoBehaviour
     public Tile[,] tiles;
     public Tile selected = null;
     public int mapSize = 25;
-    public GameObject tile;
-    public Color healthyColour, deadColour, sandColour, waterColour;
+    public GameObject grassTile, waterTile, sandTile, dGrassTile;
 
     public LayerMask tileMask;
     public float cleanRadius = 5;
@@ -19,45 +18,7 @@ public class Grid : MonoBehaviour
     public List<Interaction> trees = new List<Interaction>();
     public List<Interaction> stones = new List<Interaction>();
 
-    public class Tile
-    {
-        public bool corrupted;
-        public GameObject tile;
-        Vector2 position;
-        public GameObject structure;
-        Color selectColour = Color.red, baseColour;
-        
-
-        public Tile(GameObject tileObj, Vector2 tilePos, GameObject tileStructure, Color colour, bool dead)
-        {
-            tile = tileObj;
-            position = tilePos;
-            structure = tileStructure;
-            baseColour = colour;
-            corrupted = dead;
-
-            SetColour(baseColour, true);
-        }
-
-        public void SetColour(Color colour, bool overWrite)
-        {
-            tile.GetComponent<SpriteRenderer>().color = colour;
-            if (overWrite)
-            {
-                baseColour = colour;
-            }
-        }
-
-        public void Select()
-        {
-            SetColour(selectColour, false);
-        }
-
-        public void Deselect()
-        {
-            SetColour(baseColour, false);
-        }
-    }
+ 
 
     public void Generate(Vector2Int basePos)
     {
@@ -65,42 +26,45 @@ public class Grid : MonoBehaviour
 
         Random.seed = System.DateTime.Now.Millisecond;
         Vector2 noiseStart = new Vector2(Random.Range(0, 10000), Random.Range(0, 10000));
-        Debug.Log(noiseStart.ToString());
         for (int y = 0; y < mapSize; y++)
         {
             for (int x = 0; x < mapSize; x++)
             {
                 Vector2 pos = new Vector2(x, y);
-                tiles[x, y] = new Tile(Instantiate(tile, pos, Quaternion.identity), pos, null, deadColour, true);
+                GameObject tile;
+    
                 float noise = Mathf.PerlinNoise((noiseStart.x + x) / (mapSize / 10), (noiseStart.y + y) / (mapSize / 10));
-                Debug.Log(noise.ToString());
                 if (noise < .25)
                 {
-                    tiles[x, y].SetColour(waterColour, true);
+                    tile = Instantiate(waterTile, pos, Quaternion.identity);
                 }
                 else if (noise >= .25 && noise < .35)
                 {
-                    tiles[x, y].SetColour(sandColour, true);
+                    tile = Instantiate(sandTile, pos, Quaternion.identity);
                 }
                 else if (noise >= .35 && noise < .75)
                 {
-                    tiles[x, y].SetColour(healthyColour, true);
+                    tile = Instantiate(grassTile, pos, Quaternion.identity);
                 }
                 else
                 {
-                    tiles[x, y].SetColour(deadColour, true);
+                    tile = Instantiate(dGrassTile, pos, Quaternion.identity);
+                }
+
+                if (tile != null)
+                {
+                    tiles[x, y] = tile.GetComponent<Tile>();
+                    tiles[x, y].Setup();
                 }
             }
         }
 
-        Collider2D[] cols = Physics2D.OverlapCircleAll(basePos, cleanRadius, tileMask);
-
-        Debug.Log(basePos.ToString());
-
-        foreach (Collider2D col in cols)
+        for (int y = 0; y < mapSize; y++)
         {
-            tiles[(int)(col.transform.position.x), (int)(col.transform.position.y)].SetColour(healthyColour, true);
-            tiles[(int)(col.transform.position.x), (int)(col.transform.position.y)].corrupted = false;
+            for (int x = 0; x < mapSize; x++)
+            {
+                tiles[x, y].UpdateSprite(this, x, y);
+            }
         }
 
         // Place trees
@@ -111,9 +75,10 @@ public class Grid : MonoBehaviour
             while (!treePlaced)
             {
                 Vector2Int treePos = new Vector2Int((int)(Random.Range(0, mapSize)), (int)(Random.Range(0, mapSize)));
-                if (tiles[treePos.x, treePos.y].structure == null)
+                if (tiles[treePos.x, treePos.y].structure == null && 
+                    (tiles[treePos.x, treePos.y].type == Tile.Type.grass || tiles[treePos.x, treePos.y].type == Tile.Type.darkGrass))
                 {
-                    tiles[treePos.x, treePos.y].structure = Instantiate(treePrefab, tiles[treePos.x, treePos.y].tile.transform.position, Quaternion.identity);
+                    tiles[treePos.x, treePos.y].structure = Instantiate(treePrefab, tiles[treePos.x, treePos.y].transform.position, Quaternion.identity);
                     trees.Add(tiles[treePos.x, treePos.y].structure.GetComponent<Interaction>());
                     treePlaced = true;
                 }
@@ -127,9 +92,9 @@ public class Grid : MonoBehaviour
             while (!stonePlaced)
             {
                 Vector2Int stonePos = new Vector2Int((int)(Random.Range(0, mapSize)), (int)(Random.Range(0, mapSize)));
-                if (tiles[stonePos.x, stonePos.y].structure == null)
+                if (tiles[stonePos.x, stonePos.y].structure == null && tiles[stonePos.x, stonePos.y].type != Tile.Type.water)
                 {
-                    tiles[stonePos.x, stonePos.y].structure = Instantiate(stonePrefab, tiles[stonePos.x, stonePos.y].tile.transform.position, Quaternion.identity);
+                    tiles[stonePos.x, stonePos.y].structure = Instantiate(stonePrefab, tiles[stonePos.x, stonePos.y].transform.position, Quaternion.identity);
                     stones.Add(tiles[stonePos.x, stonePos.y].structure.GetComponent<Interaction>());
                     stonePlaced = true;
                 }
@@ -158,9 +123,14 @@ public class Grid : MonoBehaviour
         if (selected != null)
         {
             selected.Deselect();
+            selected = null;
         }
-        selected = tiles[arrayPos.x, arrayPos.y];
-        selected.Select();
+
+        if (tiles[arrayPos.x, arrayPos.y].type != Tile.Type.water)
+        {
+            selected = tiles[arrayPos.x, arrayPos.y];
+            selected.Select();
+        }
     }
 
     public void DeselectTile()

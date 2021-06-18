@@ -26,18 +26,18 @@ public class BuildingController : MonoSingleton<BuildingController>
         walls = new Wall[GameController.Instance.grid.mapSize, GameController.Instance.grid.mapSize];
     }
 
-    public void SpawnHome(Grid.Tile tile)
+    public void SpawnHome(Tile tile)
     {
-        tile.structure = Instantiate(firepitPrefab, tile.tile.transform.position, Quaternion.identity);
+        tile.structure = Instantiate(firepitPrefab, tile.transform.position, Quaternion.identity);
         homeBase = tile.structure.GetComponent<HomeBase>();
     }
 
-    public void Build(Grid.Tile tile)
+    public void Build(Tile tile)
     {
-        if (tile.structure == null && selectedTemplate != null)
+        if (tile != null && tile.structure == null && selectedTemplate != null)
         {
-            tile.structure = Instantiate(selectedTemplate.prefab, tile.tile.transform.position, Quaternion.identity);
-            tile.structure.transform.parent = tile.tile.transform;
+            tile.structure = Instantiate(selectedTemplate.prefab, tile.transform.position, Quaternion.identity);
+            tile.structure.transform.parent = tile.transform;
         }
     }
 
