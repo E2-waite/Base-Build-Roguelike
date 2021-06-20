@@ -1,7 +1,25 @@
 fileFormatVersion: 2
 guid: 79c314c19bd0e6644b8c457075a02a0f
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -3424698330057590517
+    second: UndeadFollower_0
+  - first:
+      213: 8678671877497486696
+    second: UndeadFollower_1
+  - first:
+      213: -5517211490149521399
+    second: UndeadFollower_2
+  - first:
+      213: -7929792523713023827
+    second: UndeadFollower_3
+  - first:
+      213: 5355117678479491550
+    second: UndeadFollower_4
+  - first:
+      213: 6772871627352493035
+    second: UndeadFollower_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -139,7 +157,49 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SoldierSprite_0
+      name: UndeadFollower_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b093b0e73070970d0800000000000000
+      internalID: -3424698330057590517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UndeadFollower_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86df86c4716d07870800000000000000
+      internalID: 8678671877497486696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UndeadFollower_2
       rect:
         serializedVersion: 2
         x: 0
@@ -153,14 +213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71588c8b3413f33f0800000000000000
-      internalID: -918961632027572969
+      spriteID: 9082fe2916dee63b0800000000000000
+      internalID: -5517211490149521399
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SoldierSprite_1
+      name: UndeadFollower_3
       rect:
         serializedVersion: 2
         x: 16
@@ -174,8 +234,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50d690a150f7cb340800000000000000
-      internalID: 4880915756051164421
+      spriteID: da07989a6b7b3f190800000000000000
+      internalID: -7929792523713023827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UndeadFollower_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed14f2ce723315a40800000000000000
+      internalID: 5355117678479491550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UndeadFollower_5
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bebcaa16cd21efd50800000000000000
+      internalID: 6772871627352493035
       vertices: []
       indices: 
       edges: []

@@ -6,7 +6,7 @@ public class Grid : MonoBehaviour
 {
     public Tile[,] tiles;
     public Tile selected = null;
-    public int mapSize = 25;
+    public int mapSize = 25, noiseSize = 250;
     public GameObject grassTile, waterTile, sandTile, dGrassTile;
 
     public LayerMask tileMask;
@@ -33,7 +33,7 @@ public class Grid : MonoBehaviour
                 Vector2 pos = new Vector2(x, y);
                 GameObject tile;
     
-                float noise = Mathf.PerlinNoise((noiseStart.x + x) / (mapSize / 10), (noiseStart.y + y) / (mapSize / 10));
+                float noise = Mathf.PerlinNoise((noiseStart.x + x) / (noiseSize / 10), (noiseStart.y + y) / (noiseSize / 10));
                 if (noise < .25)
                 {
                     tile = Instantiate(waterTile, pos, Quaternion.identity);

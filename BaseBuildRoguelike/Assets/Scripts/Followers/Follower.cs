@@ -20,7 +20,7 @@ public class Follower : MonoBehaviour
     [HideInInspector] public Interaction interaction;
     Animator anim;
     SpriteRenderer rend;
-    public GameObject highlight, marker, squadPrefab;
+    public GameObject highlight, marker, squadPrefab, corpsePrefab;
     bool selected;
 
 
@@ -128,6 +128,7 @@ public class Follower : MonoBehaviour
         rend.color = Color.white;
         if (health <= 0)
         {
+            Instantiate(corpsePrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

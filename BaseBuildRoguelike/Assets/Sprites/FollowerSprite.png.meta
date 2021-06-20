@@ -1,7 +1,19 @@
 fileFormatVersion: 2
 guid: 97da8aba6591e744e8e867b3300f44bf
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 1418035252005219442
+    second: FollowerSprite_0
+  - first:
+      213: 7954664574191781852
+    second: FollowerSprite_1
+  - first:
+      213: 8994395706089401181
+    second: FollowerSprite_2
+  - first:
+      213: 6157777593471239933
+    second: FollowerSprite_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -103,7 +115,49 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SoldierSprite_0
+      name: FollowerSprite_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27ca0c27c8fdda310800000000000000
+      internalID: 1418035252005219442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FollowerSprite_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd7c51cd845a46e60800000000000000
+      internalID: 7954664574191781852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FollowerSprite_2
       rect:
         serializedVersion: 2
         x: 0
@@ -117,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71588c8b3413f33f0800000000000000
-      internalID: -918961632027572969
+      spriteID: d5be1c68d3382dc70800000000000000
+      internalID: 8994395706089401181
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SoldierSprite_1
+      name: FollowerSprite_3
       rect:
         serializedVersion: 2
         x: 16
@@ -138,8 +192,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50d690a150f7cb340800000000000000
-      internalID: 4880915756051164421
+      spriteID: df686b09812d47550800000000000000
+      internalID: 6157777593471239933
       vertices: []
       indices: 
       edges: []

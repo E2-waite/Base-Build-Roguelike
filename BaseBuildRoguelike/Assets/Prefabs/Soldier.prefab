@@ -320,7 +320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   squad: {fileID: 0}
-  maxHealth: 10
+  maxHealth: 3
   health: 0
   hitDamage: 1
   targetDist: 1
@@ -329,6 +329,7 @@ MonoBehaviour:
   highlight: {fileID: 1158189135023345973}
   marker: {fileID: 8840559668946194276}
   squadPrefab: {fileID: 8437693019058054867, guid: 4f60460212a58984992ec2ab3a5e4e3b, type: 3}
+  corpsePrefab: {fileID: 809098620326100432, guid: 7754f47f05ebac54aa4201eca1d63503, type: 3}
   state: 0
   target: {fileID: 0}
   hitSpeed: 1

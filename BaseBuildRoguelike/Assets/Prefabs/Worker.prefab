@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -918961632027572969, guid: 97da8aba6591e744e8e867b3300f44bf, type: 3}
+  m_Sprite: {fileID: 1418035252005219442, guid: 97da8aba6591e744e8e867b3300f44bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  squad: {fileID: 0}
   maxHealth: 10
   health: 0
   hitDamage: 1
@@ -131,6 +132,8 @@ MonoBehaviour:
   interaction: {fileID: 0}
   highlight: {fileID: 3046307727713805403}
   marker: {fileID: 486432622879390999}
+  squadPrefab: {fileID: 0}
+  corpsePrefab: {fileID: 809098620326100432, guid: 4b68942577a839c428900ac02f40917c, type: 3}
   state: 0
   lastState: 0
   gatherTime: 1

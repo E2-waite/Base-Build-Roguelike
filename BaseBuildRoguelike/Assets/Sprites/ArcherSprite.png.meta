@@ -1,7 +1,19 @@
 fileFormatVersion: 2
 guid: dbcbb4b494a3a7043a84d69a6dd74967
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -2709864772838058275
+    second: ArcherSprite_0
+  - first:
+      213: 2024044439000665475
+    second: ArcherSprite_1
+  - first:
+      213: 795456475309832190
+    second: ArcherSprite_2
+  - first:
+      213: -4987842976937711469
+    second: ArcherSprite_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -139,7 +151,49 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SoldierSprite_0
+      name: ArcherSprite_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd694a9b850a46ad0800000000000000
+      internalID: -2709864772838058275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherSprite_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38d4d3481b9d61c10800000000000000
+      internalID: 2024044439000665475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherSprite_2
       rect:
         serializedVersion: 2
         x: 0
@@ -153,14 +207,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71588c8b3413f33f0800000000000000
-      internalID: -918961632027572969
+      spriteID: ef7702523770a0b00800000000000000
+      internalID: 795456475309832190
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SoldierSprite_1
+      name: ArcherSprite_3
       rect:
         serializedVersion: 2
         x: 16
@@ -174,8 +228,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50d690a150f7cb340800000000000000
-      internalID: 4880915756051164421
+      spriteID: 398633c3d3f97cab0800000000000000
+      internalID: -4987842976937711469
       vertices: []
       indices: 
       edges: []

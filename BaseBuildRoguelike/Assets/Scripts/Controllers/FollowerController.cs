@@ -6,7 +6,7 @@ public class FollowerController : MonoSingleton<FollowerController>
 {
     public int followerCost = 10;
     public GameObject followerPrefab;
-    List<Follower> followers = new List<Follower>();
+    public List<Follower> followers = new List<Follower>();
     public Follower selected;
     public Squad selectedSquad = null;
     public int maxFollowers = 1;

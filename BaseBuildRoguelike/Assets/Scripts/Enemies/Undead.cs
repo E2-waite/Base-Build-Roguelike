@@ -13,26 +13,29 @@ public class Undead : Enemy
     [Header("Undead Settings")]
     public UndeadType undeadType;
     public float hitSpeed = 1;
-    public bool canAttack = true;
+    public bool canAttack = true, alive = false;
 
     private void Update()
     {
-        if (target == null)
+        if (alive)
         {
-            target = GameController.Instance.homeBuilding;
-        }
-        else
-        {
-            if (canAttack && Vector2.Distance(transform.position, target.transform.position) <= targetDist)
+            if (target == null)
             {
-                // Attack
-                StartCoroutine(AttackRoutine());
-
+                target = GameController.Instance.homeBuilding;
             }
             else
             {
-                Move(target.transform.position);
+                if (canAttack && Vector2.Distance(transform.position, target.transform.position) <= targetDist)
+                {
+                    // Attack
+                    StartCoroutine(AttackRoutine());
 
+                }
+                else
+                {
+                    Move(target.transform.position);
+
+                }
             }
         }
     }
@@ -53,5 +56,10 @@ public class Undead : Enemy
             }
         }
         canAttack = true;
+    }
+
+    void Revive()
+    {
+        alive = true;
     }
 }
