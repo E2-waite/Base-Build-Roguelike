@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2743365640547367739}
   - component: {fileID: 3247772123857171840}
   - component: {fileID: 6455531313580971808}
+  - component: {fileID: 3033115656265013883}
   m_Layer: 11
   m_Name: Necromancer
   m_TagString: Enemy
@@ -133,6 +134,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   corpses: []
+  undead: []
+  cooldown: 10
+  currCooldown: 0
 --- !u!114 &3438430402389115328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,6 +217,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3033115656265013883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2743365640547367737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9253cf6d0bc70c74caae7bb934c9b31c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  update: 1
+  tallTop: 0
 --- !u!1 &4663610513723719587
 GameObject:
   m_ObjectHideFlags: 0

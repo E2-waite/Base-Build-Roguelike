@@ -15,9 +15,11 @@ public class Tile : MonoBehaviour
     public GameObject structure;
 
     public Sprite[] sprites = new Sprite[3];
-
+    public Color corruptedColour;
     Color highlightColour = Color.red, baseColour;
     public SpriteRenderer rend;
+
+    public float corruptionVal = 0;
 
     public virtual void Setup()
     {
@@ -60,6 +62,15 @@ public class Tile : MonoBehaviour
         else if (!higherTile && lowerTile)
         {
             rend.sprite = sprites[1];
+        }
+    }
+
+    IEnumerator CorruptRoutine()
+    {
+        while (corruptionVal < 100)
+        {
+            corruptionVal += Time.deltaTime;
+            yield return null;
         }
     }
 }
