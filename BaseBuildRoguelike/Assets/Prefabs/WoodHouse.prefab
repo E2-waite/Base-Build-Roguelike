@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5741391851399633433}
   - component: {fileID: 5741391851399633432}
-  - component: {fileID: -979706395766238759}
-  - component: {fileID: 4972683383579464941}
+  - component: {fileID: 644403839217070835}
   - component: {fileID: 3410417643914874638}
   - component: {fileID: 2337094195513203838}
   - component: {fileID: -5139101483823335845}
@@ -88,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-979706395766238759
+--- !u!114 &644403839217070835
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,34 +96,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5741391851399633439}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d2e213492840494e8bb2a663856abf6, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a239283b97d09a4a9e514a4029eddc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 2
-  follower: {fileID: 0}
-  resource: {fileID: 0}
-  building: {fileID: 0}
-  creature: {fileID: 0}
-  enemy: {fileID: 0}
---- !u!114 &4972683383579464941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5741391851399633439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc8e190913587c1419692552dce61c11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
+  rend: {fileID: 0}
   isConstructed: 0
   selected: 0
   repair: 0
   maxRepair: 25
   construct: {fileID: 0}
-  interaction: {fileID: 0}
 --- !u!114 &3410417643914874638
 MonoBehaviour:
   m_ObjectHideFlags: 0

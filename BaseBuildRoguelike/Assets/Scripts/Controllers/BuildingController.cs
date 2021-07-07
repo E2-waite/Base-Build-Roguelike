@@ -8,35 +8,39 @@ public class BuildingController : MonoSingleton<BuildingController>
     public class BuildingTemplate
     {
         public GameObject prefab;
+        public Sprite sprite;
     }
     public GameObject firepitPrefab;
     public List<BuildingTemplate> buildingTypes = new List<BuildingTemplate>();
     public BuildingTemplate selectedTemplate = null;
 
     public Building selected;
-
-    public List<ResourceStorage> woodPiles = new List<ResourceStorage>();
-    public List<ResourceStorage> stonePiles = new List<ResourceStorage>();
-    public List<ResourceStorage> foodPiles = new List<ResourceStorage>();
+    public List<ResourceStorage>[] storages = new List<ResourceStorage>[Consts.NUM_RESOURCES];
     public HomeBase homeBase;
     public Wall[,] walls;
     public Inspector inspector;
     private void Start()
     {
         walls = new Wall[GameController.Instance.grid.mapSize, GameController.Instance.grid.mapSize];
+        for (int i = 0; i < Consts.NUM_RESOURCES; i++)
+        {
+            storages[i] = new List<ResourceStorage>();
+        }
     }
 
     public void SpawnHome(Tile tile)
     {
-        tile.structure = Instantiate(firepitPrefab, tile.transform.position, Quaternion.identity);
-        homeBase = tile.structure.GetComponent<HomeBase>();
+        GameObject building = Instantiate(firepitPrefab, tile.transform.position, Quaternion.identity);
+        tile.structure = building.GetComponent<Interaction>();
+        homeBase = tile.structure as HomeBase;
     }
 
     public void Build(Tile tile)
     {
         if (tile != null && tile.structure == null && selectedTemplate != null)
         {
-            tile.structure = Instantiate(selectedTemplate.prefab, tile.transform.position, Quaternion.identity);
+            GameObject building = Instantiate(selectedTemplate.prefab, tile.transform.position, Quaternion.identity);
+            tile.structure = building.GetComponent<Interaction>();
             tile.structure.transform.parent = tile.transform;
         }
     }
@@ -64,22 +68,7 @@ public class BuildingController : MonoSingleton<BuildingController>
 
     public bool UseResource(Resource.Type type, int val)
     {
-        List<ResourceStorage> resourceStorage = new List<ResourceStorage>();
-
-        if (type == Resource.Type.wood)
-        {
-            resourceStorage = woodPiles;
-        }
-        else if (type == Resource.Type.stone)
-        {
-            resourceStorage = stonePiles;
-        }
-        else if (type == Resource.Type.food)
-        {
-            resourceStorage = foodPiles;
-        }
-
-        foreach (ResourceStorage storage in resourceStorage)
+        foreach (ResourceStorage storage in storages[(int)type])
         {
             if (storage.Withdraw(ref val))
             {

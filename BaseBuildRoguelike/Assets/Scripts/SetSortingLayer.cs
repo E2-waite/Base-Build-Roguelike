@@ -4,20 +4,12 @@ using UnityEngine;
 
 public class SetSortingLayer : MonoBehaviour
 {
-    public bool update = false, tallTop = false;
-    SpriteRenderer rend, parentRend;
+    public bool update = false;
+    SpriteRenderer rend;
     void Start()
     {
         rend = GetComponent<SpriteRenderer>();
-        if (!tallTop)
-        {
-            rend.sortingOrder = (int)-(transform.position.y * 10);
-        }
-        else
-        {
-            parentRend = transform.parent.GetComponent<SpriteRenderer>();
-            rend.sortingOrder = parentRend.sortingOrder;
-        }
+        rend.sortingOrder = (int)(transform.position.y * 10);
     }
 
     // Update is called once per frame
@@ -25,14 +17,7 @@ public class SetSortingLayer : MonoBehaviour
     {
         if (update)
         {
-            if (!tallTop)
-            {
-                rend.sortingOrder = (int)-(transform.position.y * 10);
-            }
-            else
-            {
-                rend.sortingOrder = parentRend.sortingOrder;
-            }
+            rend.sortingOrder = (int)(transform.position.y * 10);
         }
     }
 }

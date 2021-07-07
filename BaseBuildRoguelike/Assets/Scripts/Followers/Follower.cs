@@ -2,39 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Follower : MonoBehaviour
+public abstract class Follower : Interaction
 {
-    public enum Type
-    {
-        worker,
-        soldier,
-        archer,
-        priest
-    }
-
     [Header("Follower Settings")]
-    public Type type;
     public Squad squad;
     public int maxHealth = 10, health, hitDamage = 1;
     public float targetDist = 0.25f, speed = 5f;
-    [HideInInspector] public Interaction interaction;
-    Animator anim;
-    SpriteRenderer rend;
+
     public GameObject highlight, marker, squadPrefab, corpsePrefab;
     bool selected;
 
+    protected Animator anim;
+    protected SpriteRenderer rend;
 
     private void Start()
     {
         health = maxHealth;
         anim = GetComponent<Animator>();
         rend = GetComponent<SpriteRenderer>();
-        interaction = GetComponent<Interaction>();
-        if (type == Type.worker)
-        {
-            Worker worker = GetComponent<Worker>();
-            worker.Setup();
-        }
+        Setup();
+    }
+
+    public virtual void Setup()
+    {
 
     }
 
@@ -108,10 +98,9 @@ public class Follower : MonoBehaviour
         health -= damage;
         StartCoroutine(HitRoutine());
 
-        if (type == Type.soldier)
+        if (this is Soldier)
         {
-            Soldier soldier = (Soldier)this;
-            soldier.TargetEnemy(attacker);
+            ((Soldier)this).TargetEnemy(attacker);
         }
 
         if (health <= 0)

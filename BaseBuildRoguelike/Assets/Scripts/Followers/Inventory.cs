@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public int wood = 0, stone = 0, food = 0, capacity = 10; 
-    
+    public int[] resources = new int[Consts.NUM_RESOURCES];
+    public int capacity = 10;
     public bool AtCapacity()
     {
-        if (wood + stone + food >= capacity)
+        int total = 0;
+        for (int i = 0; i < Consts.NUM_RESOURCES; i++)
+        {
+            total += resources[i];
+        }
+
+        if (total >= capacity)
         {
             return true;
         }

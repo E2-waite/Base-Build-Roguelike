@@ -83,22 +83,23 @@ public class Archer : Follower
             marker.transform.position = obj.transform.position;
 
 
-            if (target.type == Interaction.InteractionType.enemy)
+            if (target is Enemy)
             {
                 state = State.attack;
             }
-            else if (target.type == Interaction.InteractionType.building)
+            else if (target is Building)
             {
-                if (target.building.isConstructed)
+                if ((target as Building).isConstructed)
                 {
                     state = State.defend;
                 }
             }
-            else if (target.type == Interaction.InteractionType.follower)
+            else if (target is Follower)
             {
-                if (target.follower.type == Type.soldier || target.follower.type == Type.archer)
+                Follower follower = target as Follower;
+                if (follower is Soldier || follower is Archer)
                 {
-                    JoinSquad(target.follower);
+                    JoinSquad(follower);
                 }
             }
         }
@@ -129,7 +130,7 @@ public class Archer : Follower
 
         if (newTarget != null)
         {
-            target = newTarget.interaction;
+            target = newTarget;
             return true;
         }
         return false;

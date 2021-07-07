@@ -12,29 +12,38 @@ public class Tile : MonoBehaviour
         darkGrass = 3
     }
     public Type type;
-    public GameObject structure;
+    public Interaction structure;
 
     public Sprite[] sprites = new Sprite[3];
     public Color corruptedColour;
-    Color highlightColour = Color.red, baseColour;
+    private Color highlightColour = Color.red, baseColour, currentColour;
     public SpriteRenderer rend;
 
     public float corruptionVal = 0;
+    float corruptionSpeed = 15, purifySpeed = 50;
+    private int corruptionMulti = 0;
+    private bool selected;
+
+    private List<PurifyPillar> pillars = new List<PurifyPillar>();
+    public bool isProtected = false;
 
     public virtual void Setup()
     {
         rend = GetComponent<SpriteRenderer>();
         baseColour = rend.color;
+        currentColour = baseColour;
     }
 
     public void Select()
     {
+        selected = true;
         rend.color = highlightColour;
     }
 
     public void Deselect()
     {
-        rend.color = baseColour;
+        selected = false;
+        rend.color = currentColour;
     }
 
     public void UpdateSprite(Grid grid, int x, int y)
@@ -65,12 +74,120 @@ public class Tile : MonoBehaviour
         }
     }
 
-    IEnumerator CorruptRoutine()
+    public bool Corrupt(Vector2Int pos)
+    {
+        if (corruptionVal < 100)
+        {
+            StartCoroutine(CorruptRoutine(pos));
+            return true;
+        }
+        return false;
+    }
+
+    IEnumerator CorruptRoutine(Vector2Int pos)
     {
         while (corruptionVal < 100)
         {
-            corruptionVal += Time.deltaTime;
+            corruptionVal += corruptionSpeed * Time.deltaTime;
+
+            float amount = corruptionVal / 100;
+            currentColour = Color.Lerp(baseColour, corruptedColour, amount);
+            if (!selected)
+            {
+                rend.color = currentColour;
+            }
+
+            //if (structure != null)
+            //{
+            //    structure.Corrupt(corruptedColour, amount);
+            //}
             yield return null;
+        }
+        CorruptNeighbours(pos);
+        EnemyController.Instance.AddCorruptedTile(this);
+        StopAllCoroutines();
+    }
+
+    void CorruptNeighbours(Vector2Int pos)
+    {
+        Vector2Int newPos = new Vector2Int(pos.x, pos.y + 1);
+        CorruptNeighbour(newPos);
+
+        newPos = new Vector2Int(pos.x + 1, pos.y);
+        CorruptNeighbour(newPos);
+
+        newPos = new Vector2Int(pos.x, pos.y - 1);
+        CorruptNeighbour(newPos);
+
+        newPos = new Vector2Int(pos.x - 1, pos.y);
+        CorruptNeighbour(newPos);
+    }
+
+    bool CorruptNeighbour(Vector2Int pos)
+    {
+        if (Tiles.InGrid(pos))
+        {
+            Tile neighbour = Tiles.GetTile(pos);
+            if (neighbour.type != Type.water && !neighbour.isProtected)
+            {
+                return neighbour.Corrupt(pos);
+            }
+        }
+        return false;
+    }
+
+
+
+    public void Purify(PurifyPillar pillar)
+    {
+        isProtected = true;
+        pillars.Add(pillar);
+        StopAllCoroutines();
+        StartCoroutine(PurifyRoutine());
+    }
+
+    IEnumerator PurifyRoutine()
+    {
+        while (corruptionVal > 0)
+        {
+            corruptionVal -= Time.deltaTime * purifySpeed;
+            float amount = corruptionVal / 100;
+            currentColour = Color.Lerp(baseColour, corruptedColour, amount);
+            if (!selected)
+            {
+                rend.color = currentColour;
+            }
+
+            //if (structure != null)
+            //{
+            //    structure.Corrupt(corruptedColour, amount);
+            //}
+            yield return null;
+        }
+        EnemyController.Instance.RemoveCorruptedTile(this);
+        StopAllCoroutines();
+    }
+
+    public void RemovePillar(PurifyPillar pillar)
+    {
+        pillars.Remove(pillar);
+        if (pillars.Count == 0)
+        {
+            isProtected = false;
+            StopAllCoroutines();
+        }
+
+        // check if adjascent to corrupted tile, if so start corrupting
+        Vector2Int pos = new Vector2Int((int)transform.position.x, (int)transform.position.y);
+
+        Vector2Int[] neighbours = Tiles.NeighbourPositions(pos);
+
+        for (int i = 0; i < neighbours.Length; i++)
+        {
+            if (Tiles.InGrid(neighbours[i]) && Tiles.GetTile(neighbours[i]).corruptionVal >= 100)
+            {
+                Corrupt(pos);
+            }
         }
     }
 }

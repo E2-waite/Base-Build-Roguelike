@@ -2,30 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Building : MonoBehaviour
+public abstract class Building : Interaction
 {
-    public enum Type
-    {
-        house,
-        storage,
-        wall,
-        home
-    }
     [Header("Building Settings")]
-    public Type type;
     public bool isConstructed = false;
     public bool selected = false;
 
     public int repair, maxRepair = 25;
 
     [HideInInspector] public Construct construct;
-    [HideInInspector] public Interaction interaction;
-
+    protected SpriteRenderer rend;
 
     private void Start()
     {
+        rend = GetComponent<SpriteRenderer>();
         repair = maxRepair;
-        interaction = GetComponent<Interaction>();
         if (!isConstructed)
         {
             construct = GetComponent<Construct>();
@@ -35,22 +26,13 @@ public class Building : MonoBehaviour
     public void Constructed()
     {
         isConstructed = true;
-        if (type == Type.storage)
-        {
-            ResourceStorage storage = GetComponent<ResourceStorage>();
-            storage.Setup();
-        }
-        else if (type == Type.wall)
-        {
-            Wall wall = GetComponent<Wall>();
-            wall.Setup();
-        }
-        else if (type == Type.house)
-        {
-            FollowerController.Instance.AdjustMaxFollowers(5);
-        }
-
+        Setup();
         ReloadInspector();
+    }
+
+    public virtual void Setup()
+    {
+
     }
 
     public void ReloadInspector()

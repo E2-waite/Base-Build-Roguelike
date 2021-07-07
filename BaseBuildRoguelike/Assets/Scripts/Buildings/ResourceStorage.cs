@@ -8,25 +8,16 @@ public class ResourceStorage : Building
     public Resource.Type storageType;
     public int maxStorage = 100, currentStorage = 0;
     public List<Sprite> stages = new List<Sprite>();
-    SpriteRenderer rend;
 
-    public void Setup()
+    public override void Setup()
     {
-        rend = GetComponent<SpriteRenderer>();
+        if (rend == null)
+        {
+            rend = GetComponent<SpriteRenderer>();
+        }
         rend.sprite = stages[0];
 
-        if (storageType == Resource.Type.wood)
-        {
-            BuildingController.Instance.woodPiles.Add(this);
-        }
-        else if (storageType == Resource.Type.stone)
-        {
-            BuildingController.Instance.stonePiles.Add(this);
-        }
-        else if (storageType == Resource.Type.food)
-        {
-            BuildingController.Instance.foodPiles.Add(this);
-        }
+        BuildingController.Instance.storages[(int)storageType].Add(this);
 
         GameController.Instance.AdjustResources(storageType, 0, maxStorage);
     }

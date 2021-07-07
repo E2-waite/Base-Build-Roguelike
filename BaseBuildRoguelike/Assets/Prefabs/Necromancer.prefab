@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2743365640547367736}
   - component: {fileID: 2743365640547367733}
-  - component: {fileID: 2754612900300157373}
   - component: {fileID: 5695739135131903698}
   - component: {fileID: 3438430402389115328}
   - component: {fileID: 2743365640547367739}
@@ -92,24 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2754612900300157373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2743365640547367737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d2e213492840494e8bb2a663856abf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 4
-  follower: {fileID: 0}
-  resource: {fileID: 0}
-  building: {fileID: 0}
-  creature: {fileID: 0}
-  enemy: {fileID: 0}
 --- !u!114 &5695739135131903698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,13 +103,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adba7ae89d4273443b684a4b72c8d40f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  rend: {fileID: 0}
   maxHealth: 3
   health: 0
   hitDamage: 1
   speed: 2
   targetDist: 0.25
-  interaction: {fileID: 0}
   target: {fileID: 0}
   buildingMask:
     serializedVersion: 2

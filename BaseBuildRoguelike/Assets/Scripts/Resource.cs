@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Resource : MonoBehaviour
+public class Resource : Interaction
 {
-    Animator anim;
+
     public int val = 10;
-    public enum Type
+    public enum Type : int
     {
         wood,
         stone,
@@ -14,26 +14,21 @@ public class Resource : MonoBehaviour
     }
     public Type type;
 
+    protected Animator anim;
+    protected SpriteRenderer rend;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
+        rend = GetComponent<SpriteRenderer>();
     }
 
     public bool Gather(Inventory inv)
     {
         StartCoroutine(HitRoutine());
-        if (type == Type.wood)
-        {
-            inv.wood++;
-        }
-        if (type == Type.stone)
-        {
-            inv.stone++;
-        }
-        if (type == Type.food)
-        {
-            inv.food++;
-        }
+
+        // Adds resource to the resource type's corresponding inventory 
+        inv.resources[(int)type]++;
 
         val--;
         if (val <= 0)

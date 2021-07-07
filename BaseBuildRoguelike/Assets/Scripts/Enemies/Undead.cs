@@ -46,13 +46,13 @@ public class Undead : Enemy
         yield return new WaitForSeconds(1 / hitSpeed);
         if (target != null)
         {
-            if (target.type == Interaction.InteractionType.follower && Vector2.Distance(transform.position, target.transform.position) <= targetDist)
+            if (target is Follower && Vector2.Distance(transform.position, target.transform.position) <= targetDist)
             {
-                target.follower.Hit(hitDamage, this);
+                (target as Follower).Hit(hitDamage, this);
             }
-            else if (target.type == Interaction.InteractionType.building)
+            else if (target is Building)
             {
-                target.building.Hit(hitDamage);
+                (target as Building).Hit(hitDamage);
             }
         }
         canAttack = true;

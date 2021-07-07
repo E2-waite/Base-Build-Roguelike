@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Creature : MonoBehaviour
+public class Creature : Interaction
 {
     public enum Type
     {
@@ -12,8 +12,8 @@ public class Creature : MonoBehaviour
     public float wanderRange = 10, speed = 10;
     public int maxHealth = 3, health = 0, food = 5;
     Vector3 startPos, targetPos;
-    Animator anim;
-    SpriteRenderer rend;
+    protected Animator anim;
+    protected SpriteRenderer rend;
     // Start is called before the first frame update
     void Start()
     {
@@ -68,7 +68,7 @@ public class Creature : MonoBehaviour
 
     public void GatherFood(Inventory inv)
     {
-        inv.food += food;
+        inv.resources[(int)Resource.Type.food] += food;
     }
 
     void SetAnimDir()

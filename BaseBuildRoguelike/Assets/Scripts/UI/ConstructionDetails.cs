@@ -8,6 +8,7 @@ public class ConstructionDetails : MonoBehaviour
 
     public void Reload(Building building)
     {
+        Debug.Log(building.name);
         woodText.text = (building.construct.woodCost - building.construct.woodRemaining).ToString() + "/" + building.construct.woodCost.ToString();
         stoneText.text = (building.construct.stoneCost - building.construct.stoneRemaining).ToString() + "/" + building.construct.stoneCost.ToString();
     }

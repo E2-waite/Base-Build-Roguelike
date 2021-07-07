@@ -5,11 +5,13 @@ using UnityEngine;
 public class Wall : Building
 {
     public Sprite[] wallSprites;
-    SpriteRenderer rend;
 
-    public void Setup()
+    public override void Setup()
     {
-        rend = GetComponent<SpriteRenderer>();
+        if (rend == null)
+        {
+            rend = GetComponent<SpriteRenderer>();
+        }
         Vector2Int pos = new Vector2Int((int)transform.position.x, (int)transform.position.y);
         BuildingController.Instance.walls[pos.x, pos.y] = this;
         CheckDirs(pos);

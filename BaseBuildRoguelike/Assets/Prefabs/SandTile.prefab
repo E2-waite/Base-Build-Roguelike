@@ -129,4 +129,6 @@ MonoBehaviour:
   - {fileID: 7223950226953391895, guid: a5e72c97990554748a9cbcefffaf7a84, type: 3}
   - {fileID: -8377130690987618698, guid: a5e72c97990554748a9cbcefffaf7a84, type: 3}
   - {fileID: -4684333735789482159, guid: a5e72c97990554748a9cbcefffaf7a84, type: 3}
+  corruptedColour: {r: 0.46795925, g: 0.3484336, b: 0.8490566, a: 1}
   rend: {fileID: 0}
+  corruptionVal: 0

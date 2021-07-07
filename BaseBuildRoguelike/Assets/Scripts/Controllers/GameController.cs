@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GameController : MonoSingleton<GameController>
 {
-    public int wood = 0, stone = 0, food = 0, maxWood, maxStone, maxFood;
+    public int[] resources = new int[Consts.NUM_RESOURCES];
+    public int[] maxResources = new int[Consts.NUM_RESOURCES];
     public Grid grid;
     MouseControl mouse;
     FollowerController follower;
@@ -35,27 +36,15 @@ public class GameController : MonoSingleton<GameController>
         follower.SpawnFollower(new Vector3(startPos.x, startPos.y, 0));
         enemies.StartSpawning();
         BuildingController.Instance.SpawnHome(grid.tiles[startPos.x, startPos.y]);
-        homeBuilding = grid.tiles[startPos.x, startPos.y].structure.GetComponent<Interaction>();
+        homeBuilding = grid.tiles[startPos.x, startPos.y].structure;
     }
 
     public void AdjustResources(Resource.Type type, int val, int maxVal)
     {
-        if (type == Resource.Type.wood)
-        {
-            wood += val;
-            maxWood += maxVal;
-        }
-        else if (type == Resource.Type.stone)
-        {
-            stone += val;
-            maxStone += maxVal;
-        }
-        else if (type == Resource.Type.food)
-        {
-            food += val;
-            maxFood += maxVal;
-        }
+        int pos = (int)type;
+        resources[pos] += val;
+        maxResources[pos] += maxVal;
 
-        HUD.Instance.UpdateResources(wood, maxWood, stone, maxStone, food, maxFood);
+        HUD.Instance.UpdateResources(resources, maxResources);
     }
 }

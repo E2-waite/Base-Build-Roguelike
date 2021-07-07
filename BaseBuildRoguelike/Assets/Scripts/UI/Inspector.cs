@@ -38,11 +38,11 @@ public class Inspector : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
         if (building.isConstructed)
         {
-            if (building.type == Building.Type.storage)
+            if (building is ResourceStorage)
             {
                 thisType = Type.resources;
             }
-            else if (building.type == Building.Type.home)
+            else if (building is HomeBase)
             {
                 thisType = Type.home;
             }
@@ -67,8 +67,7 @@ public class Inspector : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         if (currentType == Type.resources)
         {
-            ResourceStorage storage = (ResourceStorage)building;
-            resources.Reload(storage);
+            resources.Reload(building as ResourceStorage);
         }
         else if (currentType == Type.construction)
         {

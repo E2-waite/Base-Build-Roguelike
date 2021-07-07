@@ -24,7 +24,7 @@ public class Worker : Follower
     public bool canGather = true, canBuild = true, canHit = true;
 
     private Inventory inventory;
-    public void Setup()
+    public override void Setup()
     {
         inventory = GetComponent<Inventory>();
     }
@@ -45,13 +45,14 @@ public class Worker : Follower
             marker.transform.position = obj.transform.position;
 
 
-            if (target.type == Interaction.InteractionType.resource)
+            if (target is Resource)
             {
-                if (target.resource.type == Resource.Type.wood)
+                Resource resource = target as Resource;
+                if (resource.type == Resource.Type.wood)
                 {
                     state = State.chopWood;
                 }
-                else if (target.resource.type == Resource.Type.stone)
+                else if (resource.type == Resource.Type.stone)
                 {
                     state = State.mineStone;
                 }
@@ -61,11 +62,12 @@ public class Worker : Follower
                     FindStorage();
                 }
             }
-            else if (target.type == Interaction.InteractionType.building)
+            else if (target is Building)
             {
-                if (target.building.isConstructed)
+                Building building = target as Building;
+                if (building.isConstructed)
                 {
-                    if (target.building.type == Building.Type.storage)
+                    if (building is ResourceStorage)
                     {
                         state = State.store;
                     }
@@ -75,7 +77,7 @@ public class Worker : Follower
                     state = State.build;
                 }
             }
-            else if (target.type == Interaction.InteractionType.creature)
+            else if (target is Creature)
             {
                 state = State.hunt;
 
@@ -152,19 +154,9 @@ public class Worker : Follower
 
     void Store()
     {
-        ResourceStorage storage = (ResourceStorage)target.building;
-        if (storage.storageType == Resource.Type.wood)
-        {
-            storage.Store(ref inventory.wood);
-        }
-        else if (storage.storageType == Resource.Type.stone)
-        {
-            storage.Store(ref inventory.stone);
-        }
-        else if (storage.storageType == Resource.Type.food)
-        {
-            storage.Store(ref inventory.food);
-        }
+        ResourceStorage storage = target as ResourceStorage;
+
+        storage.Store(ref inventory.resources[(int)storage.storageType]);
 
         if (!FindStorage() && (lastState == State.chopWood || lastState == State.mineStone || lastState == State.hunt))
         {
@@ -203,17 +195,12 @@ public class Worker : Follower
         List<ResourceStorage> storageBuildings = new List<ResourceStorage>();
 
         // Only checks resources that are in the follower's inventory
-        if (inventory.wood > 0)
+        for (int i = 0; i < Consts.NUM_RESOURCES; i++)
         {
-            storageBuildings.AddRange(BuildingController.Instance.woodPiles);
-        }
-        if (inventory.stone > 0)
-        {
-            storageBuildings.AddRange(BuildingController.Instance.stonePiles);
-        }
-        if (inventory.food > 0)
-        {
-            storageBuildings.AddRange(BuildingController.Instance.foodPiles);
+            if (inventory.resources[i] > 0)
+            {
+                storageBuildings.AddRange(BuildingController.Instance.storages[i]);
+            }
         }
 
         foreach (ResourceStorage storage in storageBuildings)
@@ -226,14 +213,7 @@ public class Worker : Follower
             }
         }
 
-        Interaction interaction = null;
-
-        if (closestStorage != null)
-        {
-            interaction = closestStorage.interaction;
-        }
-
-        return interaction;
+        return closestStorage;
     }
 
     Interaction FindResource()
@@ -284,7 +264,8 @@ public class Worker : Follower
 
         if (target != null)
         {
-            target.resource.Gather(inventory);
+            Resource resource = target as Resource;
+            resource.Gather(inventory);
         }
 
         if (inventory.AtCapacity())
@@ -303,7 +284,8 @@ public class Worker : Follower
 
         if (target != null)
         {
-            target.building.construct.Build();
+            Building building = target as Building;
+            building.construct.Build();
         }
 
         canBuild = true;
@@ -317,10 +299,11 @@ public class Worker : Follower
 
         if (target != null)
         {
-            if (state == State.hunt && target.creature.Hit(hitDamage))
+            Creature creature = target as Creature;
+            if (state == State.hunt && creature.Hit(hitDamage))
             {
                 // If target creature dies, gather food
-                target.creature.GatherFood(inventory);
+                creature.GatherFood(inventory);
 
                 // Then check if inventory is full, if so stores resources
                 if (inventory.AtCapacity())

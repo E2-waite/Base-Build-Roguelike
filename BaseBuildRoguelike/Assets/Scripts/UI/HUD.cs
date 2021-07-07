@@ -4,13 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 public class HUD : MonoSingleton<HUD>
 {
-    public Text stoneVal, woodVal, foodVal, followersVal;
+    public Text[] resourceText = new Text[3];
+    public Text followersVal;
 
-    public void UpdateResources(int wood, int maxWood, int stone, int maxStone, int food, int maxFood)
+    public void UpdateResources(int[] resources, int[] maxResources)
     {
-        woodVal.text = wood.ToString() + "/" + maxWood.ToString();
-        stoneVal.text = stone.ToString() + "/" + maxStone.ToString();
-        foodVal.text = food.ToString() + "/" + maxFood.ToString();
+        for (int i = 0; i < 3; i++)
+        {
+            resourceText[i].text = resources[i].ToString() + "/" + maxResources[i].ToString();
+        }
     }
 
     public void UpdateFollowers(int followers, int maxFollowers)

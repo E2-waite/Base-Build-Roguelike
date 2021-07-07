@@ -29,7 +29,11 @@ public class Arrow : MonoBehaviour
             }
             else
             {
-                target.enemy.Hit(hitDamage, follower);
+                if (target is Enemy)
+                {
+                    Enemy enemy = target as Enemy;
+                    enemy.Hit(hitDamage, follower);
+                }
                 Destroy(gameObject);
             }
         }

@@ -2,28 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : Interaction
 {
-    public enum Type
-    {
-        necromancer,
-        undead
-    }
     [Header("Enemy Settings")]
-    public Type type;
     public int maxHealth = 3, health, hitDamage = 1;
     public float speed = 2, targetDist = 0.25f;
-    [HideInInspector] public Interaction interaction;
-    SpriteRenderer rend;
-    Animator anim;
     public Interaction target;
     public LayerMask buildingMask;
+
+    protected SpriteRenderer rend;
+    protected Animator anim;
+
     private void Start()
     {
+        rend = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
         health = maxHealth;
         anim = GetComponent<Animator>();
-        rend = GetComponent<SpriteRenderer>();
-        interaction = GetComponent<Interaction>();
         target = GameController.Instance.homeBuilding;
     }
     public void Move(Vector3 position)
@@ -33,7 +28,7 @@ public class Enemy : MonoBehaviour
         anim.SetInteger("Direction", Mathf.RoundToInt(yDiff));
         RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(xDiff, yDiff), .2f, buildingMask);
 
-        if (hit.collider != null && target.type != Interaction.InteractionType.follower && target.gameObject != hit.collider.gameObject)
+        if (hit.collider != null && !(target is Follower) && target.gameObject != hit.collider.gameObject)
         {
             target = hit.collider.GetComponent<Interaction>();
         }
@@ -44,7 +39,7 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("HIT");
         health -= damage;
-        target = attacker.interaction;
+        target = attacker;
         StartCoroutine(HitRoutine());
 
         if (health <= 0)

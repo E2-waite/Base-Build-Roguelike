@@ -89,7 +89,7 @@ public class Soldier : Follower
 
         if (newTarget != null)
         {
-            target = newTarget.interaction;
+            target = newTarget;
             return true;
         }
         return false;
@@ -98,7 +98,7 @@ public class Soldier : Follower
     public void TargetEnemy(Enemy enemy)
     {
         canAttack = true;
-        target = enemy.interaction;
+        target = enemy;
         state = State.attack;
     }
 
@@ -114,22 +114,24 @@ public class Soldier : Follower
             marker.transform.position = obj.transform.position;
 
 
-            if (target.type == Interaction.InteractionType.enemy)
+            if (target is Enemy)
             {
                 state = State.attack;
             }
-            else if (target.type == Interaction.InteractionType.building)
+            else if (target is Building)
             {
-                if (target.building.isConstructed)
+                Building building = target as Building;
+                if (building.isConstructed)
                 {
                     state = State.defend;
                 }
             }
-            else if (target.type == Interaction.InteractionType.follower)
+            else if (target is Follower)
             {
-                if (target.follower.type == Type.soldier || target.follower.type == Type.archer)
+                Follower follower = target as Follower;
+                if (follower is Soldier || follower is Archer)
                 {
-                    JoinSquad(target.follower);
+                    JoinSquad(follower);
                 }
             }
         }
@@ -146,7 +148,8 @@ public class Soldier : Follower
         yield return new WaitForSeconds(1 / hitSpeed);
         if (target != null && Vector2.Distance(transform.position, target.transform.position) <= targetDist)
         {
-            target.enemy.Hit(hitDamage, this);
+            Enemy enemy = target as Enemy;
+            enemy.Hit(hitDamage, this);
         }
         canAttack = true;
     }

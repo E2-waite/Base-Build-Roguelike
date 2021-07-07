@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Corpse : MonoBehaviour
 {
-    public Follower.Type type;
     public GameObject healthyPrefab, undeadPrefab;
 
     private void Start()

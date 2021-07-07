@@ -22,6 +22,7 @@ public class Grid : MonoBehaviour
 
     public void Generate(Vector2Int basePos)
     {
+        Tiles.Setup(this, mapSize);
         tiles = new Tile[mapSize, mapSize];
 
         Random.seed = System.DateTime.Now.Millisecond;
@@ -78,8 +79,9 @@ public class Grid : MonoBehaviour
                 if (tiles[treePos.x, treePos.y].structure == null && 
                     (tiles[treePos.x, treePos.y].type == Tile.Type.grass || tiles[treePos.x, treePos.y].type == Tile.Type.darkGrass))
                 {
-                    tiles[treePos.x, treePos.y].structure = Instantiate(treePrefab, tiles[treePos.x, treePos.y].transform.position, Quaternion.identity);
-                    trees.Add(tiles[treePos.x, treePos.y].structure.GetComponent<Interaction>());
+                    GameObject obj = Instantiate(treePrefab, tiles[treePos.x, treePos.y].transform.position, Quaternion.identity);
+                    tiles[treePos.x, treePos.y].structure = obj.GetComponent<Interaction>();
+                    trees.Add(tiles[treePos.x, treePos.y].structure);
                     treePlaced = true;
                 }
             }
@@ -94,14 +96,19 @@ public class Grid : MonoBehaviour
                 Vector2Int stonePos = new Vector2Int((int)(Random.Range(0, mapSize)), (int)(Random.Range(0, mapSize)));
                 if (tiles[stonePos.x, stonePos.y].structure == null && tiles[stonePos.x, stonePos.y].type != Tile.Type.water)
                 {
-                    tiles[stonePos.x, stonePos.y].structure = Instantiate(stonePrefab, tiles[stonePos.x, stonePos.y].transform.position, Quaternion.identity);
-                    stones.Add(tiles[stonePos.x, stonePos.y].structure.GetComponent<Interaction>());
+                    GameObject obj = Instantiate(stonePrefab, tiles[stonePos.x, stonePos.y].transform.position, Quaternion.identity);
+                    tiles[stonePos.x, stonePos.y].structure = obj.GetComponent<Interaction>();
+                    stones.Add(tiles[stonePos.x, stonePos.y].structure);
                     stonePlaced = true;
                 }
             }
         }
 
         CreatureController.Instance.SpawnCreatures(mapSize);
+
+        Vector2Int corruptPos = new Vector2Int(Random.Range(0, mapSize), Random.Range(0, mapSize));
+        Debug.Log(corruptPos.ToString() + " Started Corruption");
+        tiles[corruptPos.x, corruptPos.y].Corrupt(corruptPos);
     }
 
     public bool IsSelected(Collider2D tile)

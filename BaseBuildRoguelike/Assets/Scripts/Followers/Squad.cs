@@ -75,7 +75,7 @@ public class Squad : MonoBehaviour
                 follower.Direct(pos, target);
 
                 // If target is a follower - only direct the first follower in the squad (prevents multiple instances of squad combination)
-                if (target != null && target.type == Interaction.InteractionType.follower)
+                if (target != null && target is Follower)
                 {
                     return;
                 }

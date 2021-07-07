@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3963982256496168283}
   - component: {fileID: 3963982256496168282}
-  - component: {fileID: 3963982256496168280}
-  - component: {fileID: 3963982256496168286}
   - component: {fileID: 3963982256496168281}
   - component: {fileID: 3963982256496168287}
   - component: {fileID: 4958449755118878837}
@@ -89,43 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3963982256496168280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3963982256496168285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d2e213492840494e8bb2a663856abf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 2
-  follower: {fileID: 0}
-  resource: {fileID: 0}
-  building: {fileID: 0}
-  creature: {fileID: 0}
-  enemy: {fileID: 0}
---- !u!114 &3963982256496168286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3963982256496168285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc8e190913587c1419692552dce61c11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 2
-  isConstructed: 0
-  selected: 0
-  repair: 0
-  maxRepair: 25
-  construct: {fileID: 0}
-  interaction: {fileID: 0}
 --- !u!114 &3963982256496168281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,8 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contruction: {fileID: 21300000, guid: 5b03fdbe90e8e4d4abd4620783ce2b9d, type: 3}
   constructed: {fileID: 0}
-  woodCost: 5
-  stoneCost: 5
+  woodCost: 0
+  stoneCost: 0
   woodRemaining: 0
   stoneRemaining: 0
 --- !u!114 &3963982256496168287
@@ -156,13 +117,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e647aab3e5d7d5f458c0242bbb73c7b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  rend: {fileID: 0}
   isConstructed: 0
   selected: 0
   repair: 0
   maxRepair: 25
   construct: {fileID: 0}
-  interaction: {fileID: 0}
   wallSprites:
   - {fileID: 6116906653869191027, guid: 12925ef923cad9849b017f1c26a508d7, type: 3}
   - {fileID: -9054878284588002444, guid: 12925ef923cad9849b017f1c26a508d7, type: 3}
