@@ -13,7 +13,7 @@ public class EnemyController : MonoSingleton<EnemyController>
 
     public List<EnemyTemplate> enemyTemplates = new List<EnemyTemplate>();
 
-    public List<Enemy> enemies = new List<Enemy>();
+    public List<Interaction> enemies = new List<Interaction>();
     public float spawnTime = 10;
     public List<Tile> corruptedTiles = new List<Tile>();
 
@@ -49,7 +49,7 @@ public class EnemyController : MonoSingleton<EnemyController>
                 enemy = Instantiate(enemyTemplates[i].prefab, spawnPos, Quaternion.identity);
             }
         }
-        if (enemy == null)
+        if (enemy == null) 
         {
             return null;
         }

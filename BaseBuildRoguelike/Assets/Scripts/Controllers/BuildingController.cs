@@ -7,6 +7,7 @@ public class BuildingController : MonoSingleton<BuildingController>
     [System.Serializable]
     public class BuildingTemplate
     {
+        public string name;
         public GameObject prefab;
         public Sprite sprite;
     }

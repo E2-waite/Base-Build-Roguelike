@@ -4,23 +4,10 @@ using UnityEngine;
 
 public class Worker : Follower
 {
-    public enum State
-    {
-        idle,
-        move,
-        chopWood,
-        mineStone,
-        store,
-        build,
-        hunt
-    }
-
-
     [Header("Worker Settings")]
-    public State state = State.idle;
     public State lastState = State.idle;
     public float gatherTime = 2, buildTime = 1, hitTime = 0.5f;
-    public Interaction target, lastTarget;
+    public Interaction lastTarget;
     public bool canGather = true, canBuild = true, canHit = true;
 
     private Inventory inventory;

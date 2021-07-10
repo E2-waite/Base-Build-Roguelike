@@ -75,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3452003437791708593, guid: 45145a24819a00c45a2a5b92b4fb2279, type: 3}
-  m_Color: {r: 1, g: 0.69146764, b: 0, a: 1}
+  m_Sprite: {fileID: 1325237055625117177, guid: 4d385f139351d89429655e617e2423a8, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -98,7 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b5caaa59029c6e419e071d5ccfcee48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rend: {fileID: 0}
   isConstructed: 0
   selected: 0
   repair: 0
@@ -116,8 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c58b9d38ba7251f43805cfb6a8667f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contruction: {fileID: 3452003437791708593, guid: 45145a24819a00c45a2a5b92b4fb2279, type: 3}
-  constructed: {fileID: 3452003437791708593, guid: 45145a24819a00c45a2a5b92b4fb2279, type: 3}
+  contruction: {fileID: 2645662901234962832, guid: 4d385f139351d89429655e617e2423a8, type: 3}
+  constructed: {fileID: 1325237055625117177, guid: 4d385f139351d89429655e617e2423a8, type: 3}
   woodCost: 0
   stoneCost: 0
   woodRemaining: 0
@@ -135,4 +134,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   update: 0
-  tallTop: 0

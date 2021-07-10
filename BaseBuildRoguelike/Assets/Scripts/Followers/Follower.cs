@@ -4,11 +4,25 @@ using UnityEngine;
 
 public abstract class Follower : Interaction
 {
+    public enum State
+    {
+        idle,
+        move,
+        chopWood,
+        mineStone,
+        store,
+        build,
+        hunt,
+        attack,
+        defend
+    }
     [Header("Follower Settings")]
-    public Squad squad;
+    public State state = State.idle;
+    public Interaction target;
+    public Squad squad, targetSquad;
     public int maxHealth = 10, health, hitDamage = 1;
-    public float targetDist = 0.25f, speed = 5f;
-
+    public float targetDist = 0.25f, speed = 5f, targetRange = 15;
+    public bool canAttack = true;
     public GameObject highlight, marker, squadPrefab, corpsePrefab;
     bool selected;
 
@@ -42,12 +56,13 @@ public abstract class Follower : Interaction
 
     public void Move(Vector3 position)
     {
+        // Move towards position and keep distance from other followers in squad
         transform.position = Vector2.MoveTowards(transform.position, position, speed * Time.deltaTime);
         float diff = position.y - transform.position.y;
         anim.SetInteger("Direction", Mathf.RoundToInt(diff));
         if (squad != null)
         {
-            foreach (Follower follower in squad.followers)
+            foreach (Follower follower in squad.members)
             {
                 if (follower != this && follower != null)
                 {
@@ -64,6 +79,7 @@ public abstract class Follower : Interaction
 
     public void JoinSquad(Follower follower)
     {
+        // Join/Merge squads
         if (follower.squad == null && squad == null)
         {
             // No squad - create one
@@ -91,10 +107,151 @@ public abstract class Follower : Interaction
 
     public virtual void Direct(Vector2 pos, Interaction obj)
     {
+        // Standard combat based direct (overridden by followers with unique functionality i.e. priests and workers)
+        canAttack = true;
+        marker.transform.position = pos;
+        if (obj != null)
+        {
+            Debug.Log("Target: " + obj.name);
+            target = obj;
 
+            marker.transform.position = obj.transform.position;
+
+
+            if (target is Enemy)
+            {
+                state = State.attack;
+                Enemy enemy = target as Enemy;
+                if (enemy.squad != null)
+                {
+                    targetSquad = enemy.squad;
+                }
+            }
+            else if (target is Building)
+            {
+                if ((target as Building).isConstructed)
+                {
+                    state = State.defend;
+                }
+            }
+            else if (target is Follower)
+            {
+                Follower follower = target as Follower;
+                if (follower is Soldier || follower is Archer)
+                {
+                    JoinSquad(follower);
+                }
+            }
+        }
+        else
+        {
+            target = null;
+            state = State.move;
+        }
     }
+
+    public void MoveTo(Vector2 pos)
+    {
+        target = null;
+        marker.transform.position = pos;
+        state = State.move;
+    }
+
+    public void TargetEnemy(Enemy enemy)
+    {
+        // Target enemy
+        canAttack = true;
+        if (enemy.squad == null)
+        {
+            target = enemy;
+            targetSquad = null;
+        }
+        else
+        {
+            // If target enemy is in a squad, instead target closest member of the squad
+            targetSquad = enemy.squad;
+            target = targetSquad.ClosestMember(transform.position);
+        }
+        marker.transform.position = target.transform.position;
+        state = State.attack;
+    }
+
+    protected Enemy GetClosestTarget()
+    {
+        Enemy newTarget = null;
+        float closestDist = 1000;
+
+
+        foreach (Enemy enemy in EnemyController.Instance.enemies)
+        {
+            if (enemy != null)
+            {
+                float dist = Vector3.Distance(transform.position, enemy.transform.position);
+
+                if (dist <= targetRange && dist < closestDist)
+                {
+                    closestDist = dist;
+                    newTarget = enemy;
+                }
+            }
+        }
+
+        return newTarget;
+    }
+
+    protected bool FindTarget()
+    {
+        if (squad == null)
+        {
+            if (targetSquad == null)
+            {
+                target = GetClosestTarget();
+                if (target != null)
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                // Targets closest enemy in targetted squad
+                target = targetSquad.ClosestMember(transform.position);
+                return true;
+            }
+        }
+        else
+        {
+            if (squad.target != null)
+            {
+                // Targets squad's current target
+                Debug.Log("Single squad target");
+                target = squad.target;
+                return true;
+            }
+            else if (squad.targetSquad != null)
+            {
+                // Finds closest enemy in squad's targetted enemy squad
+                Debug.Log("Enemy squad target");
+                target = squad.targetSquad.ClosestMember(transform.position);
+                return true;
+            }
+            else
+            {
+                // Finds non-targetted enemy in range, then sets the squad target to that enemy
+                Debug.Log("New squad target");
+                target = GetClosestTarget();
+                if (target != null)
+                {
+                    squad.SetTarget(target);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public bool Hit(int damage, Enemy attacker)
     {
+        // Take damage
         health -= damage;
         StartCoroutine(HitRoutine());
 
@@ -112,6 +269,7 @@ public abstract class Follower : Interaction
 
     IEnumerator HitRoutine()
     {
+        // React to hit after delay
         rend.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         rend.color = Color.white;
@@ -121,5 +279,4 @@ public abstract class Follower : Interaction
             Destroy(gameObject);
         }
     }
-
 }

@@ -6,7 +6,7 @@ public class FollowerController : MonoSingleton<FollowerController>
 {
     public int followerCost = 10;
     public GameObject followerPrefab;
-    public List<Follower> followers = new List<Follower>();
+    public List<Interaction> followers = new List<Interaction>();
     public Follower selected;
     public Squad selectedSquad = null;
     public int maxFollowers = 1;
@@ -75,18 +75,18 @@ public class FollowerController : MonoSingleton<FollowerController>
 
     public void DirectFollower(Vector2 pos, GameObject obj)
     {
+        Interaction objInteraction = null;
+        if (obj != null)
+        {
+            objInteraction = obj.GetComponent<Interaction>();
+        }
+
         if (selectedSquad != null)
         {
-            selectedSquad.Direct(pos, obj);
+            selectedSquad.Direct(pos, objInteraction);
         }
         else if (selected != null)
         {
-            Interaction objInteraction = null;
-            if (obj != null)
-            {
-                objInteraction = obj.GetComponent<Interaction>();
-            }
-
             selected.Direct(pos, objInteraction);
         }
     }

@@ -17,7 +17,7 @@ public class BuildingMenu : MonoBehaviour, IPointerClickHandler
         for (int i = 0; i < controller.buildingTypes.Count; i++)
         {
             buttons[i] = Instantiate(button, pos, Quaternion.identity);
-            buttons[i].transform.parent = transform;
+            buttons[i].transform.SetParent(transform);
             buttons[i].GetComponent<Image>().sprite = controller.buildingTypes[i].sprite;
             pos.x -= 25;
         }

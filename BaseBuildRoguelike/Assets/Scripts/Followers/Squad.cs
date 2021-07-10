@@ -9,28 +9,46 @@ public class Squad : MonoBehaviour
         idle,
         move,
         attack,
-        defend
+        defend,
+        merge
     }
+
+    public enum Type
+    {
+        friendly,
+        hostile
+    }
+
+    public Type type = Type.friendly;
     public State state = State.idle;
     public GameObject marker;
-    public int maxFollowers = 5;
-    public List<Follower> followers = new List<Follower>();
+    public int maxFollowers = 5, targetRange = 15;
+    public List<Interaction> members = new List<Interaction>();
+    public Squad targetSquad;
     public Interaction target;
     public bool selected = false;
     public void Setup(Follower follower1, Follower follower2)
     {
-        followers.Add(follower1);
-        followers.Add(follower2);
+        members.Add(follower1);
+        members.Add(follower2);
         follower1.squad = this;
         follower2.squad = this;
         FollowerController.Instance.selectedSquad = this;
         Select();
     }
 
+    public void Setup(Enemy enemy1, Enemy enemy2)
+    {
+        members.Add(enemy1);
+        members.Add(enemy2);
+        enemy1.squad = this;
+        enemy2.squad = this;
+    }
+
     public void AddFollower(Follower follower)
     {
         follower.squad = this;
-        followers.Add(follower);
+        members.Add(follower);
         FollowerController.Instance.selectedSquad = this;
         Select();
     }
@@ -39,54 +57,94 @@ public class Squad : MonoBehaviour
     {
         if (squad != this)
         {
-            foreach (Follower follower in squad.followers)
+            foreach (Follower follower in squad.members)
             {
                 if (follower != null)
                 {
                     follower.squad = this;
                 }
             }
-            followers.AddRange(squad.followers);
+            members.AddRange(squad.members);
             Destroy(squad.gameObject);
             FollowerController.Instance.selectedSquad = this;
             Select();
         }
     }
 
-    public void Direct(Vector2 pos, GameObject obj)
+    public void Direct(Vector2 pos, Interaction obj)
     {
         marker.transform.position = pos;
 
-        if (obj != null)
+        if (obj == null)
         {
-            marker.transform.position = obj.transform.position;
-            target = obj.GetComponent<Interaction>();
+            state = State.move;
+            marker.transform.position = pos;
+            target = null;
+            targetSquad = null;
         }
         else
         {
-            marker.transform.position = pos;
-            target = null;
+            marker.transform.position = obj.transform.position;
+
+            if (obj is Enemy)
+            {
+                state = State.attack;
+                Enemy enemy = obj as Enemy;
+                if (enemy.squad == null)
+                {
+                    target = enemy;
+                    targetSquad = null;
+                }
+                else
+                {
+                    target = null;
+                    targetSquad = enemy.squad;
+                }
+            }
+            else if (obj is Follower)
+            {
+                state = State.merge;
+                target = obj;
+                targetSquad = null;
+            }
         }
 
-        foreach (Follower follower in followers)
+        DirectSquad(pos);
+    }
+
+    void DirectSquad(Vector2 pos)
+    {
+        foreach (Follower follower in members)
         {
             if (follower != null)
             {
-                follower.Direct(pos, target);
-
-                // If target is a follower - only direct the first follower in the squad (prevents multiple instances of squad combination)
-                if (target != null && target is Follower)
+                if (state == State.move)
                 {
+                    follower.MoveTo(pos);
+                }
+                else if (state == State.attack)
+                {
+                    if (targetSquad == null)
+                    {
+                        follower.TargetEnemy(target as Enemy);
+                    }
+                    else
+                    {
+                        follower.TargetEnemy(targetSquad.ClosestMember(pos) as Enemy);
+                    }
+                }
+                else if (state == State.merge)
+                {
+                    follower.JoinSquad(target as Follower);
                     return;
                 }
             }
         }
-
     }
 
     public void Select()
     {
-        foreach (Follower follower in followers)
+        foreach (Follower follower in members)
         {
             if (follower != null)
             {
@@ -98,7 +156,7 @@ public class Squad : MonoBehaviour
 
     public void Deselect()
     {
-        foreach (Follower follower in followers)
+        foreach (Follower follower in members)
         {
             if (follower != null)
             {
@@ -106,5 +164,70 @@ public class Squad : MonoBehaviour
             }
         }
         selected = false;
+    }
+
+    public bool RemoveMember (Interaction member)
+    {
+        members.Remove(member);
+        if (members.Count == 0)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public Interaction ClosestMember(Vector3 pos)
+    {
+        Interaction member = null;
+        float closestDist = 9999;
+        for (int i = 0; i < members.Count; i++)
+        {
+            if (members[i] == null)
+            {
+                members.RemoveAt(i);
+            }
+            else
+            {
+                float dist = Vector3.Distance(pos, members[i].transform.position);
+                if (dist < closestDist)
+                {
+                    member = members[i];
+                    closestDist = dist;
+                }
+            }
+        }
+        return member;
+    }
+
+    public void SetTarget (Interaction newTarget)
+    {
+        if (newTarget is Enemy)
+        {
+            Enemy enemy = newTarget as Enemy;
+            if (enemy.squad == null)
+            {
+                target = enemy;
+                targetSquad = null;
+            }
+            else
+            {
+                target = null;
+                targetSquad = enemy.squad;
+            }
+        }
+        else
+        {
+            Follower follower = newTarget as Follower;
+            if (follower.squad == null)
+            {
+                target = follower;
+                targetSquad = null;
+            }
+            else
+            {
+                target = null;
+                targetSquad = follower.squad;
+            }
+        }
     }
 }

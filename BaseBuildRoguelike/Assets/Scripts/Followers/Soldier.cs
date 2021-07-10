@@ -4,20 +4,8 @@ using UnityEngine;
 
 public class Soldier : Follower
 {
-    public enum State
-    {
-        idle,
-        move,
-        attack,
-        defend
-    }
-
     [Header("Soldier Settings")]
-    public State state = State.idle;
-    public Interaction target;
-    public float hitSpeed = 1, targetRange = 15;
-    public bool canAttack = true;
-
+    public float hitSpeed = 1;
 
     private void Update()
     {
@@ -66,79 +54,6 @@ public class Soldier : Follower
                     Move(target.transform.position);
                 }
             }
-        }
-    }
-
-    bool FindTarget()
-    {
-        Enemy newTarget = null;
-        float closestDist = 1000;
-        foreach(Enemy enemy in EnemyController.Instance.enemies)
-        {
-            if (enemy != null)
-            {
-                float dist = Vector3.Distance(transform.position, enemy.transform.position);
-
-                if (dist <= targetRange && dist < closestDist)
-                {
-                    closestDist = dist;
-                    newTarget = enemy;
-                }
-            }
-        }
-
-        if (newTarget != null)
-        {
-            target = newTarget;
-            return true;
-        }
-        return false;
-    }
-
-    public void TargetEnemy(Enemy enemy)
-    {
-        canAttack = true;
-        target = enemy;
-        state = State.attack;
-    }
-
-    public override void Direct(Vector2 pos, Interaction obj)
-    {
-        canAttack = true;
-        marker.transform.position = pos;
-        if (obj != null)
-        {
-            Debug.Log("Target: " + obj.name);
-            target = obj;
-
-            marker.transform.position = obj.transform.position;
-
-
-            if (target is Enemy)
-            {
-                state = State.attack;
-            }
-            else if (target is Building)
-            {
-                Building building = target as Building;
-                if (building.isConstructed)
-                {
-                    state = State.defend;
-                }
-            }
-            else if (target is Follower)
-            {
-                Follower follower = target as Follower;
-                if (follower is Soldier || follower is Archer)
-                {
-                    JoinSquad(follower);
-                }
-            }
-        }
-        else
-        {
-            target = null;
-            state = State.move;
         }
     }
 

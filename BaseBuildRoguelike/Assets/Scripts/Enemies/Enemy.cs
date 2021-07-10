@@ -9,7 +9,7 @@ public abstract class Enemy : Interaction
     public float speed = 2, targetDist = 0.25f;
     public Interaction target;
     public LayerMask buildingMask;
-
+    public Squad squad, targetSquad;
     protected SpriteRenderer rend;
     protected Animator anim;
 
@@ -19,7 +19,7 @@ public abstract class Enemy : Interaction
         anim = GetComponent<Animator>();
         health = maxHealth;
         anim = GetComponent<Animator>();
-        target = GameController.Instance.homeBuilding;
+        //target = GameController.Instance.homeBuilding;
     }
     public void Move(Vector3 position)
     {
