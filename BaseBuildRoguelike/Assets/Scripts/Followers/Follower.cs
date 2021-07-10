@@ -159,7 +159,7 @@ public abstract class Follower : Interaction
 
     public void TargetEnemy(Enemy enemy)
     {
-        // Target enemy
+        // Direct follower to target the input enemy
         canAttack = true;
         if (enemy.squad == null)
         {
@@ -174,79 +174,6 @@ public abstract class Follower : Interaction
         }
         marker.transform.position = target.transform.position;
         state = State.attack;
-    }
-
-    protected Enemy GetClosestTarget()
-    {
-        Enemy newTarget = null;
-        float closestDist = 1000;
-
-
-        foreach (Enemy enemy in EnemyController.Instance.enemies)
-        {
-            if (enemy != null)
-            {
-                float dist = Vector3.Distance(transform.position, enemy.transform.position);
-
-                if (dist <= targetRange && dist < closestDist)
-                {
-                    closestDist = dist;
-                    newTarget = enemy;
-                }
-            }
-        }
-
-        return newTarget;
-    }
-
-    protected bool FindTarget()
-    {
-        if (squad == null)
-        {
-            if (targetSquad == null)
-            {
-                target = GetClosestTarget();
-                if (target != null)
-                {
-                    return true;
-                }
-            }
-            else
-            {
-                // Targets closest enemy in targetted squad
-                target = targetSquad.ClosestMember(transform.position);
-                return true;
-            }
-        }
-        else
-        {
-            if (squad.target != null)
-            {
-                // Targets squad's current target
-                Debug.Log("Single squad target");
-                target = squad.target;
-                return true;
-            }
-            else if (squad.targetSquad != null)
-            {
-                // Finds closest enemy in squad's targetted enemy squad
-                Debug.Log("Enemy squad target");
-                target = squad.targetSquad.ClosestMember(transform.position);
-                return true;
-            }
-            else
-            {
-                // Finds non-targetted enemy in range, then sets the squad target to that enemy
-                Debug.Log("New squad target");
-                target = GetClosestTarget();
-                if (target != null)
-                {
-                    squad.SetTarget(target);
-                    return true;
-                }
-            }
-        }
-        return false;
     }
 
     public bool Hit(int damage, Enemy attacker)

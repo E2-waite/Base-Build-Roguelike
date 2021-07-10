@@ -6,7 +6,7 @@ public abstract class Enemy : Interaction
 {
     [Header("Enemy Settings")]
     public int maxHealth = 3, health, hitDamage = 1;
-    public float speed = 2, targetDist = 0.25f;
+    public float speed = 2, targetDist = 0.25f, targetRange = 15;
     public Interaction target;
     public LayerMask buildingMask;
     public Squad squad, targetSquad;
@@ -40,6 +40,7 @@ public abstract class Enemy : Interaction
         Debug.Log("HIT");
         health -= damage;
         target = attacker;
+
         StartCoroutine(HitRoutine());
 
         if (health <= 0)
@@ -48,6 +49,7 @@ public abstract class Enemy : Interaction
         }
         return false;
     }
+
 
     IEnumerator HitRoutine()
     {

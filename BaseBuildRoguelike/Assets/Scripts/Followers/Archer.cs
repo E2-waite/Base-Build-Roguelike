@@ -26,7 +26,7 @@ public class Archer : Follower
             {
                 if (state == State.attack)
                 {
-                    if (FindTarget())
+                    if (Targetting.FindTarget(ref target, squad, targetSquad, transform.position, EnemyController.Instance.enemies))
                     {
                         Debug.Log("Target Found");
                     }
