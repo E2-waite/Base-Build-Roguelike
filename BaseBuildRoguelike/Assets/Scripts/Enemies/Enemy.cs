@@ -12,7 +12,7 @@ public abstract class Enemy : Interaction
     public Squad squad, targetSquad;
     protected SpriteRenderer rend;
     protected Animator anim;
-
+    public GameObject squadPrefab;
     private void Start()
     {
         target = GameController.Instance.homeBuilding;
@@ -49,6 +49,33 @@ public abstract class Enemy : Interaction
         //{
         //    target = hit.collider.GetComponent<Interaction>();
         //}
+    }
+
+    public void JoinSquad(Enemy enemy)
+    {
+        // Join/Merge squads
+        if (enemy.squad == null && squad == null)
+        {
+            // No squad - create one
+            GameObject newSquad = Instantiate(squadPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            squad = newSquad.GetComponent<Squad>();
+            squad.Setup(this, enemy);
+            return;
+        }
+        else if (enemy.squad != null && squad == null)
+        {
+            enemy.squad.AddMember(this);
+            return;
+        }
+        else if (enemy.squad == null && squad != null)
+        {
+            squad.AddMember(enemy);
+            return;
+        }
+        else
+        {
+            squad.Combine(enemy.squad);
+        }
     }
 
     // GET HIT

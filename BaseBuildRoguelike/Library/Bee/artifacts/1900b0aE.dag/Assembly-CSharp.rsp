@@ -388,6 +388,7 @@
 "Assets/Scripts/UI/HUD.cs"
 "Assets/Scripts/UI/Inspector.cs"
 "Assets/Scripts/UI/ResourceDetails.cs"
+"Assets/SquadCollision.cs"
 -langversion:8.0
 
 /deterministic

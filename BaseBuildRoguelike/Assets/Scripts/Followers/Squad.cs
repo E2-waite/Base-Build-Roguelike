@@ -45,12 +45,18 @@ public class Squad : MonoBehaviour
         enemy2.squad = this;
     }
 
-    public void AddFollower(Follower follower)
+    public void AddMember(Follower follower)
     {
         follower.squad = this;
         members.Add(follower);
         FollowerController.Instance.selectedSquad = this;
         Select();
+    }
+
+    public void AddMember(Enemy enemy)
+    {
+        enemy.squad = this;
+        members.Add(enemy);
     }
 
     public void Combine(Squad squad)

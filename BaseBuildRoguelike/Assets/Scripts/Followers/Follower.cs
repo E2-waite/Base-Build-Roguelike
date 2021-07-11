@@ -90,12 +90,12 @@ public abstract class Follower : Interaction
         }
         else if (follower.squad != null && squad == null)
         {
-            follower.squad.AddFollower(this);
+            follower.squad.AddMember(this);
             return;
         }
         else if (follower.squad == null && squad != null)
         {
-            squad.AddFollower(follower);
+            squad.AddMember(follower);
             return;
         }
         else

@@ -103,16 +103,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adba7ae89d4273443b684a4b72c8d40f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rend: {fileID: 0}
   maxHealth: 3
   health: 0
   hitDamage: 1
   speed: 2
   targetDist: 0.25
+  targetRange: 15
   target: {fileID: 0}
   buildingMask:
     serializedVersion: 2
     m_Bits: 0
+  squad: {fileID: 0}
+  targetSquad: {fileID: 0}
+  squadPrefab: {fileID: 8437693019058054867, guid: 4f60460212a58984992ec2ab3a5e4e3b, type: 3}
   corpses: []
   undead: []
   cooldown: 10
@@ -130,7 +133,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   update: 1
-  tallTop: 0
 --- !u!61 &2743365640547367739
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -210,7 +212,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   update: 1
-  tallTop: 0
 --- !u!1 &4663610513723719587
 GameObject:
   m_ObjectHideFlags: 0
