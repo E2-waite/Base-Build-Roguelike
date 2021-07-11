@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Archer : Follower
 {
-    public float fireRange = 5f, shotCooldown = 2.5f, shotSpeed = 10;
+    public float fireRange = 5f, shotTime = 0.5f, shotSpeed = 10, shotCooldown = 2.5f;
     public GameObject arrowPrefab;
+    bool firing = false;
 
     private void Update()
     {
@@ -32,7 +33,7 @@ public class Archer : Follower
                     }
                     else
                     {
-                        state = State.idle;
+                        state = State.move;
                     }
                 }
                 else
@@ -42,9 +43,15 @@ public class Archer : Follower
             }
             else
             {
-                if (Vector2.Distance(transform.position, target.transform.position) <= fireRange)
+                float dist = Vector2.Distance(transform.position, target.transform.position);
+                if (dist <= fireRange)
                 {
-                    if (state == State.attack && canAttack)
+                    // Moves away from target if not charging up shot, the target is an enemy and this archer is too close
+                    if (!attacking && dist < fireRange - 3f && target is Enemy)
+                    {
+                        Move(transform.position + ((transform.position - target.transform.position).normalized));
+                    }
+                    else if (state == State.attack && canAttack)
                     {
                         StartCoroutine(FireRoutine());
                     }
@@ -60,9 +67,17 @@ public class Archer : Follower
     IEnumerator FireRoutine()
     {
         canAttack = false;
-        yield return new WaitForSeconds(shotCooldown);
+        attacking = true;
+        yield return new WaitForSeconds(shotTime);
+        attacking = false;
         GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
         arrow.GetComponent<Arrow>().Move(target, this, shotSpeed, hitDamage);
+        StartCoroutine(ShotCooldown());
+    }
+
+    IEnumerator ShotCooldown()
+    {
+        yield return new WaitForSeconds(shotCooldown);
         canAttack = true;
     }
 }

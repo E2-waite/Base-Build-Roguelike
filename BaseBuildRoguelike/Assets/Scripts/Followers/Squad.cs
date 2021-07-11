@@ -175,8 +175,12 @@ public class Squad : MonoBehaviour
     public bool RemoveMember (Interaction member)
     {
         members.Remove(member);
-        if (members.Count == 0)
+        if (members.Count == 1)
         {
+            if (selected && type == Type.friendly)
+            {
+                FollowerController.Instance.selected = members[0] as Follower;
+            }
             Destroy(gameObject);
             return true;
         }

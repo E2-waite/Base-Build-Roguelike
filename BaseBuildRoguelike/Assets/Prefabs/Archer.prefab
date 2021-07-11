@@ -299,24 +299,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a91383a1ca7fa46926b18ed74c1699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rend: {fileID: 0}
+  state: 0
+  target: {fileID: 0}
   squad: {fileID: 0}
+  targetSquad: {fileID: 0}
   maxHealth: 3
   health: 0
   hitDamage: 1
   targetDist: 0.25
   speed: 5
+  targetRange: 15
+  canAttack: 1
+  attacking: 0
   highlight: {fileID: 1158189135023345973}
   marker: {fileID: 8840559668946194276}
   squadPrefab: {fileID: 8437693019058054867, guid: 4f60460212a58984992ec2ab3a5e4e3b, type: 3}
   corpsePrefab: {fileID: 809098620326100432, guid: e7bebd13c77147b4ca72e24eae4b7d74, type: 3}
   fireRange: 5
-  shotCooldown: 2.5
+  shotTime: 1
   shotSpeed: 10
-  targetRange: 15
-  canAttack: 1
+  shotCooldown: 2.5
   arrowPrefab: {fileID: 2050808074673889753, guid: 9ff224e4cbde0cc40bd70de79571ab60, type: 3}
-  state: 0
 --- !u!114 &520897613099791831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,7 +333,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   update: 1
-  tallTop: 0
 --- !u!61 &8840559668895825270
 BoxCollider2D:
   m_ObjectHideFlags: 0

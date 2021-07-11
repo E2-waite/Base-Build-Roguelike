@@ -22,7 +22,7 @@ public abstract class Follower : Interaction
     public Squad squad, targetSquad;
     public int maxHealth = 10, health, hitDamage = 1;
     public float targetDist = 0.25f, speed = 5f, targetRange = 15;
-    public bool canAttack = true;
+    public bool canAttack = true, attacking = false;
     public GameObject highlight, marker, squadPrefab, corpsePrefab;
     bool selected;
 
@@ -109,6 +109,7 @@ public abstract class Follower : Interaction
     {
         // Standard combat based direct (overridden by followers with unique functionality i.e. priests and workers)
         canAttack = true;
+        attacking = false;
         marker.transform.position = pos;
         if (obj != null)
         {
@@ -159,21 +160,25 @@ public abstract class Follower : Interaction
 
     public void TargetEnemy(Enemy enemy)
     {
-        // Direct follower to target the input enemy
-        canAttack = true;
-        if (enemy.squad == null)
+        if (enemy != null)
         {
-            target = enemy;
-            targetSquad = null;
+            // Direct follower to target the input enemy
+            canAttack = true;
+            attacking = false;
+            if (enemy.squad == null)
+            {
+                target = enemy;
+                targetSquad = null;
+            }
+            else
+            {
+                // If target enemy is in a squad, instead target closest member of the squad
+                targetSquad = enemy.squad;
+                target = targetSquad.ClosestMember(transform.position);
+            }
+            marker.transform.position = target.transform.position;
+            state = State.attack;
         }
-        else
-        {
-            // If target enemy is in a squad, instead target closest member of the squad
-            targetSquad = enemy.squad;
-            target = targetSquad.ClosestMember(transform.position);
-        }
-        marker.transform.position = target.transform.position;
-        state = State.attack;
     }
 
     public bool Hit(int damage, Enemy attacker)

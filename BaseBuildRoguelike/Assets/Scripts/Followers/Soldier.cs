@@ -32,7 +32,7 @@ public class Soldier : Follower
                     }
                     else
                     {
-                        state = State.idle;
+                        state = State.move;
                     }
                 }
                 else
