@@ -16,6 +16,14 @@ public class EnemyController : MonoSingleton<EnemyController>
     public List<Interaction> enemies = new List<Interaction>();
     public float spawnTime = 10;
     public List<Tile> corruptedTiles = new List<Tile>();
+    private void Start()
+    {
+        GameObject[] enemyObjs = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemyObjs)
+        {
+            enemies.Add(enemy.GetComponent<Interaction>());
+        }
+    }
 
     public void StartSpawning()
     {

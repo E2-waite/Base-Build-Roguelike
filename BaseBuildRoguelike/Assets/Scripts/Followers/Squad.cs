@@ -171,6 +171,7 @@ public class Squad : MonoBehaviour
         members.Remove(member);
         if (members.Count == 0)
         {
+            Destroy(gameObject);
             return true;
         }
         return false;
@@ -228,7 +229,19 @@ public class Squad : MonoBehaviour
                 target = null;
                 targetSquad = follower.squad;
             }
+
+            foreach (Interaction member in members)
+            {
+                if (targetSquad == null)
+                {
+                    Debug.Log(target.name);
+                    (member as Enemy).UpdateTarget(target);
+                }
+                else
+                {
+                    (member as Enemy).UpdateTarget(targetSquad.ClosestMember(member.transform.position));
+                }
+            }
         }
     }
-
 }

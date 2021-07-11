@@ -11,6 +11,15 @@ public class FollowerController : MonoSingleton<FollowerController>
     public Squad selectedSquad = null;
     public int maxFollowers = 1;
 
+    private void Start()
+    {
+        GameObject[] followerObjs = GameObject.FindGameObjectsWithTag("Follower");
+        foreach(GameObject follower in followerObjs)
+        {
+            followers.Add(follower.GetComponent<Interaction>());
+        }
+    }
+
     public void SpawnFollower(Vector3 pos)
     {
         GameObject follower = Instantiate(followerPrefab, pos, Quaternion.identity);
@@ -89,5 +98,9 @@ public class FollowerController : MonoSingleton<FollowerController>
         {
             selected.Direct(pos, objInteraction);
         }
+    }
+    public void Remove(Follower follower)
+    {
+        followers.Remove(follower);
     }
 }

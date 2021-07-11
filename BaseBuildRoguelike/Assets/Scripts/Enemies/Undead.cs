@@ -21,7 +21,16 @@ public class Undead : Enemy
         {
             if (target == null)
             {
-                target = GameController.Instance.homeBuilding;
+                if (Targetting.FindTarget(ref target, squad, ref targetSquad, transform.position, FollowerController.Instance.followers))
+                {
+                    Debug.Log("New target found");
+                }
+                else
+                {
+                    Debug.Log("No new target found");
+                    // Go back to attacking the home building if no targets could be found
+                    target = GameController.Instance.homeBuilding;
+                }
             }
             else
             {

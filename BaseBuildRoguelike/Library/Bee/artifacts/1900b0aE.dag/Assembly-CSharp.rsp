@@ -374,6 +374,7 @@
 "Assets/Scripts/MonoSingleton.cs"
 "Assets/Scripts/Resource.cs"
 "Assets/Scripts/SetSortingLayer.cs"
+"Assets/Scripts/SquadManagement.cs"
 "Assets/Scripts/Targetting.cs"
 "Assets/Scripts/Tile.cs"
 "Assets/Scripts/TileDGrass.cs"

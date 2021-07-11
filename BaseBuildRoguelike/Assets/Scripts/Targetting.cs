@@ -7,6 +7,7 @@ public static class Targetting
     static float targetRange = 15;
     static Interaction GetClosestTarget(List<Interaction> targets, Vector3 pos)
     {
+        // Gets closest target within range out of all target of type
         Interaction newTarget = null;
         float closestDist = 9999;
 
@@ -27,7 +28,7 @@ public static class Targetting
         return newTarget;
     }
 
-    public static bool FindTarget(ref Interaction target, Squad squad, Squad targetSquad, Vector3 pos, List<Interaction> targets)
+    public static bool FindTarget(ref Interaction target, Squad squad, ref Squad targetSquad, Vector3 pos, List<Interaction> targets)
     {
         if (squad == null)
         {
@@ -35,7 +36,7 @@ public static class Targetting
             {
                 target = Targetting.GetClosestTarget(targets, pos);
                 if (target != null)
-                {
+                {  
                     return true;
                 }
             }
@@ -63,7 +64,8 @@ public static class Targetting
             else
             {
                 // Finds non-targetted enemy in range, then sets the squad target to that enemy
-                target = Targetting.GetClosestTarget(targets, pos);
+                target = GetClosestTarget(targets, pos);
+                Debug.Log("Getting Closest Target");
                 if (target != null)
                 {
                     squad.SetTarget(target);
