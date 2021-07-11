@@ -182,9 +182,14 @@ public abstract class Follower : Interaction
         health -= damage;
         StartCoroutine(HitRoutine());
 
-        if (this is Soldier)
+
+        if ((state == State.idle || state == State.move) && (this is Soldier || this is Archer))
         {
-            ((Soldier)this).TargetEnemy(attacker);
+            TargetEnemy(attacker);
+            if (squad != null)
+            {
+                squad.SetTarget(attacker);
+            }
         }
 
         if (health <= 0)

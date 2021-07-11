@@ -215,6 +215,12 @@ public class Squad : MonoBehaviour
                 target = null;
                 targetSquad = enemy.squad;
             }
+
+            foreach (Interaction member in members)
+            {
+                Debug.Log("Setting Target");
+                (member as Follower).TargetEnemy(enemy);
+            }
         }
         else
         {
