@@ -99,12 +99,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a239283b97d09a4a9e514a4029eddc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rend: {fileID: 0}
+  staticObject: 1
   isConstructed: 0
   selected: 0
   repair: 0
   maxRepair: 25
   construct: {fileID: 0}
+  size: 5
 --- !u!114 &3410417643914874638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +137,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   update: 0
-  tallTop: 0
 --- !u!61 &-5139101483823335845
 BoxCollider2D:
   m_ObjectHideFlags: 0

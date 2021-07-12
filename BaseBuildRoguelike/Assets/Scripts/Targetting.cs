@@ -65,7 +65,6 @@ public static class Targetting
             {
                 // Finds non-targetted enemy in range, then sets the squad target to that enemy
                 target = GetClosestTarget(targets, pos);
-                Debug.Log("Getting Closest Target");
                 if (target != null)
                 {
                     squad.SetTarget(target);

@@ -21,7 +21,7 @@ public abstract class Follower : Interaction
     public Interaction target;
     public Squad squad, targetSquad;
     public int maxHealth = 10, health, hitDamage = 1;
-    public float targetDist = 0.25f, speed = 5f, targetRange = 15;
+    public float targetDist = 0.25f, speed = 5f, targetRange = 15, chaseDist = 0.5f;
     public bool canAttack = true, attacking = false;
     public GameObject highlight, marker, squadPrefab, corpsePrefab;
     bool selected;
@@ -34,6 +34,7 @@ public abstract class Follower : Interaction
         health = maxHealth;
         anim = GetComponent<Animator>();
         rend = GetComponent<SpriteRenderer>();
+        StartCoroutine(PathUpdate());
         Setup();
     }
 
@@ -54,7 +55,7 @@ public abstract class Follower : Interaction
         selected = false;
     }
 
-    public void Move(Vector3 position)
+    public void Move()
     {
         // Move towards position and keep distance from other followers in squad
         if (path.Count > 0)
@@ -62,13 +63,38 @@ public abstract class Follower : Interaction
             Vector3 pathPos = new Vector3(path[0].x, path[0].y, 0);
             transform.position = Vector2.MoveTowards(transform.position, pathPos, speed * Time.deltaTime);
 
-            if (transform.position == pathPos)
+            if (squad == null)
             {
-                path.RemoveAt(0);
+                if (transform.position == pathPos)
+                {
+                    path.RemoveAt(0);
+                }
             }
+            else
+            {
+                float dist = Vector3.Distance(transform.position, pathPos);
+                if (dist <= 1 + (squad.members.Count / 10))
+                {
+                    path.RemoveAt(0);
+                }
+            }
+            float diff = pathPos.y - transform.position.y;
+            anim.SetInteger("Direction", Mathf.RoundToInt(diff));
         }
+    }
+
+
+
+    public void Move(Vector3 position)
+    {
+        // Move towards position and keep distance from other followers in squad
+        transform.position = Vector2.MoveTowards(transform.position, position, speed * Time.deltaTime);
         float diff = position.y - transform.position.y;
         anim.SetInteger("Direction", Mathf.RoundToInt(diff));
+    }
+
+    protected void Swarm()
+    {
         if (squad != null)
         {
             foreach (Follower follower in squad.members)
@@ -76,7 +102,7 @@ public abstract class Follower : Interaction
                 if (follower != this && follower != null)
                 {
                     float dist = Vector3.Distance(transform.position, follower.transform.position);
-                    if (dist <= 0.5)
+                    if (dist <= 0.5f)
                     {
                         Vector3 diffVec = transform.position - follower.transform.position;
                         transform.position = Vector2.MoveTowards(transform.position, transform.position + diffVec, speed * Time.deltaTime);
@@ -128,9 +154,9 @@ public abstract class Follower : Interaction
         {
             Debug.Log("No Path Found");
         }
+
         if (obj != null)
         {
-            Debug.Log("Target: " + obj.name);
             target = obj;
 
             marker.transform.position = obj.transform.position;
@@ -168,6 +194,24 @@ public abstract class Follower : Interaction
         }
     }
 
+    IEnumerator PathUpdate()
+    {
+        if (target != null && !target.staticObject)
+        {
+            // Update path less often when further away from the target (and only update path if target moves)
+            yield return new WaitForSeconds(Vector3.Distance(transform.position, target.transform.position) / 100);
+            if (target != null)
+            {
+                Pathfinding.FindPath(ref path, transform.position, target.transform.position);
+            }
+        }
+        else
+        {
+            yield return null;
+        }
+        StartCoroutine(PathUpdate());
+    }
+
     public void MoveTo(Vector2 pos)
     {
         target = null;
@@ -195,6 +239,7 @@ public abstract class Follower : Interaction
                 target = targetSquad.ClosestMember(transform.position);
             }
             marker.transform.position = target.transform.position;
+            Pathfinding.FindPath(ref path, transform.position, target.transform.position);
             state = State.attack;
         }
     }

@@ -9,6 +9,7 @@ public class Soldier : Follower
 
     private void Update()
     {
+        Swarm();
         if (state == State.move)
         {
             if (transform.position == marker.transform.position)
@@ -17,7 +18,7 @@ public class Soldier : Follower
             }
             else
             {
-                Move(marker.transform.position);
+                Move();
             }
         }
         else
@@ -42,16 +43,21 @@ public class Soldier : Follower
             }
             else
             {
-                if (Vector2.Distance(transform.position, target.transform.position) <= targetDist)
+                float dist = Vector2.Distance(transform.position, target.transform.position);
+                if (dist <= targetDist)
                 {
                     if (state == State.attack && canAttack)
                     {
                         StartCoroutine(AttackRoutine());
                     }
                 }
-                else
+                else if (dist <= chaseDist)
                 {
                     Move(target.transform.position);
+                }
+                else
+                {
+                    Move();
                 }
             }
         }

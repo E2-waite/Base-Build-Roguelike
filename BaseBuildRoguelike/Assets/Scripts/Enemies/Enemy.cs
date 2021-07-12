@@ -10,6 +10,7 @@ public abstract class Enemy : Interaction
     public Interaction target;
     public LayerMask buildingMask;
     public Squad squad, targetSquad;
+    public List<Vector2Int> path = new List<Vector2Int>();
     protected SpriteRenderer rend;
     protected Animator anim;
     public GameObject squadPrefab;
@@ -19,13 +20,48 @@ public abstract class Enemy : Interaction
         rend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         health = maxHealth;
+        
+        StartCoroutine(PathUpdate());
     }
 
-    public void Move(Vector3 position)
+    protected void Move(Vector3 position)
     {
-        transform.position = Vector2.MoveTowards(transform.position, position, speed * Time.deltaTime);
-        float yDiff = position.y - transform.position.y, xDiff = position.x - transform.position.x;
-        anim.SetInteger("Direction", Mathf.RoundToInt(yDiff));
+        if (path.Count > 0)
+        {
+            Vector3 pathPos = new Vector3(path[0].x, path[0].y, 0);
+            transform.position = Vector2.MoveTowards(transform.position, pathPos, speed * Time.deltaTime);
+
+            if (squad == null)
+            {
+                if (transform.position == pathPos)
+                {
+                    path.RemoveAt(0);
+                }
+            }
+            else
+            {
+                float dist = Vector3.Distance(transform.position, pathPos);
+                if (dist <= 1 + (squad.members.Count / 10))
+                {
+                    path.RemoveAt(0);
+                }
+            }
+            float diff = pathPos.y - transform.position.y;
+            anim.SetInteger("Direction", Mathf.RoundToInt(diff));
+
+
+            // Damage building in path
+            //RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(xDiff, yDiff), .2f, buildingMask);
+
+            //if (hit.collider != null && !(target is Follower) && target.gameObject != hit.collider.gameObject)
+            //{
+            //    target = hit.collider.GetComponent<Interaction>();
+            //}
+        }
+    }
+
+    protected void Swarm()
+    {
         if (squad != null)
         {
             foreach (Enemy enemies in squad.members)
@@ -41,14 +77,6 @@ public abstract class Enemy : Interaction
                 }
             }
         }
-
-        // Damage building in path
-        //RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(xDiff, yDiff), .2f, buildingMask);
-
-        //if (hit.collider != null && !(target is Follower) && target.gameObject != hit.collider.gameObject)
-        //{
-        //    target = hit.collider.GetComponent<Interaction>();
-        //}
     }
 
     public void JoinSquad(Enemy enemy)
@@ -81,7 +109,6 @@ public abstract class Enemy : Interaction
     // GET HIT
     public bool Hit(int damage, Follower attacker)
     {
-        Debug.Log("HIT");
         health -= damage;
 
         if (!(target is Follower))
@@ -95,6 +122,7 @@ public abstract class Enemy : Interaction
                     targetSquad = attacker.squad;
                 }
             }
+            Pathfinding.FindPath(ref path, transform.position, target.transform.position);
             squad.SetTarget(attacker);
         }
 
@@ -112,7 +140,26 @@ public abstract class Enemy : Interaction
         if (!(target is Follower))
         {
             target = newTarget;
+            Pathfinding.FindPath(ref path, transform.position, target.transform.position);
         }
+    }
+
+    IEnumerator PathUpdate()
+    {
+        if (target != null && !target.staticObject)
+        {
+            // Update path less often when further away from the target (and only update path if target moves)
+            yield return new WaitForSeconds(Vector3.Distance(transform.position, target.transform.position) / 100);
+            if (target != null)
+            {
+                Pathfinding.FindPath(ref path, transform.position, target.transform.position);
+            }
+        }
+        else
+        {
+            yield return null;
+        }
+        StartCoroutine(PathUpdate());
     }
 
     IEnumerator HitRoutine()

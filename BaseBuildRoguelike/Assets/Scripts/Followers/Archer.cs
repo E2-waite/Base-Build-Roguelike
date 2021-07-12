@@ -10,6 +10,7 @@ public class Archer : Follower
 
     private void Update()
     {
+        Swarm();
         if (state == State.move)
         {
             if (transform.position == marker.transform.position)
@@ -18,7 +19,7 @@ public class Archer : Follower
             }
             else
             {
-                Move(marker.transform.position);
+                Move();
             }
         }
         else
@@ -29,7 +30,7 @@ public class Archer : Follower
                 {
                     if (Targetting.FindTarget(ref target, squad, ref targetSquad, transform.position, EnemyController.Instance.enemies))
                     {
-                        Debug.Log("Target Found");
+                        // Debug.Log("Target Found");
                     }
                     else
                     {
@@ -47,18 +48,18 @@ public class Archer : Follower
                 if (dist <= fireRange)
                 {
                     // Moves away from target if not charging up shot, the target is an enemy and this archer is too close
-                    if (!attacking && dist < fireRange - 3f && target is Enemy)
-                    {
-                        Move(transform.position + ((transform.position - target.transform.position).normalized));
-                    }
-                    else if (state == State.attack && canAttack)
+                    //if (!attacking && dist < fireRange - 3f && target is Enemy)
+                    //{
+                    //    Move(transform.position + ((transform.position - target.transform.position).normalized));
+                    //}
+                    if (state == State.attack && canAttack)
                     {
                         StartCoroutine(FireRoutine());
                     }
                 }
                 else
                 {
-                    Move(target.transform.position);
+                    Move();
                 }
             }
         }

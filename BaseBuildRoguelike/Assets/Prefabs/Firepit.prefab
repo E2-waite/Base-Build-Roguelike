@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72294c90b24b66247a845faee6c52e63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rend: {fileID: 0}
+  staticObject: 1
   isConstructed: 1
   selected: 0
   repair: 0
@@ -164,4 +164,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   update: 0
-  tallTop: 0
