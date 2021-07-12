@@ -23,7 +23,7 @@ public abstract class Follower : Interaction
     public int maxHealth = 10, health, hitDamage = 1;
     public float targetDist = 0.25f, speed = 5f, targetRange = 15, chaseDist = 0.5f;
     public bool canAttack = true, attacking = false;
-    public GameObject highlight, marker, squadPrefab, corpsePrefab;
+    public GameObject highlight, marker, glow, squadPrefab, corpsePrefab;
     bool selected;
     public List<Vector2Int> path = new List<Vector2Int>();
     protected Animator anim;
@@ -283,5 +283,31 @@ public abstract class Follower : Interaction
             }
             Destroy(gameObject);
         }
+    }
+
+    public bool Heal(int val)
+    {
+        Debug.Log("heal");
+        StartCoroutine(GlowRoutine());
+        if (health == maxHealth)
+        {
+            return false;
+        }
+        else if (health + val > maxHealth)
+        {
+            health = maxHealth;
+        }
+        else
+        {
+            health += val;
+        }
+        return true;
+    }
+
+    IEnumerator GlowRoutine()
+    {
+        glow.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        glow.SetActive(false);
     }
 }
