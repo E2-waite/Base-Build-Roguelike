@@ -28,6 +28,7 @@ ScriptsOnlyBuild:
     - SetSortingLayer
     - Soldier
     - Squad
+    - SquadCollision
     - TileDGrass
     - TileGrass
     - TileSand
@@ -82,6 +83,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 50
       Script: {instanceID: 0}
+    - Class: 58
+      Script: {instanceID: 0}
     - Class: 61
       Script: {instanceID: 0}
     - Class: 74
@@ -107,75 +110,77 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2252}
     - Class: 114
-      Script: {instanceID: 2570}
+      Script: {instanceID: 2412}
     - Class: 114
-      Script: {instanceID: 2700}
+      Script: {instanceID: 2572}
     - Class: 114
-      Script: {instanceID: 2718}
+      Script: {instanceID: 2702}
     - Class: 114
-      Script: {instanceID: 2782}
+      Script: {instanceID: 2720}
     - Class: 114
-      Script: {instanceID: 2904}
+      Script: {instanceID: 2784}
     - Class: 114
-      Script: {instanceID: 3190}
+      Script: {instanceID: 2906}
     - Class: 114
-      Script: {instanceID: 3302}
+      Script: {instanceID: 3192}
     - Class: 114
-      Script: {instanceID: 3560}
+      Script: {instanceID: 3304}
     - Class: 114
-      Script: {instanceID: 3892}
+      Script: {instanceID: 3562}
     - Class: 114
-      Script: {instanceID: 4426}
+      Script: {instanceID: 3894}
     - Class: 114
-      Script: {instanceID: 4930}
+      Script: {instanceID: 4428}
     - Class: 114
-      Script: {instanceID: 4942}
+      Script: {instanceID: 4932}
     - Class: 114
-      Script: {instanceID: 5106}
+      Script: {instanceID: 4944}
     - Class: 114
-      Script: {instanceID: 5446}
+      Script: {instanceID: 5108}
     - Class: 114
-      Script: {instanceID: 5498}
+      Script: {instanceID: 5448}
     - Class: 114
-      Script: {instanceID: 5502}
+      Script: {instanceID: 5500}
     - Class: 114
-      Script: {instanceID: 5644}
+      Script: {instanceID: 5504}
     - Class: 114
-      Script: {instanceID: 5728}
+      Script: {instanceID: 5646}
     - Class: 114
-      Script: {instanceID: 5830}
+      Script: {instanceID: 5730}
     - Class: 114
-      Script: {instanceID: 5838}
+      Script: {instanceID: 5832}
     - Class: 114
-      Script: {instanceID: 6056}
+      Script: {instanceID: 5840}
     - Class: 114
-      Script: {instanceID: 6348}
+      Script: {instanceID: 6058}
     - Class: 114
-      Script: {instanceID: 6666}
+      Script: {instanceID: 6350}
     - Class: 114
-      Script: {instanceID: 6688}
+      Script: {instanceID: 6668}
     - Class: 114
-      Script: {instanceID: 6860}
+      Script: {instanceID: 6690}
     - Class: 114
-      Script: {instanceID: 7164}
+      Script: {instanceID: 6862}
     - Class: 114
-      Script: {instanceID: 7272}
+      Script: {instanceID: 7166}
     - Class: 114
-      Script: {instanceID: 7370}
+      Script: {instanceID: 7274}
     - Class: 114
-      Script: {instanceID: 7568}
+      Script: {instanceID: 7372}
     - Class: 114
-      Script: {instanceID: 7696}
+      Script: {instanceID: 7570}
     - Class: 114
-      Script: {instanceID: 7820}
+      Script: {instanceID: 7698}
     - Class: 114
-      Script: {instanceID: 7972}
+      Script: {instanceID: 7822}
     - Class: 114
-      Script: {instanceID: 8150}
+      Script: {instanceID: 7974}
     - Class: 114
-      Script: {instanceID: 8340}
+      Script: {instanceID: 8152}
     - Class: 114
-      Script: {instanceID: 22400}
+      Script: {instanceID: 8342}
+    - Class: 114
+      Script: {instanceID: 22382}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -345,6 +350,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.Animation.Runtime.dll
     namespaceName: UnityEngine.U2D.Animation
     className: SkeletonAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SquadCollision
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -557,7 +568,7 @@ ScriptsOnlyBuild:
     className: UnityOnSelectMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 2e8ff966aa62ad32c983ac0ce3326fcc
+      Hash: fa471f88ac5151b1b59b0f5720e1ed73
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Priest
@@ -749,7 +760,7 @@ ScriptsOnlyBuild:
     className: GridLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: bc398d723bc216027fba80d95a9c584f
+      Hash: 821cd7c1b2de4655dd30e39cc2c2823a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Necromancer
@@ -815,7 +826,7 @@ ScriptsOnlyBuild:
     className: CCDSolver2D
   - hash:
       serializedVersion: 2
-      Hash: c3fb36c42664664783970d0e4f7424c1
+      Hash: a409bc5d29df55f230e3b1a980b58335
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Undead
@@ -959,7 +970,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: 9e8e67f58abfc817e4a384f30fcc279f
+      Hash: 7210f35e061b058abf128cd5ffca4d6e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Archer
@@ -1151,7 +1162,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: bb5f3acb47bfa6dbd93c1a79e4cffca2
+      Hash: 2460f766924acb3ebb82988581bb735d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Worker
@@ -1271,7 +1282,7 @@ ScriptsOnlyBuild:
     className: HUD
   - hash:
       serializedVersion: 2
-      Hash: 7a0f870c5872650fcdc16c37026e8b04
+      Hash: 6343b09353321b987fe593a4829eec4a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Soldier

@@ -25,7 +25,7 @@ public abstract class Follower : Interaction
     public bool canAttack = true, attacking = false;
     public GameObject highlight, marker, squadPrefab, corpsePrefab;
     bool selected;
-
+    public List<Vector2Int> path = new List<Vector2Int>();
     protected Animator anim;
     protected SpriteRenderer rend;
 
@@ -57,7 +57,16 @@ public abstract class Follower : Interaction
     public void Move(Vector3 position)
     {
         // Move towards position and keep distance from other followers in squad
-        transform.position = Vector2.MoveTowards(transform.position, position, speed * Time.deltaTime);
+        if (path.Count > 0)
+        {
+            Vector3 pathPos = new Vector3(path[0].x, path[0].y, 0);
+            transform.position = Vector2.MoveTowards(transform.position, pathPos, speed * Time.deltaTime);
+
+            if (transform.position == pathPos)
+            {
+                path.RemoveAt(0);
+            }
+        }
         float diff = position.y - transform.position.y;
         anim.SetInteger("Direction", Mathf.RoundToInt(diff));
         if (squad != null)
@@ -111,6 +120,14 @@ public abstract class Follower : Interaction
         canAttack = true;
         attacking = false;
         marker.transform.position = pos;
+        if (Pathfinding.FindPath(ref path, transform.position, pos))
+        {
+            Debug.Log("Path Found");
+        }
+        else
+        {
+            Debug.Log("No Path Found");
+        }
         if (obj != null)
         {
             Debug.Log("Target: " + obj.name);
@@ -155,6 +172,7 @@ public abstract class Follower : Interaction
     {
         target = null;
         marker.transform.position = pos;
+        Pathfinding.FindPath(ref path, transform.position, pos);
         state = State.move;
     }
 

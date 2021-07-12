@@ -43,6 +43,7 @@ public class BuildingController : MonoSingleton<BuildingController>
             GameObject building = Instantiate(selectedTemplate.prefab, tile.transform.position, Quaternion.identity);
             tile.structure = building.GetComponent<Interaction>();
             tile.structure.transform.parent = tile.transform;
+            Pathfinding.UpdateNodeGrid();
         }
     }
 

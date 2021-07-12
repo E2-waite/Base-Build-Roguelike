@@ -54,5 +54,4 @@ public abstract class Building : Interaction
         }
         return false;
     }
-
 }

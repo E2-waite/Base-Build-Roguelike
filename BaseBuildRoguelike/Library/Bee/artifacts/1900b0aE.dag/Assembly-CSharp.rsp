@@ -372,6 +372,7 @@
 "Assets/Scripts/Followers/Worker.cs"
 "Assets/Scripts/Interaction.cs"
 "Assets/Scripts/MonoSingleton.cs"
+"Assets/Scripts/Pathfinding.cs"
 "Assets/Scripts/Resource.cs"
 "Assets/Scripts/SetSortingLayer.cs"
 "Assets/Scripts/SquadManagement.cs"

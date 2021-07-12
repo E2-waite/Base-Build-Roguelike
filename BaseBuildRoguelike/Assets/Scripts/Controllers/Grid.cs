@@ -109,6 +109,8 @@ public class Grid : MonoBehaviour
         Vector2Int corruptPos = new Vector2Int(Random.Range(0, mapSize), Random.Range(0, mapSize));
         Debug.Log(corruptPos.ToString() + " Started Corruption");
         tiles[corruptPos.x, corruptPos.y].Corrupt(corruptPos);
+
+        Pathfinding.UpdateNodeGrid(this);
     }
 
     public bool IsSelected(Collider2D tile)
