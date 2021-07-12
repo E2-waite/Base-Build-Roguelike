@@ -63,17 +63,28 @@ public class Squad : MonoBehaviour
     {
         if (squad != this)
         {
-            foreach (Follower follower in squad.members)
+            foreach (Interaction member in squad.members)
             {
-                if (follower != null)
+                if (member != null)
                 {
-                    follower.squad = this;
+                    if (member is Follower)
+                    {
+                        (member as Follower).squad = this;
+                    }
+                    else if (member is Enemy)
+                    {
+                        (member as Enemy).squad = this;
+                    }
                 }
             }
             members.AddRange(squad.members);
             Destroy(squad.gameObject);
-            FollowerController.Instance.selectedSquad = this;
-            Select();
+
+            if (type == Type.friendly)
+            {
+                FollowerController.Instance.selectedSquad = this;
+                Select();
+            }
         }
     }
 

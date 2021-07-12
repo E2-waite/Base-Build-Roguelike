@@ -7,7 +7,9 @@ public class Undead : Enemy
     public enum UndeadType
     { 
         worker,
-        soldier
+        soldier,
+        archer,
+        priest
     }
 
     [Header("Undead Settings")]

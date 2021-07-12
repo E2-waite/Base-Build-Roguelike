@@ -181,7 +181,7 @@ public abstract class Follower : Interaction
             else if (target is Follower)
             {
                 Follower follower = target as Follower;
-                if (follower is Soldier || follower is Archer)
+                if (follower is Soldier || follower is Archer || follower is Priest)
                 {
                     JoinSquad(follower);
                 }

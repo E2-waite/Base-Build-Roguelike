@@ -111,7 +111,7 @@ public abstract class Enemy : Interaction
     {
         health -= damage;
 
-        if (!(target is Follower))
+        if (!(target is Follower) && attacker != null)
         {
             // Update target if current target is not an enemy (stops switching target while in combat)
             target = attacker;

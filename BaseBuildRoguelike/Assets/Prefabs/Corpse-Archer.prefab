@@ -97,9 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8614912842c121b479a6b320b4199c34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
   healthyPrefab: {fileID: 8840559666961402214, guid: aa27a70a0b3e25b469136317101ae80d, type: 3}
-  undeadPrefab: {fileID: 2743365640547367737, guid: 4f6d634aa3497134eb1b05be31943143, type: 3}
+  undeadPrefab: {fileID: 2743365640547367737, guid: b5d859bc39695d445a5fe64a5334f87d, type: 3}
 --- !u!61 &3826077874747924261
 BoxCollider2D:
   m_ObjectHideFlags: 0

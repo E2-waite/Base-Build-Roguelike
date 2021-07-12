@@ -9,11 +9,6 @@ public class Priest : Follower
     public bool canHeal = true, healing = false;
     void Update()
     {
-        if (canHeal)
-        {
-            canHeal = false;
-            StartCoroutine(HealRoutine());
-        }
         if (!healing)
         {
             Swarm();
@@ -21,40 +16,67 @@ public class Priest : Follower
         }
     }
 
-    void Heal()
+    public override void Setup()
     {
-        healing = false;
-        anim.SetBool("Heal", false);
-        if (squad != null)
+        StartCoroutine(HealthCheck());
+    }
+
+    Follower followerTarget = null;
+    IEnumerator HealthCheck()
+    {
+        bool heal = false;
+        followerTarget = null;
+        while (!heal)
         {
-            int highestDamage = 0;
-            Follower toHeal = null;
-            foreach (Follower follower in squad.members)
+            yield return new WaitForSeconds(1);
+            if (squad != null)
             {
-                int damage = follower.maxHealth - follower.health;
-                if (damage > highestDamage)
+                int highestDamage = 0;
+                foreach (Follower follower in squad.members)
                 {
-                    highestDamage = damage;
-                    toHeal = follower;
+                    int damage = follower.maxHealth - follower.health;
+                    if (damage > highestDamage)
+                    {
+                        highestDamage = damage;
+                        followerTarget = follower;
+                    }
+                }
+
+                if (followerTarget != null)
+                {
+                    heal = true;
                 }
             }
-
-            if (toHeal != null)
+            else
             {
-                toHeal.Heal(healAmount);
+                if (health < maxHealth)
+                {
+                    followerTarget = this;
+                    heal = true;
+                }
             }
         }
-        else
-        {
-            Heal(healAmount);
-        }
-    }
-
-    IEnumerator HealRoutine()
-    {
         healing = true;
         anim.SetBool("Heal", true);
-        yield return new WaitForSeconds(healCooldown);
-        canHeal = true;
     }
+
+
+    void Heal()
+    {
+        anim.SetBool("Heal", false);
+        if (followerTarget != null)
+        {
+            followerTarget.Heal(healAmount);
+        }
+        StartCoroutine(HealCooldown());
+    }
+
+    IEnumerator HealCooldown()
+    {
+        yield return new WaitForSeconds(0.1f);
+        healing = false;
+        yield return new WaitForSeconds(healCooldown);
+        StartCoroutine(HealthCheck());
+    }
+
 }

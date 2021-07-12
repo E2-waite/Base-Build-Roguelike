@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthyPrefab: {fileID: 8840559666961402214, guid: e527585eeb9171043a3bac4c7574ba53, type: 3}
-  undeadPrefab: {fileID: 2743365640547367737, guid: 4f6d634aa3497134eb1b05be31943143, type: 3}
+  undeadPrefab: {fileID: 2743365640547367737, guid: c2b13fb2c2e6d9c42825d6ec55cb59db, type: 3}
 --- !u!61 &3826077874747924261
 BoxCollider2D:
   m_ObjectHideFlags: 0
