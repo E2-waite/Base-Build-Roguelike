@@ -104,6 +104,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staticObject: 0
+  statusEffects: []
+  glow: {fileID: 0}
   maxHealth: 3
   health: 0
   hitDamage: 1
@@ -125,6 +127,7 @@ MonoBehaviour:
   shotCooldown: 5
   currShotCooldown: 0
   shadowBoltPrefab: {fileID: 3959727543333110681, guid: 6a53d5d9202102d4bb78745fd3b85ab3, type: 3}
+  necroSphere: {fileID: 2050808074673889753, guid: 0e5463c4ac6c26f49bbde59e5a99abc4, type: 3}
 --- !u!114 &3438430402389115328
 MonoBehaviour:
   m_ObjectHideFlags: 0

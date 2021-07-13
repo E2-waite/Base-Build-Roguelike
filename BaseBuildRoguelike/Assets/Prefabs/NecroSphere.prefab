@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3105099735518009649}
   - component: {fileID: 2528210324504635843}
-  - component: {fileID: 3519598471626610620}
+  - component: {fileID: 113273226372802865}
   m_Layer: 0
   m_Name: NecroSphere
   m_TagString: Untagged
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3519598471626610620
+--- !u!114 &113273226372802865
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,6 +93,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2050808074673889753}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6300c038da69dce4ea19e79d504ffaf3, type: 3}
+  m_Script: {fileID: 11500000, guid: 637d280a5e8f8b246a8b24bfd7406d7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
