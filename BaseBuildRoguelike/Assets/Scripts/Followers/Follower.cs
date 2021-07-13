@@ -251,7 +251,7 @@ public abstract class Follower : Interaction
         StartCoroutine(HitRoutine());
 
 
-        if ((state == State.idle || state == State.move) && (this is Soldier || this is Archer))
+        if (attacker != null && (state == State.idle || state == State.move) && (this is Soldier || this is Archer))
         {
             TargetEnemy(attacker);
             if (squad != null)

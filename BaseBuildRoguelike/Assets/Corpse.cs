@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Corpse : MonoBehaviour
+public class Corpse : Interaction
 {
     public GameObject healthyPrefab, undeadPrefab;
 

@@ -72,7 +72,7 @@ public class Archer : Follower
         yield return new WaitForSeconds(shotTime);
         attacking = false;
         GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
-        arrow.GetComponent<Arrow>().Move(target, this, shotSpeed, hitDamage);
+        arrow.GetComponent<Arrow>().Setup(target, this, shotSpeed, hitDamage);
         StartCoroutine(ShotCooldown());
     }
 

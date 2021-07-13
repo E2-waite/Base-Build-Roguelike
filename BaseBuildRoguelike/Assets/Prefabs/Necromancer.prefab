@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adba7ae89d4273443b684a4b72c8d40f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  staticObject: 0
   maxHealth: 3
   health: 0
   hitDamage: 1
@@ -115,11 +116,15 @@ MonoBehaviour:
     m_Bits: 0
   squad: {fileID: 0}
   targetSquad: {fileID: 0}
+  path: []
   squadPrefab: {fileID: 8437693019058054867, guid: 4f60460212a58984992ec2ab3a5e4e3b, type: 3}
   corpses: []
   undead: []
-  cooldown: 10
+  raiseCooldown: 10
   currCooldown: 0
+  shotCooldown: 5
+  currShotCooldown: 0
+  shadowBoltPrefab: {fileID: 3959727543333110681, guid: 6a53d5d9202102d4bb78745fd3b85ab3, type: 3}
 --- !u!114 &3438430402389115328
 MonoBehaviour:
   m_ObjectHideFlags: 0
