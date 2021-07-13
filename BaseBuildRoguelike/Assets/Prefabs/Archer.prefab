@@ -176,13 +176,14 @@ GameObject:
   m_Component:
   - component: {fileID: 313959018351018641}
   - component: {fileID: 4808295431146606609}
+  - component: {fileID: 4703397338764745130}
   m_Layer: 0
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &313959018351018641
 Transform:
   m_ObjectHideFlags: 0
@@ -204,7 +205,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8100852275919604701}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -249,6 +250,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4703397338764745130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8100852275919604701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cada51e4a603ec4b8543d18cca8db17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healColour: {r: 1, g: 0.75294125, b: 0, a: 0.6862745}
+  shadowColour: {r: 0.09019608, g: 0, b: 0.627451, a: 0.6862745}
 --- !u!1 &8840559666961402214
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,6 +399,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staticObject: 0
+  statusEffects: []
+  glow: {fileID: 4703397338764745130}
   state: 0
   target: {fileID: 0}
   squad: {fileID: 0}
@@ -399,7 +416,7 @@ MonoBehaviour:
   attacking: 0
   highlight: {fileID: 1158189135023345973}
   marker: {fileID: 8840559668946194276}
-  glow: {fileID: 8100852275919604701}
+  glow: {fileID: 0}
   squadPrefab: {fileID: 8437693019058054867, guid: 4f60460212a58984992ec2ab3a5e4e3b, type: 3}
   corpsePrefab: {fileID: 809098620326100432, guid: e7bebd13c77147b4ca72e24eae4b7d74, type: 3}
   path: []

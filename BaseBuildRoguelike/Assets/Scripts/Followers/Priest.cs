@@ -66,7 +66,7 @@ public class Priest : Follower
         anim.SetBool("Heal", false);
         if (followerTarget != null)
         {
-            followerTarget.Heal(healAmount);
+            followerTarget.AddEffect(new HealEffect(1, 0.5f, followerTarget));
         }
         StartCoroutine(HealCooldown());
     }

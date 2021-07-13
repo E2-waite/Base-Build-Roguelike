@@ -7,7 +7,7 @@ public abstract class Interaction : MonoBehaviour
     public bool staticObject = false;
 
     public List<StatusEffect> statusEffects = new List<StatusEffect>();
-
+    public EffectGlow glow;
     public void AddEffect(StatusEffect effect)
     {
         for (int i = 0; i < statusEffects.Count; i++)
@@ -20,6 +20,7 @@ public abstract class Interaction : MonoBehaviour
             }
         }
         statusEffects.Add(effect);
+        glow.UpdateGlow(statusEffects);
     }
 
     public void RemoveEffect(StatusEffect effect)
@@ -29,6 +30,8 @@ public abstract class Interaction : MonoBehaviour
             if (effect == statusEffects[i])
             {
                 statusEffects.RemoveAt(i);
+                glow.UpdateGlow(statusEffects);
+                return;
             }
         }
     }

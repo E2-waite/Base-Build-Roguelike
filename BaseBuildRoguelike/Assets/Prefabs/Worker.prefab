@@ -105,6 +105,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staticObject: 0
+  statusEffects: []
+  glow: {fileID: 474161283604422675}
   state: 0
   target: {fileID: 0}
   squad: {fileID: 0}
@@ -120,7 +122,7 @@ MonoBehaviour:
   attacking: 0
   highlight: {fileID: 3046307727713805403}
   marker: {fileID: 486432622879390999}
-  glow: {fileID: 6901571357848192756}
+  glow: {fileID: 0}
   squadPrefab: {fileID: 0}
   corpsePrefab: {fileID: 809098620326100432, guid: 4b68942577a839c428900ac02f40917c, type: 3}
   path: []
@@ -380,13 +382,14 @@ GameObject:
   m_Component:
   - component: {fileID: 7696024835216766988}
   - component: {fileID: 1187740609101954519}
+  - component: {fileID: 474161283604422675}
   m_Layer: 0
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7696024835216766988
 Transform:
   m_ObjectHideFlags: 0
@@ -408,7 +411,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6901571357848192756}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -453,6 +456,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &474161283604422675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6901571357848192756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cada51e4a603ec4b8543d18cca8db17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healColour: {r: 1, g: 0.75294125, b: 0, a: 0.6862745}
+  shadowColour: {r: 0.09019608, g: 0, b: 0.627451, a: 0.6862745}
 --- !u!1 &6947429606318016877
 GameObject:
   m_ObjectHideFlags: 0
