@@ -33,7 +33,10 @@ public class Undead : Enemy
                     Debug.Log("No new target found");
                     // Go back to attacking the home building if no targets could be found
                     target = GameController.Instance.homeBuilding;
-                    Pathfinding.FindPath(ref path, transform.position, target.transform.position);
+                    if (target != null)
+                    {
+                        Pathfinding.FindPath(ref path, transform.position, target.transform.position);
+                    }
                 }
             }
             else

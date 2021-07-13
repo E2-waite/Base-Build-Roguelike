@@ -17,6 +17,7 @@ public abstract class Enemy : Interaction
     private void Start()
     {
         target = GameController.Instance.homeBuilding;
+        Pathfinding.FindPath(ref path, transform.position, target.transform.position);
         rend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         health = maxHealth;
@@ -122,8 +123,11 @@ public abstract class Enemy : Interaction
                     targetSquad = attacker.squad;
                 }
             }
+            if (squad != null)
+            {
+                squad.SetTarget(attacker);
+            }
             Pathfinding.FindPath(ref path, transform.position, target.transform.position);
-            squad.SetTarget(attacker);
         }
 
         StartCoroutine(HitRoutine());

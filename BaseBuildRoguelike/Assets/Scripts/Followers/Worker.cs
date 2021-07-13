@@ -23,6 +23,7 @@ public class Worker : Follower
         canBuild = true;
         canHit = true;
         marker.transform.position = pos;
+        Pathfinding.FindPath(ref path, transform.position, pos);
         lastState = State.idle;
         if (obj != null)
         {
@@ -94,7 +95,7 @@ public class Worker : Follower
             }
             else
             {
-                Move(marker.transform.position);
+                Move();
             }
         }
         else
@@ -104,6 +105,15 @@ public class Worker : Follower
                 if ((state == State.chopWood || state == State.mineStone || state == State.hunt) && !inventory.AtCapacity())
                 {
                     target = FindResource();
+                    Debug.Log("Start: " + transform.position.ToString() + " End: " + target.transform.position.ToString());
+                    if (Pathfinding.FindPath(ref path, transform.position, target.transform.position))
+                    {
+                        Debug.Log("Path Found");
+                    }
+                    else
+                    {
+                        Debug.Log("No Path");
+                    }
                 }
                 else
                 {
@@ -133,7 +143,7 @@ public class Worker : Follower
                 }
                 else
                 {
-                    Move(target.transform.position);
+                    Move();
                 }
             }
         }
@@ -156,6 +166,11 @@ public class Worker : Follower
             {
                 target = FindResource();
             }
+
+            if (target != null)
+            {
+                Pathfinding.FindPath(ref path, transform.position, target.transform.position);
+            }
         }
     }
 
@@ -169,7 +184,8 @@ public class Worker : Follower
         }
         else
         {
-            state = State.store; 
+            state = State.store;
+            Pathfinding.FindPath(ref path, transform.position, target.transform.position);
             return true;
         }
     }
@@ -239,7 +255,6 @@ public class Worker : Follower
         }
 
         state = lastState;
-
         return closestResource;
     }
 

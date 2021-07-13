@@ -33,6 +33,7 @@ public class Resource : Interaction
         val--;
         if (val <= 0)
         {
+            Pathfinding.UpdateNodeGrid();
             Destroy(gameObject);
             return false;
         }

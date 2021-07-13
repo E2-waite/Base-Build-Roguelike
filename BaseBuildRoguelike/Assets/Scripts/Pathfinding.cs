@@ -34,7 +34,7 @@ public static class Pathfinding
             for (int x = 0; x < size.x; x++)
             {
                 bool isObstacle = false;
-                if (grid.tiles[x, y].structure != null || grid.tiles[x, y].type == Tile.Type.water)
+                if ((grid.tiles[x, y].structure != null && !(grid.tiles[x, y].structure is Resource) && !(mapGrid.tiles[x, y].structure is ResourceStorage) && !(mapGrid.tiles[x, y].structure is HomeBase)) || grid.tiles[x, y].type == Tile.Type.water)
                 {
                     isObstacle = true;
                 }
@@ -53,7 +53,7 @@ public static class Pathfinding
             for (int x = 0; x < size.x; x++)
             {
                 bool isObstacle = false;
-                if (mapGrid.tiles[x, y].structure != null || mapGrid.tiles[x, y].type == Tile.Type.water)
+                if ((mapGrid.tiles[x, y].structure != null && !(mapGrid.tiles[x, y].structure is Resource) && !(mapGrid.tiles[x, y].structure is ResourceStorage) && !(mapGrid.tiles[x, y].structure is HomeBase)) || mapGrid.tiles[x, y].type == Tile.Type.water)
                 {
                     isObstacle = true;
                 }

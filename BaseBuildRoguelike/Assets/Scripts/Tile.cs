@@ -20,7 +20,7 @@ public class Tile : MonoBehaviour
     public SpriteRenderer rend;
 
     public float corruptionVal = 0;
-    float corruptionSpeed = 15, purifySpeed = 50;
+    float corruptionSpeed = 10, purifySpeed = 50;
     private int corruptionMulti = 0;
     private bool selected;
 

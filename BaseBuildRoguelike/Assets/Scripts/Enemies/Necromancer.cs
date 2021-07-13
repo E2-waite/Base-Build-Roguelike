@@ -42,7 +42,6 @@ public class Necromancer : Enemy
 
         for (int i = corpses.Count - 1; i >= 0 ; i--)
         {
-            Debug.Log(i.ToString() + corpses[i].name);
             if (corpses[i] != null)
             {
                 GameObject projectile = Instantiate(necroSphere, transform.position, Quaternion.identity);

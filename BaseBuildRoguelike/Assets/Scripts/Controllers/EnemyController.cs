@@ -47,20 +47,21 @@ public class EnemyController : MonoSingleton<EnemyController>
     Enemy EnemySelect()
     {
         float random = Random.Range(0, 100);
-        GameObject enemy = null;
-        Vector3 spawnPos = corruptedTiles[Random.Range(0, corruptedTiles.Count)].transform.position;
 
-        for (int i = 0; i < enemyTemplates.Count; i++)
-        {
-            if (random <= enemyTemplates[i].rarity)
-            {
-                enemy = Instantiate(enemyTemplates[i].prefab, spawnPos, Quaternion.identity);
-            }
-        }
-        if (enemy == null) 
-        {
-            return null;
-        }
+        Vector3 spawnPos = corruptedTiles[Random.Range(0, corruptedTiles.Count)].transform.position;
+        GameObject enemy = Instantiate(enemyTemplates[Random.Range(0, enemyTemplates.Count)].prefab, spawnPos, Quaternion.identity);
+
+        //for (int i = 0; i < enemyTemplates.Count; i++)
+        //{
+        //    if (random <= enemyTemplates[i].rarity)
+        //    {
+        //        enemy = Instantiate(enemyTemplates[i].prefab, spawnPos, Quaternion.identity);
+        //    }
+        //}
+        //if (enemy == null) 
+        //{
+        //    return null;
+        //}
         return enemy.GetComponent<Enemy>();
     }
 
