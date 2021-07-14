@@ -8,13 +8,11 @@ public class MouseControl : MonoBehaviour
     public float camSpeed = 50, camDist = 10, camMaxZoom = 25, camMinZoom = 10;
     FollowerController followers;
     BuildingController buildings;
-    Grid grid;
     public LayerMask tileMask, selectMask, directMask;
     private void Start()
     {
         followers = GetComponent<FollowerController>();
         buildings = GetComponent<BuildingController>();
-        grid = GetComponent<Grid>();
         Cursor.lockState = CursorLockMode.Confined;
     }
 
@@ -78,9 +76,9 @@ public class MouseControl : MonoBehaviour
             // Select tile below cursor
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero, 0, tileMask);
 
-            if (!grid.IsSelected(hit.collider))
+            if (!Grid.IsSelected(hit.collider))
             {
-                grid.SelectTile(hit.collider, BuildingController.Instance.selectedTemplate);
+                Grid.SelectTile(hit.collider, BuildingController.Instance.selectedTemplate);
             }
         }
 
@@ -89,7 +87,7 @@ public class MouseControl : MonoBehaviour
             if (GameController.Instance.mode == GameController.Mode.build)
             {
                 // Place building on selected tile
-                buildings.BuildStructure(grid.selected);
+                buildings.BuildStructure(Grid.selected);
             }
             else
             {
@@ -128,7 +126,7 @@ public class MouseControl : MonoBehaviour
             if (GameController.Instance.mode == GameController.Mode.build)
             {
                 GameController.Instance.mode = GameController.Mode.select;
-                grid.DeselectTile();
+                Grid.DeselectTile();
             }
             else if (GameController.Instance.mode == GameController.Mode.direct)
             { 

@@ -53,16 +53,16 @@ public class Tile : MonoBehaviour
         rend.color = currentColour;
     }
 
-    public void UpdateSprite(Grid grid, int x, int y)
+    public void UpdateSprite(int x, int y)
     {
         bool higherTile = false;
-        if (y > 0 && grid.tiles[x, y - 1].type < type)
+        if (y > 0 && Grid.tiles[x, y - 1].type < type)
         {
             higherTile = true;
         }
 
         bool lowerTile = false;
-        if (y < grid.tiles.GetLength(1) - 1 && grid.tiles[x, y + 1].type > type)
+        if (y < Grid.tiles.GetLength(1) - 1 && Grid.tiles[x, y + 1].type > type)
         {
             lowerTile = true;
         }
@@ -120,21 +120,15 @@ public class Tile : MonoBehaviour
         Vector2Int[] neighbours = Params.Get4Neighbours(pos);
         for (int i = 0; i < 4; i++)
         {
-            CorruptNeighbour(neighbours[i]);
-        }
-    }
-
-    bool CorruptNeighbour(Vector2Int pos)
-    {
-        if (Tiles.InGrid(pos))
-        {
-            Tile neighbour = Tiles.GetTile(pos);
-            if (neighbour.type != Type.water && !neighbour.isProtected)
+            if (Grid.InGrid(neighbours[i]))
             {
-                return neighbour.Corrupt(pos);
+                Tile neighbour = Grid.GetTile(pos);
+                if (neighbour.type != Type.water && !neighbour.isProtected)
+                {
+                    neighbour.Corrupt(pos);
+                }
             }
         }
-        return false;
     }
 
     public void Purify(PurifyPillar pillar)
@@ -183,7 +177,7 @@ public class Tile : MonoBehaviour
 
         for (int i = 0; i < neighbours.Length; i++)
         {
-            if (Tiles.InGrid(neighbours[i]) && Tiles.GetTile(neighbours[i]).corruptionVal >= 100)
+            if (Grid.InGrid(neighbours[i]) && Grid.GetTile(neighbours[i]).corruptionVal >= 100)
             {
                 Corrupt(pos);
             }

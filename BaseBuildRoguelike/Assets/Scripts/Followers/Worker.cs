@@ -235,12 +235,12 @@ public class Worker : Follower
         List<Interaction> resources = new List<Interaction>();
         if (lastState == (int)State.chopWood)
         {
-            resources = GameController.Instance.grid.trees;
+            resources = Grid.trees;
         }
 
         if (lastState == (int)State.mineStone)
         {
-            resources = GameController.Instance.grid.stones;
+            resources = Grid.stones;
         }
 
         if (lastState == (int)State.hunt)

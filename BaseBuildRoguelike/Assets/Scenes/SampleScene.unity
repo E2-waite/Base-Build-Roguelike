@@ -2096,35 +2096,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1263100313}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7da34f6730490a14c82fa10ff62b3f64, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a6487aa003e3bb418ccb745416a5937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selected: {fileID: 0}
-  mapSize: 100
-  noiseSize: 250
   grassTile: {fileID: 3916451811984000970, guid: e2b1d08da95f13249aaf365239ea7a0c, type: 3}
   waterTile: {fileID: 3916451811984000970, guid: 4f54d8e9c2c98d54c9feae91a0a6dc99, type: 3}
   sandTile: {fileID: 3916451811984000970, guid: 86b3cebd5e2c447479b24fae181af88b, type: 3}
   dGrassTile: {fileID: 3916451811984000970, guid: fc680323eef154b4b9b45b90b5747e9b, type: 3}
-  tileMask:
-    serializedVersion: 2
-    m_Bits: 64
-  cleanRadius: 5
-  startBase: {x: 10, y: 10}
-  walls:
-  - {fileID: 4262664949169832410, guid: 1cbcabe1dda614b43a2731d9afae7168, type: 3}
-  - {fileID: 71107718936590173, guid: edad4e7c716bd3d4abdb61ac05b90b79, type: 3}
-  - {fileID: 3606028149503218204, guid: 379f009b89ec346498ee80ddb6fc6b37, type: 3}
-  - {fileID: 2898437805193592854, guid: e3af0000e9dc4de43a4ed6682a5c3895, type: 3}
-  - {fileID: 3079110297625504739, guid: 6cb707e6a6fbe284b98e7573ccdd132a, type: 3}
-  - {fileID: 7052859431331179638, guid: b1ab8c7c25e344340981a1d812a305c4, type: 3}
-  - {fileID: 4934932577049063368, guid: d0e03e8e248fa914593471e618dbc75f, type: 3}
   treePrefab: {fileID: 8087232528035166766, guid: 85f336c396c38ed4f9d91d8e918eb583, type: 3}
   stonePrefab: {fileID: 8087232528035166766, guid: ec624463330cdfe4d8f49c5f39a6bf81, type: 3}
+  mapSize: 100
+  noise: 250
   treeScale: 25
   stoneScale: 5
-  trees: []
-  stones: []
 --- !u!4 &1263100315
 Transform:
   m_ObjectHideFlags: 0
@@ -2154,13 +2138,7 @@ MonoBehaviour:
   DestroyOnLoad: 1
   followerCost: 10
   followerPrefab: {fileID: 486432623086700621, guid: 8ab9b6d2894dcbf47a64f1b6be0fdb01, type: 3}
-  followers:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  followers: []
   selected: {fileID: 0}
   selectedSquad: {fileID: 0}
   maxFollowers: 1

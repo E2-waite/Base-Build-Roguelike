@@ -74,6 +74,4 @@ public static class Targetting
         }
         return false;
     }
-
-
 }

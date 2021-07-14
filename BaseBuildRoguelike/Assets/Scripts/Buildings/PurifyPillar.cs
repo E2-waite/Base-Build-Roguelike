@@ -18,9 +18,9 @@ public class PurifyPillar : Building
             for (int x = 0; x < 5; x++)
             {
                 Vector2Int newPos = new Vector2Int(pos.x + x, pos.y + y);
-                if (Tiles.InGrid(newPos))
+                if (Grid.InGrid(newPos))
                 {
-                    Tile tile = Tiles.GetTile(newPos);
+                    Tile tile = Grid.GetTile(newPos);
                     if (tile != null)
                     {
                         purifiedTiles.Add(tile);

@@ -22,38 +22,17 @@ public static class Pathfinding
     }
 
     private static Node[,] nodeGrid;
-    private static Grid mapGrid;
-    public static void UpdateNodeGrid(Grid grid)
-    {
-        mapGrid = grid;
-        Vector2Int size = new Vector2Int(grid.mapSize, grid.mapSize);
-        nodeGrid = new Node[size.x, size.y];
-
-        for (int y = 0; y < size.y; y++)
-        {
-            for (int x = 0; x < size.x; x++)
-            {
-                bool isObstacle = false;
-                if (grid.tiles[x, y].structure != null  || grid.tiles[x, y].type == Tile.Type.water)
-                {
-                    isObstacle = true;
-                }
-                nodeGrid[x, y] = new Node(isObstacle, new Vector2Int(x, y));
-            }
-        }
-    }
 
     public static void UpdateNodeGrid()
     {
-        Vector2Int size = new Vector2Int(mapGrid.mapSize, mapGrid.mapSize);
-        nodeGrid = new Node[size.x, size.y];
+        nodeGrid = new Node[Grid.size, Grid.size];
 
-        for (int y = 0; y < size.y; y++)
+        for (int y = 0; y < Grid.size; y++)
         {
-            for (int x = 0; x < size.x; x++)
+            for (int x = 0; x < Grid.size; x++)
             {
                 bool isObstacle = false;
-                if ((mapGrid.tiles[x, y].structure != null && !(mapGrid.tiles[x, y].structure is Resource) && !(mapGrid.tiles[x, y].structure is ResourceStorage) && !(mapGrid.tiles[x, y].structure is HomeBase)) || mapGrid.tiles[x, y].type == Tile.Type.water)
+                if (Grid.tiles[x, y].structure != null || Grid.tiles[x, y].type == Tile.Type.water)
                 {
                     isObstacle = true;
                 }
@@ -64,7 +43,6 @@ public static class Pathfinding
 
     public static bool FindPath(ref List<Vector2Int> path, Vector2 start_pos, Vector2 end_pos)
     {
-
         path = IsPath(new Vector2Int((int)start_pos.x, (int)start_pos.y), new Vector2Int((int)end_pos.x, (int)end_pos.y));
 
         if (path.Count > 0)
@@ -152,8 +130,8 @@ public static class Pathfinding
         for (int i = 0; i < 8; i++)
         {
             Vector2Int pos = neighbourPos[i];
-            if (pos.x >= 0 && pos.x < mapGrid.mapSize &&
-                pos.y >= 0 && pos.y < mapGrid.mapSize)
+            if (pos.x >= 0 && pos.x < Grid.size &&
+                pos.y >= 0 && pos.y < Grid.size)
             {
                 neighbour_nodes.Add(nodeGrid[pos.x, pos.y]);
             }
