@@ -4,46 +4,165 @@ using UnityEngine;
 
 public class GameController : MonoSingleton<GameController>
 {
-    public int[] resources = new int[Consts.NUM_RESOURCES];
-    public int[] maxResources = new int[Consts.NUM_RESOURCES];
-    public GridBuilder grid;
-    MouseControl mouse;
-    public Vector2Int startPos;
-
-    public Interaction homeBuilding;
-    public Inspector inspector;
-
-    public enum Mode
-    {
+    public enum GameState
+    { 
+        select,
         build,
-        direct,
-        select
+        direct
     }
+    public GameState gameState;
+    private GridBuilder grid;
+    private Spawner spawner;
 
-    public Mode mode = Mode.select;
+    public Inspector inspector;
+    public Camera camera;
+    public float camSpeed = 50, camDist = 10, camMaxZoom = 20, camMinZoom = 5;
+    public LayerMask tileMask, selectMask, directMask;
 
     void Start()
     {
         grid = GetComponent<GridBuilder>();
         grid.Generate();
 
-        startPos = new Vector2Int((int)(Grid.size / 2), (int)(Grid.size / 2));
+        Grid.startPos = new Vector2Int((int)(Grid.size / 2), (int)(Grid.size / 2));
 
-        mouse = GetComponent<MouseControl>();
-        mouse.camera.transform.position = new Vector3(startPos.x, startPos.y, mouse.camera.transform.position.z);
-        Spawner spawner = Spawner.Instance;
+        spawner = Spawner.Instance;
         spawner.Setup();
-        spawner.SpawnFollower(new Vector3(startPos.x, startPos.y, 0));
-        spawner.SpawnHome(Grid.tiles[startPos.x, startPos.y]);
-        homeBuilding = Buildings.homeBase;
+        spawner.SpawnFollower(new Vector3(Grid.startPos.x, Grid.startPos.y, 0));
+        spawner.SpawnHome(Grid.tiles[Grid.startPos.x, Grid.startPos.y]);
+
+        Cursor.lockState = CursorLockMode.Confined;
+        camera.transform.position = new Vector3(Grid.startPos.x, Grid.startPos.y, camera.transform.position.z);
     }
 
-    public void AdjustResources(Resource.Type type, int val, int maxVal)
+    private void Update()
     {
-        int pos = (int)type;
-        resources[pos] += val;
-        maxResources[pos] += maxVal;
-
-        HUD.Instance.UpdateResources(resources, maxResources);
+        ClickControl();
+        CameraControl();
     }
+
+
+    void ClickControl()
+    {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+
+        if (gameState == GameState.build)
+        {
+            // Select tile below cursor
+            RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero, 0, tileMask);
+
+            if (!Grid.IsSelected(hit.collider))
+            {
+                Grid.SelectTile(hit.collider, Spawner.Instance.selectedTemplate);
+            }
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (gameState == GameState.build)
+            {
+                // Place building on selected tile
+                spawner.BuildStructure(Grid.selected);
+            }
+            else
+            {
+                RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero, 0, selectMask);
+                if (hit.collider == null)
+                {
+                    if (!GameController.Instance.inspector.mouseOver)
+                    {
+                        Followers.Deselect();
+                        Buildings.Deselect();
+                        gameState = GameState.select;
+                    }
+                }
+                else
+                {
+                    Interaction target = hit.collider.GetComponent<Interaction>();
+                    // Select either the follower or building in clicked position
+                    if (target is Follower)
+                    {
+                        Followers.Select(target as Follower);
+                        Buildings.Deselect();
+                        gameState = GameState.direct;
+                        return;
+                    }
+                    else if (target is Building)
+                    {
+                        Followers.Deselect();
+                        Buildings.Select(hit.collider.gameObject);
+                        return;
+                    }
+                }
+            }
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (gameState == GameState.build)
+            {
+                gameState = GameState.select;
+                Grid.DeselectTile();
+            }
+            else if (gameState == GameState.direct)
+            {
+                // Direct target follower
+                GameObject targetObj = null;
+                RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero, 0, directMask);
+
+                if (hit.collider != null)
+                {
+                    targetObj = hit.collider.gameObject;
+                }
+
+                Followers.Direct(mousePos2D, targetObj);
+            }
+        }
+    }
+
+    void CameraControl()
+    {
+        Vector2 mousePos = Input.mousePosition;
+
+        if (Input.GetKeyDown(KeyCode.H) && !camRecentering)
+        {
+            StartCoroutine(RecenterCam());
+        }
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f && camera.orthographicSize > camMinZoom) // forward
+        {
+            camera.orthographicSize--;
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f && camera.orthographicSize < camMaxZoom) // backwards
+        {
+            camera.orthographicSize++;
+        }
+
+        if ((mousePos.x <= 10 && Input.GetAxis("Mouse X") < 0) || (mousePos.x >= Screen.width - 10 && Input.GetAxis("Mouse X") > 0))
+        {
+            Vector3 newPos = new Vector3(camera.transform.position.x + (Input.GetAxis("Mouse X") * (camSpeed * Time.deltaTime)), camera.transform.position.y, -camDist);
+            camera.transform.position = newPos;
+        }
+
+        if ((mousePos.y <= 10 && Input.GetAxis("Mouse Y") < 0) || (mousePos.y >= Screen.height - 10 && Input.GetAxis("Mouse Y") > 0))
+        {
+            Vector3 newPos = new Vector3(camera.transform.position.x, camera.transform.position.y + (Input.GetAxis("Mouse Y") * (camSpeed * Time.deltaTime)), -camDist);
+            camera.transform.position = newPos;
+        }
+    }
+
+    bool camRecentering = false;
+    IEnumerator RecenterCam()
+    {
+        camRecentering = true;
+        Vector3 targetPos = new Vector3(Grid.startPos.x, Grid.startPos.y, camera.transform.position.z);
+        while (camera.transform.position != targetPos)
+        {
+            camera.transform.position = Vector3.MoveTowards(camera.transform.position, targetPos, (camSpeed * 2) * Time.deltaTime);
+            yield return null;
+        }
+        camRecentering = false;
+    }
+
 }

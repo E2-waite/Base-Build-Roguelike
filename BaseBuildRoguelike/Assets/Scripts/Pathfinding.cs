@@ -41,9 +41,9 @@ public static class Pathfinding
         }
     }
 
-    public static bool FindPath(ref List<Vector2Int> path, Vector2 start_pos, Vector2 end_pos)
+    public static bool FindPath(ref List<Vector2Int> path, Vector2 start_pos, Vector2 end_pos, int maxDist = 0)
     {
-        path = IsPath(new Vector2Int((int)start_pos.x, (int)start_pos.y), new Vector2Int((int)end_pos.x, (int)end_pos.y));
+        path = IsPath(new Vector2Int((int)start_pos.x, (int)start_pos.y), new Vector2Int((int)end_pos.x, (int)end_pos.y), maxDist);
 
         if (path.Count > 0)
         {
@@ -53,7 +53,7 @@ public static class Pathfinding
     }
 
 
-    private static List<Vector2Int> IsPath(Vector2Int start_pos, Vector2Int end_pos)
+    private static List<Vector2Int> IsPath(Vector2Int start_pos, Vector2Int end_pos, int maxDist)
     {
         Node start_node = nodeGrid[start_pos.x, start_pos.y];
         Node end_node = nodeGrid[end_pos.x, end_pos.y];
@@ -81,10 +81,22 @@ public static class Pathfinding
             open_list.Remove(current_node);
             closed_list.Add(current_node);
 
-            if (current_node == end_node)
+
+            if (maxDist == 0)
             {
-                // Path has been found
-                return GetFinalPath(start_node, end_node);
+                if (current_node == end_node)
+                {
+                    // Path has been found
+                    return GetFinalPath(start_node, end_node);
+                }
+            }
+            else
+            {
+                int dist = Mathf.Abs(current_node.pos.x - end_node.pos.x) + Mathf.Abs(current_node.pos.y - end_node.pos.y);
+                if (dist <= maxDist)
+                {
+                    return GetFinalPath(start_node, current_node);
+                }
             }
 
             foreach (Node neighbour in GetNeighbourNodes(nodeGrid, current_node))
@@ -125,9 +137,9 @@ public static class Pathfinding
         // Gets all neighbouring nodes (ensuring none are outside of the grid)
         List<Node> neighbour_nodes = new List<Node>();
 
-        Vector2Int[] neighbourPos = Params.Get8Neighbours(node.pos);
+        Vector2Int[] neighbourPos = Params.Get4Neighbours(node.pos);
 
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < neighbourPos.Length; i++)
         {
             Vector2Int pos = neighbourPos[i];
             if (pos.x >= 0 && pos.x < Grid.size &&

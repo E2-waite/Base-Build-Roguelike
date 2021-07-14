@@ -33,7 +33,7 @@ public class Worker : Follower
         canBuild = true;
         canHit = true;
         marker.transform.position = pos;
-        Pathfinding.FindPath(ref path, transform.position, pos);
+        Pathfinding.FindPath(ref path, transform.position, pos, 1);
         lastState = (int)State.idle;
         if (obj != null)
         {
@@ -116,7 +116,7 @@ public class Worker : Follower
                 {
                     target = FindResource();
                     Debug.Log("Start: " + transform.position.ToString() + " End: " + target.transform.position.ToString());
-                    if (Pathfinding.FindPath(ref path, transform.position, target.transform.position))
+                    if (Pathfinding.FindPath(ref path, transform.position, target.transform.position, 1))
                     {
                         Debug.Log("Path Found");
                     }
@@ -179,7 +179,7 @@ public class Worker : Follower
 
             if (target != null)
             {
-                Pathfinding.FindPath(ref path, transform.position, target.transform.position);
+                Pathfinding.FindPath(ref path, transform.position, target.transform.position, 1);
             }
         }
     }
@@ -195,7 +195,7 @@ public class Worker : Follower
         else
         {
             state = (int)State.store;
-            Pathfinding.FindPath(ref path, transform.position, target.transform.position);
+            Pathfinding.FindPath(ref path, transform.position, target.transform.position, 1);
             return true;
         }
     }
@@ -208,7 +208,7 @@ public class Worker : Follower
         List<ResourceStorage> storageBuildings = new List<ResourceStorage>();
 
         // Only checks resources that are in the follower's inventory
-        for (int i = 0; i < Consts.NUM_RESOURCES; i++)
+        for (int i = 0; i < Resources.NUM; i++)
         {
             if (inventory.resources[i] > 0)
             {
@@ -235,12 +235,12 @@ public class Worker : Follower
         List<Interaction> resources = new List<Interaction>();
         if (lastState == (int)State.chopWood)
         {
-            resources = Grid.trees;
+            resources = Resources.trees;
         }
 
         if (lastState == (int)State.mineStone)
         {
-            resources = Grid.stones;
+            resources = Resources.stones;
         }
 
         if (lastState == (int)State.hunt)

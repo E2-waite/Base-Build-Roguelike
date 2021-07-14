@@ -7,7 +7,7 @@ public static class Grid
     public static Tile[,] tiles;
     public static Tile selected = null;
     public static int size, noise;
-    public static List<Interaction> trees = new List<Interaction>(), stones = new List<Interaction>();
+    public static Vector2Int startPos;
     public static void Init(int mapSize, int noiseSize)
     {
         size = mapSize;

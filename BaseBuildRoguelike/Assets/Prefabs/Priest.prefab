@@ -420,8 +420,7 @@ MonoBehaviour:
   corpsePrefab: {fileID: 809098620326100432, guid: 86f2656a51843ca419b4d9ec8a2495c4, type: 3}
   path: []
   healAmount: 5
-  healCooldown: 5
-  currCooldown: 5
+  healRange: 5
   canHeal: 1
   healing: 0
 --- !u!114 &520897613099791831
@@ -461,7 +460,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.5}
+  m_Size: {x: 0.5, y: 0.75}
   m_EdgeRadius: 0
 --- !u!95 &1886290311957092991
 Animator:

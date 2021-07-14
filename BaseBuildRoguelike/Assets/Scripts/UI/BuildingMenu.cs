@@ -30,7 +30,7 @@ public class BuildingMenu : MonoBehaviour, IPointerClickHandler
             if (eventData.pointerCurrentRaycast.gameObject == buttons[i])
             {
                 Spawner.Instance.selectedTemplate = Spawner.Instance.buildingTemplates[i];
-                GameController.Instance.mode = GameController.Mode.build;
+                GameController.Instance.gameState = GameController.GameState.build;
                 return;
             }
         }

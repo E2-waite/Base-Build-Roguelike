@@ -98,4 +98,23 @@ public static class Followers
             selectedSquad = null;
         }
     }
+
+    public static Interaction Closest(Vector3 pos)
+    {
+        Interaction closest = null;
+        float closestDist = 9999;
+        for (int i = 0; i < followers.Count; i++)
+        {
+            if (followers[i] != null)
+            {
+                float dist = Vector3.Distance(pos, followers[i].transform.position);
+                if (dist < closestDist)
+                {
+                    closestDist = dist;
+                    closest = followers[i];
+                }
+            }
+        }
+        return closest;
+    }
 }

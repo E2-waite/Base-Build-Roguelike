@@ -16,10 +16,10 @@ public class Spawner : MonoSingleton<Spawner>
         GameObject[] enemyObjs = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemyObjs)
         {
-            Enemies.Add(enemy.GetComponent<Interaction>());
+            Enemies.Add(enemy.GetComponent<Enemy>());
         }
 
-        for (int i = 0; i < Consts.NUM_RESOURCES; i++)
+        for (int i = 0; i < Resources.NUM; i++)
         {
             Buildings.storages[i] = new List<ResourceStorage>();
         }
@@ -112,7 +112,7 @@ public class Spawner : MonoSingleton<Spawner>
     }
     public void BuildStructure(Tile tile)
     {
-        if (tile != null && tile.structure == null && selectedTemplate != null)
+        if (Build.CanBuild(selectedTemplate.type, new Vector2Int((int)tile.transform.position.x, (int)tile.transform.position.y)))
         {
             GameObject building = Instantiate(selectedTemplate.prefab, tile.transform.position, Quaternion.identity);
             tile.structure = building.GetComponent<Interaction>();

@@ -6,7 +6,7 @@ public static class Buildings
 {
     public static Building selected;
     public static HomeBase homeBase;
-    public static List<ResourceStorage>[] storages = new List<ResourceStorage>[Consts.NUM_RESOURCES];
+    public static List<ResourceStorage>[] storages = new List<ResourceStorage>[Resources.NUM];
     public static Wall[,] walls;
 
     public static void Select(GameObject obj)

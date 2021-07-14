@@ -68,7 +68,7 @@ public class GridBuilder : MonoBehaviour
                 {
                     GameObject obj = Instantiate(treePrefab, Grid.tiles[treePos.x, treePos.y].transform.position, Quaternion.identity);
                     Grid.tiles[treePos.x, treePos.y].structure = obj.GetComponent<Interaction>();
-                    Grid.trees.Add(Grid.tiles[treePos.x, treePos.y].structure);
+                    Resources.trees.Add(Grid.tiles[treePos.x, treePos.y].structure);
                     treePlaced = true;
                 }
             }
@@ -85,7 +85,7 @@ public class GridBuilder : MonoBehaviour
                 {
                     GameObject obj = Instantiate(stonePrefab, Grid.tiles[stonePos.x, stonePos.y].transform.position, Quaternion.identity);
                     Grid.tiles[stonePos.x, stonePos.y].structure = obj.GetComponent<Interaction>();
-                    Grid.stones.Add(Grid.tiles[stonePos.x, stonePos.y].structure);
+                    Resources.stones.Add(Grid.tiles[stonePos.x, stonePos.y].structure);
                     stonePlaced = true;
                 }
             }

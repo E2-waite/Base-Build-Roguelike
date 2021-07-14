@@ -19,7 +19,7 @@ public class ResourceStorage : Building
 
         Buildings.storages[(int)storageType].Add(this);
 
-        GameController.Instance.AdjustResources(storageType, 0, maxStorage);
+        Resources.Adjust(storageType, 0, maxStorage);
     }
 
     public void Store(ref int val)
@@ -34,7 +34,7 @@ public class ResourceStorage : Building
         val -= toStore;
 
 
-        GameController.Instance.AdjustResources(storageType, toStore, 0);
+        Resources.Adjust(storageType, toStore, 0);
 
         rend.sprite = stages[(int)Mathf.Ceil((currentStorage * (stages.Count - 1)) / maxStorage)];
 
@@ -51,7 +51,7 @@ public class ResourceStorage : Building
         if (currentStorage >= remaining)
         {
             currentStorage -= remaining;
-            GameController.Instance.AdjustResources(storageType, -remaining, 0);
+            Resources.Adjust(storageType, -remaining, 0);
             remaining = 0;
 
             rend.sprite = stages[(int)Mathf.Ceil((currentStorage * (stages.Count - 1)) / maxStorage)];
@@ -61,7 +61,7 @@ public class ResourceStorage : Building
         else
         {
             remaining -= currentStorage;
-            GameController.Instance.AdjustResources(storageType, -currentStorage, 0);
+            Resources.Adjust(storageType, -currentStorage, 0);
             currentStorage = 0;
 
             rend.sprite = stages[(int)Mathf.Ceil((currentStorage * (stages.Count - 1)) / maxStorage)];

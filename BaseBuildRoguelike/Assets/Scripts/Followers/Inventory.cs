@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public int[] resources = new int[Consts.NUM_RESOURCES];
+    public int[] resources = new int[Resources.NUM];
     public int capacity = 10;
     public bool AtCapacity()
     {
         int total = 0;
-        for (int i = 0; i < Consts.NUM_RESOURCES; i++)
+        for (int i = 0; i < Resources.NUM; i++)
         {
             total += resources[i];
         }
