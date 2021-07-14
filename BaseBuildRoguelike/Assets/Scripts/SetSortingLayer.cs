@@ -9,7 +9,7 @@ public class SetSortingLayer : MonoBehaviour
     void Start()
     {
         rend = GetComponent<SpriteRenderer>();
-        rend.sortingOrder = (int)(transform.position.y * 100);
+        rend.sortingOrder = (int)-(transform.position.y * 10);
     }
 
     // Update is called once per frame
@@ -17,7 +17,7 @@ public class SetSortingLayer : MonoBehaviour
     {
         if (update)
         {
-            rend.sortingOrder = (int)(transform.position.y * 100);
+            rend.sortingOrder = (int)-(transform.position.y * 10);
         }
     }
 }

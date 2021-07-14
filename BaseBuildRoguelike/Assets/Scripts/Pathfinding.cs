@@ -34,7 +34,7 @@ public static class Pathfinding
             for (int x = 0; x < size.x; x++)
             {
                 bool isObstacle = false;
-                if ((grid.tiles[x, y].structure != null && !(grid.tiles[x, y].structure is Resource) && !(mapGrid.tiles[x, y].structure is ResourceStorage) && !(mapGrid.tiles[x, y].structure is HomeBase)) || grid.tiles[x, y].type == Tile.Type.water)
+                if (grid.tiles[x, y].structure != null  || grid.tiles[x, y].type == Tile.Type.water)
                 {
                     isObstacle = true;
                 }
@@ -147,29 +147,16 @@ public static class Pathfinding
         // Gets all neighbouring nodes (ensuring none are outside of the grid)
         List<Node> neighbour_nodes = new List<Node>();
 
-        // Check up
-        if (node.pos.x >= 0 && node.pos.x < nodeGrid.GetLength(0) &&
-            node.pos.y - 1 >= 0 && node.pos.y - 1 < nodeGrid.GetLength(1))
+        Vector2Int[] neighbourPos = Params.Get8Neighbours(node.pos);
+
+        for (int i = 0; i < 8; i++)
         {
-            neighbour_nodes.Add(nodeGrid[node.pos.x, node.pos.y - 1]);
-        }
-        // Check right
-        if (node.pos.x + 1 >= 0 && node.pos.x + 1 < nodeGrid.GetLength(0) &&
-            node.pos.y >= 0 && node.pos.y < nodeGrid.GetLength(1))
-        {
-            neighbour_nodes.Add(nodeGrid[node.pos.x + 1, node.pos.y]);
-        }
-        // Check down
-        if (node.pos.x >= 0 && node.pos.x < nodeGrid.GetLength(0) &&
-            node.pos.y + 1 >= 0 && node.pos.y + 1 < nodeGrid.GetLength(1))
-        {
-            neighbour_nodes.Add(nodeGrid[node.pos.x, node.pos.y + 1]);
-        }
-        // Check left
-        if (node.pos.x - 1 >= 0 && node.pos.x - 1 < nodeGrid.GetLength(0) &&
-            node.pos.y >= 0 && node.pos.y < nodeGrid.GetLength(1))
-        {
-            neighbour_nodes.Add(nodeGrid[node.pos.x - 1, node.pos.y]);
+            Vector2Int pos = neighbourPos[i];
+            if (pos.x >= 0 && pos.x < mapGrid.mapSize &&
+                pos.y >= 0 && pos.y < mapGrid.mapSize)
+            {
+                neighbour_nodes.Add(nodeGrid[pos.x, pos.y]);
+            }
         }
 
         return neighbour_nodes;

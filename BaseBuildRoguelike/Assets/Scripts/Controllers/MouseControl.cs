@@ -80,7 +80,7 @@ public class MouseControl : MonoBehaviour
 
             if (!grid.IsSelected(hit.collider))
             {
-                grid.SelectTile(hit.collider);
+                grid.SelectTile(hit.collider, BuildingController.Instance.selectedTemplate);
             }
         }
 
@@ -89,7 +89,7 @@ public class MouseControl : MonoBehaviour
             if (GameController.Instance.mode == GameController.Mode.build)
             {
                 // Place building on selected tile
-                buildings.Build(grid.selected);
+                buildings.BuildStructure(grid.selected);
             }
             else
             {

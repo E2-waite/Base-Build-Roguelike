@@ -6,38 +6,29 @@ public class Necromancer : Enemy
 {
     public List<Corpse> corpses = new List<Corpse>();
     public List<Enemy> undead = new List<Enemy>();
-    public float raiseCooldown = 10, currCooldown = 2, shotCooldown = 5, currShotCooldown = 0;
-    bool raisingDead = false;
+    readonly Cooldown shotCooldown = new Cooldown(5), raiseCooldown = new Cooldown(10);
     public GameObject shadowBoltPrefab, necroSphere;
     private void Update()
     {
-        if (currCooldown <= 0 && corpses.Count > 0)
+        shotCooldown.Tick();
+        raiseCooldown.Tick();
+
+        if (raiseCooldown.Complete() && corpses.Count > 0)
         {
-            currCooldown = raiseCooldown;
+            raiseCooldown.Reset();
             StartCoroutine(RaiseDead());
         }
 
-        if (currShotCooldown <= 0 && target != null)
+        if (shotCooldown.Complete() && target != null)
         {
-            currShotCooldown = shotCooldown;
+            shotCooldown.Reset();
             GameObject bolt = Instantiate(shadowBoltPrefab, transform.position, Quaternion.identity);
             bolt.GetComponent<Projectile>().Setup(target, this, 5, 1);
-        }
-
-        if (currCooldown > 0)
-        {
-            currCooldown -= Time.deltaTime;
-        }
-
-        if (currShotCooldown > 0)
-        {
-            currShotCooldown -= Time.deltaTime;
         }
     }
 
     IEnumerator RaiseDead()
     {
-        raisingDead = true;
         yield return new WaitForSeconds(0.1f);
 
         for (int i = corpses.Count - 1; i >= 0 ; i--)
@@ -49,7 +40,6 @@ public class Necromancer : Enemy
                 yield return new WaitForSeconds(0.1f);
             }
         }
-        raisingDead = false;
     }
 
 

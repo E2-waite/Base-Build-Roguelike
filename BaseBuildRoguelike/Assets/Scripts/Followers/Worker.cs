@@ -4,8 +4,18 @@ using UnityEngine;
 
 public class Worker : Follower
 {
+    enum State : int
+    {
+        idle = 0,
+        move = 1,
+        chopWood = 2,
+        mineStone = 3,
+        store = 4,
+        build = 5,
+        hunt = 6, 
+    }
     [Header("Worker Settings")]
-    public State lastState = State.idle;
+    public int lastState = 0;
     public float gatherTime = 2, buildTime = 1, hitTime = 0.5f;
     public Interaction lastTarget;
     public bool canGather = true, canBuild = true, canHit = true;
@@ -24,7 +34,7 @@ public class Worker : Follower
         canHit = true;
         marker.transform.position = pos;
         Pathfinding.FindPath(ref path, transform.position, pos);
-        lastState = State.idle;
+        lastState = (int)State.idle;
         if (obj != null)
         {
             Debug.Log("Target: " + obj.name);
@@ -38,11 +48,11 @@ public class Worker : Follower
                 Resource resource = target as Resource;
                 if (resource.type == Resource.Type.wood)
                 {
-                    state = State.chopWood;
+                    state = (int)State.chopWood;
                 }
                 else if (resource.type == Resource.Type.stone)
                 {
-                    state = State.mineStone;
+                    state = (int)State.mineStone;
                 }
 
                 if (inventory.AtCapacity())
@@ -57,17 +67,17 @@ public class Worker : Follower
                 {
                     if (building is ResourceStorage)
                     {
-                        state = State.store;
+                        state = (int)State.store;
                     }
                 }
                 else
                 {
-                    state = State.build;
+                    state = (int)State.build;
                 }
             }
             else if (target is Creature)
             {
-                state = State.hunt;
+                state = (int)State.hunt;
 
                 if (inventory.AtCapacity())
                 {
@@ -81,17 +91,17 @@ public class Worker : Follower
         else
         {
             target = null;
-            state = State.move;
+            state = (int)State.move;
         }
     }
 
     private void Update()
     {
-        if (state == State.move)
+        if (state == (int)State.move)
         {
             if (transform.position == marker.transform.position)
             {
-                state = State.idle;
+                state = (int)State.idle;
             }
             else
             {
@@ -102,7 +112,7 @@ public class Worker : Follower
         {
             if (target == null)
             {
-                if ((state == State.chopWood || state == State.mineStone || state == State.hunt) && !inventory.AtCapacity())
+                if ((state == (int)State.chopWood || state == (int)State.mineStone || state == (int)State.hunt) && !inventory.AtCapacity())
                 {
                     target = FindResource();
                     Debug.Log("Start: " + transform.position.ToString() + " End: " + target.transform.position.ToString());
@@ -117,26 +127,26 @@ public class Worker : Follower
                 }
                 else
                 {
-                    state = State.idle;
+                    state = (int)State.idle;
                 }
             }
             else
             {
                 if (Vector2.Distance(transform.position, target.transform.position) <= targetDist)
                 {
-                    if ((state == State.chopWood || state == State.mineStone) && canGather)
+                    if ((state == (int)State.chopWood || state == (int)State.mineStone) && canGather)
                     {
                         StartCoroutine(GatherRoutine());
                     }
-                    else if (state == State.store)
+                    else if (state == (int)State.store)
                     {
                         Store();
                     }
-                    else if (state == State.build && canBuild)
+                    else if (state == (int)State.build && canBuild)
                     {
                         StartCoroutine(BuildRoutine());
                     }
-                    else if (state == State.hunt && canHit)
+                    else if (state == (int)State.hunt && canHit)
                     {
                         StartCoroutine(HitRoutine());
                     }
@@ -155,7 +165,7 @@ public class Worker : Follower
 
         storage.Store(ref inventory.resources[(int)storage.storageType]);
 
-        if (!FindStorage() && (lastState == State.chopWood || lastState == State.mineStone || lastState == State.hunt))
+        if (!FindStorage() && (lastState == (int)State.chopWood || lastState == (int)State.mineStone || lastState == (int)State.hunt))
         {
             state = lastState;
             if (lastTarget != null)
@@ -184,7 +194,7 @@ public class Worker : Follower
         }
         else
         {
-            state = State.store;
+            state = (int)State.store;
             Pathfinding.FindPath(ref path, transform.position, target.transform.position);
             return true;
         }
@@ -223,17 +233,17 @@ public class Worker : Follower
     {
         // Find closest resource of the correct type, based on the previous resource
         List<Interaction> resources = new List<Interaction>();
-        if (lastState == State.chopWood)
+        if (lastState == (int)State.chopWood)
         {
             resources = GameController.Instance.grid.trees;
         }
 
-        if (lastState == State.mineStone)
+        if (lastState == (int)State.mineStone)
         {
             resources = GameController.Instance.grid.stones;
         }
 
-        if (lastState == State.hunt)
+        if (lastState == (int)State.hunt)
         {
             resources = CreatureController.Instance.creatures;
         }
@@ -302,7 +312,7 @@ public class Worker : Follower
         if (target != null)
         {
             Creature creature = target as Creature;
-            if (state == State.hunt && creature.Hit(hitDamage))
+            if (state == (int)State.hunt && creature.Hit(hitDamage))
             {
                 // If target creature dies, gather food
                 creature.GatherFood(inventory);

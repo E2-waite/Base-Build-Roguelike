@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class Targetting
 {
-    static float targetRange = 15;
+    public static float targetRange = 15;
     static Interaction GetClosestTarget(List<Interaction> targets, Vector3 pos)
     {
         // Gets closest target within range out of all target of type
@@ -74,4 +74,6 @@ public static class Targetting
         }
         return false;
     }
+
+
 }

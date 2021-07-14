@@ -49,7 +49,7 @@ public class Undead : Enemy
                 }
                 else
                 {
-                    Move(target.transform.position);
+                    Move();
 
                 }
             }

@@ -10,6 +10,7 @@ public class BuildingController : MonoSingleton<BuildingController>
         public string name;
         public GameObject prefab;
         public Sprite sprite;
+        public Build.Type type = Build.Type.standard;
     }
     public GameObject firepitPrefab;
     public List<BuildingTemplate> buildingTypes = new List<BuildingTemplate>();
@@ -36,7 +37,7 @@ public class BuildingController : MonoSingleton<BuildingController>
         homeBase = tile.structure as HomeBase;
     }
 
-    public void Build(Tile tile)
+    public void BuildStructure(Tile tile)
     {
         if (tile != null && tile.structure == null && selectedTemplate != null)
         {

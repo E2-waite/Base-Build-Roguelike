@@ -6,15 +6,22 @@ public class Soldier : Follower
 {
     [Header("Soldier Settings")]
     public float hitSpeed = 1;
+    enum State
+    {
+        idle = 0,
+        move = 1,
+        attack = 2,
+        defend = 3
+    }
 
     private void Update()
     {
         Swarm();
-        if (state == State.move)
+        if (state == (int)State.move)
         {
             if (transform.position == marker.transform.position)
             {
-                state = State.idle;
+                state = (int)State.idle;
             }
             else
             {
@@ -25,7 +32,7 @@ public class Soldier : Follower
         {
             if (target == null)
             {
-                if (state == State.attack)
+                if (state == (int)State.attack)
                 {
                     if (Targetting.FindTarget(ref target, squad, ref targetSquad, transform.position, EnemyController.Instance.enemies))
                     {
@@ -33,12 +40,12 @@ public class Soldier : Follower
                     }
                     else
                     {
-                        state = State.move;
+                        state = (int)State.move;
                     }
                 }
                 else
                 {
-                    state = State.idle;
+                    state = (int)State.idle;
                 }
             }
             else
@@ -46,7 +53,7 @@ public class Soldier : Follower
                 float dist = Vector2.Distance(transform.position, target.transform.position);
                 if (dist <= targetDist)
                 {
-                    if (state == State.attack && canAttack)
+                    if (state == (int)State.attack && canAttack)
                     {
                         StartCoroutine(AttackRoutine());
                     }

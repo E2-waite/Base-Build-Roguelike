@@ -9,7 +9,10 @@ public class Arrow : Projectile
         if (to is Enemy)
         {
             Enemy enemy = to as Enemy;
-            enemy.Hit(damage, from as Follower);
+            if (enemy.Hit(damage, from as Follower))
+            {
+                Destroy(gameObject);
+            }
         }
         Destroy(gameObject);
     }

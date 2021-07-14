@@ -122,7 +122,6 @@ MonoBehaviour:
   attacking: 0
   highlight: {fileID: 3046307727713805403}
   marker: {fileID: 486432622879390999}
-  glow: {fileID: 0}
   squadPrefab: {fileID: 0}
   corpsePrefab: {fileID: 809098620326100432, guid: 4b68942577a839c428900ac02f40917c, type: 3}
   path: []
@@ -444,7 +443,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1000
+  m_SortingOrder: -1001
   m_Sprite: {fileID: 21300000, guid: b71013a42bc2c24459ff76af1fb3c39b, type: 3}
   m_Color: {r: 1, g: 0.7534226, b: 0, a: 0.5882353}
   m_FlipX: 0
@@ -541,7 +540,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -999
+  m_SortingOrder: -1000
   m_Sprite: {fileID: 21300000, guid: 924fbd047e17d534eb780a1d3229fb8d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 0

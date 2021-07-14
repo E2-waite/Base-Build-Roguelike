@@ -34,10 +34,17 @@ public class Tile : MonoBehaviour
         currentColour = baseColour;
     }
 
-    public void Select()
+    public void Select(bool canBuild)
     {
         selected = true;
-        rend.color = highlightColour;
+        if (canBuild)
+        {
+            rend.color = Color.green;
+        }
+        else
+        {
+            rend.color = Color.red;
+        }
     }
 
     public void Deselect()
@@ -110,17 +117,11 @@ public class Tile : MonoBehaviour
 
     void CorruptNeighbours(Vector2Int pos)
     {
-        Vector2Int newPos = new Vector2Int(pos.x, pos.y + 1);
-        CorruptNeighbour(newPos);
-
-        newPos = new Vector2Int(pos.x + 1, pos.y);
-        CorruptNeighbour(newPos);
-
-        newPos = new Vector2Int(pos.x, pos.y - 1);
-        CorruptNeighbour(newPos);
-
-        newPos = new Vector2Int(pos.x - 1, pos.y);
-        CorruptNeighbour(newPos);
+        Vector2Int[] neighbours = Params.Get4Neighbours(pos);
+        for (int i = 0; i < 4; i++)
+        {
+            CorruptNeighbour(neighbours[i]);
+        }
     }
 
     bool CorruptNeighbour(Vector2Int pos)
@@ -135,8 +136,6 @@ public class Tile : MonoBehaviour
         }
         return false;
     }
-
-
 
     public void Purify(PurifyPillar pillar)
     {
@@ -180,7 +179,7 @@ public class Tile : MonoBehaviour
         // check if adjascent to corrupted tile, if so start corrupting
         Vector2Int pos = new Vector2Int((int)transform.position.x, (int)transform.position.y);
 
-        Vector2Int[] neighbours = Tiles.NeighbourPositions(pos);
+        Vector2Int[] neighbours = Params.Get4Neighbours(pos);
 
         for (int i = 0; i < neighbours.Length; i++)
         {

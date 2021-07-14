@@ -4,18 +4,24 @@ using UnityEngine;
 
 public class Archer : Follower
 {
+    enum State
+    {
+        idle = 0,
+        move = 1,
+        attack = 2,
+        defend = 3
+    }
     public float fireRange = 5f, shotTime = 0.5f, shotSpeed = 10, shotCooldown = 2.5f;
     public GameObject arrowPrefab;
-    bool firing = false;
 
     private void Update()
     {
         Swarm();
-        if (state == State.move)
+        if (state == (int)State.move)
         {
             if (transform.position == marker.transform.position)
             {
-                state = State.idle;
+                state = (int)State.idle;
             }
             else
             {
@@ -26,7 +32,7 @@ public class Archer : Follower
         {
             if (target == null)
             {
-                if (state == State.attack)
+                if (state == (int)State.attack)
                 {
                     if (Targetting.FindTarget(ref target, squad, ref targetSquad, transform.position, EnemyController.Instance.enemies))
                     {
@@ -34,12 +40,12 @@ public class Archer : Follower
                     }
                     else
                     {
-                        state = State.move;
+                        state = (int)State.move;
                     }
                 }
                 else
                 {
-                    state = State.idle;
+                    state = (int)State.idle;
                 }
             }
             else
@@ -52,7 +58,7 @@ public class Archer : Follower
                     //{
                     //    Move(transform.position + ((transform.position - target.transform.position).normalized));
                     //}
-                    if (state == State.attack && canAttack)
+                    if (state == (int)State.attack && canAttack)
                     {
                         StartCoroutine(FireRoutine());
                     }

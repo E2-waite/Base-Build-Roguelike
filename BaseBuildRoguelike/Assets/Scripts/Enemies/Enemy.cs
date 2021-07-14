@@ -17,7 +17,10 @@ public abstract class Enemy : Interaction
     private void Start()
     {
         target = GameController.Instance.homeBuilding;
-        Pathfinding.FindPath(ref path, transform.position, target.transform.position);
+        if (target != null)
+        {
+            Pathfinding.FindPath(ref path, transform.position, target.transform.position);
+        }
         rend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         health = maxHealth;
@@ -25,7 +28,7 @@ public abstract class Enemy : Interaction
         StartCoroutine(PathUpdate());
     }
 
-    protected void Move(Vector3 position)
+    protected void Move()
     {
         if (path.Count > 0)
         {

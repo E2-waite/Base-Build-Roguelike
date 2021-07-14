@@ -4,27 +4,21 @@ using UnityEngine;
 
 public abstract class Follower : Interaction
 {
-    public enum State
+    enum DefaultState
     {
-        idle,
-        move,
-        chopWood,
-        mineStone,
-        store,
-        build,
-        hunt,
-        attack,
-        defend
+        idle = 0,
+        move = 1,
+        attack = 2
     }
+
     [Header("Follower Settings")]
-    public State state = State.idle;
+    public int state = 0;
     public Interaction target;
     public Squad squad, targetSquad;
     public int maxHealth = 10, health, hitDamage = 1;
     public float targetDist = 0.25f, speed = 5f, targetRange = 15, chaseDist = 0.5f;
     public bool canAttack = true, attacking = false;
     public GameObject highlight, marker, squadPrefab, corpsePrefab;
-    bool selected;
     public List<Vector2Int> path = new List<Vector2Int>();
     protected Animator anim;
     protected SpriteRenderer rend;
@@ -46,13 +40,11 @@ public abstract class Follower : Interaction
     public void Select()
     {
         highlight.SetActive(true);
-        selected = true;
     }
 
     public void Deselect()
     {
         highlight.SetActive(false);
-        selected = false;
     }
 
     public void Move()
@@ -164,18 +156,11 @@ public abstract class Follower : Interaction
 
             if (target is Enemy)
             {
-                state = State.attack;
+                state = (int)DefaultState.attack;
                 Enemy enemy = target as Enemy;
                 if (enemy.squad != null)
                 {
                     targetSquad = enemy.squad;
-                }
-            }
-            else if (target is Building)
-            {
-                if ((target as Building).isConstructed)
-                {
-                    state = State.defend;
                 }
             }
             else if (target is Follower)
@@ -190,11 +175,11 @@ public abstract class Follower : Interaction
         else
         {
             target = null;
-            state = State.move;
+            state = (int)DefaultState.move; 
         }
     }
 
-    IEnumerator PathUpdate()
+    public virtual IEnumerator PathUpdate()
     {
         if (target != null && !target.staticObject)
         {
@@ -217,7 +202,7 @@ public abstract class Follower : Interaction
         target = null;
         marker.transform.position = pos;
         Pathfinding.FindPath(ref path, transform.position, pos);
-        state = State.move;
+        state = (int)DefaultState.move;
     }
 
     public void TargetEnemy(Enemy enemy)
@@ -240,7 +225,7 @@ public abstract class Follower : Interaction
             }
             marker.transform.position = target.transform.position;
             Pathfinding.FindPath(ref path, transform.position, target.transform.position);
-            state = State.attack;
+            state = (int)DefaultState.attack;
         }
     }
 
@@ -251,7 +236,7 @@ public abstract class Follower : Interaction
         StartCoroutine(HitRoutine());
 
 
-        if (attacker != null && (state == State.idle || state == State.move) && (this is Soldier || this is Archer))
+        if (attacker != null && (state == (int)DefaultState.idle || state == (int)DefaultState.move) && (this is Soldier || this is Archer))
         {
             TargetEnemy(attacker);
             if (squad != null)

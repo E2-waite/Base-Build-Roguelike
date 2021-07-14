@@ -4,12 +4,40 @@ using UnityEngine;
 
 public class Priest : Follower
 {
+    enum State
+    {
+        idle = 0,
+        move = 1,
+        heal = 2,
+    }
     public int healAmount = 5;
-    public float healCooldown = 5;
+    public float healRange = 5;
     public bool canHeal = true, healing = false;
+    Cooldown healCooldown = new Cooldown(5);
+    Coroutine healthCheck = null;
+    Follower healTarget = null;
     void Update()
     {
-        if (!healing)
+        healCooldown.Tick();
+        if (healCooldown.Complete() && healthCheck == null)
+        {
+            // If cooled down and not currently checking health
+            healthCheck = StartCoroutine(HealthCheck());
+        }
+
+        //if (state == (int)State.move)
+        //{
+        //    if (transform.position == marker.transform.position)
+        //    {
+        //        state = (int)State.idle;
+        //    }
+        //    else
+        //    {
+        //        Move();
+        //    }
+        //}
+
+        if (state != (int)State.heal)
         {
             Swarm();
             Move();
@@ -18,14 +46,14 @@ public class Priest : Follower
 
     public override void Setup()
     {
-        StartCoroutine(HealthCheck());
+        //StartCoroutine(HealthCheck());
     }
 
-    Follower followerTarget = null;
+
     IEnumerator HealthCheck()
     {
         bool heal = false;
-        followerTarget = null;
+        healTarget = null;
         while (!heal)
         {
             yield return new WaitForSeconds(1);
@@ -38,11 +66,11 @@ public class Priest : Follower
                     if (damage > highestDamage)
                     {
                         highestDamage = damage;
-                        followerTarget = follower;
+                        healTarget = follower;
                     }
                 }
 
-                if (followerTarget != null)
+                if (healTarget != null)
                 {
                     heal = true;
                 }
@@ -51,32 +79,25 @@ public class Priest : Follower
             {
                 if (health < maxHealth)
                 {
-                    followerTarget = this;
+                    healTarget = this;
                     heal = true;
                 }
             }
         }
-        healing = true;
+        state = (int)State.heal;
         anim.SetBool("Heal", true);
+        healCooldown.Reset();
     }
 
 
     void Heal()
     {
         anim.SetBool("Heal", false);
-        if (followerTarget != null)
+        state = (int)State.move;
+        healthCheck = null;
+        if (healTarget != null)
         {
-            followerTarget.AddEffect(new HealEffect(1, 0.5f, followerTarget));
+            healTarget.AddEffect(new HealEffect(1, 0.5f, healTarget));
         }
-        StartCoroutine(HealCooldown());
     }
-
-    IEnumerator HealCooldown()
-    {
-        yield return new WaitForSeconds(0.1f);
-        healing = false;
-        yield return new WaitForSeconds(healCooldown);
-        StartCoroutine(HealthCheck());
-    }
-
 }

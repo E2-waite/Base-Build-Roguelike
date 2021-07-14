@@ -126,7 +126,7 @@ public class Grid : MonoBehaviour
         }
     }
 
-    public void SelectTile(Collider2D tile)
+    public void SelectTile(Collider2D tile, BuildingController.BuildingTemplate buildingTemplate)
     {
         Vector2Int arrayPos = new Vector2Int((int)(tile.transform.position.x), (int)(tile.transform.position.y));
         if (selected != null)
@@ -135,11 +135,8 @@ public class Grid : MonoBehaviour
             selected = null;
         }
 
-        if (tiles[arrayPos.x, arrayPos.y].type != Tile.Type.water)
-        {
-            selected = tiles[arrayPos.x, arrayPos.y];
-            selected.Select();
-        }
+        selected = tiles[arrayPos.x, arrayPos.y];
+        selected.Select(Build.CanBuild(buildingTemplate.type, this, arrayPos));
     }
 
     public void DeselectTile()
