@@ -1,0 +1,101 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public static class Followers
+{
+    public static List<Interaction> followers = new List<Interaction>();
+    public static Follower selected;
+    public static Squad selectedSquad = null;
+    public static int maxFollowers = 1;
+    public static void Add(Interaction follower)
+    {
+        followers.Add(follower);
+    }
+    public static void Remove(Interaction follower)
+    {
+        followers.Remove(follower);
+    }
+    public static int Count()
+    {
+        return followers.Count;
+    }
+
+    public static int Max()
+    {
+        return maxFollowers;
+    }
+
+    public static bool AtCapacity()
+    {
+        if (followers.Count >= maxFollowers)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public static void AdjustMaxFollowers(int val)
+    {
+        maxFollowers += val;
+        HUD.Instance.UpdateFollowers(followers.Count, maxFollowers);
+    }
+
+    public static void Direct(Vector2 pos, GameObject obj)
+    {
+        Interaction objInteraction = null;
+        if (obj != null)
+        {
+            objInteraction = obj.GetComponent<Interaction>();
+        }
+
+        if (selectedSquad != null)
+        {
+            selectedSquad.Direct(pos, objInteraction);
+        }
+        else if (selected != null)
+        {
+            selected.Direct(pos, objInteraction);
+        }
+    }
+
+    public static void Select(Follower follower)
+    {
+        if (selected != null)
+        {
+            selected.Deselect();
+        }
+        if (selectedSquad != null)
+        {
+            selectedSquad.Deselect();
+            selectedSquad = null;
+        }
+
+        selected = follower;
+        if (selected.squad != null)
+        {
+            selectedSquad = selected.squad;
+            selectedSquad.Select();
+        }
+        else
+        {
+            selected.Select();
+        }
+    }
+
+    public static void Deselect()
+    {
+        if (selectedSquad != null)
+        {
+            selectedSquad.Deselect();
+            selected = null;
+            selectedSquad = null;
+        }
+        else if (selected != null)
+        {
+            selected.Deselect();
+            selected = null;
+            selectedSquad = null;
+        }
+    }
+}

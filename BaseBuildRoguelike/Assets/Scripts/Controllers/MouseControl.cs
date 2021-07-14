@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class MouseControl : MonoBehaviour
 {
+    Spawner spawner;
     public Camera camera;
     public float camSpeed = 50, camDist = 10, camMaxZoom = 25, camMinZoom = 10;
-    FollowerController followers;
-    BuildingController buildings;
     public LayerMask tileMask, selectMask, directMask;
     private void Start()
     {
-        followers = GetComponent<FollowerController>();
-        buildings = GetComponent<BuildingController>();
         Cursor.lockState = CursorLockMode.Confined;
+        spawner = Spawner.Instance;
     }
 
     private void Update()
@@ -78,7 +76,7 @@ public class MouseControl : MonoBehaviour
 
             if (!Grid.IsSelected(hit.collider))
             {
-                Grid.SelectTile(hit.collider, BuildingController.Instance.selectedTemplate);
+                Grid.SelectTile(hit.collider, Spawner.Instance.selectedTemplate);
             }
         }
 
@@ -87,7 +85,7 @@ public class MouseControl : MonoBehaviour
             if (GameController.Instance.mode == GameController.Mode.build)
             {
                 // Place building on selected tile
-                buildings.BuildStructure(Grid.selected);
+                spawner.BuildStructure(Grid.selected);
             }
             else
             {
@@ -96,25 +94,26 @@ public class MouseControl : MonoBehaviour
                 {
                     if (!GameController.Instance.inspector.mouseOver)
                     {
-                        followers.DeselectFollower();
-                        buildings.Deselect();
+                        Followers.Deselect();
+                        Buildings.Deselect();
                         GameController.Instance.mode = GameController.Mode.select;
                     }
                 }
                 else
                 {
+                    Interaction target = hit.collider.GetComponent<Interaction>();
                     // Select either the follower or building in clicked position
-                    if (hit.collider.CompareTag("Follower"))
+                    if (target is Follower)
                     {
-                        followers.SelectFollower(hit.collider);
-                        buildings.Deselect();
+                        Followers.Select(target as Follower);
+                        Buildings.Deselect();
                         GameController.Instance.mode = GameController.Mode.direct;
                         return;
                     }
-                    else if (hit.collider.CompareTag("Building"))
+                    else if (target is Building)
                     {
-                        followers.DeselectFollower();
-                        buildings.Select(hit.collider.gameObject);
+                        Followers.Deselect();
+                        Buildings.Select(hit.collider.gameObject);
                         return;
                     }
                 }
@@ -139,7 +138,7 @@ public class MouseControl : MonoBehaviour
                     targetObj = hit.collider.gameObject;
                 }
 
-                followers.DirectFollower(mousePos2D, targetObj);
+                Followers.Direct(mousePos2D, targetObj);
             }
         }
     }

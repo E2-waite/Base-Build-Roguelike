@@ -24,7 +24,7 @@ public class Undead : Enemy
             Swarm();
             if (target == null)
             {
-                if (Targetting.FindTarget(ref target, squad, ref targetSquad, transform.position, FollowerController.Instance.followers))
+                if (Targetting.FindTarget(ref target, squad, ref targetSquad, transform.position, Followers.followers))
                 {
                     Debug.Log("New target found");
                 }

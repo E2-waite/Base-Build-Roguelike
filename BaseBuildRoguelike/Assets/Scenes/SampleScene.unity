@@ -2077,9 +2077,6 @@ GameObject:
   - component: {fileID: 1263100314}
   - component: {fileID: 1263100316}
   - component: {fileID: 1263100317}
-  - component: {fileID: 1263100319}
-  - component: {fileID: 1263100320}
-  - component: {fileID: 1263100321}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -2132,16 +2129,56 @@ MonoBehaviour:
   m_GameObject: {fileID: 1263100313}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3916ef19757e8645a321c1afc050409, type: 3}
+  m_Script: {fileID: 11500000, guid: bc3c54af969496941ae44f61c609c70c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyOnLoad: 1
   followerCost: 10
   followerPrefab: {fileID: 486432623086700621, guid: 8ab9b6d2894dcbf47a64f1b6be0fdb01, type: 3}
-  followers: []
-  selected: {fileID: 0}
-  selectedSquad: {fileID: 0}
-  maxFollowers: 1
+  enemyTemplates:
+  - prefab: {fileID: 2743365640547367737, guid: 4f6d634aa3497134eb1b05be31943143, type: 3}
+    rarity: 0
+  - prefab: {fileID: 2743365640547367737, guid: b5d859bc39695d445a5fe64a5334f87d, type: 3}
+    rarity: 0
+  - prefab: {fileID: 2743365640547367737, guid: b4bf6ca48f781744893a651790ae475a, type: 3}
+    rarity: 0
+  - prefab: {fileID: 2743365640547367737, guid: c2b13fb2c2e6d9c42825d6ec55cb59db, type: 3}
+    rarity: 0
+  corruptedTiles: []
+  spawnTime: 10
+  firepitPrefab: {fileID: 7247006138620438559, guid: 952a997f4442c144ead6ee308f8ba8ce, type: 3}
+  buildingTemplates:
+  - name: Wood Pile
+    prefab: {fileID: 938588659906107226, guid: 2c3345279267e0041910a93cc0662d62, type: 3}
+    sprite: {fileID: -8567814636022076339, guid: d8a4920f246412141a628bf06675648f, type: 3}
+    type: 0
+  - name: Stone Pile
+    prefab: {fileID: 938588659906107226, guid: b1fea78638a9c694f93d370fd4ea0108, type: 3}
+    sprite: {fileID: 7638442721857622090, guid: b6357c3d164f6444a98546d5f2e1596b, type: 3}
+    type: 0
+  - name: Food Pile
+    prefab: {fileID: 938588659906107226, guid: 7f2b48050d471ff44adb4d2a4be2f3f8, type: 3}
+    sprite: {fileID: -5462037402489830590, guid: ca835c895edf0b54db24691e0d97fe1a, type: 3}
+    type: 0
+  - name: Wood House
+    prefab: {fileID: 5741391851399633439, guid: a3fb97f6d63357f4fb97fc3eb856ca7c, type: 3}
+    sprite: {fileID: 21300000, guid: a5a2252f741a7bf49b1812694127a48f, type: 3}
+    type: 0
+  - name: Wall
+    prefab: {fileID: 3963982256496168285, guid: fd06baf343e15454ab4437bed2862b88, type: 3}
+    sprite: {fileID: 6116906653869191027, guid: 12925ef923cad9849b017f1c26a508d7, type: 3}
+    type: 0
+  - name: Purify Pillar
+    prefab: {fileID: 2229980545842200965, guid: 7f37d00c87f66f442936d0bc62d99ad2, type: 3}
+    sprite: {fileID: 1325237055625117177, guid: 4d385f139351d89429655e617e2423a8, type: 3}
+    type: 0
+  selectedTemplate:
+    name: 
+    prefab: {fileID: 0}
+    sprite: {fileID: 0}
+    type: 0
+  rabbitPrefab: {fileID: 6563278837278293193, guid: e50a273da9c7dff439d70dd735cb9fdd, type: 3}
+  creatureScale: 10
 --- !u!114 &1263100317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2188,95 +2225,6 @@ MonoBehaviour:
   homeBuilding: {fileID: 0}
   inspector: {fileID: 733154494}
   mode: 1
---- !u!114 &1263100319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263100313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f849bb2bbe7b0ad40a1d5db3f44ff8f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DestroyOnLoad: 1
-  firepitPrefab: {fileID: 7247006138620438559, guid: 952a997f4442c144ead6ee308f8ba8ce, type: 3}
-  buildingTypes:
-  - name: Wooden House
-    prefab: {fileID: 5741391851399633439, guid: a3fb97f6d63357f4fb97fc3eb856ca7c, type: 3}
-    sprite: {fileID: 21300000, guid: a5a2252f741a7bf49b1812694127a48f, type: 3}
-    type: 0
-  - name: Wood Pile
-    prefab: {fileID: 938588659906107226, guid: 2c3345279267e0041910a93cc0662d62, type: 3}
-    sprite: {fileID: -8567814636022076339, guid: d8a4920f246412141a628bf06675648f, type: 3}
-    type: 0
-  - name: Stone Pile
-    prefab: {fileID: 938588659906107226, guid: b1fea78638a9c694f93d370fd4ea0108, type: 3}
-    sprite: {fileID: 7638442721857622090, guid: b6357c3d164f6444a98546d5f2e1596b, type: 3}
-    type: 0
-  - name: Food Pile
-    prefab: {fileID: 938588659906107226, guid: 7f2b48050d471ff44adb4d2a4be2f3f8, type: 3}
-    sprite: {fileID: -3334185611464207529, guid: ca835c895edf0b54db24691e0d97fe1a, type: 3}
-    type: 0
-  - name: Wooden Wall
-    prefab: {fileID: 3963982256496168285, guid: fd06baf343e15454ab4437bed2862b88, type: 3}
-    sprite: {fileID: 6116906653869191027, guid: 12925ef923cad9849b017f1c26a508d7, type: 3}
-    type: 0
-  - name: Purify Pillar
-    prefab: {fileID: 2229980545842200965, guid: 7f37d00c87f66f442936d0bc62d99ad2, type: 3}
-    sprite: {fileID: 1325237055625117177, guid: 4d385f139351d89429655e617e2423a8, type: 3}
-    type: 2
-  selectedTemplate:
-    name: 
-    prefab: {fileID: 0}
-    sprite: {fileID: 0}
-    type: 0
-  selected: {fileID: 0}
-  homeBase: {fileID: 0}
-  inspector: {fileID: 733154494}
---- !u!114 &1263100320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263100313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1eb65dc0c0be3f4190c718705bcfff2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DestroyOnLoad: 1
-  rabbitPrefab: {fileID: 6563278837278293193, guid: e50a273da9c7dff439d70dd735cb9fdd, type: 3}
-  creatures: []
-  creatureScale: 10
-  maxCreatures: 0
---- !u!114 &1263100321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263100313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcd93e7e0d932ea4f9a928f5210c341f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DestroyOnLoad: 1
-  enemyTemplates:
-  - prefab: {fileID: 2743365640547367737, guid: 4f6d634aa3497134eb1b05be31943143, type: 3}
-    rarity: 0
-  - prefab: {fileID: 2743365640547367737, guid: b5d859bc39695d445a5fe64a5334f87d, type: 3}
-    rarity: 0
-  - prefab: {fileID: 2743365640547367737, guid: c2b13fb2c2e6d9c42825d6ec55cb59db, type: 3}
-    rarity: 0
-  - prefab: {fileID: 2743365640547367737, guid: b4bf6ca48f781744893a651790ae475a, type: 3}
-    rarity: 0
-  enemies: []
-  spawnTime: 15
-  corruptedTiles: []
 --- !u!1 &1339298812
 GameObject:
   m_ObjectHideFlags: 0

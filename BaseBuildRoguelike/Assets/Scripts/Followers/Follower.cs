@@ -261,7 +261,7 @@ public abstract class Follower : Interaction
         if (health <= 0)
         {
             Instantiate(corpsePrefab, transform.position, Quaternion.identity);
-            FollowerController.Instance.Remove(this);
+            Followers.Remove(this);
             if (squad != null)
             {
                 squad.RemoveMember(this);

@@ -17,18 +17,14 @@ public class Corpse : Interaction
 
     public void Revive(Priest priest)
     {
-        if (!FollowerController.Instance.IsMaxFollowers())
-        {
-            FollowerController.Instance.SpawnFollower(transform.position);
-            Destroy(gameObject);
-        }
+
     }
 
     public void Revive(Necromancer necromancer)
     {
         GameObject undead = Instantiate(undeadPrefab, transform.position, Quaternion.identity);
         Enemy enemy = undead.GetComponent<Enemy>();
-        EnemyController.Instance.enemies.Add(enemy);
+        Enemies.Add(enemy);
         necromancer.undead.Add(enemy);
         enemy.transform.localScale = transform.localScale;
         Destroy(gameObject);

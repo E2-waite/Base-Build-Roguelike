@@ -103,15 +103,10 @@ public class Tile : MonoBehaviour
             {
                 rend.color = currentColour;
             }
-
-            //if (structure != null)
-            //{
-            //    structure.Corrupt(corruptedColour, amount);
-            //}
             yield return null;
         }
         CorruptNeighbours(pos);
-        EnemyController.Instance.AddCorruptedTile(this);
+        Spawner.Instance.AddCorruptedTile(this);
         StopAllCoroutines();
     }
 
@@ -157,7 +152,7 @@ public class Tile : MonoBehaviour
             //}
             yield return null;
         }
-        EnemyController.Instance.RemoveCorruptedTile(this);
+        Spawner.Instance.RemoveCorruptedTile(this);
         StopAllCoroutines();
     }
 

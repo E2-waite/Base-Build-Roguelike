@@ -33,7 +33,7 @@ public class Squad : MonoBehaviour
         members.Add(follower2);
         follower1.squad = this;
         follower2.squad = this;
-        FollowerController.Instance.selectedSquad = this;
+        Followers.selectedSquad = this;
         Select();
     }
 
@@ -49,7 +49,7 @@ public class Squad : MonoBehaviour
     {
         follower.squad = this;
         members.Add(follower);
-        FollowerController.Instance.selectedSquad = this;
+        Followers.selectedSquad = this;
         Select();
     }
 
@@ -82,7 +82,7 @@ public class Squad : MonoBehaviour
 
             if (type == Type.friendly)
             {
-                FollowerController.Instance.selectedSquad = this;
+                Followers.selectedSquad = this;
                 Select();
             }
         }
@@ -190,7 +190,7 @@ public class Squad : MonoBehaviour
         {
             if (selected && type == Type.friendly)
             {
-                FollowerController.Instance.selected = members[0] as Follower;
+                Followers.selected = members[0] as Follower;
             }
             Destroy(gameObject);
             return true;

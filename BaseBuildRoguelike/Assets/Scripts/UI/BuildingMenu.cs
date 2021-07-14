@@ -11,14 +11,14 @@ public class BuildingMenu : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
-        BuildingController controller = BuildingController.Instance;
-        buttons = new GameObject[controller.buildingTypes.Count];
+        Spawner spawner = Spawner.Instance;
+        buttons = new GameObject[spawner.buildingTemplates.Count];
         Vector2 pos = new Vector2(Screen.width - 25, 25);
-        for (int i = 0; i < controller.buildingTypes.Count; i++)
+        for (int i = 0; i < spawner.buildingTemplates.Count; i++)
         {
             buttons[i] = Instantiate(button, pos, Quaternion.identity);
             buttons[i].transform.SetParent(transform);
-            buttons[i].GetComponent<Image>().sprite = controller.buildingTypes[i].sprite;
+            buttons[i].GetComponent<Image>().sprite = spawner.buildingTemplates[i].sprite;
             pos.x -= 25;
         }
     }
@@ -29,11 +29,10 @@ public class BuildingMenu : MonoBehaviour, IPointerClickHandler
         {
             if (eventData.pointerCurrentRaycast.gameObject == buttons[i])
             {
-                BuildingController.Instance.selectedTemplate = BuildingController.Instance.buildingTypes[i];
+                Spawner.Instance.selectedTemplate = Spawner.Instance.buildingTemplates[i];
                 GameController.Instance.mode = GameController.Mode.build;
                 return;
             }
         }
-        
     }
 }

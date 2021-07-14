@@ -34,7 +34,7 @@ public class Soldier : Follower
             {
                 if (state == (int)State.attack)
                 {
-                    if (Targetting.FindTarget(ref target, squad, ref targetSquad, transform.position, EnemyController.Instance.enemies))
+                    if (Targetting.FindTarget(ref target, squad, ref targetSquad, transform.position, Enemies.enemies))
                     {
                         Debug.Log("Target Found");
                     }

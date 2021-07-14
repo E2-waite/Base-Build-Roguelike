@@ -212,7 +212,7 @@ public class Worker : Follower
         {
             if (inventory.resources[i] > 0)
             {
-                storageBuildings.AddRange(BuildingController.Instance.storages[i]);
+                storageBuildings.AddRange(Buildings.storages[i]);
             }
         }
 
@@ -245,7 +245,7 @@ public class Worker : Follower
 
         if (lastState == (int)State.hunt)
         {
-            resources = CreatureController.Instance.creatures;
+            resources = Creatures.creatures;
         }
 
 

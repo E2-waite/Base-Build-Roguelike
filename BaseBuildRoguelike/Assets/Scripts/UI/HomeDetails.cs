@@ -15,7 +15,7 @@ public class HomeDetails : MonoBehaviour, IPointerClickHandler
             home = (HomeBase)building;
         }
 
-        foodVal.text = GameController.Instance.resources[(int)Resource.Type.food].ToString() + "/" + FollowerController.Instance.followerCost.ToString();
+        foodVal.text = GameController.Instance.resources[(int)Resource.Type.food].ToString() + "/" + Spawner.Instance.followerCost.ToString();
     }
 
     public void OnPointerClick(PointerEventData eventData)

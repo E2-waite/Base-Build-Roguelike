@@ -91,7 +91,7 @@ public class GridBuilder : MonoBehaviour
             }
         }
 
-        CreatureController.Instance.SpawnCreatures(mapSize);
+        Spawner.Instance.SpawnCreatures(mapSize);
 
         Vector2Int corruptPos = new Vector2Int(Random.Range(0, mapSize), Random.Range(0, mapSize));
         Debug.Log(corruptPos.ToString() + " Started Corruption");

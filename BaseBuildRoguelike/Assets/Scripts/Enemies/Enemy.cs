@@ -176,7 +176,7 @@ public abstract class Enemy : Interaction
         rend.color = Color.white;
         if (health <= 0)
         {
-            EnemyController.Instance.Remove(this);
+            Enemies.Remove(this);
             if (squad != null)
             {
                 squad.RemoveMember(this);

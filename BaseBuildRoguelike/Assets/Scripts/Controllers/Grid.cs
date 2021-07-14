@@ -28,7 +28,7 @@ public static class Grid
         }
     }
 
-    public static void SelectTile(Collider2D tile, BuildingController.BuildingTemplate buildingTemplate)
+    public static void SelectTile(Collider2D tile, Spawner.BuildingTemplate buildingTemplate)
     {
         Vector2Int arrayPos = new Vector2Int((int)(tile.transform.position.x), (int)(tile.transform.position.y));
         if (selected != null)

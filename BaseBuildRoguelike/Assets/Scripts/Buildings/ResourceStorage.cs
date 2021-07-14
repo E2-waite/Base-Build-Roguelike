@@ -17,7 +17,7 @@ public class ResourceStorage : Building
         }
         rend.sprite = stages[0];
 
-        BuildingController.Instance.storages[(int)storageType].Add(this);
+        Buildings.storages[(int)storageType].Add(this);
 
         GameController.Instance.AdjustResources(storageType, 0, maxStorage);
     }
@@ -38,9 +38,9 @@ public class ResourceStorage : Building
 
         rend.sprite = stages[(int)Mathf.Ceil((currentStorage * (stages.Count - 1)) / maxStorage)];
 
-        if (storageType == Resource.Type.food && BuildingController.Instance.selected == BuildingController.Instance.homeBase)
+        if (storageType == Resource.Type.food && Buildings.selected == Buildings.homeBase)
         {
-            BuildingController.Instance.homeBase.ReloadInspector();
+            Buildings.homeBase.ReloadInspector();
         }
 
         ReloadInspector();

@@ -25,7 +25,7 @@ public class Construct : MonoBehaviour
         {
             if (woodRemaining > 0 && GameController.Instance.resources[(int)Resource.Type.wood] > 0)
             {
-                if (BuildingController.Instance.UseResource(Resource.Type.wood, 1))
+                if (Buildings.UseResource(Resource.Type.wood, 1))
                 {
                     woodRemaining--;
                 }
@@ -33,8 +33,7 @@ public class Construct : MonoBehaviour
 
             if (stoneRemaining > 0 && GameController.Instance.resources[(int)Resource.Type.stone] > 0)
             {
-
-                if (BuildingController.Instance.UseResource(Resource.Type.stone, 1))
+                if (Buildings.UseResource(Resource.Type.stone, 1))
                 {
                     stoneRemaining--;
                 }
