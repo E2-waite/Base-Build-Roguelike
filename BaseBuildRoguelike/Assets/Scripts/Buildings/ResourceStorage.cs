@@ -22,6 +22,18 @@ public class ResourceStorage : Building
         Resources.Adjust(storageType, 0, maxStorage);
     }
 
+    public void SetVal(int val)
+    {
+        if (rend == null)
+        {
+            rend = GetComponent<SpriteRenderer>();
+        }
+
+        currentStorage = val;
+        rend.sprite = stages[(int)Mathf.Ceil((currentStorage * (stages.Count - 1)) / maxStorage)];
+        Resources.Adjust(storageType, currentStorage, 0);
+    }
+
     public void Store(ref int val)
     {
         int toStore = val;

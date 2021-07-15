@@ -15,6 +15,9 @@ public class Load : MonoBehaviour
 
         string jsonString = File.ReadAllText(Application.persistentDataPath + "/SaveData.json");
         GameData gameData = JsonUtility.FromJson<GameData>(jsonString);
+
+        GameController.Instance.camera.transform.position = new Vector3(gameData.camX, gameData.camY, GameController.Instance.camera.transform.position.z);
+
         return LoadTiles(gameData);
     }
 
@@ -69,7 +72,6 @@ public class Load : MonoBehaviour
 
     bool LoadResources(GameData gameData)
     {
-        Debug.Log("Resources: " + gameData.resources.Length.ToString());
         for (int i = 0; i < gameData.resources.Length; i++)
         {
             ResourceData resourceData = gameData.resources[i];
@@ -98,6 +100,7 @@ public class Load : MonoBehaviour
             {
                 Resources.stones.Add(Grid.tiles[pos.x, pos.y].structure);
             }
+            Resources.allResources.Add(Grid.tiles[pos.x, pos.y].structure);
 
         }
         return LoadBuildings(gameData);
@@ -115,23 +118,30 @@ public class Load : MonoBehaviour
         {
             BuildingData buildingData = gameData.buildings[i];
             Vector2Int pos = new Vector2Int(buildingData.x, buildingData.y);
-            GameObject building = null;
+            GameObject buildingObj = null;
             if (gameData.buildings[i].type == 99)
             {
-                building = Instantiate(Spawner.Instance.firepitPrefab, Grid.tiles[pos.x, pos.y].transform.position, Quaternion.identity);
-                Buildings.homeBase = building.GetComponent<HomeBase>();
+                buildingObj = Instantiate(Spawner.Instance.firepitPrefab, Grid.tiles[pos.x, pos.y].transform.position, Quaternion.identity);
+                Buildings.homeBase = buildingObj.GetComponent<HomeBase>();
             }
             else
             {
-                building = Instantiate(Spawner.Instance.buildings[buildingData.type].prefab, Grid.tiles[pos.x, pos.y].transform.position, Quaternion.identity);
+                buildingObj = Instantiate(Spawner.Instance.buildings[buildingData.type].prefab, Grid.tiles[pos.x, pos.y].transform.position, Quaternion.identity);
             }
-            Buildings.Add(building.GetComponent<Building>());
+            Building building = buildingObj.GetComponent<Building>();
+            Buildings.Add(building);
+
             if (building != null && gameData.buildings[i].type != 99)
             {
-                Grid.tiles[pos.x, pos.y].structure = building.GetComponent<Interaction>();
-                Construct construct = building.GetComponent<Construct>();
+                Grid.tiles[pos.x, pos.y].structure = building;
+                building.type = buildingData.type;
+                Construct construct = buildingObj.GetComponent<Construct>();
                 construct.woodRemaining = gameData.buildings[i].woodLeft;
                 construct.stoneRemaining = gameData.buildings[i].stoneLeft;
+                if (building is ResourceStorage)
+                {
+                    (building as ResourceStorage).SetVal(buildingData.storage);
+                }
             }
 
             // Add to building list based on type
@@ -150,7 +160,6 @@ public class Load : MonoBehaviour
 
             if (followerObj != null)
             {
-                Debug.Log(followerObj.name);
                 Follower follower = followerObj.GetComponent<Follower>();
                 follower.transform.position = new Vector3(followerData.x, followerData.y, 0);
                 follower.health = followerData.health;
@@ -178,6 +187,20 @@ public class Load : MonoBehaviour
                 enemy.health = enemyData.health;
                 Enemies.Add(enemy);
             }
+        }
+        return LoadCreatures(gameData);
+    }
+
+    bool LoadCreatures(GameData gameData)
+    {
+        for (int i = 0; i < gameData.creatures.Length; i++)
+        {
+            CreatureData creatureData = gameData.creatures[i];
+            GameObject creatureObj = Instantiate(Spawner.Instance.rabbitPrefab, new Vector3(creatureData.x, creatureData.y, 0), Quaternion.identity);
+            Creature creature = creatureObj.GetComponent<Creature>();
+            Creatures.Add(creature);
+            creature.health = creatureData.health;
+            creature.startPos = new Vector3(creatureData.startX, creatureData.startY, 0);
         }
         return LoadSquads(gameData);
     }

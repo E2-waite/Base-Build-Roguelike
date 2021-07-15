@@ -37,11 +37,8 @@ public class Worker : Follower
         lastState = (int)State.idle;
         if (obj != null)
         {
-            Debug.Log("Target: " + obj.name);
             target = obj;
-
             marker.transform.position = obj.transform.position;
-
 
             if (target is Resource)
             {

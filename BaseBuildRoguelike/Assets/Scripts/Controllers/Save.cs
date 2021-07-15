@@ -13,6 +13,7 @@ public class Save : MonoBehaviour
         SaveBuildings(gameData);
         SaveFollowers(gameData);
         SaveEnemies(gameData);
+        SaveCreatures(gameData);
         SaveSquads(gameData);
 
         List<Interaction> interactable = Grid.GetAllInteractable();
@@ -37,6 +38,7 @@ public class Save : MonoBehaviour
 
     private void SaveResources(GameData gameData)
     {
+        Debug.Log(Resources.allResources.Count.ToString() + " Resources");
         // Serialize resources
         for (int i = 0; i < Resources.allResources.Count; i++)
         {
@@ -47,10 +49,12 @@ public class Save : MonoBehaviour
 
     private void SaveBuildings(GameData gameData)
     {
+        Debug.Log(Buildings.buildings.Count.ToString() + " Buildings");
         for (int i = 0; i < Buildings.buildings.Count; i++)
         {
             Building building = Buildings.buildings[i];
-            gameData.buildings[i] = new BuildingData(building.type, 0, 0, building.repair, (int)building.transform.position.x, (int)building.transform.position.y);
+            gameData.buildings[i] = new BuildingData(building.type, 0, 0, building.repair, (int)building.transform.position.x, (int)building.transform.position.y,
+                (building is ResourceStorage) ? (building as ResourceStorage).currentStorage : 0);
         }
     }
 
@@ -96,6 +100,22 @@ public class Save : MonoBehaviour
         }
     }
 
+    private void SaveCreatures(GameData gameData)
+    {
+        for (int i = 0; i < Creatures.creatures.Count; i++)
+        {
+            Creature creature = Creatures.creatures[i] as Creature;
+            if (creature != null)
+            {
+                gameData.creatures[i] = new CreatureData((int)creature.type, creature.health, (int)creature.transform.position.x, (int)creature.transform.position.y, (int)creature.startPos.x, (int)creature.startPos.y);
+            }
+            else
+            {
+                Creatures.creatures.RemoveAt(i);
+            }
+        }
+    }
+
     private void SaveSquads(GameData gameData)
     {
         List<Squad> allSquads = Followers.squads;
@@ -128,20 +148,25 @@ public class Save : MonoBehaviour
 public class GameData
 {
     public int mapSize, noise;
+    public float camX, camY;
     public TileData[] tiles;
     public ResourceData[] resources;
     public BuildingData[] buildings;
     public AIData[] followers, enemies;
+    public CreatureData[] creatures;
     public SquadData[] squads;
     public GameData(int size, int noiseVal, int numResources)
     {
         mapSize = size;
         noise = noiseVal;
+        camX = GameController.Instance.camera.transform.position.x;
+        camY = GameController.Instance.camera.transform.position.y;
         tiles = new TileData[size * size];
         resources = new ResourceData[numResources];
         buildings = new BuildingData[Buildings.buildings.Count];
         followers = new AIData[Followers.followers.Count];
         enemies = new AIData[Enemies.enemies.Count];
+        creatures = new CreatureData[Creatures.creatures.Count];
         squads = new SquadData[Followers.squads.Count + Enemies.squads.Count];
     }
 }
@@ -178,9 +203,9 @@ public class ResourceData
 [System.Serializable]
 public class BuildingData
 {
-    public int type, woodLeft, stoneLeft, health, x, y;
+    public int type, woodLeft, stoneLeft, health, x, y, storage;
 
-    public BuildingData(int _type, int _woodLeft, int _stoneLeft, int _health, int _x, int _y)
+    public BuildingData(int _type, int _woodLeft, int _stoneLeft, int _health, int _x, int _y, int _storage)
     {
         type = _type;
         woodLeft = _woodLeft;
@@ -188,6 +213,7 @@ public class BuildingData
         health = _health;
         x = _x;
         y = _y;
+        storage = _storage;
     }
 }
 
@@ -205,6 +231,23 @@ public class AIData
         health = _health;
         x = _x;
         y = _y;
+    }
+}
+
+[System.Serializable]
+public class CreatureData
+{
+    public int type, health;
+    public float x, y, startX, startY;
+
+    public CreatureData(int _type, int _health, float _x, float _y, float _startX, float _startY)
+    {
+        type = _type;
+        health = _health;
+        x = _x;
+        y = _y;
+        startX = _startX;
+        startY = _startY;
     }
 }
 

@@ -18,15 +18,15 @@ public static class Grid
 
     public static bool IsSelected(Collider2D tile)
     {
-        Vector2Int arrayPos = new Vector2Int((int)(tile.transform.position.x), (int)(tile.transform.position.y));
-        if (selected == tiles[arrayPos.x, arrayPos.y])
+        if (tile != null)
         {
-            return true;
+            Vector2Int arrayPos = new Vector2Int((int)(tile.transform.position.x), (int)(tile.transform.position.y));
+            if (selected == tiles[arrayPos.x, arrayPos.y])
+            {
+                return true;
+            }
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
 
     public static void SelectTile(Collider2D tile, Spawner.BuildingTemplate buildingTemplate)
@@ -87,7 +87,6 @@ public static class Grid
         }
         else
         {
-            Debug.LogWarning("NO TARGET WITH INDEX OF " + index.ToString());
             return null;
         }
     }

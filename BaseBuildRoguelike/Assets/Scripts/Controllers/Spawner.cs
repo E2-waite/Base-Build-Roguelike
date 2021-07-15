@@ -118,6 +118,7 @@ public class Spawner : MonoSingleton<Spawner>
             GameObject building = Instantiate(buildings[selectedTemplate].prefab, tile.transform.position, Quaternion.identity);
             tile.structure = building.GetComponent<Interaction>();
             (tile.structure as Building).type = selectedTemplate;
+            Buildings.buildings.Add(tile.structure as Building);
             tile.structure.transform.parent = tile.transform;
             Pathfinding.UpdateNodeGrid();
         }
@@ -134,7 +135,7 @@ public class Spawner : MonoSingleton<Spawner>
         {
             Vector3 creaturePos = new Vector3((int)(Random.Range(0, Grid.size)), (int)(Random.Range(0, Grid.size)), 0);
             GameObject creature = Instantiate(rabbitPrefab, creaturePos, Quaternion.identity);
-            Creatures.Add(creature.GetComponent<Interaction>());
+            Creatures.Add(creature.GetComponent<Creature>());
         }
     }
 }

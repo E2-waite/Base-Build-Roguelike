@@ -6,12 +6,12 @@ public class Creature : Interaction
 {
     public enum Type
     {
-        rabbit
+        rabbit 
     }
     public Type type;
     public float wanderRange = 10, speed = 10;
     public int maxHealth = 3, health = 0, food = 5;
-    Vector3 startPos, targetPos;
+    public Vector3 startPos, targetPos;
     protected Animator anim;
     protected SpriteRenderer rend;
     // Start is called before the first frame update
