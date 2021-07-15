@@ -70,7 +70,8 @@ public class Save : MonoBehaviour
                 {
                     targetInd = follower.target.Index();
                 }
-                gameData.followers[i] = new AIData((int)follower.type, (int)follower.state, targetInd, follower.health, follower.transform.position.x, follower.transform.position.y);
+                gameData.followers[i] = new AIData((int)follower.type, (int)follower.state, targetInd, follower.health, follower.transform.position.x, follower.transform.position.y, 
+                    (follower is Worker) ? (follower as Worker).inventory : null);
             }
             else
             {
@@ -222,8 +223,9 @@ public class AIData
 {
     public int type, state, target, health;
     public float x, y;
-
-    public AIData(int _type, int _state, int _target, int _health, float _x, float _y)
+    public Inventory inventory;
+    public Cooldown cooldown1, cooldown2;
+    public AIData(int _type, int _state, int _target, int _health, float _x, float _y, Inventory _inventory = null, Cooldown _cooldown1 = null, Cooldown _cooldown2 = null)
     {
         type = _type;
         state = _state;
@@ -231,6 +233,9 @@ public class AIData
         health = _health;
         x = _x;
         y = _y;
+        inventory = _inventory;
+        cooldown1 = _cooldown1;
+        cooldown2 = _cooldown2;
     }
 }
 

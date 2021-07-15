@@ -20,10 +20,9 @@ public class Worker : Follower
     public Interaction lastTarget;
     public bool canGather = true, canBuild = true, canHit = true;
 
-    private Inventory inventory;
+    public Inventory inventory = new Inventory();
     public override void Setup()
     {
-        inventory = GetComponent<Inventory>();
     }
 
     public override void Direct(Vector2 pos, Interaction obj)

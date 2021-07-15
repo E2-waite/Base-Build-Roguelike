@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Inventory : MonoBehaviour
+[System.Serializable]
+public class Inventory
 {
     public int[] resources = new int[Resources.NUM];
     public int capacity = 10;

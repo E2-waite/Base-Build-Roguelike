@@ -165,6 +165,11 @@ public class Load : MonoBehaviour
                 follower.health = followerData.health;
                 follower.state = followerData.state;
                 Followers.Add(follower);
+
+                if (follower is Worker)
+                {
+                    (follower as Worker).inventory = followerData.inventory;
+                }
             }
 
             // Add to building list based on type
