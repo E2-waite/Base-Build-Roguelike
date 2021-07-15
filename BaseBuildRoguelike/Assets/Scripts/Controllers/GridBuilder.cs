@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridBuilder : MonoBehaviour
+public class GridBuilder : MonoSingleton<GridBuilder>
 {
     public GameObject grassTile, waterTile, sandTile, dGrassTile;
     public GameObject treePrefab, stonePrefab;

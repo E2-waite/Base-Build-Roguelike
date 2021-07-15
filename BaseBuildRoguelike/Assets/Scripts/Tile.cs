@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[System.Serializable]
 public class Tile : MonoBehaviour
 {
     public enum Type
@@ -21,15 +21,24 @@ public class Tile : MonoBehaviour
 
     public float corruptionVal = 0;
     float corruptionSpeed = 10, purifySpeed = 50;
-    private int corruptionMulti = 0;
     private bool selected;
 
     private List<PurifyPillar> pillars = new List<PurifyPillar>();
     public bool isProtected = false;
 
+    // Generate setup
     public virtual void Setup()
     {
         rend = GetComponent<SpriteRenderer>();
+        baseColour = rend.color;
+        currentColour = baseColour;
+    }
+
+    // Load setup
+    public virtual void Setup(float corruption)
+    {
+        rend = GetComponent<SpriteRenderer>();
+        corruptionVal = corruption;
         baseColour = rend.color;
         currentColour = baseColour;
     }
@@ -117,7 +126,7 @@ public class Tile : MonoBehaviour
         {
             if (Grid.InGrid(neighbours[i]))
             {
-                Tile neighbour = Grid.GetTile(pos);
+                Tile neighbour = Grid.GetTile(neighbours[i]);
                 if (neighbour.type != Type.water && !neighbour.isProtected)
                 {
                     neighbour.Corrupt(pos);

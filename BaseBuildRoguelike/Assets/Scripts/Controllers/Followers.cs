@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class Followers
+public  static class Followers
 {
     public static List<Interaction> followers = new List<Interaction>();
     public static Follower selected;

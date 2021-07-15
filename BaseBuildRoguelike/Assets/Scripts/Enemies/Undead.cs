@@ -26,11 +26,11 @@ public class Undead : Enemy
             {
                 if (Targetting.FindTarget(ref target, squad, ref targetSquad, transform.position, Followers.followers))
                 {
-                    Debug.Log("New target found");
+                    //Debug.Log("New target found");
                 }
                 else
                 {
-                    Debug.Log("No new target found");
+                    //Debug.Log("No new target found");
                     // Go back to attacking the home building if no targets could be found
                     target = Buildings.homeBase;
                     if (target != null)

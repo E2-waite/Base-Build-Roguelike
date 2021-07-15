@@ -63,4 +63,16 @@ public static class Grid
     {
         return tiles[pos.x, pos.y];
     }
+
+    public static List<Interaction> GetAllInteractable()
+    {
+        List<Interaction> interactions = new List<Interaction>();
+        interactions.AddRange(Resources.trees);
+        interactions.AddRange(Resources.stones);
+        interactions.AddRange(Buildings.buildings);
+        interactions.AddRange(Followers.followers);
+        interactions.AddRange(Enemies.enemies);
+        interactions.AddRange(Creatures.creatures);
+        return interactions;
+    }
 }

@@ -35,5 +35,18 @@ public abstract class Interaction : MonoBehaviour
             }
         }
     }
+
+    public int Index()
+    {
+        List<Interaction> interactions = Grid.GetAllInteractable();
+        for (int i = 0; i < interactions.Count; i++)
+        {
+            if (interactions[i] == this)
+            {
+                return i;
+            }
+        }
+        return 0;
+    }
 }
  

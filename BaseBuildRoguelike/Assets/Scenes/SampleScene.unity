@@ -2076,6 +2076,8 @@ GameObject:
   - component: {fileID: 1263100318}
   - component: {fileID: 1263100314}
   - component: {fileID: 1263100316}
+  - component: {fileID: 1263100317}
+  - component: {fileID: 1263100319}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -2095,6 +2097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6487aa003e3bb418ccb745416a5937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DestroyOnLoad: 1
   grassTile: {fileID: 3916451811984000970, guid: e2b1d08da95f13249aaf365239ea7a0c, type: 3}
   waterTile: {fileID: 3916451811984000970, guid: 4f54d8e9c2c98d54c9feae91a0a6dc99, type: 3}
   sandTile: {fileID: 3916451811984000970, guid: 86b3cebd5e2c447479b24fae181af88b, type: 3}
@@ -2146,7 +2149,7 @@ MonoBehaviour:
   corruptedTiles: []
   spawnTime: 10
   firepitPrefab: {fileID: 7247006138620438559, guid: 952a997f4442c144ead6ee308f8ba8ce, type: 3}
-  buildingTemplates:
+  buildings:
   - name: Wood Pile
     prefab: {fileID: 938588659906107226, guid: 2c3345279267e0041910a93cc0662d62, type: 3}
     sprite: {fileID: -8567814636022076339, guid: d8a4920f246412141a628bf06675648f, type: 3}
@@ -2157,13 +2160,13 @@ MonoBehaviour:
     type: 0
   - name: Food Pile
     prefab: {fileID: 938588659906107226, guid: 7f2b48050d471ff44adb4d2a4be2f3f8, type: 3}
-    sprite: {fileID: -5462037402489830590, guid: ca835c895edf0b54db24691e0d97fe1a, type: 3}
+    sprite: {fileID: -3334185611464207529, guid: ca835c895edf0b54db24691e0d97fe1a, type: 3}
     type: 0
   - name: Wood House
     prefab: {fileID: 5741391851399633439, guid: a3fb97f6d63357f4fb97fc3eb856ca7c, type: 3}
     sprite: {fileID: 21300000, guid: a5a2252f741a7bf49b1812694127a48f, type: 3}
     type: 0
-  - name: Wall
+  - name: Wood Wall
     prefab: {fileID: 3963982256496168285, guid: fd06baf343e15454ab4437bed2862b88, type: 3}
     sprite: {fileID: 6116906653869191027, guid: 12925ef923cad9849b017f1c26a508d7, type: 3}
     type: 0
@@ -2171,13 +2174,21 @@ MonoBehaviour:
     prefab: {fileID: 2229980545842200965, guid: 7f37d00c87f66f442936d0bc62d99ad2, type: 3}
     sprite: {fileID: 1325237055625117177, guid: 4d385f139351d89429655e617e2423a8, type: 3}
     type: 0
-  selectedTemplate:
-    name: 
-    prefab: {fileID: 0}
-    sprite: {fileID: 0}
-    type: 0
+  selectedTemplate: 0
   rabbitPrefab: {fileID: 6563278837278293193, guid: e50a273da9c7dff439d70dd735cb9fdd, type: 3}
   creatureScale: 10
+--- !u!114 &1263100317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263100313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9c9e3ea78fcfb4fbe95cd606a7cb1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1263100318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2207,6 +2218,18 @@ MonoBehaviour:
   directMask:
     serializedVersion: 2
     m_Bits: 8064
+--- !u!114 &1263100319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263100313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47dfa85f270044648910b360d20b0a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1339298812
 GameObject:
   m_ObjectHideFlags: 0

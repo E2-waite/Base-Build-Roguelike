@@ -4,6 +4,13 @@ using UnityEngine;
 
 public abstract class Follower : Interaction
 {
+    public enum Type
+    {
+        worker = 0,
+        soldier = 1,
+        archer = 2,
+        priest = 3
+    }
     enum DefaultState
     {
         idle = 0,
@@ -12,6 +19,7 @@ public abstract class Follower : Interaction
     }
 
     [Header("Follower Settings")]
+    public Type type;
     public int state = 0;
     public Interaction target;
     public Squad squad, targetSquad;

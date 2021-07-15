@@ -13,7 +13,8 @@ public class GameController : MonoSingleton<GameController>
     public GameState gameState;
     private GridBuilder grid;
     private Spawner spawner;
-
+    private Save save;
+    private Load load;
     public Inspector inspector;
     public Camera camera;
     public float camSpeed = 50, camDist = 10, camMaxZoom = 20, camMinZoom = 5;
@@ -21,18 +22,26 @@ public class GameController : MonoSingleton<GameController>
 
     void Start()
     {
-        grid = GetComponent<GridBuilder>();
-        grid.Generate();
+        load = GetComponent<Load>();
+        spawner = Spawner.Instance;
+        if (!load.LoadGame())
+        {
+            GridBuilder.Instance.Generate();
+            spawner.Setup();
+            spawner.SpawnFollower(new Vector3(Grid.startPos.x, Grid.startPos.y, 0));
+            spawner.SpawnHome(Grid.tiles[Grid.startPos.x, Grid.startPos.y]);
+        }
 
         Grid.startPos = new Vector2Int((int)(Grid.size / 2), (int)(Grid.size / 2));
 
-        spawner = Spawner.Instance;
-        spawner.Setup();
-        spawner.SpawnFollower(new Vector3(Grid.startPos.x, Grid.startPos.y, 0));
-        spawner.SpawnHome(Grid.tiles[Grid.startPos.x, Grid.startPos.y]);
+
+
 
         Cursor.lockState = CursorLockMode.Confined;
         camera.transform.position = new Vector3(Grid.startPos.x, Grid.startPos.y, camera.transform.position.z);
+
+        save = GetComponent<Save>();
+        save.SaveGame();
     }
 
     private void Update()
@@ -54,7 +63,8 @@ public class GameController : MonoSingleton<GameController>
 
             if (!Grid.IsSelected(hit.collider))
             {
-                Grid.SelectTile(hit.collider, Spawner.Instance.selectedTemplate);
+                Spawner spawner = Spawner.Instance;
+                Grid.SelectTile(hit.collider, spawner.buildings[spawner.selectedTemplate]);
             }
         }
 
@@ -165,4 +175,8 @@ public class GameController : MonoSingleton<GameController>
         camRecentering = false;
     }
 
+    private void OnApplicationQuit()
+    {
+        save.SaveGame();
+    }
 }

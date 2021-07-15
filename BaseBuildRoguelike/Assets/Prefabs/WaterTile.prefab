@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 3916451811984000968}
   - component: {fileID: 3916451811984000971}
   - component: {fileID: 4259032072407966255}
-  - component: {fileID: -8556283287629913756}
-  - component: {fileID: -8980619379022040472}
+  - component: {fileID: 2084300792780007298}
   m_Layer: 6
   m_Name: WaterTile
   m_TagString: Tile
@@ -112,7 +111,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-8556283287629913756
+--- !u!114 &2084300792780007298
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,7 +120,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3916451811984000970}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d60bbe16a6d8dbd4d969ba0b63c080d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 47500c9e42c61a94ba02d9d189446b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
@@ -130,25 +129,7 @@ MonoBehaviour:
   - {fileID: 7223950226953391895, guid: a5e72c97990554748a9cbcefffaf7a84, type: 3}
   - {fileID: -8377130690987618698, guid: a5e72c97990554748a9cbcefffaf7a84, type: 3}
   - {fileID: -4684333735789482159, guid: a5e72c97990554748a9cbcefffaf7a84, type: 3}
-  corruptedColour: {r: 0.082628325, g: 0.072267726, b: 0.5283019, a: 1}
+  corruptedColour: {r: 0, g: 0.038443647, b: 0.3301887, a: 1}
   rend: {fileID: 0}
   corruptionVal: 0
---- !u!95 &-8980619379022040472
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3916451811984000970}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6efabcc1a650e4245af6e49b8f168e88, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  isProtected: 0

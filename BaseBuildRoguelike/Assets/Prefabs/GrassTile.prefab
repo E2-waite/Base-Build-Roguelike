@@ -120,7 +120,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3916451811984000970}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83d57e56773c0bd4ea8fdeee72e2d79f, type: 3}
+  m_Script: {fileID: 11500000, guid: 47500c9e42c61a94ba02d9d189446b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
@@ -129,6 +129,7 @@ MonoBehaviour:
   - {fileID: 7223950226953391895, guid: a5e72c97990554748a9cbcefffaf7a84, type: 3}
   - {fileID: -8377130690987618698, guid: a5e72c97990554748a9cbcefffaf7a84, type: 3}
   - {fileID: -4684333735789482159, guid: a5e72c97990554748a9cbcefffaf7a84, type: 3}
-  corruptedColour: {r: 0.28142214, g: 0, b: 0.5471698, a: 1}
+  corruptedColour: {r: 0.13267806, g: 0, b: 0.6603774, a: 1}
   rend: {fileID: 0}
   corruptionVal: 0
+  isProtected: 0

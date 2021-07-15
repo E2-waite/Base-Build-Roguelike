@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Building : Interaction
 {
     [Header("Building Settings")]
+    public int type = 99;
     public bool isConstructed = false;
     public bool selected = false;
 
@@ -15,6 +16,10 @@ public abstract class Building : Interaction
 
     private void Start()
     {
+        if (!(this is HomeBase))
+        {
+            Buildings.Add(this);
+        }
         rend = GetComponent<SpriteRenderer>();
         repair = maxRepair;
         if (!isConstructed)

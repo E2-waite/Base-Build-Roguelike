@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3916451811984000968}
   - component: {fileID: 3916451811984000971}
   - component: {fileID: 4259032072407966255}
-  - component: {fileID: -3305880324018929486}
+  - component: {fileID: 8204621934844382935}
   m_Layer: 6
   m_Name: DGrassTile
   m_TagString: Tile
@@ -111,7 +111,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-3305880324018929486
+--- !u!114 &8204621934844382935
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3916451811984000970}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e5176d41c88dc14ca5c33512e642d68, type: 3}
+  m_Script: {fileID: 11500000, guid: 47500c9e42c61a94ba02d9d189446b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
@@ -129,6 +129,7 @@ MonoBehaviour:
   - {fileID: 7223950226953391895, guid: a5e72c97990554748a9cbcefffaf7a84, type: 3}
   - {fileID: -8377130690987618698, guid: a5e72c97990554748a9cbcefffaf7a84, type: 3}
   - {fileID: -4684333735789482159, guid: a5e72c97990554748a9cbcefffaf7a84, type: 3}
-  corruptedColour: {r: 0.116533294, g: 0, b: 0.4339623, a: 1}
+  corruptedColour: {r: 0.13267806, g: 0, b: 0.6603774, a: 1}
   rend: {fileID: 0}
   corruptionVal: 0
+  isProtected: 0

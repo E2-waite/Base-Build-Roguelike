@@ -6,6 +6,7 @@ public static class Buildings
 {
     public static Building selected;
     public static HomeBase homeBase;
+    public static List<Building> buildings = new List<Building>();
     public static List<ResourceStorage>[] storages = new List<ResourceStorage>[Resources.NUM];
     public static Wall[,] walls;
 
@@ -41,5 +42,10 @@ public static class Buildings
             }
         }
         return false;
+    }
+
+    public static void Add(Building building)
+    {
+        buildings.Add(building);
     }
 }

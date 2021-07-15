@@ -102,8 +102,8 @@ public class Spawner : MonoSingleton<Spawner>
     }
     [Header("Building Settings")]
     public GameObject firepitPrefab;
-    public List<BuildingTemplate> buildingTemplates = new List<BuildingTemplate>();
-    public BuildingTemplate selectedTemplate = null;
+    public List<BuildingTemplate> buildings = new List<BuildingTemplate>();
+    public int selectedTemplate = 0;
     public void SpawnHome(Tile tile)
     {
         GameObject building = Instantiate(firepitPrefab, tile.transform.position, Quaternion.identity);
@@ -112,10 +112,11 @@ public class Spawner : MonoSingleton<Spawner>
     }
     public void BuildStructure(Tile tile)
     {
-        if (Build.CanBuild(selectedTemplate.type, new Vector2Int((int)tile.transform.position.x, (int)tile.transform.position.y)))
+        if (Build.CanBuild(buildings[selectedTemplate].type, new Vector2Int((int)tile.transform.position.x, (int)tile.transform.position.y)))
         {
-            GameObject building = Instantiate(selectedTemplate.prefab, tile.transform.position, Quaternion.identity);
+            GameObject building = Instantiate(buildings[selectedTemplate].prefab, tile.transform.position, Quaternion.identity);
             tile.structure = building.GetComponent<Interaction>();
+            (tile.structure as Building).type = selectedTemplate;
             tile.structure.transform.parent = tile.transform;
             Pathfinding.UpdateNodeGrid();
         }
