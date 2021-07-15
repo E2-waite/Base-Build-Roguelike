@@ -76,4 +76,19 @@ public static class Grid
         interactions.AddRange(Creatures.creatures);
         return interactions;
     }
+
+    public static Interaction TargetFromIndex(int index)
+    {
+        List<Interaction> interactable = GetAllInteractable();
+
+        if (index < interactable.Count)
+        {
+            return interactable[index];
+        }
+        else
+        {
+            Debug.LogWarning("NO TARGET WITH INDEX OF " + index.ToString());
+            return null;
+        }
+    }
 }

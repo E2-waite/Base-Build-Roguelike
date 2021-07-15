@@ -5,6 +5,7 @@ using System.IO;
 
 public class Load : MonoBehaviour
 {
+    public GameObject squadPrefab;
     public bool LoadGame()
     {
         if (!System.IO.File.Exists(Application.persistentDataPath + "/SaveData.json"))
@@ -55,6 +56,7 @@ public class Load : MonoBehaviour
 
     bool LoadResources(GameData gameData)
     {
+        Debug.Log("Resources: " + gameData.resources.Length.ToString());
         for (int i = 0; i < gameData.resources.Length; i++)
         {
             ResourceData resourceData = gameData.resources[i];
@@ -90,6 +92,12 @@ public class Load : MonoBehaviour
 
     bool LoadBuildings(GameData gameData)
     {
+        for (int i = 0; i < Resources.NUM; i++)
+        {
+            Buildings.storages[i] = new List<ResourceStorage>();
+        }
+        Buildings.walls = new Wall[Grid.size, Grid.size];
+
         for (int i = 0; i < gameData.buildings.Length; i++)
         {
             BuildingData buildingData = gameData.buildings[i];
@@ -103,7 +111,7 @@ public class Load : MonoBehaviour
             {
                 building = Instantiate(Spawner.Instance.buildings[buildingData.type].prefab, Grid.tiles[pos.x, pos.y].transform.position, Quaternion.identity);
             }
-
+            Buildings.Add(building.GetComponent<Building>());
             if (building != null)
             {
                 Grid.tiles[pos.x, pos.y].structure = building.GetComponent<Interaction>();
@@ -115,6 +123,7 @@ public class Load : MonoBehaviour
             // Add to building list based on type
 
         }
+        Pathfinding.UpdateNodeGrid();
         return LoadFollowers(gameData);
     }
 
@@ -122,8 +131,7 @@ public class Load : MonoBehaviour
     {
         for (int i = 0; i < gameData.followers.Length; i++)
         {
-            FollowerData followerData = gameData.followers[i];
-            Debug.Log(followerData.x.ToString() + ":" + followerData.y.ToString());
+            AIData followerData = gameData.followers[i];
             GameObject followerObj = Instantiate(Spawner.Instance.followerPrefab[followerData.type], new Vector3(0, 0, 0), Quaternion.identity).transform.GetChild(0).gameObject;
 
             if (followerObj != null)
@@ -138,6 +146,62 @@ public class Load : MonoBehaviour
 
             // Add to building list based on type
 
+        }
+        return LoadEnemies(gameData);
+    }
+
+    bool LoadEnemies(GameData gameData)
+    {
+        for (int i = 0; i < gameData.enemies.Length; i++)
+        {
+            AIData enemyData = gameData.enemies[i];
+            GameObject enemyObj = Instantiate(Spawner.Instance.enemyTemplates[enemyData.type].prefab, new Vector3(0, 0, 0), Quaternion.identity);
+
+            if (enemyObj != null)
+            {
+                Enemy enemy = enemyObj.GetComponent<Enemy>();
+                enemy.transform.position = new Vector3(enemyData.x, enemyData.y, 0);
+                enemy.health = enemyData.health;
+                Enemies.Add(enemy);
+            }
+        }
+        return LoadSquads(gameData);
+    }
+
+    bool LoadSquads(GameData gameData)
+    {
+        for (int i = 0; i < gameData.squads.Length; i++)
+        {
+            SquadData squadData = gameData.squads[i];
+            GameObject squadObj = Instantiate(squadPrefab, Vector3.zero, Quaternion.identity);
+
+            if (squadObj != null)
+            {
+                Squad squad = squadObj.GetComponent<Squad>();
+                squad.Setup(squadData.members);
+                squad.target = Grid.TargetFromIndex(squadData.target);
+                squad.marker.transform.position = new Vector3(squadData.x, squadData.y, 0);
+            }
+        }
+        return SetTargets(gameData);
+    }
+
+    bool SetTargets(GameData gameData)
+    {
+        for (int i = 0; i < gameData.followers.Length; i++)
+        {
+            if (gameData.followers[i].target != 99999)
+            {
+                Followers.followers[i].target = Grid.TargetFromIndex(gameData.followers[i].target);
+            }
+        }
+
+        for (int i = 0; i < gameData.enemies.Length; i++)
+        {
+            if (gameData.enemies[i].target != 99999)
+            {
+                Enemies.enemies[i].target = Grid.TargetFromIndex(gameData.enemies[i].target);
+            }
         }
         return true;
     }

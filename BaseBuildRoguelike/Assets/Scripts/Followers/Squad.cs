@@ -27,6 +27,19 @@ public class Squad : MonoBehaviour
     public Squad targetSquad;
     public Interaction target;
     public bool selected = false;
+
+    private void Start()
+    {
+        if (type == Type.friendly)
+        {
+            Followers.squads.Add(this);
+        }
+        else
+        {
+            Enemies.squads.Add(this);
+        }
+    }
+
     public void Setup(Follower follower1, Follower follower2)
     {
         members.Add(follower1);
@@ -43,6 +56,35 @@ public class Squad : MonoBehaviour
         members.Add(enemy2);
         enemy1.squad = this;
         enemy2.squad = this;
+    }
+
+    public void Setup(int[] memberIndexes)
+    {
+        for (int i = 0; i < memberIndexes.Length; i++)
+        {
+            members.Add(Grid.TargetFromIndex(memberIndexes[i]));
+        }
+
+        if (members[0] is Follower)
+        {
+            type = Type.friendly;
+        }
+        else
+        {
+            type = Type.hostile;
+        }
+
+        for (int i = 0; i < members.Count; i++)
+        {
+            if (type == Type.friendly)
+            {
+                (members[i] as Follower).squad = this;
+            }
+            else
+            {
+                (members[i] as Enemy).squad = this;
+            }
+        }
     }
 
     public void AddMember(Follower follower)
@@ -269,6 +311,18 @@ public class Squad : MonoBehaviour
                     (member as Enemy).UpdateTarget(targetSquad.ClosestMember(member.transform.position));
                 }
             }
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (type == Type.friendly)
+        {
+            Followers.squads.Remove(this);
+        }
+        else
+        {
+            Enemies.squads.Remove(this);
         }
     }
 }

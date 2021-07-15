@@ -5,6 +5,7 @@ using UnityEngine;
 public  static class Followers
 {
     public static List<Follower> followers = new List<Follower>();
+    public static List<Squad> squads = new List<Squad>();
     public static Follower selected;
     public static Squad selectedSquad = null;
     public static int maxFollowers = 1;

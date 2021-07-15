@@ -5,7 +5,7 @@ using UnityEngine;
 public static class Enemies
 {
     public static List<Enemy> enemies = new List<Enemy>();
-
+    public static List<Squad> squads = new List<Squad>();
     public static void Add(Enemy enemy)
     {
         enemies.Add(enemy);

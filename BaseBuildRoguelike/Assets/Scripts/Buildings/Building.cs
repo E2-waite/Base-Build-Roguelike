@@ -16,10 +16,6 @@ public abstract class Building : Interaction
 
     private void Start()
     {
-        if (!(this is HomeBase))
-        {
-            Buildings.Add(this);
-        }
         rend = GetComponent<SpriteRenderer>();
         repair = maxRepair;
         if (!isConstructed)

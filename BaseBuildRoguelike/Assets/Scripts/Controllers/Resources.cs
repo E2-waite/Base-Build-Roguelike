@@ -8,7 +8,7 @@ public class Resources : MonoBehaviour
     public static int[] resources = new int[NUM];
     public static int[] maxResources = new int[NUM];
 
-    public static List<Interaction> trees = new List<Interaction>(), stones = new List<Interaction>();
+    public static List<Interaction> trees = new List<Interaction>(), stones = new List<Interaction>(), allResources = new List<Interaction>();
 
     public static void Adjust(Resource.Type type, int val, int maxVal)
     {

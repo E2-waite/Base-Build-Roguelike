@@ -71,19 +71,15 @@ public class Spawner : MonoSingleton<Spawner>
     {
         if (corruptedTiles.Count > 0)
         {
-            Enemy enemy = EnemySelect();
-            if (enemy != null)
-            {
-                Enemies.Add(enemy);
-            }
+            Vector3 spawnPos = corruptedTiles[Random.Range(0, corruptedTiles.Count)].transform.position;
+            int num = Random.Range(0, enemyTemplates.Count);
+            GameObject enemyObj = Instantiate(enemyTemplates[num].prefab, spawnPos, Quaternion.identity);
+            Enemy enemy = enemyObj.GetComponent<Enemy>();
+            enemy.type = num;
+            Enemies.Add(enemy);
         }
     }
-    Enemy EnemySelect()
-    {
-        Vector3 spawnPos = corruptedTiles[Random.Range(0, corruptedTiles.Count)].transform.position;
-        GameObject enemy = Instantiate(enemyTemplates[Random.Range(0, enemyTemplates.Count)].prefab, spawnPos, Quaternion.identity);
-        return enemy.GetComponent<Enemy>();
-    }
+
     public void AddCorruptedTile(Tile tile)
     {
         corruptedTiles.Add(tile);

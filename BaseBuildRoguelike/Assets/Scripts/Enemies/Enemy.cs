@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Enemy : Interaction
 {
     [Header("Enemy Settings")]
+    public int type;
     public int maxHealth = 3, health, hitDamage = 1;
     public float speed = 2, targetDist = 1f, targetRange = 15;
     public Interaction target;

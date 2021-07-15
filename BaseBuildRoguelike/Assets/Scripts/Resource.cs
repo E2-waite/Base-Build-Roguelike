@@ -46,4 +46,17 @@ public class Resource : Interaction
         yield return new WaitForSeconds(0.1f);
         anim.SetBool("Hit", false);
     }
+
+    private void OnDestroy()
+    {
+        if (type == Type.wood)
+        {
+            Resources.trees.Remove(this);
+        }
+        else if (type == Type.wood)
+        {
+            Resources.stones.Remove(this);
+        }
+        Resources.allResources.Remove(this);
+    }
 }

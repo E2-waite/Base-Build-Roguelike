@@ -7,7 +7,6 @@ ScriptsOnlyBuild:
     - Construct
     - ConstructionDetails
     - Corpse
-    - CorpseCollider
     - Creature
     - EffectGlow
     - GameController
@@ -18,8 +17,7 @@ ScriptsOnlyBuild:
     - House
     - Inspector
     - Inventory
-    - NecroSphere
-    - Necromancer
+    - Load
     - Priest
     - PurifyPillar
     - Resource
@@ -27,15 +25,11 @@ ScriptsOnlyBuild:
     - ResourceStorage
     - Save
     - SetSortingLayer
-    - ShadowBolt
     - Soldier
     - Spawner
     - Squad
     - SquadCollision
-    - TileDGrass
-    - TileGrass
-    - TileSand
-    - TileWater
+    - Tile
     - Undead
     - Wall
     - Worker
@@ -105,15 +99,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1472}
     - Class: 114
-      Script: {instanceID: 1480}
+      Script: {instanceID: 1648}
     - Class: 114
-      Script: {instanceID: 1650}
+      Script: {instanceID: 1684}
     - Class: 114
-      Script: {instanceID: 1686}
+      Script: {instanceID: 1724}
     - Class: 114
       Script: {instanceID: 1908}
-    - Class: 114
-      Script: {instanceID: 2122}
     - Class: 114
       Script: {instanceID: 2260}
     - Class: 114
@@ -127,69 +119,59 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2792}
     - Class: 114
-      Script: {instanceID: 3200}
+      Script: {instanceID: 3310}
     - Class: 114
-      Script: {instanceID: 3312}
+      Script: {instanceID: 3400}
     - Class: 114
-      Script: {instanceID: 3402}
+      Script: {instanceID: 3844}
     - Class: 114
-      Script: {instanceID: 3846}
+      Script: {instanceID: 3900}
     - Class: 114
-      Script: {instanceID: 3902}
+      Script: {instanceID: 4434}
     - Class: 114
-      Script: {instanceID: 4436}
+      Script: {instanceID: 4954}
     - Class: 114
-      Script: {instanceID: 4904}
+      Script: {instanceID: 5118}
     - Class: 114
-      Script: {instanceID: 4956}
+      Script: {instanceID: 5344}
     - Class: 114
-      Script: {instanceID: 5120}
+      Script: {instanceID: 5474}
     - Class: 114
-      Script: {instanceID: 5458}
+      Script: {instanceID: 5508}
     - Class: 114
-      Script: {instanceID: 5510}
+      Script: {instanceID: 5656}
     - Class: 114
-      Script: {instanceID: 5658}
+      Script: {instanceID: 5740}
     - Class: 114
-      Script: {instanceID: 5742}
+      Script: {instanceID: 5842}
     - Class: 114
-      Script: {instanceID: 5844}
+      Script: {instanceID: 5850}
     - Class: 114
-      Script: {instanceID: 5852}
+      Script: {instanceID: 5956}
     - Class: 114
-      Script: {instanceID: 5958}
+      Script: {instanceID: 6070}
     - Class: 114
-      Script: {instanceID: 5972}
+      Script: {instanceID: 6362}
     - Class: 114
-      Script: {instanceID: 6072}
+      Script: {instanceID: 6700}
     - Class: 114
-      Script: {instanceID: 6364}
+      Script: {instanceID: 6872}
     - Class: 114
-      Script: {instanceID: 6702}
+      Script: {instanceID: 7102}
     - Class: 114
-      Script: {instanceID: 6874}
+      Script: {instanceID: 7178}
     - Class: 114
-      Script: {instanceID: 7104}
+      Script: {instanceID: 7288}
     - Class: 114
-      Script: {instanceID: 7180}
+      Script: {instanceID: 7584}
     - Class: 114
-      Script: {instanceID: 7290}
+      Script: {instanceID: 7834}
     - Class: 114
-      Script: {instanceID: 7586}
+      Script: {instanceID: 7988}
     - Class: 114
-      Script: {instanceID: 7714}
+      Script: {instanceID: 8166}
     - Class: 114
-      Script: {instanceID: 7838}
-    - Class: 114
-      Script: {instanceID: 7866}
-    - Class: 114
-      Script: {instanceID: 7992}
-    - Class: 114
-      Script: {instanceID: 8170}
-    - Class: 114
-      Script: {instanceID: 8360}
-    - Class: 114
-      Script: {instanceID: 23842}
+      Script: {instanceID: 8356}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -215,12 +197,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Image
-  - hash:
-      serializedVersion: 2
-      Hash: ae00c8df8f3bf156992fb5b838315c8a
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: TileWater
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -287,6 +263,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnCollisionStayMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Load
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -421,7 +403,7 @@ ScriptsOnlyBuild:
     className: UnityMessageListener
   - hash:
       serializedVersion: 2
-      Hash: b3a1bffc958e4b513b9855a5a5836ecf
+      Hash: 762fca094dfbc2226ce9f33ef5f65f31
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Wall
@@ -529,12 +511,6 @@ ScriptsOnlyBuild:
     className: UnityOnMouseDownMessageListener
   - hash:
       serializedVersion: 2
-      Hash: ae00c8df8f3bf156992fb5b838315c8a
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: TileDGrass
-  - hash:
-      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
@@ -559,7 +535,7 @@ ScriptsOnlyBuild:
     className: VariablesAsset
   - hash:
       serializedVersion: 2
-      Hash: 32137e369b2681d456c6f3b186e93a2b
+      Hash: 98c7ed8827b5962d9c3dfd57a1ed39ac
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameController
@@ -577,7 +553,7 @@ ScriptsOnlyBuild:
     className: UnityOnSelectMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 25d9becf40cfb84315981738e49a4232
+      Hash: 5c07ffa821f17b529b4fe300cd53bff1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Priest
@@ -625,7 +601,7 @@ ScriptsOnlyBuild:
     className: ScriptGraphAsset
   - hash:
       serializedVersion: 2
-      Hash: 8c5a6a026b4a2e0aaf0f35d64e7b551d
+      Hash: 1c50676096c24f02d2bc3951caf615e3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Pier
@@ -643,7 +619,7 @@ ScriptsOnlyBuild:
     className: UnityOnPointerExitMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 357e540d84487e5659180fe04ef217a7
+      Hash: 23d613b945baad7f423c31d282f23664
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Spawner
@@ -781,7 +757,7 @@ ScriptsOnlyBuild:
     className: Necromancer
   - hash:
       serializedVersion: 2
-      Hash: 8c5a6a026b4a2e0aaf0f35d64e7b551d
+      Hash: 1c50676096c24f02d2bc3951caf615e3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GuardTower
@@ -895,10 +871,10 @@ ScriptsOnlyBuild:
     className: GroupTrack
   - hash:
       serializedVersion: 2
-      Hash: ae00c8df8f3bf156992fb5b838315c8a
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: TileGrass
+    className: Save
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -913,7 +889,7 @@ ScriptsOnlyBuild:
     className: Text
   - hash:
       serializedVersion: 2
-      Hash: 8db1e2eab6cbc599ae672c0192ccebee
+      Hash: 9954a7c6c5a77dcbab26f7f38f407d83
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ResourceStorage
@@ -925,7 +901,7 @@ ScriptsOnlyBuild:
     className: StateGraphAsset
   - hash:
       serializedVersion: 2
-      Hash: 393b445dd94a607800e424f1739e9619
+      Hash: dd983182981fdf341856c708ff21e140
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HomeBase
@@ -943,7 +919,7 @@ ScriptsOnlyBuild:
     className: CanvasScaler
   - hash:
       serializedVersion: 2
-      Hash: 3ecfd916e73d6ad99aec7242c3e3163b
+      Hash: 972297b1716028233af39ad5ca544186
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: House
@@ -979,7 +955,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: 7a2182217db9e1efa2ab804d93df17ef
+      Hash: 1ea829c403ca616a4b2bdabfe3e9d35f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Archer
@@ -1111,7 +1087,7 @@ ScriptsOnlyBuild:
     className: UnityOnPointerDownMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 94a74860805351097e18e0608eb087e5
+      Hash: fe0f59c62beb9a0974d0fefd2e77d955
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GridBuilder
@@ -1177,7 +1153,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: f87ab65966a370f950f9dbab18858d0d
+      Hash: 56ea669446027432d2c71b4d18b88ef3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Worker
@@ -1219,12 +1195,6 @@ ScriptsOnlyBuild:
     className: SpriteSkinEntity
   - hash:
       serializedVersion: 2
-      Hash: ae00c8df8f3bf156992fb5b838315c8a
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: TileSand
-  - hash:
-      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
@@ -1255,7 +1225,7 @@ ScriptsOnlyBuild:
     className: Variables
   - hash:
       serializedVersion: 2
-      Hash: 8c5a6a026b4a2e0aaf0f35d64e7b551d
+      Hash: 1c50676096c24f02d2bc3951caf615e3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PurifyPillar
@@ -1297,7 +1267,7 @@ ScriptsOnlyBuild:
     className: HUD
   - hash:
       serializedVersion: 2
-      Hash: 8087dd397ebbb755b3c658b41872790b
+      Hash: cedabe0f8a1f55957fd0591812581302
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Soldier
@@ -1343,12 +1313,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Corpse
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Save
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
