@@ -56,16 +56,21 @@ public class Save : MonoBehaviour
     {
         for (int i = 0; i < Followers.followers.Count; i++)
         {
-            Follower follower = Followers.followers[i] as Follower;
+            Follower follower = Followers.followers[i];
             if (follower != null)
             {
-                Debug.Log(follower.name + " " + follower.Index());
+                Debug.Log(follower.transform.position.ToString());
+                int targetInd = 99999;
+                if (follower.target != null)
+                {
+                    targetInd = follower.target.Index();
+                }
+                gameData.followers[i] = new FollowerData((int)follower.type, (int)follower.state, targetInd, follower.health, follower.transform.position.x, follower.transform.position.y);
             }
             else
             {
                 Followers.followers.RemoveAt(i);
             }
-            gameData.followers[i] = new FollowerData((int)follower.type, (int)follower.state, follower.target.Index(), follower.health, follower.transform.position.x, follower.transform.position.y);
         }
     }
 }

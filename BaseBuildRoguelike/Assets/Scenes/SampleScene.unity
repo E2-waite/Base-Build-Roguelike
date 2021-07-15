@@ -2136,7 +2136,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DestroyOnLoad: 1
   followerCost: 10
-  followerPrefab: {fileID: 486432623086700621, guid: 8ab9b6d2894dcbf47a64f1b6be0fdb01, type: 3}
+  followerPrefab:
+  - {fileID: 486432623086700621, guid: 8ab9b6d2894dcbf47a64f1b6be0fdb01, type: 3}
+  - {fileID: 8840559666961402214, guid: 66d071f54f729b348a98537df379fa2e, type: 3}
+  - {fileID: 8840559666961402214, guid: aa27a70a0b3e25b469136317101ae80d, type: 3}
+  - {fileID: 8840559666961402214, guid: e527585eeb9171043a3bac4c7574ba53, type: 3}
   enemyTemplates:
   - prefab: {fileID: 2743365640547367737, guid: 4f6d634aa3497134eb1b05be31943143, type: 3}
     rarity: 0
@@ -2202,6 +2206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyOnLoad: 1
+  loadGame: 1
   gameState: 0
   inspector: {fileID: 733154494}
   camera: {fileID: 519420031}

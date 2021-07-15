@@ -401,6 +401,7 @@ MonoBehaviour:
   staticObject: 0
   statusEffects: []
   glow: {fileID: 4703397338764745130}
+  type: 2
   state: 0
   target: {fileID: 0}
   squad: {fileID: 0}

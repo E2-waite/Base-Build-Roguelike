@@ -356,6 +356,7 @@
 "Assets/Scripts/Controllers/GameController.cs"
 "Assets/Scripts/Controllers/Grid.cs"
 "Assets/Scripts/Controllers/GridBuilder.cs"
+"Assets/Scripts/Controllers/Load.cs"
 "Assets/Scripts/Controllers/Resources.cs"
 "Assets/Scripts/Controllers/Save.cs"
 "Assets/Scripts/Controllers/Spawner.cs"

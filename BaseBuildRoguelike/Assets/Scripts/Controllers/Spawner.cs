@@ -10,7 +10,7 @@ public class Spawner : MonoSingleton<Spawner>
         GameObject[] followerObjs = GameObject.FindGameObjectsWithTag("Follower");
         foreach (GameObject follower in followerObjs)
         {
-            Followers.Add(follower.GetComponent<Interaction>());
+            Followers.Add(follower.GetComponent<Follower>());
         }
 
         GameObject[] enemyObjs = GameObject.FindGameObjectsWithTag("Enemy");
@@ -27,6 +27,7 @@ public class Spawner : MonoSingleton<Spawner>
 
         Creatures.maxCreatures = creatureScale * (Grid.size / 10);
         start = true;
+
     }
 
  
@@ -45,10 +46,11 @@ public class Spawner : MonoSingleton<Spawner>
 
     [Header("Follower Settings")]
     public int followerCost = 10;
-    public GameObject followerPrefab;
+    public GameObject[] followerPrefab = new GameObject[4];
     public void SpawnFollower(Vector3 pos)
     {
-        GameObject follower = Instantiate(followerPrefab, pos, Quaternion.identity);
+        GameObject follower = Instantiate(followerPrefab[0], Vector3.zero, Quaternion.identity).transform.GetChild(0).gameObject;
+        follower.transform.position = pos;
         Followers.Add(follower.GetComponent<Worker>());
         HUD.Instance.UpdateFollowers(Followers.Count(), Followers.Max());
     }

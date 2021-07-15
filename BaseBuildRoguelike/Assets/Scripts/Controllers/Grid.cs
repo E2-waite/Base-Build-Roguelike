@@ -12,6 +12,7 @@ public static class Grid
     {
         size = mapSize;
         noise = noiseSize;
+        startPos = new Vector2Int(size / 2, size / 2);
         tiles = new Tile[size, size];
     }
 

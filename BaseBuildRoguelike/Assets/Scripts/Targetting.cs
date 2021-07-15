@@ -5,14 +5,15 @@ using UnityEngine;
 public static class Targetting
 {
     public static float targetRange = 15;
-    static Interaction GetClosestTarget(List<Interaction> targets, Vector3 pos)
+    static Interaction GetClosestTarget<T>(List<T> targets, Vector3 pos)
     {
         // Gets closest target within range out of all target of type
         Interaction newTarget = null;
         float closestDist = 9999;
 
-        foreach (Interaction target in targets)
+        foreach (T tempTarget in targets)
         {
+            Interaction target = tempTarget as Interaction;
             if (target != null)
             {
                 float dist = Vector3.Distance(pos, target.transform.position);
@@ -28,12 +29,18 @@ public static class Targetting
         return newTarget;
     }
 
-    public static bool FindTarget(ref Interaction target, Squad squad, ref Squad targetSquad, Vector3 pos, List<Interaction> targets)
+    class TargetList<T>
+    {
+        public T List { get; set; }
+    }
+
+    public static bool FindTarget<T>(ref Interaction target, Squad squad, ref Squad targetSquad, Vector3 pos, List<T> targets)
     {
         if (squad == null)
         {
             if (targetSquad == null)
             {
+
                 target = Targetting.GetClosestTarget(targets, pos);
                 if (target != null)
                 {  

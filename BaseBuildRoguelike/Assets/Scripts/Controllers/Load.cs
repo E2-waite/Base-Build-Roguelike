@@ -115,6 +115,30 @@ public class Load : MonoBehaviour
             // Add to building list based on type
 
         }
+        return LoadFollowers(gameData);
+    }
+
+    bool LoadFollowers(GameData gameData)
+    {
+        for (int i = 0; i < gameData.followers.Length; i++)
+        {
+            FollowerData followerData = gameData.followers[i];
+            Debug.Log(followerData.x.ToString() + ":" + followerData.y.ToString());
+            GameObject followerObj = Instantiate(Spawner.Instance.followerPrefab[followerData.type], new Vector3(0, 0, 0), Quaternion.identity).transform.GetChild(0).gameObject;
+
+            if (followerObj != null)
+            {
+                Debug.Log(followerObj.name);
+                Follower follower = followerObj.GetComponent<Follower>();
+                follower.transform.position = new Vector3(followerData.x, followerData.y, 0);
+                follower.health = followerData.health;
+                follower.state = followerData.state;
+                Followers.Add(follower);
+            }
+
+            // Add to building list based on type
+
+        }
         return true;
     }
 }

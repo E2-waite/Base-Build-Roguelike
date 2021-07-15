@@ -4,13 +4,13 @@ using UnityEngine;
 
 public static class Enemies
 {
-    public static List<Interaction> enemies = new List<Interaction>();
+    public static List<Enemy> enemies = new List<Enemy>();
 
-    public static void Add(Interaction enemy)
+    public static void Add(Enemy enemy)
     {
         enemies.Add(enemy);
     }
-    public static void Remove(Interaction enemy)
+    public static void Remove(Enemy enemy)
     {
         enemies.Remove(enemy);
     }

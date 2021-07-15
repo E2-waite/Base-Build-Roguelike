@@ -4,15 +4,16 @@ using UnityEngine;
 
 public  static class Followers
 {
-    public static List<Interaction> followers = new List<Interaction>();
+    public static List<Follower> followers = new List<Follower>();
     public static Follower selected;
     public static Squad selectedSquad = null;
     public static int maxFollowers = 1;
-    public static void Add(Interaction follower)
+
+    public static void Add(Follower follower)
     {
         followers.Add(follower);
     }
-    public static void Remove(Interaction follower)
+    public static void Remove(Follower follower)
     {
         followers.Remove(follower);
     }

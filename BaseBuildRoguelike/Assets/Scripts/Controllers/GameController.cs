@@ -10,6 +10,7 @@ public class GameController : MonoSingleton<GameController>
         build,
         direct
     }
+    public bool loadGame = true;
     public GameState gameState;
     private GridBuilder grid;
     private Spawner spawner;
@@ -24,7 +25,7 @@ public class GameController : MonoSingleton<GameController>
     {
         load = GetComponent<Load>();
         spawner = Spawner.Instance;
-        if (!load.LoadGame())
+        if (!loadGame || !load.LoadGame())
         {
             GridBuilder.Instance.Generate();
             spawner.Setup();
@@ -41,13 +42,23 @@ public class GameController : MonoSingleton<GameController>
         camera.transform.position = new Vector3(Grid.startPos.x, Grid.startPos.y, camera.transform.position.z);
 
         save = GetComponent<Save>();
-        save.SaveGame();
+        //save.SaveGame();
     }
 
     private void Update()
     {
         ClickControl();
         CameraControl();
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            save.SaveGame();
+            Application.Quit();
+        }
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            save.SaveGame();
+        }
     }
 
 
@@ -177,6 +188,6 @@ public class GameController : MonoSingleton<GameController>
 
     private void OnApplicationQuit()
     {
-        save.SaveGame();
+        //save.SaveGame();
     }
 }
