@@ -145,6 +145,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staticObject: 1
+  statusEffects: []
+  glow: {fileID: 0}
+  type: 99
   isConstructed: 1
   selected: 0
   repair: 0

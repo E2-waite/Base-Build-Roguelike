@@ -55,4 +55,9 @@ public abstract class Building : Interaction
         }
         return false;
     }
+
+    private void OnDestroy()
+    {
+        Buildings.buildings.Remove(this);
+    }
 }

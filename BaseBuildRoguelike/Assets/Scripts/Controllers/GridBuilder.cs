@@ -93,7 +93,7 @@ public class GridBuilder : MonoSingleton<GridBuilder>
             }
         }
 
-        Spawner.Instance.SpawnCreatures(mapSize);
+        Spawner.Instance.SpawnCreatures();
 
         Vector2Int corruptPos = new Vector2Int(Random.Range(0, mapSize), Random.Range(0, mapSize));
         Debug.Log(corruptPos.ToString() + " Started Corruption");

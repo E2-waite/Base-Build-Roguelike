@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoSingleton<Spawner>
 {
-    bool start = false;
+    private bool start = false;
     public void Setup()
     {
         GameObject[] followerObjs = GameObject.FindGameObjectsWithTag("Follower");
@@ -30,7 +30,6 @@ public class Spawner : MonoSingleton<Spawner>
 
     }
 
- 
     private void Update()
     {
         if (start)
@@ -79,7 +78,10 @@ public class Spawner : MonoSingleton<Spawner>
             Enemies.Add(enemy);
         }
     }
-
+    public void StartSpawning()
+    {
+        start = true;
+    }
     public void AddCorruptedTile(Tile tile)
     {
         corruptedTiles.Add(tile);
@@ -107,6 +109,7 @@ public class Spawner : MonoSingleton<Spawner>
         GameObject building = Instantiate(firepitPrefab, tile.transform.position, Quaternion.identity);
         tile.structure = building.GetComponent<Interaction>();
         Buildings.homeBase = tile.structure as HomeBase;
+        Buildings.buildings.Add(Buildings.homeBase);
     }
     public void BuildStructure(Tile tile)
     {
@@ -124,11 +127,12 @@ public class Spawner : MonoSingleton<Spawner>
     [Header("Creatures Settings")]
     public GameObject rabbitPrefab;
     public int creatureScale = 10;
-    public void SpawnCreatures(int mapSize)
+    public void SpawnCreatures()
     {
+        Creatures.maxCreatures = creatureScale * (Grid.size / 10);
         for (int i = 0; i < Creatures.maxCreatures; i++)
         {
-            Vector3 creaturePos = new Vector3((int)(Random.Range(0, mapSize)), (int)(Random.Range(0, mapSize)), 0);
+            Vector3 creaturePos = new Vector3((int)(Random.Range(0, Grid.size)), (int)(Random.Range(0, Grid.size)), 0);
             GameObject creature = Instantiate(rabbitPrefab, creaturePos, Quaternion.identity);
             Creatures.Add(creature.GetComponent<Interaction>());
         }

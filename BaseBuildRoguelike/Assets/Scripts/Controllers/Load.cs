@@ -48,6 +48,19 @@ public class Load : MonoBehaviour
             {
                 Grid.tiles[tileData.x, tileData.y] = tile.GetComponent<Tile>();
                 Grid.tiles[tileData.x, tileData.y].Setup(tileData.corruption);
+                if (tileData.corruption >= 100)
+                {
+                    Spawner.Instance.corruptedTiles.Add(Grid.tiles[tileData.x, tileData.y]);
+                }
+            }
+        }
+
+        for (int y = 0; y < Grid.size; y++)
+        {
+            for (int x = 0; x < Grid.size; x++)
+            {
+                Grid.tiles[x, y].StartSpreading();
+                Grid.tiles[x, y].UpdateSprite(x, y);
             }
         }
 
@@ -105,14 +118,15 @@ public class Load : MonoBehaviour
             GameObject building = null;
             if (gameData.buildings[i].type == 99)
             {
-                 building = Instantiate(Spawner.Instance.firepitPrefab, Grid.tiles[pos.x, pos.y].transform.position, Quaternion.identity);
+                building = Instantiate(Spawner.Instance.firepitPrefab, Grid.tiles[pos.x, pos.y].transform.position, Quaternion.identity);
+                Buildings.homeBase = building.GetComponent<HomeBase>();
             }
             else
             {
                 building = Instantiate(Spawner.Instance.buildings[buildingData.type].prefab, Grid.tiles[pos.x, pos.y].transform.position, Quaternion.identity);
             }
             Buildings.Add(building.GetComponent<Building>());
-            if (building != null)
+            if (building != null && gameData.buildings[i].type != 99)
             {
                 Grid.tiles[pos.x, pos.y].structure = building.GetComponent<Interaction>();
                 Construct construct = building.GetComponent<Construct>();
@@ -203,6 +217,9 @@ public class Load : MonoBehaviour
                 Enemies.enemies[i].target = Grid.TargetFromIndex(gameData.enemies[i].target);
             }
         }
+
+        Spawner.Instance.StartSpawning();
+
         return true;
     }
 }

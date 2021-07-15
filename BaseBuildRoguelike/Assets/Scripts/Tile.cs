@@ -40,7 +40,16 @@ public class Tile : MonoBehaviour
         rend = GetComponent<SpriteRenderer>();
         corruptionVal = corruption;
         baseColour = rend.color;
-        currentColour = baseColour;
+        currentColour = Color.Lerp(baseColour, corruptedColour, corruptionVal / 100);
+        rend.color = currentColour;
+
+    }
+    public void StartSpreading()
+    {
+        if (corruptionVal >= 100)
+        {
+            CorruptNeighbours(new Vector2Int((int)transform.position.x, (int)transform.position.y));
+        }
     }
 
     public void Select(bool canBuild)
@@ -102,6 +111,7 @@ public class Tile : MonoBehaviour
 
     IEnumerator CorruptRoutine(Vector2Int pos)
     {
+
         while (corruptionVal < 100)
         {
             corruptionVal += corruptionSpeed * Time.deltaTime;
@@ -129,7 +139,7 @@ public class Tile : MonoBehaviour
                 Tile neighbour = Grid.GetTile(neighbours[i]);
                 if (neighbour.type != Type.water && !neighbour.isProtected)
                 {
-                    neighbour.Corrupt(pos);
+                    neighbour.Corrupt(neighbours[i]);
                 }
             }
         }

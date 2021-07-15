@@ -17,7 +17,6 @@ public abstract class Enemy : Interaction
     public GameObject squadPrefab;
     private void Start()
     {
-        target = Buildings.homeBase;
         if (target != null)
         {
             Pathfinding.FindPath(ref path, transform.position, target.transform.position);
