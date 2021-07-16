@@ -271,6 +271,11 @@ public abstract class Follower : Interaction
         // React to hit after delay
         rend.color = Color.red;
 
+        if (Followers.selected == this || (squad != null && Followers.selectedSquad == squad))
+        {
+            Inspector.Enable(this);
+        }
+
         yield return new WaitForSeconds(0.1f);
         rend.color = Color.white;
         if (health <= 0)
@@ -306,6 +311,12 @@ public abstract class Follower : Interaction
         {
             health += val;
         }
+
+        if (Followers.selected == this || (squad != null && Followers.selectedSquad == squad))
+        {
+            Inspector.Enable(this);
+        }
+
         return true;
     }
 }

@@ -4,33 +4,44 @@ using UnityEngine;
 using UnityEngine.UI;
 public class SquadInspector : InspectorDetails
 {
-    public Image[] icons;
+    public Image[] icons, healthBars;
 
     public override int Reload(Interaction selected)
     {
         Squad squad = (selected as Follower).squad;
         
-        Vector2 pos = new Vector2(-210, 65);
+        
 
         if (icons != null)
         {
             for (int i = 0; i < icons.Length; i++)
             {
                 Destroy(icons[i]);
+                Destroy(healthBars[i]);
             }
         }
 
+        Vector2 iconPos = new Vector2(-210, 65), healthBarPos = new Vector2(-165, 33);
         icons = new Image[squad.members.Count];
+        healthBars = new Image[squad.members.Count];
         int resizeVal = 0;
 
         for (int i = 0; i < squad.members.Count; i++)
         {
+            Follower follower = squad.members[i] as Follower;
             GameObject icon = Instantiate(iconPrefab, transform);
 
-            icon.GetComponent<RectTransform>().anchoredPosition = pos;
+            icon.GetComponent<RectTransform>().anchoredPosition = iconPos;
             icons[i] = icon.GetComponent<Image>();
-            icons[i].sprite = Icons.Follower((squad.members[i] as Follower).type);
-            pos.y -= 40;
+            icons[i].sprite = Icons.Follower(follower.type);
+
+            GameObject healthBar = Instantiate(healthBarPrefab, transform);
+            healthBar.GetComponent<RectTransform>().anchoredPosition = healthBarPos;
+            healthBars[i] = healthBar.GetComponent<Image>();
+            healthBars[i].fillAmount = (float)follower.health / (float)follower.maxHealth;
+
+            iconPos.y -= 40;
+            healthBarPos.y -= 40;
             resizeVal = i * 40;
         }
 

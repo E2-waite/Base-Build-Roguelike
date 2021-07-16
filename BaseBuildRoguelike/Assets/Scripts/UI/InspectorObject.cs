@@ -3,23 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-public class InspectorObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class InspectorObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public Text title;
     public InspectorDetails currentDetails = null;
     public InspectorDetails resourcesDetails, constructionDetails, homeDetails, followerDetails, squadDetails;
     public bool mouseOver = false;
-
-    public int startHeightBG, startHeightBox;
-    public RectTransform transformBG, transformBox;
+    public float toggleSpeed = 500f;
+    public GameObject toggleButton;
+    int startHeightBG, startHeightBox;
+    RectTransform transformBG, transformBox, toggleTransform;
+    float openX, closedX;
+    bool open = true, toggling = false;
     private void Start()
     {
         Inspector.inspector = this;
         gameObject.SetActive(false);
-        transformBG = transform.GetChild(0).GetComponent<RectTransform>();
-        transformBox = transform.GetChild(1).GetComponent<RectTransform>();
+        transformBG = transform.GetChild(0).GetChild(0).GetComponent<RectTransform>();
+        transformBox = transform.GetChild(0).GetChild(1).GetComponent<RectTransform>();
+        toggleTransform = transform.GetChild(0).GetComponent<RectTransform>();
         startHeightBG = (int)transformBG.rect.height;
         startHeightBox = (int)transformBox.rect.height;
+        openX = (int)transformBox.anchoredPosition.x;
+        closedX = openX + 200;
     }
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
@@ -30,7 +36,20 @@ public class InspectorObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         mouseOver = false;
     }
-
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.pointerCurrentRaycast.gameObject == toggleButton && !toggling)
+        {
+            if (open)
+            {
+                StartCoroutine(Hide());
+            }
+            else
+            {
+                StartCoroutine(Show());
+            }
+        }
+    }
     public void Open(Interaction selected)
     {
         transformBG.sizeDelta = new Vector2(transformBG.rect.width, startHeightBG);
@@ -61,6 +80,29 @@ public class InspectorObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
         int resizeVal = currentDetails.Reload(selected);
         transformBG.sizeDelta = new Vector2(transformBG.rect.width, startHeightBG + resizeVal);
         transformBox.sizeDelta = new Vector2(transformBox.rect.width, startHeightBox + resizeVal);
+    }
+
+    IEnumerator Show()
+    {
+        toggling = true;
+        while(toggleTransform.anchoredPosition.x != openX)
+        {
+            toggleTransform.anchoredPosition = Vector2.MoveTowards(toggleTransform.anchoredPosition, new Vector2(openX, toggleTransform.anchoredPosition.y), toggleSpeed * Time.deltaTime);
+            yield return null;
+        }
+        toggling = false;
+        open = true;
+    }
+    IEnumerator Hide()
+    {
+        toggling = true;
+        while (toggleTransform.anchoredPosition.x != closedX)
+        {
+            toggleTransform.anchoredPosition = Vector2.MoveTowards(toggleTransform.anchoredPosition, new Vector2(closedX, toggleTransform.anchoredPosition.y), toggleSpeed * Time.deltaTime);
+            yield return null;
+        }
+        toggling = false;
+        open = false;
     }
 
     InspectorDetails GetDetails(Interaction selected)
@@ -112,7 +154,7 @@ public class InspectorObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
 public abstract class InspectorDetails : MonoBehaviour
 {
-    public GameObject iconPrefab, textPrefab;
+    public GameObject iconPrefab, textPrefab, healthBarPrefab;
     public virtual int Reload(Interaction selected) { return 0; }
 }
 
