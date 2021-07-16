@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -7974000638023140297}
   - component: {fileID: 8087232528035166754}
   - component: {fileID: -1049029801449581813}
+  - component: {fileID: 831636601330378954}
   m_Layer: 8
   m_Name: Stone
   m_TagString: Resource
@@ -55,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -100,6 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staticObject: 1
+  statusEffects: []
+  glow: {fileID: 0}
   val: 50
   type: 1
 --- !u!114 &-7974000638023140297
@@ -160,3 +163,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &831636601330378954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8087232528035166766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.435, y: -0.45, z: 0}
+  - {x: -0.435, y: 0.37, z: 0}
+  - {x: 0.435, y: 0.37, z: 0}
+  - {x: 0.435, y: -0.45, z: 0}
+  m_ShapePathHash: -1867679579
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 73838

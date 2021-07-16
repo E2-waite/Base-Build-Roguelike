@@ -53,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -97,7 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8614912842c121b479a6b320b4199c34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  staticObject: 0
+  statusEffects: []
+  glow: {fileID: 0}
   healthyPrefab: {fileID: 8840559666961402214, guid: 66d071f54f729b348a98537df379fa2e, type: 3}
   undeadPrefab: {fileID: 2743365640547367737, guid: b4bf6ca48f781744893a651790ae475a, type: 3}
 --- !u!61 &-6340866369122180083
