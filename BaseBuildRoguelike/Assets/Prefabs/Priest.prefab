@@ -419,6 +419,7 @@ MonoBehaviour:
   marker: {fileID: 8840559668946194276}
   squadPrefab: {fileID: 8437693019058054867, guid: 4f60460212a58984992ec2ab3a5e4e3b, type: 3}
   corpsePrefab: {fileID: 809098620326100432, guid: 86f2656a51843ca419b4d9ec8a2495c4, type: 3}
+  bloodEffect: {fileID: 7454375944046440194, guid: dfa42bf45b8357144baa661b865404ff, type: 3}
   path: []
   healAmount: 5
   healRange: 5

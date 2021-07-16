@@ -26,7 +26,7 @@ public abstract class Follower : Interaction
     public int maxHealth = 10, health, hitDamage = 1;
     public float targetDist = 0.25f, speed = 5f, targetRange = 15, chaseDist = 0.5f;
     public bool canAttack = true, attacking = false;
-    public GameObject highlight, marker, squadPrefab, corpsePrefab;
+    public GameObject highlight, marker, squadPrefab, corpsePrefab, bloodEffect = null;
     public List<Vector2Int> path = new List<Vector2Int>();
     protected Animator anim;
     protected SpriteRenderer rend;
@@ -242,7 +242,7 @@ public abstract class Follower : Interaction
         // Take damage
         health -= damage;
         StartCoroutine(HitRoutine());
-
+        Bleed(attacker.transform.position);
 
         if (attacker != null && (state == (int)DefaultState.idle || state == (int)DefaultState.move) && (this is Soldier || this is Archer))
         {
@@ -260,10 +260,17 @@ public abstract class Follower : Interaction
         return false;
     }
 
+    void Bleed(Vector3 hitPos)
+    {
+        var lookPos = transform.position - hitPos;
+        Instantiate(bloodEffect, transform.position, Quaternion.LookRotation(lookPos));
+    }
+
     IEnumerator HitRoutine()
     {
         // React to hit after delay
         rend.color = Color.red;
+
         yield return new WaitForSeconds(0.1f);
         rend.color = Color.white;
         if (health <= 0)

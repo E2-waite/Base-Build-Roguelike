@@ -132,7 +132,7 @@ public abstract class Enemy : Interaction
             }
             Pathfinding.FindPath(ref path, transform.position, target.transform.position);
         }
-
+        HitReaction(attacker.transform.position);
         StartCoroutine(HitRoutine());
 
         if (health <= 0)
@@ -140,6 +140,11 @@ public abstract class Enemy : Interaction
             return true;
         }
         return false;
+    }
+
+    protected virtual void HitReaction(Vector3 hitPos)
+    {
+
     }
 
     public void UpdateTarget(Interaction newTarget)

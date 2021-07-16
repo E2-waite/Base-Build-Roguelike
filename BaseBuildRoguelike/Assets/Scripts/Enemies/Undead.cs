@@ -16,7 +16,7 @@ public class Undead : Enemy
     public UndeadType undeadType;
     public float hitSpeed = 1;
     public bool canAttack = true, alive = false;
-
+    public GameObject bloodEffect;
     private void Update()
     {
         if (alive)
@@ -72,6 +72,12 @@ public class Undead : Enemy
             }
         }
         canAttack = true;
+    }
+
+    protected override void HitReaction(Vector3 hitPos)
+    {
+        var lookPos = transform.position - hitPos;
+        Instantiate(bloodEffect, transform.position, Quaternion.LookRotation(lookPos));
     }
 
     void Revive()

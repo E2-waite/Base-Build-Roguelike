@@ -339,6 +339,7 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/VSSettingsProvider.ref.dll"
+"Assets/ParticleManager.cs"
 "Assets/Scripts/Build.cs"
 "Assets/Scripts/Buildings/Building.cs"
 "Assets/Scripts/Buildings/Construct.cs"

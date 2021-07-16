@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 486432622345391611}
   - component: {fileID: 486432622345391604}
   - component: {fileID: 486432622345391605}
-  - component: {fileID: 486432622345391610}
   - component: {fileID: 1109435119323051790}
   - component: {fileID: 990832519860798286}
   - component: {fileID: 8738360834402476526}
@@ -107,6 +106,7 @@ MonoBehaviour:
   staticObject: 0
   statusEffects: []
   glow: {fileID: 474161283604422675}
+  type: 0
   state: 0
   target: {fileID: 0}
   squad: {fileID: 0}
@@ -124,6 +124,7 @@ MonoBehaviour:
   marker: {fileID: 486432622879390999}
   squadPrefab: {fileID: 0}
   corpsePrefab: {fileID: 809098620326100432, guid: 4b68942577a839c428900ac02f40917c, type: 3}
+  bloodEffect: {fileID: 7454375944046440194, guid: dfa42bf45b8357144baa661b865404ff, type: 3}
   path: []
   lastState: 0
   gatherTime: 1
@@ -133,6 +134,9 @@ MonoBehaviour:
   canGather: 1
   canBuild: 1
   canHit: 1
+  inventory:
+    resources: 000000000000000000000000
+    capacity: 10
 --- !u!61 &486432622345391605
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -159,20 +163,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.75}
   m_EdgeRadius: 0
---- !u!114 &486432622345391610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 486432622345391607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2930157a917c1854fbcf699b86a574cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resources: 000000000000000000000000
-  capacity: 10
 --- !u!114 &1109435119323051790
 MonoBehaviour:
   m_ObjectHideFlags: 0

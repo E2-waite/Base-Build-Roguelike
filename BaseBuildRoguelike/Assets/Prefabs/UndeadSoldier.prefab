@@ -163,6 +163,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staticObject: 0
+  statusEffects: []
+  glow: {fileID: 0}
+  type: 0
   maxHealth: 3
   health: 0
   hitDamage: 3
@@ -181,6 +184,7 @@ MonoBehaviour:
   hitSpeed: 1
   canAttack: 1
   alive: 0
+  bloodEffect: {fileID: 7454375944046440194, guid: dfa42bf45b8357144baa661b865404ff, type: 3}
 --- !u!114 &3438430402389115328
 MonoBehaviour:
   m_ObjectHideFlags: 0
