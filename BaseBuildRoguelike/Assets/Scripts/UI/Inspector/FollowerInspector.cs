@@ -5,9 +5,10 @@ using UnityEngine.UI;
 public class FollowerInspector : InspectorDetails
 {
     public Image icon;
-    public override void Reload(Interaction selected)
+    public override int Reload(Interaction selected)
     {
         Follower follower = selected as Follower;
         icon.sprite = Icons.Follower(follower.type);
+        return 0;
     }
 }

@@ -5,10 +5,11 @@ using UnityEngine.UI;
 public class InspectorContruction : InspectorDetails
 {
     public Text woodText, stoneText;
-    public override void Reload(Interaction selected)
+    public override int Reload(Interaction selected)
     {
         Construct construct = (selected as Building).construct;
         woodText.text = (construct.woodCost - construct.woodRemaining).ToString() + "/" + construct.woodCost.ToString();
         stoneText.text = (construct.stoneCost - construct.stoneRemaining).ToString() + "/" + construct.stoneCost.ToString();
+        return 0;
     }
 }

@@ -7,7 +7,7 @@ public class InspectorStorage : InspectorDetails
     public Text resourcesText;
     public Image resourceIcon;
     public Sprite woodIcon, stoneIcon, foodIcon;
-    public override void Reload(Interaction selected)
+    public override int Reload(Interaction selected)
     {
         ResourceStorage storage = selected as ResourceStorage;
 
@@ -25,5 +25,6 @@ public class InspectorStorage : InspectorDetails
         {
             resourceIcon.sprite = foodIcon;
         }
+        return 0;
     }
 }

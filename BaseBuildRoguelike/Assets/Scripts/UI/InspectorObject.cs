@@ -10,10 +10,16 @@ public class InspectorObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public InspectorDetails resourcesDetails, constructionDetails, homeDetails, followerDetails, squadDetails;
     public bool mouseOver = false;
 
+    public int startHeightBG, startHeightBox;
+    public RectTransform transformBG, transformBox;
     private void Start()
     {
         Inspector.inspector = this;
         gameObject.SetActive(false);
+        transformBG = transform.GetChild(0).GetComponent<RectTransform>();
+        transformBox = transform.GetChild(1).GetComponent<RectTransform>();
+        startHeightBG = (int)transformBG.rect.height;
+        startHeightBox = (int)transformBox.rect.height;
     }
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
@@ -27,6 +33,8 @@ public class InspectorObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void Open(Interaction selected)
     {
+        transformBG.sizeDelta = new Vector2(transformBG.rect.width, startHeightBG);
+        transformBox.sizeDelta = new Vector2(transformBox.rect.width, startHeightBox);
 
         title.text = selected.inspectorName;
 
@@ -50,7 +58,9 @@ public class InspectorObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
         }
 
         currentDetails = newDetails;
-        currentDetails.Reload(selected);
+        int resizeVal = currentDetails.Reload(selected);
+        transformBG.sizeDelta = new Vector2(transformBG.rect.width, startHeightBG + resizeVal);
+        transformBox.sizeDelta = new Vector2(transformBox.rect.width, startHeightBox + resizeVal);
     }
 
     InspectorDetails GetDetails(Interaction selected)
@@ -103,7 +113,7 @@ public class InspectorObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
 public abstract class InspectorDetails : MonoBehaviour
 {
     public GameObject iconPrefab, textPrefab;
-    public virtual void Reload(Interaction selected) {}
+    public virtual int Reload(Interaction selected) { return 0; }
 }
 
 public static class Inspector
