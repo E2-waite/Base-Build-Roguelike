@@ -53,9 +53,14 @@ public static class Pathfinding
     }
 
 
-    private static List<Vector2Int> IsPath(Vector2Int start_pos, Vector2Int end_pos, int maxDist)
+    private static List<Vector2Int> IsPath(Vector2 start_pos, Vector2Int end_pos, int maxDist)
     {
-        Node start_node = nodeGrid[start_pos.x, start_pos.y];
+        Node start_node = nodeGrid[(int)start_pos.x, (int)start_pos.y];
+        if (start_node.is_wall)
+        {
+            //return new List<Vector2Int>();
+            start_node = nodeGrid[Mathf.RoundToInt(start_pos.x), Mathf.RoundToInt(start_pos.y)];
+        }
         Node end_node = nodeGrid[end_pos.x, end_pos.y];
 
         List<Node> open_list = new List<Node>();
@@ -137,7 +142,7 @@ public static class Pathfinding
         // Gets all neighbouring nodes (ensuring none are outside of the grid)
         List<Node> neighbour_nodes = new List<Node>();
 
-        Vector2Int[] neighbourPos = Params.Get4Neighbours(node.pos);
+        Vector2Int[] neighbourPos = Params.Get8Neighbours(node.pos);
 
         for (int i = 0; i < neighbourPos.Length; i++)
         {

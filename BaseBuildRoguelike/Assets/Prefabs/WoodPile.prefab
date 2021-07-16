@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8e74f438a792145b7bd202a05dc18f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inspectorName: Wood Pile
   staticObject: 1
   statusEffects: []
   glow: {fileID: 0}

@@ -5,7 +5,9 @@ using UnityEngine;
 public static class Grid
 {
     public static Tile[,] tiles;
-    public static Tile selected = null;
+    //public static Tile selected = null;
+    public static List<Tile> selectedTiles = new List<Tile>();
+    public static Vector2Int selectedPos;
     public static int size, noise;
     public static Vector2Int startPos;
     public static void Init(int mapSize, int noiseSize)
@@ -16,12 +18,12 @@ public static class Grid
         tiles = new Tile[size, size];
     }
 
-    public static bool IsSelected(Collider2D tile)
+    public static bool IsSelected(Vector3 tile)
     {
-        if (tile != null)
+        if (selectedTiles.Count > 0)
         {
-            Vector2Int arrayPos = new Vector2Int((int)(tile.transform.position.x), (int)(tile.transform.position.y));
-            if (selected == tiles[arrayPos.x, arrayPos.y])
+            Vector2Int arrayPos = new Vector2Int((int)(tile.x), (int)(tile.y));
+            if (arrayPos == selectedPos)
             {
                 return true;
             }
@@ -29,26 +31,54 @@ public static class Grid
         return false;
     }
 
-    public static void SelectTile(Collider2D tile, Spawner.BuildingTemplate buildingTemplate)
+    public static void SelectTile(Vector3 tile, Spawner.BuildingTemplate buildingTemplate)
     {
-        Vector2Int arrayPos = new Vector2Int((int)(tile.transform.position.x), (int)(tile.transform.position.y));
-        if (selected != null)
+        selectedPos = new Vector2Int((int)(tile.x), (int)(tile.y));
+        for (int i = 0; i < selectedTiles.Count; i++)
         {
-            selected.Deselect();
-            selected = null;
+            selectedTiles[i].Deselect();
+        }
+        selectedTiles = new List<Tile>();
+
+        selectedTiles.Add(tiles[selectedPos.x, selectedPos.y]);
+        tiles[selectedPos.x, selectedPos.y].Select(Build.CanBuild(buildingTemplate.type, selectedPos));
+    }
+
+    // Selects tiles in a 2x2 grid 
+    public static void SelectTiles(Vector3 tilePos, Vector2 size)
+    {
+        selectedPos = new Vector2Int((int)tilePos.x, (int)tilePos.y);
+
+        for (int i = 0; i < selectedTiles.Count; i++)
+        {
+            selectedTiles[i].Deselect();
         }
 
-        selected = tiles[arrayPos.x, arrayPos.y];
-        selected.Select(Build.CanBuild(buildingTemplate.type, arrayPos));
+
+        Vector2Int startPos = new Vector2Int((tilePos.x % 1 < 0.5f) ? selectedPos.x - 1 : selectedPos.x, (tilePos.y % 1 < 0.5f) ? selectedPos.y - 1 : selectedPos.y);
+        selectedTiles = new List<Tile>();
+        for (int y = 0; y < 2; y++)
+        {
+            for (int x = 0; x < 2; x++)
+            {
+                Vector2Int pos = new Vector2Int(startPos.x + x, startPos.y + y);
+                if (InGrid(pos))
+                {
+                    Tile tile = tiles[pos.x, pos.y];
+                    selectedTiles.Add(tile);
+                    tile.Select(false);
+                }
+            }
+        }
     }
 
     public static void DeselectTile()
     {
-        if (selected != null)
+        for (int i = 0; i < selectedTiles.Count; i++)
         {
-            selected.Deselect();
-            selected = null;
+            selectedTiles[i].Deselect();
         }
+        selectedTiles = new List<Tile>();
     }
 
     public static bool InGrid(Vector2Int pos)

@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b5caaa59029c6e419e071d5ccfcee48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inspectorName: Purification Pillar
   staticObject: 1
   statusEffects: []
   glow: {fileID: 0}

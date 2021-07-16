@@ -8,7 +8,8 @@ public class GameController : MonoSingleton<GameController>
     { 
         select,
         build,
-        direct
+        direct,
+        destroy
     }
     public bool loadGame = true;
     public GameState gameState;
@@ -60,16 +61,21 @@ public class GameController : MonoSingleton<GameController>
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
 
-        if (gameState == GameState.build)
+        if (gameState == GameState.build || gameState == GameState.destroy)
         {
+            Cursor.visible = false;
             // Select tile below cursor
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero, 0, tileMask);
 
-            if (!Grid.IsSelected(hit.collider))
+            if (!Grid.IsSelected(hit.transform.position))
             {
-                Spawner spawner = Spawner.Instance;
-                Grid.SelectTile(hit.collider, spawner.buildings[spawner.selectedTemplate]);
+                Grid.SelectTile(hit.transform.position, spawner.buildings[spawner.selectedTemplate]);
+                //Grid.SelectTiles(hit.transform.position, new Vector2(2, 2));
             }
+        }
+        else
+        {
+            Cursor.visible = true;
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -77,7 +83,15 @@ public class GameController : MonoSingleton<GameController>
             if (gameState == GameState.build)
             {
                 // Place building on selected tile
-                spawner.BuildStructure(Grid.selected);
+                spawner.BuildStructure(Grid.selectedTiles[0]);
+                Grid.SelectTile(Grid.selectedTiles[0].transform.position, spawner.buildings[spawner.selectedTemplate]);
+            }
+            else if (gameState == GameState.destroy)
+            {
+                if (Grid.selectedTiles[0].structure is Building && !(Grid.selectedTiles[0].structure is HomeBase))
+                {
+                    Destroy(Grid.selectedTiles[0].structure.gameObject);
+                }
             }
             else
             {
@@ -116,7 +130,7 @@ public class GameController : MonoSingleton<GameController>
 
         if (Input.GetMouseButtonDown(1))
         {
-            if (gameState == GameState.build)
+            if (gameState == GameState.build || gameState == GameState.destroy)
             {
                 gameState = GameState.select;
                 Grid.DeselectTile();

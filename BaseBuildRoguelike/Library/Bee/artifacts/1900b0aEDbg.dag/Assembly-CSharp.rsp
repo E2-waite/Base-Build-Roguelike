@@ -409,7 +409,7 @@
 "Assets/Scripts/UI/Inspector/SquadInspector.cs"
 "Assets/Scripts/UI/InspectorContruction.cs"
 "Assets/Scripts/UI/InspectorObject.cs"
-"Assets/Scripts/UI/InspectorStorage.cs"
+"Assets/Scripts/UI/StorageInspector.cs"
 -langversion:8.0
 
 /deterministic

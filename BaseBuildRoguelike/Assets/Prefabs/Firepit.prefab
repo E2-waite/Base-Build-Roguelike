@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72294c90b24b66247a845faee6c52e63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inspectorName: Home Base
   staticObject: 1
   statusEffects: []
   glow: {fileID: 0}

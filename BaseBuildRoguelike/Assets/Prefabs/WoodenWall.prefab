@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e647aab3e5d7d5f458c0242bbb73c7b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inspectorName: Wooden Wall
   staticObject: 1
   statusEffects: []
   glow: {fileID: 0}

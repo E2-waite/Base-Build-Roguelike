@@ -7,7 +7,7 @@ public class InspectorObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
 {
     public Text title;
     public InspectorDetails currentDetails = null;
-    public InspectorDetails resourcesDetails, constructionDetails, homeDetails, followerDetails, squadDetails;
+    public InspectorDetails storageDetails, constructionDetails, homeDetails, followerDetails, squadDetails;
     public bool mouseOver = false;
     public float toggleSpeed = 500f;
     public GameObject toggleButton;
@@ -64,6 +64,7 @@ public class InspectorObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
             // 'Interaction' Object does not have a corresponding inspector details object
             Debug.LogWarning("Object Incompatible With Inspector");
             gameObject.SetActive(false);
+            return;
         }
 
         if (currentDetails != newDetails)
@@ -124,17 +125,17 @@ public class InspectorObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
         {
             if (building is ResourceStorage)
             {
-                return resourcesDetails;
+                return storageDetails;
             }
             else if (building is HomeBase)
             {
-                return homeDetails;
+                return null;
             }
 
         }
         else
         {
-            return constructionDetails;
+            return null;
         }
         return null;
     }
@@ -147,6 +148,7 @@ public class InspectorObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
         }
         else
         {
+            title.text = "Squad";
             return squadDetails;
         }
     }

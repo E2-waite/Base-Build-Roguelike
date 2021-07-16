@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a239283b97d09a4a9e514a4029eddc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inspectorName: Wooden House
   staticObject: 1
   statusEffects: []
   glow: {fileID: 0}

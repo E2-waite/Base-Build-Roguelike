@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5934238200489794533
+--- !u!1 &8718373085315243166
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6736624260026209943}
-  - component: {fileID: 272559166466441457}
-  - component: {fileID: 2209160820315437539}
+  - component: {fileID: 4170474630439480262}
+  - component: {fileID: 117229432224814810}
+  - component: {fileID: 4170474630439480261}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -18,13 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &6736624260026209943
+--- !u!224 &4170474630439480262
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5934238200489794533}
+  m_GameObject: {fileID: 8718373085315243166}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -34,24 +34,24 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -8.399963, y: 57.600006}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: -210, y: 65}
+  m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0, y: 1}
---- !u!222 &272559166466441457
+--- !u!222 &117229432224814810
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5934238200489794533}
+  m_GameObject: {fileID: 8718373085315243166}
   m_CullTransparentMesh: 1
---- !u!114 &2209160820315437539
+--- !u!114 &4170474630439480261
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5934238200489794533}
+  m_GameObject: {fileID: 8718373085315243166}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6445dc7c4e5f56c4fa5beb46ce93e335, type: 3}
+  m_Sprite: {fileID: 1418035252005219442, guid: 97da8aba6591e744e8e867b3300f44bf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
