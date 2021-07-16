@@ -47,6 +47,7 @@ public class Squad : MonoBehaviour
         follower1.squad = this;
         follower2.squad = this;
         Followers.selectedSquad = this;
+        Inspector.Enable(follower1);
         Select();
     }
 
@@ -92,6 +93,7 @@ public class Squad : MonoBehaviour
         follower.squad = this;
         members.Add(follower);
         Followers.selectedSquad = this;
+        Inspector.Enable(follower);
         Select();
     }
 
@@ -233,9 +235,18 @@ public class Squad : MonoBehaviour
             if (selected && type == Type.friendly)
             {
                 Followers.selected = members[0] as Follower;
+                Followers.selected.squad = null;
+                if (selected)
+                {
+                    Inspector.Enable(Followers.selected);
+                }
             }
             Destroy(gameObject);
             return true;
+        }
+        if (selected)
+        {
+            Inspector.Enable(members[0]);
         }
         return false;
     }

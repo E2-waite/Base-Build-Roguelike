@@ -40,7 +40,7 @@ public abstract class Building : Interaction
     {
         if (selected)
         {
-            GameController.Instance.inspector.Reload(this);
+            Inspector.Enable(this);
         }
     }
 

@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634873e4444bdcc47a334d149eeb01b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inspectorName: Worker
   staticObject: 0
   statusEffects: []
   glow: {fileID: 474161283604422675}

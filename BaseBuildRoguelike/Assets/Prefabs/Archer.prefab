@@ -399,6 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a91383a1ca7fa46926b18ed74c1699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inspectorName: Archer
   staticObject: 0
   statusEffects: []
   glow: {fileID: 4703397338764745130}

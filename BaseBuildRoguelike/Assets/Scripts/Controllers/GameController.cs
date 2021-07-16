@@ -16,7 +16,6 @@ public class GameController : MonoSingleton<GameController>
     private Spawner spawner;
     private Save save;
     private Load load;
-    public Inspector inspector;
     public Camera camera;
     public float camSpeed = 50, camDist = 10, camMaxZoom = 20, camMinZoom = 5;
     public LayerMask tileMask, selectMask, directMask;
@@ -85,16 +84,18 @@ public class GameController : MonoSingleton<GameController>
                 RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero, 0, selectMask);
                 if (hit.collider == null)
                 {
-                    if (!GameController.Instance.inspector.mouseOver)
+                    if (!Inspector.MouseOver())
                     {
                         Followers.Deselect();
                         Buildings.Deselect();
                         gameState = GameState.select;
+                        Inspector.Disable();
                     }
                 }
                 else
                 {
                     Interaction target = hit.collider.GetComponent<Interaction>();
+                    Inspector.Enable(target);
                     // Select either the follower or building in clicked position
                     if (target is Follower)
                     {

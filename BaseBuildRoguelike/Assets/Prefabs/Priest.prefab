@@ -425,6 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3553bf9db27c8cb4bbb9b1fef8ca4d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inspectorName: Priest
   staticObject: 0
   statusEffects: []
   glow: {fileID: 5484943000779459005}

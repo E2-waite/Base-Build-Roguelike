@@ -281,6 +281,12 @@ public abstract class Follower : Interaction
             {
                 squad.RemoveMember(this);
             }
+
+            if (Followers.selected == this && squad == null)
+            {
+                Inspector.Disable();
+            }
+
             Destroy(gameObject);
         }
     }

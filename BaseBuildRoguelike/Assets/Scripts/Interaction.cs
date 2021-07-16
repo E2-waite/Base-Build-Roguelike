@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Interaction : MonoBehaviour
 {
+    public string inspectorName = "";
     public bool staticObject = false;
 
     public List<StatusEffect> statusEffects = new List<StatusEffect>();
