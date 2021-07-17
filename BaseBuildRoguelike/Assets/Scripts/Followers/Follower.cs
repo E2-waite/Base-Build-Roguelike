@@ -25,11 +25,11 @@ public abstract class Follower : Interaction
     public Squad squad, targetSquad;
     public int maxHealth = 10, health, hitDamage = 1;
     public float targetDist = 0.25f, speed = 5f, targetRange = 15, chaseDist = 0.5f;
-    public bool canAttack = true, attacking = false;
     public GameObject highlight, marker, squadPrefab, corpsePrefab, bloodEffect = null;
     public List<Vector2Int> path = new List<Vector2Int>();
     protected Animator anim;
     protected SpriteRenderer rend;
+    protected Coroutine interactRoutine = null;
 
     private void Start()
     {
@@ -143,8 +143,13 @@ public abstract class Follower : Interaction
     public virtual void Direct(Vector2 pos, Interaction obj)
     {
         // Standard combat based direct (overridden by followers with unique functionality i.e. priests and workers)
-        canAttack = true;
-        attacking = false;
+        if (interactRoutine != null)
+        {
+            StopCoroutine(interactRoutine);
+            interactRoutine = null;
+        }
+
+
         marker.transform.position = pos;
         if (Pathfinding.FindPath(ref path, transform.position, pos))
         {
@@ -192,7 +197,8 @@ public abstract class Follower : Interaction
         if (target != null && !target.staticObject)
         {
             // Update path less often when further away from the target (and only update path if target moves)
-            yield return new WaitForSeconds(Vector3.Distance(transform.position, target.transform.position) / 100);
+            //yield return new WaitForSeconds(Vector3.Distance(transform.position, target.transform.position) / 100);
+            yield return new WaitForSeconds(0.1f);
             if (target != null)
             {
                 Pathfinding.FindPath(ref path, transform.position, target.transform.position);
@@ -218,8 +224,13 @@ public abstract class Follower : Interaction
         if (enemy != null)
         {
             // Direct follower to target the input enemy
-            canAttack = true;
-            attacking = false;
+            if (interactRoutine != null)
+            {
+                StopCoroutine(interactRoutine);
+                interactRoutine = null;
+            }
+
+
             if (enemy.squad == null)
             {
                 target = enemy;

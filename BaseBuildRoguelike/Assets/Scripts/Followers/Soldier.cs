@@ -53,9 +53,9 @@ public class Soldier : Follower
                 float dist = Vector2.Distance(transform.position, target.transform.position);
                 if (dist <= targetDist)
                 {
-                    if (state == (int)State.attack && canAttack)
+                    if (state == (int)State.attack && interactRoutine == null)
                     {
-                        StartCoroutine(AttackRoutine());
+                        interactRoutine = StartCoroutine(AttackRoutine());
                     }
                 }
                 else if (dist <= chaseDist)
@@ -72,13 +72,12 @@ public class Soldier : Follower
 
     IEnumerator AttackRoutine()
     {
-        canAttack = false;
         yield return new WaitForSeconds(1 / hitSpeed);
         if (target != null && Vector2.Distance(transform.position, target.transform.position) <= targetDist)
         {
             Enemy enemy = target as Enemy;
             enemy.Hit(hitDamage, this);
         }
-        canAttack = true;
+        interactRoutine = null;
     }
 }

@@ -35,6 +35,21 @@ public class Cooldown
     
 }
 
+public class Target
+{
+    public Interaction interact;
+    public Squad squad;
+    public Vector2Int lastPos;
+    public bool staticObject = false;
+
+    public Target(Interaction target, Vector2Int pos, bool isStatic, Squad squad = null)
+    {
+        interact = target;
+        lastPos = pos;
+        staticObject = isStatic;
+    }
+}
+
 public class Params
 {
     /// <summary>Return the 4 adjacent neighbour positions</summary>

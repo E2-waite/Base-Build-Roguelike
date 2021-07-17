@@ -161,7 +161,8 @@ public abstract class Enemy : Interaction
         if (target != null && !target.staticObject)
         {
             // Update path less often when further away from the target (and only update path if target moves)
-            yield return new WaitForSeconds(Vector3.Distance(transform.position, target.transform.position) / 100);
+            //yield return new WaitForSeconds(Vector3.Distance(transform.position, target.transform.position) / 100);
+            yield return new WaitForSeconds(0.1f);
             if (target != null)
             {
                 Pathfinding.FindPath(ref path, transform.position, target.transform.position);

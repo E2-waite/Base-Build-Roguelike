@@ -18,7 +18,6 @@ public class Worker : Follower
     public int lastState = 0;
     public float gatherTime = 2, buildTime = 1, hitTime = 0.5f;
     public Interaction lastTarget;
-    public bool canGather = true, canBuild = true, canHit = true;
 
     public Inventory inventory = new Inventory();
     public override void Setup()
@@ -27,10 +26,12 @@ public class Worker : Follower
 
     public override void Direct(Vector2 pos, Interaction obj)
     {
-        StopAllCoroutines();
-        canGather = true;
-        canBuild = true;
-        canHit = true;
+        if (interactRoutine != null)
+        {
+            StopCoroutine(interactRoutine);
+            interactRoutine = null;
+        }
+
         marker.transform.position = pos;
         Pathfinding.FindPath(ref path, transform.position, pos, 1);
         lastState = (int)State.idle;
@@ -130,21 +131,21 @@ public class Worker : Follower
             {
                 if (Vector2.Distance(transform.position, target.transform.position) <= targetDist)
                 {
-                    if ((state == (int)State.chopWood || state == (int)State.mineStone) && canGather)
+                    if ((state == (int)State.chopWood || state == (int)State.mineStone) && interactRoutine == null)
                     {
-                        StartCoroutine(GatherRoutine());
+                        interactRoutine = StartCoroutine(GatherRoutine());
                     }
                     else if (state == (int)State.store)
                     {
                         Store();
                     }
-                    else if (state == (int)State.build && canBuild)
+                    else if (state == (int)State.build && interactRoutine == null)
                     {
-                        StartCoroutine(BuildRoutine());
+                        interactRoutine = StartCoroutine(BuildRoutine());
                     }
-                    else if (state == (int)State.hunt && canHit)
+                    else if (state == (int)State.hunt && interactRoutine == null)
                     {
-                        StartCoroutine(HitRoutine());
+                        interactRoutine = StartCoroutine(HitRoutine());
                     }
                 }
                 else
@@ -267,7 +268,6 @@ public class Worker : Follower
     IEnumerator GatherRoutine()
     {
         // Gather resource in range
-        canGather = false;
         yield return new WaitForSeconds(gatherTime);
 
         if (target != null)
@@ -281,13 +281,12 @@ public class Worker : Follower
             FindStorage();
         }
 
-        canGather = true;
+        interactRoutine = null;
     }
 
     IEnumerator BuildRoutine()
     {
         // Construct building in range
-        canBuild = false;
         yield return new WaitForSeconds(buildTime);
 
         if (target != null)
@@ -295,14 +294,12 @@ public class Worker : Follower
             Building building = target as Building;
             building.construct.Build();
         }
-
-        canBuild = true;
+        interactRoutine = null;
     }
 
     IEnumerator HitRoutine()
     {
         // Hit target in range
-        canHit = false;
         yield return new WaitForSeconds(hitTime);
 
         if (target != null)
@@ -320,7 +317,6 @@ public class Worker : Follower
                 }
             }
         }
-
-        canHit = true;
+        interactRoutine = null;
     }
 }

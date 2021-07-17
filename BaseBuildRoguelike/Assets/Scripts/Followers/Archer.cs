@@ -11,11 +11,13 @@ public class Archer : Follower
         attack = 2,
         defend = 3
     }
-    public float fireRange = 5f, shotTime = 0.5f, shotSpeed = 10, shotCooldown = 2.5f;
+    public float fireRange = 5f, shotTime = 0.5f, shotSpeed = 10;
+    public const float cooldownTime = 2.5f;
     public GameObject arrowPrefab;
-
+    public Cooldown shotCooldown = new Cooldown(cooldownTime);
     private void Update()
     {
+        shotCooldown.Tick();
         Swarm();
         if (state == (int)State.move)
         {
@@ -58,9 +60,9 @@ public class Archer : Follower
                     //{
                     //    Move(transform.position + ((transform.position - target.transform.position).normalized));
                     //}
-                    if (state == (int)State.attack && canAttack)
+                    if (state == (int)State.attack && shotCooldown.Complete() && interactRoutine == null)
                     {
-                        StartCoroutine(FireRoutine());
+                        interactRoutine = StartCoroutine(FireRoutine());
                     }
                 }
                 else
@@ -73,18 +75,9 @@ public class Archer : Follower
 
     IEnumerator FireRoutine()
     {
-        canAttack = false;
-        attacking = true;
         yield return new WaitForSeconds(shotTime);
-        attacking = false;
         GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
         arrow.GetComponent<Arrow>().Setup(target, this, shotSpeed, hitDamage);
-        StartCoroutine(ShotCooldown());
-    }
-
-    IEnumerator ShotCooldown()
-    {
-        yield return new WaitForSeconds(shotCooldown);
-        canAttack = true;
+        shotCooldown.Reset();
     }
 }
