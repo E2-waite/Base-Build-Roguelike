@@ -24,8 +24,7 @@ public class Squad : MonoBehaviour
     public GameObject marker;
     public int maxFollowers = 5, targetRange = 15;
     public List<Interaction> members = new List<Interaction>();
-    public Squad targetSquad;
-    public Interaction target;
+    public Target target = null;
     public bool selected = false;
 
     private void Start()
@@ -141,7 +140,6 @@ public class Squad : MonoBehaviour
             state = State.move;
             marker.transform.position = pos;
             target = null;
-            targetSquad = null;
         }
         else
         {
@@ -151,22 +149,12 @@ public class Squad : MonoBehaviour
             {
                 state = State.attack;
                 Enemy enemy = obj as Enemy;
-                if (enemy.squad == null)
-                {
-                    target = enemy;
-                    targetSquad = null;
-                }
-                else
-                {
-                    target = null;
-                    targetSquad = enemy.squad;
-                }
+                target = new Target(enemy);
             }
             else if (obj is Follower)
             {
                 state = State.merge;
-                target = obj;
-                targetSquad = null;
+                target = new Target(obj);
             }
         }
 
@@ -185,18 +173,18 @@ public class Squad : MonoBehaviour
                 }
                 else if (state == State.attack)
                 {
-                    if (targetSquad == null)
+                    if (target.squad == null)
                     {
-                        follower.TargetEnemy(target as Enemy);
+                        follower.TargetEnemy(target.interact as Enemy);
                     }
                     else
                     {
-                        follower.TargetEnemy(targetSquad.ClosestMember(pos) as Enemy);
+                        follower.TargetEnemy(target.squad.ClosestMember(pos) as Enemy);
                     }
                 }
                 else if (state == State.merge)
                 {
-                    follower.JoinSquad(target as Follower);
+                    follower.JoinSquad(target.interact as Follower);
                     return;
                 }
             }
@@ -278,48 +266,27 @@ public class Squad : MonoBehaviour
     {
         if (newTarget is Enemy)
         {
-            Enemy enemy = newTarget as Enemy;
-            if (enemy.squad == null)
-            {
-                target = enemy;
-                targetSquad = null;
-            }
-            else
-            {
-                target = null;
-                targetSquad = enemy.squad;
-            }
+            target = new Target(newTarget);
 
             foreach (Interaction member in members)
             {
                 Debug.Log("Setting Target");
-                (member as Follower).TargetEnemy(enemy);
+                (member as Follower).TargetEnemy(target.interact as Enemy);
             }
         }
         else
         {
-            Follower follower = newTarget as Follower;
-            if (follower.squad == null)
-            {
-                target = follower;
-                targetSquad = null;
-            }
-            else
-            {
-                target = null;
-                targetSquad = follower.squad;
-            }
+            target = new Target(newTarget);
 
             foreach (Interaction member in members)
             {
-                if (targetSquad == null)
+                if (target.squad == null)
                 {
-                    Debug.Log(target.name);
-                    (member as Enemy).UpdateTarget(target);
+                    (member as Enemy).UpdateTarget(target.interact as Follower);
                 }
                 else
                 {
-                    (member as Enemy).UpdateTarget(targetSquad.ClosestMember(member.transform.position));
+                    (member as Enemy).UpdateTarget(target.squad.ClosestMember(member.transform.position));
                 }
             }
         }

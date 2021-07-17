@@ -33,16 +33,16 @@ public class Worker : Follower
         }
 
         marker.transform.position = pos;
-        Pathfinding.FindPath(ref path, transform.position, pos, 1);
+        Pathfinding.FindPath(ref path, transform.position, new Vector2Int(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y)), 1);
         lastState = (int)State.idle;
         if (obj != null)
         {
-            target = obj;
+            target = new Target(obj);
             marker.transform.position = obj.transform.position;
 
-            if (target is Resource)
+            if (target.interact is Resource)
             {
-                Resource resource = target as Resource;
+                Resource resource = target.interact as Resource;
                 if (resource.type == Resource.Type.wood)
                 {
                     state = (int)State.chopWood;
@@ -57,9 +57,9 @@ public class Worker : Follower
                     FindStorage();
                 }
             }
-            else if (target is Building)
+            else if (target.interact is Building)
             {
-                Building building = target as Building;
+                Building building = target.interact as Building;
                 if (building.isConstructed)
                 {
                     if (building is ResourceStorage)
@@ -72,7 +72,7 @@ public class Worker : Follower
                     state = (int)State.build;
                 }
             }
-            else if (target is Creature)
+            else if (target.interact is Creature)
             {
                 state = (int)State.hunt;
 
@@ -82,12 +82,12 @@ public class Worker : Follower
                 }
             }
 
-            lastTarget = target;
+            lastTarget = target.interact;
             lastState = state;
         }
         else
         {
-            target = null;
+            target = new Target();
             state = (int)State.move;
         }
     }
@@ -107,13 +107,13 @@ public class Worker : Follower
         }
         else
         {
-            if (target == null)
+            if (target.interact == null)
             {
                 if ((state == (int)State.chopWood || state == (int)State.mineStone || state == (int)State.hunt) && !inventory.AtCapacity())
                 {
-                    target = FindResource();
-                    Debug.Log("Start: " + transform.position.ToString() + " End: " + target.transform.position.ToString());
-                    if (Pathfinding.FindPath(ref path, transform.position, target.transform.position, 1))
+                    target = new Target(FindResource());
+
+                    if (Pathfinding.FindPath(ref path, transform.position, target.Position2D(), 1))
                     {
                         Debug.Log("Path Found");
                     }
@@ -129,7 +129,7 @@ public class Worker : Follower
             }
             else
             {
-                if (Vector2.Distance(transform.position, target.transform.position) <= targetDist)
+                if (Vector2.Distance(transform.position, target.Position()) <= targetDist)
                 {
                     if ((state == (int)State.chopWood || state == (int)State.mineStone) && interactRoutine == null)
                     {
@@ -158,7 +158,7 @@ public class Worker : Follower
 
     void Store()
     {
-        ResourceStorage storage = target as ResourceStorage;
+        ResourceStorage storage = target.interact as ResourceStorage;
 
         storage.Store(ref inventory.resources[(int)storage.storageType]);
 
@@ -167,24 +167,25 @@ public class Worker : Follower
             state = lastState;
             if (lastTarget != null)
             {
-                target = lastTarget;
+                target = new Target(lastTarget);
             }
             else
             {
-                target = FindResource();
+                target = new Target(FindResource());
             }
 
-            if (target != null)
+            if (target.interact != null)
             {
-                Pathfinding.FindPath(ref path, transform.position, target.transform.position, 1);
+                Pathfinding.FindPath(ref path, transform.position, target.Position2D(), 1);
             }
         }
     }
 
     bool FindStorage()
     {
-        target = ClosestStorage();
-        if (target == null)
+        target = new Target(ClosestStorage());
+
+        if (target.interact == null)
         {
             Debug.Log("Either no resource storage available, or nothing to store...");
             return false;
@@ -192,7 +193,7 @@ public class Worker : Follower
         else
         {
             state = (int)State.store;
-            Pathfinding.FindPath(ref path, transform.position, target.transform.position, 1);
+            Pathfinding.FindPath(ref path, transform.position, target.Position2D(), 1);
             return true;
         }
     }
@@ -270,9 +271,9 @@ public class Worker : Follower
         // Gather resource in range
         yield return new WaitForSeconds(gatherTime);
 
-        if (target != null)
+        if (target.interact != null)
         {
-            Resource resource = target as Resource;
+            Resource resource = target.interact as Resource;
             resource.Gather(inventory);
         }
 
@@ -289,9 +290,9 @@ public class Worker : Follower
         // Construct building in range
         yield return new WaitForSeconds(buildTime);
 
-        if (target != null)
+        if (target.interact != null)
         {
-            Building building = target as Building;
+            Building building = target.interact as Building;
             building.construct.Build();
         }
         interactRoutine = null;
@@ -302,9 +303,9 @@ public class Worker : Follower
         // Hit target in range
         yield return new WaitForSeconds(hitTime);
 
-        if (target != null)
+        if (target.interact != null)
         {
-            Creature creature = target as Creature;
+            Creature creature = target.interact as Creature;
             if (state == (int)State.hunt && creature.Hit(hitDamage))
             {
                 // If target creature dies, gather food

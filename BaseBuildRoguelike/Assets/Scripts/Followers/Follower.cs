@@ -21,8 +21,8 @@ public abstract class Follower : Interaction
     [Header("Follower Settings")]
     public Type type;
     public int state = 0;
-    public Interaction target;
-    public Squad squad, targetSquad;
+    public Target target = new Target();
+    public Squad squad;
     public int maxHealth = 10, health, hitDamage = 1;
     public float targetDist = 0.25f, speed = 5f, targetRange = 15, chaseDist = 0.5f;
     public GameObject highlight, marker, squadPrefab, corpsePrefab, bloodEffect = null;
@@ -151,7 +151,7 @@ public abstract class Follower : Interaction
 
 
         marker.transform.position = pos;
-        if (Pathfinding.FindPath(ref path, transform.position, pos))
+        if (Pathfinding.FindPath(ref path, transform.position, new Vector2Int(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y))))
         {
             Debug.Log("Path Found");
         }
@@ -162,23 +162,18 @@ public abstract class Follower : Interaction
 
         if (obj != null)
         {
-            target = obj;
+            target = new Target(obj);
 
             marker.transform.position = obj.transform.position;
 
 
-            if (target is Enemy)
+            if (target.interact is Enemy)
             {
                 state = (int)DefaultState.attack;
-                Enemy enemy = target as Enemy;
-                if (enemy.squad != null)
-                {
-                    targetSquad = enemy.squad;
-                }
             }
-            else if (target is Follower)
+            else if (target.interact is Follower)
             {
-                Follower follower = target as Follower;
+                Follower follower = target.interact as Follower;
                 if (follower is Soldier || follower is Archer || follower is Priest)
                 {
                     JoinSquad(follower);
@@ -187,22 +182,18 @@ public abstract class Follower : Interaction
         }
         else
         {
-            target = null;
+            target = new Target();
             state = (int)DefaultState.move; 
         }
     }
 
     public virtual IEnumerator PathUpdate()
     {
-        if (target != null && !target.staticObject)
+        if (target != null && target.interact != null && target.UpdatePath())
         {
             // Update path less often when further away from the target (and only update path if target moves)
             //yield return new WaitForSeconds(Vector3.Distance(transform.position, target.transform.position) / 100);
-            yield return new WaitForSeconds(0.1f);
-            if (target != null)
-            {
-                Pathfinding.FindPath(ref path, transform.position, target.transform.position);
-            }
+            Pathfinding.FindPath(ref path, transform.position, target.Position2D());
         }
         else
         {
@@ -213,9 +204,9 @@ public abstract class Follower : Interaction
 
     public void MoveTo(Vector2 pos)
     {
-        target = null;
+        target = new Target();
         marker.transform.position = pos;
-        Pathfinding.FindPath(ref path, transform.position, pos);
+        Pathfinding.FindPath(ref path, transform.position, new Vector2Int(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y)));
         state = (int)DefaultState.move;
     }
 
@@ -230,20 +221,19 @@ public abstract class Follower : Interaction
                 interactRoutine = null;
             }
 
-
+            
             if (enemy.squad == null)
             {
-                target = enemy;
-                targetSquad = null;
+                target = new Target(enemy);
             }
             else
             {
                 // If target enemy is in a squad, instead target closest member of the squad
-                targetSquad = enemy.squad;
-                target = targetSquad.ClosestMember(transform.position);
+                target = new Target(target.squad.ClosestMember(transform.position));
             }
-            marker.transform.position = target.transform.position;
-            Pathfinding.FindPath(ref path, transform.position, target.transform.position);
+
+            marker.transform.position = target.Position();
+            Pathfinding.FindPath(ref path, transform.position, target.Position2D());
             state = (int)DefaultState.attack;
         }
     }

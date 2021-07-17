@@ -32,11 +32,11 @@ public class Archer : Follower
         }
         else
         {
-            if (target == null)
+            if (target == null || target.interact == null)
             {
                 if (state == (int)State.attack)
                 {
-                    if (Targetting.FindTarget(ref target, squad, ref targetSquad, transform.position, Enemies.enemies))
+                    if (Targetting.FindTarget(ref target, squad, transform.position, Enemies.enemies))
                     {
                         // Debug.Log("Target Found");
                     }
@@ -52,7 +52,7 @@ public class Archer : Follower
             }
             else
             {
-                float dist = Vector2.Distance(transform.position, target.transform.position);
+                float dist = Vector2.Distance(transform.position, target.Position());
                 if (dist <= fireRange)
                 {
                     // Moves away from target if not charging up shot, the target is an enemy and this archer is too close
@@ -77,7 +77,7 @@ public class Archer : Follower
     {
         yield return new WaitForSeconds(shotTime);
         GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
-        arrow.GetComponent<Arrow>().Setup(target, this, shotSpeed, hitDamage);
+        arrow.GetComponent<Arrow>().Setup(target.interact, this, shotSpeed, hitDamage);
         shotCooldown.Reset();
     }
 }

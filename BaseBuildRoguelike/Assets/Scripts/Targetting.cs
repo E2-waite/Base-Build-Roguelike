@@ -34,14 +34,13 @@ public static class Targetting
         public T List { get; set; }
     }
 
-    public static bool FindTarget<T>(ref Interaction target, Squad squad, ref Squad targetSquad, Vector3 pos, List<T> targets)
+    public static bool FindTarget<T>(ref Target target, Squad squad, Vector3 pos, List<T> targets)
     {
         if (squad == null)
         {
-            if (targetSquad == null)
+            if (target.squad == null)
             {
-
-                target = Targetting.GetClosestTarget(targets, pos);
+                target = new Target(Targetting.GetClosestTarget(targets, pos));
                 if (target != null)
                 {  
                     return true;
@@ -50,7 +49,7 @@ public static class Targetting
             else
             {
                 // Targets closest enemy in targetted squad
-                target = targetSquad.ClosestMember(pos);
+                target = new Target(target.squad.ClosestMember(pos));
                 return true;
             }
         }
@@ -59,22 +58,22 @@ public static class Targetting
             if (squad.target != null)
             {
                 // Targets squad's current target
-                target = squad.target;
+                target = new Target(squad.target.interact);
                 return true;
             }
-            else if (squad.targetSquad != null)
+            else if (squad.target.squad != null)
             {
                 // Finds closest enemy in squad's targetted enemy squad
-                target = squad.targetSquad.ClosestMember(pos);
+                target = new Target(squad.target.squad.ClosestMember(pos));
                 return true;
             }
             else
             {
                 // Finds non-targetted enemy in range, then sets the squad target to that enemy
-                target = GetClosestTarget(targets, pos);
+                target = new Target(GetClosestTarget(targets, pos));
                 if (target != null)
                 {
-                    squad.SetTarget(target);
+                    squad.SetTarget(target.interact);
                     return true;
                 }
             }

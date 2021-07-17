@@ -13,11 +13,10 @@ public class GameController : MonoSingleton<GameController>
     }
     public bool loadGame = true;
     public GameState gameState;
-    private GridBuilder grid;
     private Spawner spawner;
     private Save save;
     private Load load;
-    public Camera camera;
+    public Camera gameCam;
     public float camSpeed = 50, camDist = 10, camMaxZoom = 20, camMinZoom = 5;
     public LayerMask tileMask, selectMask, directMask;
 
@@ -32,7 +31,7 @@ public class GameController : MonoSingleton<GameController>
             spawner.SpawnFollower(new Vector3(Grid.startPos.x, Grid.startPos.y, 0));
             spawner.SpawnHome(Grid.tiles[Grid.startPos.x, Grid.startPos.y]);
             Grid.startPos = new Vector2Int((int)(Grid.size / 2), (int)(Grid.size / 2));
-            camera.transform.position = new Vector3(Grid.startPos.x, Grid.startPos.y, camera.transform.position.z);
+            gameCam.transform.position = new Vector3(Grid.startPos.x, Grid.startPos.y, gameCam.transform.position.z);
         }
 
         Cursor.lockState = CursorLockMode.Confined;
@@ -67,7 +66,7 @@ public class GameController : MonoSingleton<GameController>
             // Select tile below cursor
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero, 0, tileMask);
 
-            if (hit != null && !Grid.IsSelected(hit.transform.position))
+            if (hit && !Grid.IsSelected(hit.transform.position))
             {
                 Grid.SelectTile(hit.transform.position, spawner.buildings[spawner.selectedTemplate]);
                 //Grid.SelectTiles(hit.transform.position, new Vector2(2, 2));
@@ -160,25 +159,25 @@ public class GameController : MonoSingleton<GameController>
             StartCoroutine(RecenterCam());
         }
 
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f && camera.orthographicSize > camMinZoom) // forward
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f && gameCam.orthographicSize > camMinZoom) // forward
         {
-            camera.orthographicSize--;
+            gameCam.orthographicSize--;
         }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0f && camera.orthographicSize < camMaxZoom) // backwards
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f && gameCam.orthographicSize < camMaxZoom) // backwards
         {
-            camera.orthographicSize++;
+            gameCam.orthographicSize++;
         }
 
         if ((mousePos.x <= 10 && Input.GetAxis("Mouse X") < 0) || (mousePos.x >= Screen.width - 10 && Input.GetAxis("Mouse X") > 0))
         {
-            Vector3 newPos = new Vector3(camera.transform.position.x + (Input.GetAxis("Mouse X") * (camSpeed * Time.deltaTime)), camera.transform.position.y, -camDist);
-            camera.transform.position = newPos;
+            Vector3 newPos = new Vector3(gameCam.transform.position.x + (Input.GetAxis("Mouse X") * (camSpeed * Time.deltaTime)), gameCam.transform.position.y, -camDist);
+            gameCam.transform.position = newPos;
         }
 
         if ((mousePos.y <= 10 && Input.GetAxis("Mouse Y") < 0) || (mousePos.y >= Screen.height - 10 && Input.GetAxis("Mouse Y") > 0))
         {
-            Vector3 newPos = new Vector3(camera.transform.position.x, camera.transform.position.y + (Input.GetAxis("Mouse Y") * (camSpeed * Time.deltaTime)), -camDist);
-            camera.transform.position = newPos;
+            Vector3 newPos = new Vector3(gameCam.transform.position.x, gameCam.transform.position.y + (Input.GetAxis("Mouse Y") * (camSpeed * Time.deltaTime)), -camDist);
+            gameCam.transform.position = newPos;
         }
     }
 
@@ -186,17 +185,12 @@ public class GameController : MonoSingleton<GameController>
     IEnumerator RecenterCam()
     {
         camRecentering = true;
-        Vector3 targetPos = new Vector3(Grid.startPos.x, Grid.startPos.y, camera.transform.position.z);
-        while (camera.transform.position != targetPos)
+        Vector3 targetPos = new Vector3(Grid.startPos.x, Grid.startPos.y, gameCam.transform.position.z);
+        while (gameCam.transform.position != targetPos)
         {
-            camera.transform.position = Vector3.MoveTowards(camera.transform.position, targetPos, (camSpeed * 2) * Time.deltaTime);
+            gameCam.transform.position = Vector3.MoveTowards(gameCam.transform.position, targetPos, (camSpeed * 2) * Time.deltaTime);
             yield return null;
         }
         camRecentering = false;
-    }
-
-    private void OnApplicationQuit()
-    {
-        //save.SaveGame();
     }
 }

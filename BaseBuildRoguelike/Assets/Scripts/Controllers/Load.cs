@@ -16,7 +16,7 @@ public class Load : MonoBehaviour
         string jsonString = File.ReadAllText(Application.persistentDataPath + "/SaveData.json");
         GameData gameData = JsonUtility.FromJson<GameData>(jsonString);
 
-        GameController.Instance.camera.transform.position = new Vector3(gameData.camX, gameData.camY, GameController.Instance.camera.transform.position.z);
+        GameController.Instance.gameCam.transform.position = new Vector3(gameData.camX, gameData.camY, GameController.Instance.gameCam.transform.position.z);
 
         return LoadTiles(gameData);
     }
@@ -118,7 +118,7 @@ public class Load : MonoBehaviour
         {
             BuildingData buildingData = gameData.buildings[i];
             Vector2Int pos = new Vector2Int(buildingData.x, buildingData.y);
-            GameObject buildingObj = null;
+            GameObject buildingObj;
             if (gameData.buildings[i].type == 99)
             {
                 buildingObj = Instantiate(Spawner.Instance.firepitPrefab, Grid.tiles[pos.x, pos.y].transform.position, Quaternion.identity);
@@ -223,7 +223,7 @@ public class Load : MonoBehaviour
             {
                 Squad squad = squadObj.GetComponent<Squad>();
                 squad.Setup(squadData.members);
-                squad.target = Grid.TargetFromIndex(squadData.target);
+                squad.target = new Target(Grid.TargetFromIndex(squadData.target));
                 squad.marker.transform.position = new Vector3(squadData.x, squadData.y, 0);
             }
         }
@@ -236,7 +236,7 @@ public class Load : MonoBehaviour
         {
             if (gameData.followers[i].target != 99999)
             {
-                Followers.followers[i].target = Grid.TargetFromIndex(gameData.followers[i].target);
+                Followers.followers[i].target = new Target(Grid.TargetFromIndex(gameData.followers[i].target));
             }
         }
 
@@ -244,7 +244,7 @@ public class Load : MonoBehaviour
         {
             if (gameData.enemies[i].target != 99999)
             {
-                Enemies.enemies[i].target = Grid.TargetFromIndex(gameData.enemies[i].target);
+                Enemies.enemies[i].target = new Target(Grid.TargetFromIndex(gameData.enemies[i].target));
             }
         }
 

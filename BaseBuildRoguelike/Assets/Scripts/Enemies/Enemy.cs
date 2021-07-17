@@ -8,18 +8,18 @@ public abstract class Enemy : Interaction
     public int type;
     public int maxHealth = 3, health, hitDamage = 1;
     public float speed = 2, targetDist = 1f, targetRange = 15;
-    public Interaction target;
     public LayerMask buildingMask;
-    public Squad squad, targetSquad;
+    public Squad squad;
+    public Target target = new Target();
     public List<Vector2Int> path = new List<Vector2Int>();
     protected SpriteRenderer rend;
     protected Animator anim;
     public GameObject squadPrefab;
     private void Start()
     {
-        if (target != null)
+        if (target.interact != null)
         {
-            Pathfinding.FindPath(ref path, transform.position, target.transform.position);
+            Pathfinding.FindPath(ref path, transform.position, target.Position2D());
         }
         rend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
@@ -115,22 +115,15 @@ public abstract class Enemy : Interaction
     {
         health -= damage;
 
-        if (!(target is Follower) && attacker != null)
+        if (!(target.interact is Follower) && attacker != null)
         {
             // Update target if current target is not an enemy (stops switching target while in combat)
-            target = attacker;
-            if (attacker.squad != null)
-            {
-                if (squad == null)
-                {
-                    targetSquad = attacker.squad;
-                }
-            }
+            target = new Target(attacker);
             if (squad != null)
             {
                 squad.SetTarget(attacker);
             }
-            Pathfinding.FindPath(ref path, transform.position, target.transform.position);
+            Pathfinding.FindPath(ref path, transform.position, target.Position2D());
         }
         HitReaction(attacker.transform.position);
         StartCoroutine(HitRoutine());
@@ -149,24 +142,18 @@ public abstract class Enemy : Interaction
 
     public void UpdateTarget(Interaction newTarget)
     {
-        if (!(target is Follower))
+        if (!(target.interact is Follower))
         {
-            target = newTarget;
-            Pathfinding.FindPath(ref path, transform.position, target.transform.position);
+            target = new Target(newTarget);
+            Pathfinding.FindPath(ref path, transform.position, target.Position2D());
         }
     }
 
     IEnumerator PathUpdate()
     {
-        if (target != null && !target.staticObject)
+        if (target != null && target.interact != null && target.UpdatePath())
         {
-            // Update path less often when further away from the target (and only update path if target moves)
-            //yield return new WaitForSeconds(Vector3.Distance(transform.position, target.transform.position) / 100);
-            yield return new WaitForSeconds(0.1f);
-            if (target != null)
-            {
-                Pathfinding.FindPath(ref path, transform.position, target.transform.position);
-            }
+            Pathfinding.FindPath(ref path, transform.position, target.Position2D());
         }
         else
         {

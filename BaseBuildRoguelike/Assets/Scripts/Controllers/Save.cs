@@ -16,8 +16,6 @@ public class Save : MonoBehaviour
         SaveCreatures(gameData);
         SaveSquads(gameData);
 
-        List<Interaction> interactable = Grid.GetAllInteractable();
-
         System.IO.File.WriteAllText(Application.persistentDataPath + "/SaveData.json", JsonUtility.ToJson(gameData));
     }
 
@@ -72,9 +70,9 @@ public class Save : MonoBehaviour
             if (follower != null)
             {
                 int targetInd = 99999;
-                if (follower.target != null)
+                if (follower.target != null && follower.target.interact != null)
                 {
-                    targetInd = follower.target.Index();
+                    targetInd = follower.target.interact.Index();
                 }
                 gameData.followers[i] = new AIData((int)follower.type, (int)follower.state, targetInd, follower.health, follower.transform.position.x, follower.transform.position.y, 
                     (follower is Worker) ? (follower as Worker).inventory : null);
@@ -94,9 +92,9 @@ public class Save : MonoBehaviour
             if (enemy != null)
             {
                 int targetInd = 99999;
-                if (enemy.target != null)
+                if (enemy.target != null && enemy.target.interact != null)
                 {
-                    targetInd = enemy.target.Index();
+                    targetInd = enemy.target.interact.Index();
                 }
                 gameData.enemies[i] = new AIData((int)enemy.type, 0, targetInd, enemy.health, enemy.transform.position.x, enemy.transform.position.y);
             }
@@ -132,9 +130,9 @@ public class Save : MonoBehaviour
             Squad squad = allSquads[i];
             int[] members = SquadMembersIndexes(squad);
             int targetInd = 99999;
-            if (squad.target != null)
+            if (squad.target != null && squad.target.interact != null)
             {
-                targetInd = squad.target.Index();
+                targetInd = squad.target.interact.Index();
             }
             gameData.squads[i] = new SquadData(members, 0, targetInd, squad.marker.transform.position.x, squad.marker.transform.position.y);
         }
@@ -166,8 +164,8 @@ public class GameData
     {
         mapSize = size;
         noise = noiseVal;
-        camX = GameController.Instance.camera.transform.position.x;
-        camY = GameController.Instance.camera.transform.position.y;
+        camX = GameController.Instance.gameCam.transform.position.x;
+        camY = GameController.Instance.gameCam.transform.position.y;
         tiles = new TileData[size * size];
         resources = new ResourceData[numResources];
         buildings = new BuildingData[Buildings.buildings.Count];

@@ -37,16 +37,62 @@ public class Cooldown
 
 public class Target
 {
-    public Interaction interact;
-    public Squad squad;
+    public Interaction interact = null;
+    public Squad squad = null;
     public Vector2Int lastPos;
     public bool staticObject = false;
 
-    public Target(Interaction target, Vector2Int pos, bool isStatic, Squad squad = null)
+    public Target()
+    {
+
+    }
+
+    public Target(Interaction target)
     {
         interact = target;
-        lastPos = pos;
-        staticObject = isStatic;
+        if (interact != null)
+        {
+            lastPos = Position2D();
+            staticObject = target.staticObject;
+
+            if (!staticObject)
+            {
+                if (target is Follower)
+                {
+                    squad = (target as Follower).squad;
+                }
+                else if (target is Enemy)
+                {
+                    squad = (target as Enemy).squad;
+                }
+            }
+        }
+    }
+
+    public Vector3 Position()
+    {
+        return interact.transform.position;
+    }
+
+    public Vector2Int Position2D()
+    {
+        return new Vector2Int(Mathf.RoundToInt(interact.transform.position.x), Mathf.RoundToInt(interact.transform.position.y));
+    }
+
+    public Vector2Int LastPos()
+    {
+        Vector2Int pos = lastPos;
+        lastPos = Position2D();
+        return pos;
+    }
+
+    public bool UpdatePath()
+    {
+        if (staticObject || Position2D() == LastPos())
+        {
+            return false;
+        }
+        return true;
     }
 }
 

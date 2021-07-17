@@ -30,11 +30,11 @@ public class Soldier : Follower
         }
         else
         {
-            if (target == null)
+            if (target.interact == null)
             {
                 if (state == (int)State.attack)
                 {
-                    if (Targetting.FindTarget(ref target, squad, ref targetSquad, transform.position, Enemies.enemies))
+                    if (Targetting.FindTarget(ref target, squad, transform.position, Enemies.enemies))
                     {
                         Debug.Log("Target Found");
                     }
@@ -50,7 +50,7 @@ public class Soldier : Follower
             }
             else
             {
-                float dist = Vector2.Distance(transform.position, target.transform.position);
+                float dist = Vector2.Distance(transform.position, target.Position());
                 if (dist <= targetDist)
                 {
                     if (state == (int)State.attack && interactRoutine == null)
@@ -60,7 +60,7 @@ public class Soldier : Follower
                 }
                 else if (dist <= chaseDist)
                 {
-                    Move(target.transform.position);
+                    Move(target.Position());
                 }
                 else
                 {
@@ -73,9 +73,9 @@ public class Soldier : Follower
     IEnumerator AttackRoutine()
     {
         yield return new WaitForSeconds(1 / hitSpeed);
-        if (target != null && Vector2.Distance(transform.position, target.transform.position) <= targetDist)
+        if (target.interact != null && Vector2.Distance(transform.position, target.Position()) <= targetDist)
         {
-            Enemy enemy = target as Enemy;
+            Enemy enemy = target.interact as Enemy;
             enemy.Hit(hitDamage, this);
         }
         interactRoutine = null;

@@ -22,9 +22,9 @@ public class Undead : Enemy
         if (alive)
         {
             Swarm();
-            if (target == null)
+            if (target.interact == null)
             {
-                if (Targetting.FindTarget(ref target, squad, ref targetSquad, transform.position, Followers.followers))
+                if (Targetting.FindTarget(ref target, squad, transform.position, Followers.followers))
                 {
                     //Debug.Log("New target found");
                 }
@@ -32,16 +32,16 @@ public class Undead : Enemy
                 {
                     //Debug.Log("No new target found");
                     // Go back to attacking the home building if no targets could be found
-                    target = Buildings.homeBase;
-                    if (target != null)
+                    target = new Target(Buildings.homeBase);
+                    if (target.interact != null)
                     {
-                        Pathfinding.FindPath(ref path, transform.position, target.transform.position);
+                        Pathfinding.FindPath(ref path, transform.position, target.Position2D());
                     }
                 }
             }
             else
             {
-                if (canAttack && Vector2.Distance(transform.position, target.transform.position) <= targetDist)
+                if (canAttack && Vector2.Distance(transform.position, target.Position()) <= targetDist)
                 {
                     // Attack
                     StartCoroutine(AttackRoutine());
@@ -60,15 +60,15 @@ public class Undead : Enemy
     {
         canAttack = false;
         yield return new WaitForSeconds(1 / hitSpeed);
-        if (target != null)
+        if (target.interact != null)
         {
-            if (target is Follower && Vector2.Distance(transform.position, target.transform.position) <= targetDist)
+            if (target.interact is Follower && Vector2.Distance(transform.position, target.Position()) <= targetDist)
             {
-                (target as Follower).Hit(hitDamage, this);
+                (target.interact as Follower).Hit(hitDamage, this);
             }
-            else if (target is Building)
+            else if (target.interact is Building)
             {
-                (target as Building).Hit(hitDamage);
+                (target.interact as Building).Hit(hitDamage);
             }
         }
         canAttack = true;

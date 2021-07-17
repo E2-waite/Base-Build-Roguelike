@@ -7,16 +7,16 @@ public static class Pathfinding
     public class Node
     {
         public Vector2Int pos;
-        public bool is_wall;
+        public bool isWall;
         public Node parent; // Stores the parent node, allows for looping from the end node back to the beginning node
 
-        public int g_cost;
-        public int h_cost;
-        public int f_cost { get { return g_cost + h_cost; } }
+        public int gCost;
+        public int hCost;
+        public int fCost { get { return gCost + hCost; } }
 
-        public Node(bool _is_wall, Vector2Int _pos)
+        public Node(bool _isWall, Vector2Int _pos)
         {
-            is_wall = _is_wall;
+            isWall = _isWall;
             pos = _pos;
         }
     }
@@ -41,9 +41,9 @@ public static class Pathfinding
         }
     }
 
-    public static bool FindPath(ref List<Vector2Int> path, Vector2 start_pos, Vector2 end_pos, int maxDist = 0)
+    public static bool FindPath(ref List<Vector2Int> path, Vector2 startPos, Vector2Int endPos, int maxDist = 0)
     {
-        path = IsPath(new Vector2Int((int)start_pos.x, (int)start_pos.y), new Vector2Int((int)end_pos.x, (int)end_pos.y), maxDist);
+        path = IsPath(new Vector2Int((int)startPos.x, (int)startPos.y), endPos, maxDist);
 
         if (path.Count > 0)
         {
@@ -53,75 +53,75 @@ public static class Pathfinding
     }
 
 
-    private static List<Vector2Int> IsPath(Vector2 start_pos, Vector2Int end_pos, int maxDist)
+    private static List<Vector2Int> IsPath(Vector2 startPos, Vector2Int endPos, int maxDist)
     {
-        Node start_node = nodeGrid[(int)start_pos.x, (int)start_pos.y];
-        if (start_node.is_wall)
+        Node startNode = nodeGrid[(int)startPos.x, (int)startPos.y];
+        if (startNode.isWall)
         {
             //return new List<Vector2Int>();
-            start_node = nodeGrid[Mathf.RoundToInt(start_pos.x), Mathf.RoundToInt(start_pos.y)];
+            startNode = nodeGrid[Mathf.RoundToInt(startPos.x), Mathf.RoundToInt(startPos.y)];
         }
-        Node end_node = nodeGrid[end_pos.x, end_pos.y];
+        Node endNode = nodeGrid[endPos.x, endPos.y];
 
-        List<Node> open_list = new List<Node>();
-        HashSet<Node> closed_list = new HashSet<Node>();
+        List<Node> openList = new List<Node>();
+        HashSet<Node> closedList = new HashSet<Node>();
 
-        open_list.Add(start_node);
+        openList.Add(startNode);
 
-        while (open_list.Count > 0)
+        while (openList.Count > 0)
         {
             // Looks at node at the bottom of the open list
-            Node current_node = open_list[0];
+            Node current_node = openList[0];
 
             // Then look through all the following nodes in the open list
-            for (int i = 1; i < open_list.Count; i++)
+            for (int i = 1; i < openList.Count; i++)
             {
-                if ((open_list[i].f_cost < current_node.f_cost || open_list[i].f_cost == current_node.f_cost) && open_list[i].h_cost < current_node.h_cost)
+                if ((openList[i].fCost < current_node.fCost || openList[i].fCost == current_node.fCost) && openList[i].hCost < current_node.hCost)
                 {
                     // If open list F Cost and H Cost is lower than the current node, it is closer to the goal
-                    current_node = open_list[i];
+                    current_node = openList[i];
                 }
             }
 
-            open_list.Remove(current_node);
-            closed_list.Add(current_node);
+            openList.Remove(current_node);
+            closedList.Add(current_node);
 
 
             if (maxDist == 0)
             {
-                if (current_node == end_node)
+                if (current_node == endNode)
                 {
                     // Path has been found
-                    return GetFinalPath(start_node, end_node);
+                    return GetFinalPath(startNode, endNode);
                 }
             }
             else
             {
-                int dist = Mathf.Abs(current_node.pos.x - end_node.pos.x) + Mathf.Abs(current_node.pos.y - end_node.pos.y);
+                int dist = Mathf.Abs(current_node.pos.x - endNode.pos.x) + Mathf.Abs(current_node.pos.y - endNode.pos.y);
                 if (dist <= maxDist)
                 {
-                    return GetFinalPath(start_node, current_node);
+                    return GetFinalPath(startNode, current_node);
                 }
             }
 
             foreach (Node neighbour in GetNeighbourNodes(nodeGrid, current_node))
             {
                 // If the neighbour is a wall, or is on the closed list (already checked) skip over it
-                if (neighbour.is_wall || closed_list.Contains(neighbour))
+                if (neighbour.isWall || closedList.Contains(neighbour))
                 {
                     continue;
                 }
 
-                int move_cost = current_node.g_cost + GetManhattenDistance(current_node, neighbour);
-                if (move_cost < neighbour.g_cost || !open_list.Contains(neighbour))
+                int move_cost = current_node.gCost + GetManhattenDistance(current_node, neighbour);
+                if (move_cost < neighbour.gCost || !openList.Contains(neighbour))
                 {
-                    neighbour.g_cost = move_cost;
-                    neighbour.h_cost = GetManhattenDistance(neighbour, end_node);
+                    neighbour.gCost = move_cost;
+                    neighbour.hCost = GetManhattenDistance(neighbour, endNode);
                     neighbour.parent = current_node;
 
-                    if (!open_list.Contains(neighbour))
+                    if (!openList.Contains(neighbour))
                     {
-                        open_list.Add(neighbour);
+                        openList.Add(neighbour);
                     }
                 }
             }
@@ -130,17 +130,17 @@ public static class Pathfinding
         return new List<Vector2Int>();
     }
 
-    private static int GetManhattenDistance(Node node_a, Node node_b)
+    private static int GetManhattenDistance(Node nodeA, Node nodeB)
     {
-        int x_dist = Mathf.Abs(node_a.pos.x - node_b.pos.x);
-        int y_dist = Mathf.Abs(node_a.pos.y - node_b.pos.y);
-        return x_dist + y_dist;
+        int xDist = Mathf.Abs(nodeA.pos.x - nodeB.pos.x);
+        int yDist = Mathf.Abs(nodeA.pos.y - nodeB.pos.y);
+        return xDist + yDist;
     }
 
     private static List<Node> GetNeighbourNodes(Node[,] nodeGrid, Node node)
     {
         // Gets all neighbouring nodes (ensuring none are outside of the grid)
-        List<Node> neighbour_nodes = new List<Node>();
+        List<Node> neighbourNodes = new List<Node>();
 
         Vector2Int[] neighbourPos = Params.Get8Neighbours(node.pos);
 
@@ -150,27 +150,27 @@ public static class Pathfinding
             if (pos.x >= 0 && pos.x < Grid.size &&
                 pos.y >= 0 && pos.y < Grid.size)
             {
-                neighbour_nodes.Add(nodeGrid[pos.x, pos.y]);
+                neighbourNodes.Add(nodeGrid[pos.x, pos.y]);
             }
         }
 
-        return neighbour_nodes;
+        return neighbourNodes;
     }
 
-    private static List<Vector2Int> GetFinalPath(Node start_node, Node end_node)
+    private static List<Vector2Int> GetFinalPath(Node startNode, Node endNode)
     {
-        List<Vector2Int> pos_path = new List<Vector2Int>();
-        Node current_node = end_node;
+        List<Vector2Int> posPath = new List<Vector2Int>();
+        Node currentNode = endNode;
 
         // Work backwards from the end node to the start node to create the final path
-        while (current_node != start_node)
+        while (currentNode != startNode)
         {
-            pos_path.Add(current_node.pos);
-            current_node = current_node.parent;
+            posPath.Add(currentNode.pos);
+            currentNode = currentNode.parent;
         }
 
         // Path needs to be flipped (worked backwards from the end)
-        pos_path.Reverse();
-        return pos_path;
+        posPath.Reverse();
+        return posPath;
     }
 }
