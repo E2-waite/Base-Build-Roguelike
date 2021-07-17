@@ -349,6 +349,7 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/VSSettingsProvider.ref.dll"
+"Assets/EnumNamedArrayAttribute.cs"
 "Assets/IconSprites.cs"
 "Assets/ParticleManager.cs"
 "Assets/Scripts/Build.cs"
@@ -403,13 +404,13 @@
 "Assets/Scripts/Targetting.cs"
 "Assets/Scripts/Tile.cs"
 "Assets/Scripts/UI/BuildingMenu.cs"
-"Assets/Scripts/UI/HomeDetails.cs"
+"Assets/Scripts/UI/HomeInspector.cs"
 "Assets/Scripts/UI/HUD.cs"
+"Assets/Scripts/UI/Inspector/ConstructionInspector.cs"
 "Assets/Scripts/UI/Inspector/FollowerInspector.cs"
 "Assets/Scripts/UI/Inspector/SquadInspector.cs"
-"Assets/Scripts/UI/InspectorContruction.cs"
+"Assets/Scripts/UI/Inspector/StorageInspector.cs"
 "Assets/Scripts/UI/InspectorObject.cs"
-"Assets/Scripts/UI/StorageInspector.cs"
 -langversion:8.0
 
 /deterministic

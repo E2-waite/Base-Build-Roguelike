@@ -135,9 +135,11 @@ public class Load : MonoBehaviour
             {
                 Grid.tiles[pos.x, pos.y].structure = building;
                 building.type = buildingData.type;
+
                 Construct construct = buildingObj.GetComponent<Construct>();
-                construct.woodRemaining = gameData.buildings[i].woodLeft;
-                construct.stoneRemaining = gameData.buildings[i].stoneLeft;
+                construct.remaining = gameData.buildings[i].resourceRemaining;
+                construct.CheckComplete();
+
                 if (building is ResourceStorage)
                 {
                     (building as ResourceStorage).SetVal(buildingData.storage);

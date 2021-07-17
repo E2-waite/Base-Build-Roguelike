@@ -24,8 +24,8 @@ public class InspectorObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
         toggleTransform = transform.GetChild(0).GetComponent<RectTransform>();
         startHeightBG = (int)transformBG.rect.height;
         startHeightBox = (int)transformBox.rect.height;
-        openX = (int)transformBox.anchoredPosition.x;
-        closedX = openX + 200;
+        openX = (int)toggleTransform.anchoredPosition.x;
+        closedX = openX + transformBG.rect.width;
     }
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
@@ -129,13 +129,12 @@ public class InspectorObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
             }
             else if (building is HomeBase)
             {
-                return null;
+                return homeDetails;
             }
-
         }
         else
         {
-            return null;
+            return constructionDetails;
         }
         return null;
     }
@@ -157,6 +156,8 @@ public class InspectorObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
 public abstract class InspectorDetails : MonoBehaviour
 {
     public GameObject iconPrefab, textPrefab, healthBarPrefab;
+    protected Vector2 startIcon = new Vector2(-195, 42), startInfo = new Vector2(-165, 33);
+    protected int offset = 35;
     public virtual int Reload(Interaction selected) { return 0; }
 }
 

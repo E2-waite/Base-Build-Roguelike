@@ -53,8 +53,14 @@ public class Save : MonoBehaviour
         for (int i = 0; i < Buildings.buildings.Count; i++)
         {
             Building building = Buildings.buildings[i];
-            gameData.buildings[i] = new BuildingData(building.type, 0, 0, building.repair, (int)building.transform.position.x, (int)building.transform.position.y,
-                (building is ResourceStorage) ? (building as ResourceStorage).currentStorage : 0);
+            int[] cost = new int[0], remaining = new int[0];
+            if (building.construct != null)
+            {
+                cost = building.construct.cost;
+                remaining = building.construct.remaining;
+            }
+            gameData.buildings[i] = new BuildingData(building.type, building.repair, (int)building.transform.position.x, (int)building.transform.position.y,
+                (building is ResourceStorage) ? (building as ResourceStorage).currentStorage : 0, cost, remaining);
         }
     }
 
@@ -204,17 +210,18 @@ public class ResourceData
 [System.Serializable]
 public class BuildingData
 {
-    public int type, woodLeft, stoneLeft, health, x, y, storage;
+    public int type, health, x, y, storage;
+    public int[] resourceCost, resourceRemaining;
 
-    public BuildingData(int _type, int _woodLeft, int _stoneLeft, int _health, int _x, int _y, int _storage)
+    public BuildingData(int _type, int _health, int _x, int _y, int _storage, int[] _resourceCost, int[] _resourceRemaining)
     {
         type = _type;
-        woodLeft = _woodLeft;
-        stoneLeft = _stoneLeft;
         health = _health;
         x = _x;
         y = _y;
         storage = _storage;
+        resourceCost = _resourceCost;
+        resourceRemaining = _resourceRemaining;
     }
 }
 

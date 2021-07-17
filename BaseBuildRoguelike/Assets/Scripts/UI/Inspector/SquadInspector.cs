@@ -19,7 +19,7 @@ public class SquadInspector : InspectorDetails
             }
         }
 
-        Vector2 iconPos = new Vector2(-195, 42), healthBarPos = new Vector2(-165, 33);
+        Vector2 iconPos = startIcon, healthBarPos = startInfo;
         icons = new Image[squad.members.Count];
         healthBars = new Image[squad.members.Count];
         int resizeVal = 0;
@@ -38,9 +38,9 @@ public class SquadInspector : InspectorDetails
             healthBars[i] = healthBar.GetComponent<Image>();
             healthBars[i].fillAmount = (float)follower.health / (float)follower.maxHealth;
 
-            iconPos.y -= 35;
-            healthBarPos.y -= 35;
-            resizeVal = i * 35;
+            iconPos.y -= offset;
+            healthBarPos.y -= offset;
+            resizeVal = i * offset;
         }
 
         return resizeVal;

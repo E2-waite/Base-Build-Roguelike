@@ -67,7 +67,7 @@ public class GameController : MonoSingleton<GameController>
             // Select tile below cursor
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero, 0, tileMask);
 
-            if (!Grid.IsSelected(hit.transform.position))
+            if (hit != null && !Grid.IsSelected(hit.transform.position))
             {
                 Grid.SelectTile(hit.transform.position, spawner.buildings[spawner.selectedTemplate]);
                 //Grid.SelectTiles(hit.transform.position, new Vector2(2, 2));
