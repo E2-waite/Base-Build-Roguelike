@@ -9,30 +9,29 @@ public abstract class Interaction : MonoBehaviour
 
     public List<StatusEffect> statusEffects = new List<StatusEffect>();
     public EffectGlow glow;
-    public void AddEffect(StatusEffect effect)
+    public void AddEffect(StatusEffect newEffect)
     {
         for (int i = 0; i < statusEffects.Count; i++)
         {
-            if (effect.GetType() == statusEffects[i].GetType())
+            if (newEffect.GetType() == statusEffects[i].GetType())
             {
-                statusEffects[i].StopEffect(this);
-                statusEffects[i] = effect;
+                statusEffects[i] = newEffect;
                 return;
             }
         }
-        statusEffects.Add(effect);
+        statusEffects.Add(newEffect);
         glow.UpdateGlow(statusEffects);
     }
 
-    public void RemoveEffect(StatusEffect effect)
+    public void TickEffects()
     {
         for (int i = 0; i < statusEffects.Count; i++)
         {
-            if (effect == statusEffects[i])
+            // Update the status effect - if completed (returned false) remove the effect
+            if (!statusEffects[i].Tick())
             {
                 statusEffects.RemoveAt(i);
                 glow.UpdateGlow(statusEffects);
-                return;
             }
         }
     }

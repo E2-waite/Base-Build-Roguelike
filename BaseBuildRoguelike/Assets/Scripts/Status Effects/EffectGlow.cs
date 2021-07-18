@@ -12,6 +12,25 @@ public class EffectGlow : MonoBehaviour
         rend = GetComponent<SpriteRenderer>();
     }
 
+    public void SetupGlow(List<StatusEffect> effects)
+    {
+        rend = GetComponent<SpriteRenderer>();
+        if (effects.Count == 0)
+        {
+            rend.enabled = false;
+        }
+        else
+        {
+            rend.enabled = true;
+            Color colour = Color.white;
+            for (int i = 0; i < effects.Count; i++)
+            {
+                colour = NewColour(effects[i]);
+            }
+            rend.color = colour;
+        }
+    }
+
     public void UpdateGlow(List<StatusEffect> effects)
     {
         if (effects.Count == 0)

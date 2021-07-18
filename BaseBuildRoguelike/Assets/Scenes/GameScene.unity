@@ -2194,9 +2194,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyOnLoad: 1
-  loadGame: 0
+  loadGame: 1
   gameState: 0
-  camera: {fileID: 519420031}
+  gameCam: {fileID: 519420031}
   camSpeed: 50
   camDist: 10
   camMaxZoom: 25

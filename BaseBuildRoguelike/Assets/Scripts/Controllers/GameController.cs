@@ -30,7 +30,6 @@ public class GameController : MonoSingleton<GameController>
             spawner.Setup();
             spawner.SpawnFollower(new Vector3(Grid.startPos.x, Grid.startPos.y, 0));
             spawner.SpawnHome(Grid.tiles[Grid.startPos.x, Grid.startPos.y]);
-            Grid.startPos = new Vector2Int((int)(Grid.size / 2), (int)(Grid.size / 2));
             gameCam.transform.position = new Vector3(Grid.startPos.x, Grid.startPos.y, gameCam.transform.position.z);
         }
 

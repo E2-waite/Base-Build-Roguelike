@@ -398,8 +398,6 @@
 "Assets/Scripts/Resource.cs"
 "Assets/Scripts/SetSortingLayer.cs"
 "Assets/Scripts/Status Effects/EffectGlow.cs"
-"Assets/Scripts/Status Effects/HealEffect.cs"
-"Assets/Scripts/Status Effects/ShadowEffect.cs"
 "Assets/Scripts/Status Effects/StatusEffect.cs"
 "Assets/Scripts/Targetting.cs"
 "Assets/Scripts/Tile.cs"

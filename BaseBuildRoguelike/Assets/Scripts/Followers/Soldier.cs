@@ -17,6 +17,7 @@ public class Soldier : Follower
     private void Update()
     {
         Swarm();
+        TickEffects();
         if (state == (int)State.move)
         {
             if (transform.position == marker.transform.position)

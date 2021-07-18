@@ -94,6 +94,7 @@ public class Worker : Follower
 
     private void Update()
     {
+        TickEffects();
         if (state == (int)State.move)
         {
             if (transform.position == marker.transform.position)

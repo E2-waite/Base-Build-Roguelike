@@ -27,12 +27,14 @@ public abstract class Follower : Interaction
     public float targetDist = 0.25f, speed = 5f, targetRange = 15, chaseDist = 0.5f;
     public GameObject highlight, marker, squadPrefab, corpsePrefab, bloodEffect = null;
     public List<Vector2Int> path = new List<Vector2Int>();
+    public Vector2Int currentPos;
     protected Animator anim;
     protected SpriteRenderer rend;
     protected Coroutine interactRoutine = null;
 
     private void Start()
     {
+        currentPos = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
         health = maxHealth;
         anim = GetComponent<Animator>();
         rend = GetComponent<SpriteRenderer>();
@@ -75,6 +77,7 @@ public abstract class Follower : Interaction
                 float dist = Vector3.Distance(transform.position, pathPos);
                 if (dist <= 1 + (squad.members.Count / 10))
                 {
+                    currentPos = path[0];
                     path.RemoveAt(0);
                 }
             }
@@ -193,7 +196,7 @@ public abstract class Follower : Interaction
         {
             // Update path less often when further away from the target (and only update path if target moves)
             //yield return new WaitForSeconds(Vector3.Distance(transform.position, target.transform.position) / 100);
-            Pathfinding.FindPath(ref path, transform.position, target.Position2D());
+            Pathfinding.FindPath(ref path, currentPos, target.Position2D());
         }
         else
         {

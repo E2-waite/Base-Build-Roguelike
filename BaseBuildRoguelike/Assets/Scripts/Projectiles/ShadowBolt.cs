@@ -12,7 +12,7 @@ public class ShadowBolt : Projectile
             {
                 (to as Follower).Hit(damage, from as Enemy);
             }
-            to.AddEffect(new ShadowEffect(3, 1, to));
+            to.AddEffect(new ShadowEffect(to, 3, 3, 1));
         }
         Destroy(gameObject);
     }

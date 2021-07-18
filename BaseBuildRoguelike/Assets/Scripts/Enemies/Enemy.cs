@@ -12,14 +12,16 @@ public abstract class Enemy : Interaction
     public Squad squad;
     public Target target = new Target();
     public List<Vector2Int> path = new List<Vector2Int>();
+    public Vector2Int currentPos;
     protected SpriteRenderer rend;
     protected Animator anim;
     public GameObject squadPrefab;
     private void Start()
     {
+        currentPos = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
         if (target.interact != null)
         {
-            Pathfinding.FindPath(ref path, transform.position, target.Position2D());
+            Pathfinding.FindPath(ref path, currentPos, target.Position2D());
         }
         rend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
@@ -47,6 +49,7 @@ public abstract class Enemy : Interaction
                 float dist = Vector3.Distance(transform.position, pathPos);
                 if (dist <= 1 + (squad.members.Count / 10))
                 {
+                    currentPos = path[0];
                     path.RemoveAt(0);
                 }
             }
@@ -153,7 +156,7 @@ public abstract class Enemy : Interaction
     {
         if (target != null && target.interact != null && target.UpdatePath())
         {
-            Pathfinding.FindPath(ref path, transform.position, target.Position2D());
+            Pathfinding.FindPath(ref path, currentPos, target.Position2D());
         }
         else
         {

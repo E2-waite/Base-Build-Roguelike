@@ -19,6 +19,7 @@ public class Archer : Follower
     {
         shotCooldown.Tick();
         Swarm();
+        TickEffects();
         if (state == (int)State.move)
         {
             if (transform.position == marker.transform.position)

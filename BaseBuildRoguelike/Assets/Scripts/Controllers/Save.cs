@@ -74,7 +74,7 @@ public class Save : MonoBehaviour
                 {
                     targetInd = follower.target.interact.Index();
                 }
-                gameData.followers[i] = new AIData((int)follower.type, (int)follower.state, targetInd, follower.health, follower.transform.position.x, follower.transform.position.y, 
+                gameData.followers[i] = new AIData((int)follower.type, (int)follower.state, targetInd, follower.health, follower.transform.position, follower.currentPos, follower.statusEffects, 
                     (follower is Worker) ? (follower as Worker).inventory : null);
             }
             else
@@ -96,7 +96,7 @@ public class Save : MonoBehaviour
                 {
                     targetInd = enemy.target.interact.Index();
                 }
-                gameData.enemies[i] = new AIData((int)enemy.type, 0, targetInd, enemy.health, enemy.transform.position.x, enemy.transform.position.y);
+                gameData.enemies[i] = new AIData((int)enemy.type, 0, targetInd, enemy.health, enemy.transform.position, enemy.currentPos, enemy.statusEffects);
             }
             else
             {
@@ -112,7 +112,7 @@ public class Save : MonoBehaviour
             Creature creature = Creatures.creatures[i] as Creature;
             if (creature != null)
             {
-                gameData.creatures[i] = new CreatureData((int)creature.type, creature.health, (int)creature.transform.position.x, (int)creature.transform.position.y, (int)creature.startPos.x, (int)creature.startPos.y);
+                gameData.creatures[i] = new CreatureData((int)creature.type, creature.health, creature.transform.position, creature.startPos);
             }
             else
             {
@@ -227,20 +227,22 @@ public class BuildingData
 public class AIData
 {
     public int type, state, target, health;
-    public float x, y;
+    public Vector2 pos;
+    public Vector2Int gridPos;
     public Inventory inventory;
-    public Cooldown cooldown1, cooldown2;
-    public AIData(int _type, int _state, int _target, int _health, float _x, float _y, Inventory _inventory = null, Cooldown _cooldown1 = null, Cooldown _cooldown2 = null)
+    public StatusEffectData statusEffects = null;
+    public AIData(int _type, int _state, int _target, int _health, 
+        Vector2 _pos, Vector2Int _gridPos, List<StatusEffect> _statusEffects, Inventory _inventory = null)
     {
         type = _type;
         state = _state;
         target = _target;
         health = _health;
-        x = _x;
-        y = _y;
+        pos = _pos;
+        gridPos = _gridPos;
         inventory = _inventory;
-        cooldown1 = _cooldown1;
-        cooldown2 = _cooldown2;
+
+            statusEffects = new StatusEffectData(_statusEffects);
     }
 }
 
@@ -248,16 +250,13 @@ public class AIData
 public class CreatureData
 {
     public int type, health;
-    public float x, y, startX, startY;
-
-    public CreatureData(int _type, int _health, float _x, float _y, float _startX, float _startY)
+    public Vector2 pos, startPos;
+    public CreatureData(int _type, int _health, Vector2 _pos, Vector2  _startPos)
     {
         type = _type;
         health = _health;
-        x = _x;
-        y = _y;
-        startX = _startX;
-        startY = _startY;
+        pos = _pos;
+        startPos = _startPos;
     }
 }
 
@@ -275,5 +274,56 @@ public class SquadData
         target = _target;
         x = _x;
         y = _y;
+    }
+}
+
+[System.Serializable]
+public class StatusEffectData
+{
+    public int numEffects = 0;
+    public ShadowEffect shadow = null;
+    public HealEffect heal = null;
+
+    public StatusEffectData(List<StatusEffect> effects)
+    {
+        numEffects = effects.Count;
+        for (int i = 0; i < numEffects; i++)
+        {
+            effects[i].index = i;
+            Assign(effects[i]);
+        }
+    }
+
+    public List<StatusEffect> Read(Interaction target)
+    {
+        Debug.Log(numEffects);
+        if (numEffects > 0)
+        {
+            StatusEffect[] effects = new StatusEffect[numEffects];
+            if (shadow != null)
+            {
+                shadow.target = target;
+                effects[shadow.index] = shadow;
+            }
+            if (heal != null)
+            {
+                heal.target = target;
+                effects[heal.index] = heal;
+            }
+            return new List<StatusEffect>(effects);
+        }
+        return new List<StatusEffect>();
+    }
+
+    private void Assign(StatusEffect effect)
+    {
+        if (effect is ShadowEffect)
+        {
+            shadow = effect as ShadowEffect;
+        }
+        else if (effect is HealEffect)
+        {
+            heal = effect as HealEffect;
+        }
     }
 }

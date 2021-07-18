@@ -163,9 +163,27 @@ public class Load : MonoBehaviour
             if (followerObj != null)
             {
                 Follower follower = followerObj.GetComponent<Follower>();
-                follower.transform.position = new Vector3(followerData.x, followerData.y, 0);
+                follower.transform.position = followerData.pos;
                 follower.health = followerData.health;
                 follower.state = followerData.state;
+                follower.currentPos = followerData.gridPos;
+                if (followerData.statusEffects != null)
+                {
+                    follower.statusEffects = followerData.statusEffects.Read(follower);
+                    if (follower.statusEffects.Count == 0)
+                    {
+                        Debug.Log(follower.name + " LIST EMPTY");
+                    }
+                    else
+                    {
+                        Debug.Log(follower.name + " MUST BE OVERWRITING");
+                    }
+                    follower.glow.SetupGlow(follower.statusEffects);
+                }
+                else
+                {
+                    Debug.Log("NO STATUS EFFECT CLASS");
+                }
                 Followers.Add(follower);
 
                 if (follower is Worker)
@@ -190,8 +208,17 @@ public class Load : MonoBehaviour
             if (enemyObj != null)
             {
                 Enemy enemy = enemyObj.GetComponent<Enemy>();
-                enemy.transform.position = new Vector3(enemyData.x, enemyData.y, 0);
+                enemy.transform.position = enemyData.pos;
+                enemy.currentPos = enemyData.gridPos;
                 enemy.health = enemyData.health;
+                if (enemyData.statusEffects != null)
+                {
+                    enemy.statusEffects = enemyData.statusEffects.Read(enemy);
+                    if (enemy.glow != null)
+                    {
+                        enemy.glow.SetupGlow(enemy.statusEffects);
+                    }
+                }
                 Enemies.Add(enemy);
             }
         }
@@ -203,11 +230,11 @@ public class Load : MonoBehaviour
         for (int i = 0; i < gameData.creatures.Length; i++)
         {
             CreatureData creatureData = gameData.creatures[i];
-            GameObject creatureObj = Instantiate(Spawner.Instance.rabbitPrefab, new Vector3(creatureData.x, creatureData.y, 0), Quaternion.identity);
+            GameObject creatureObj = Instantiate(Spawner.Instance.rabbitPrefab, creatureData.pos, Quaternion.identity);
             Creature creature = creatureObj.GetComponent<Creature>();
             Creatures.Add(creature);
             creature.health = creatureData.health;
-            creature.startPos = new Vector3(creatureData.startX, creatureData.startY, 0);
+            creature.startPos = creatureData.startPos;
         }
         return LoadSquads(gameData);
     }
