@@ -2210,6 +2210,12 @@ MonoBehaviour:
   directMask:
     serializedVersion: 2
     m_Bits: 8064
+  camFocused: 0
+  dayTimer:
+    max: 30
+    current: 30
+  worldLight: {fileID: 1605504124}
+  day: 1
 --- !u!114 &1263100319
 MonoBehaviour:
   m_ObjectHideFlags: 0

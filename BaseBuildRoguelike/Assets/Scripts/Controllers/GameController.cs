@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Experimental.Rendering.Universal;
 public class GameController : MonoSingleton<GameController>
 {
     public enum GameState
@@ -19,7 +19,10 @@ public class GameController : MonoSingleton<GameController>
     public Camera gameCam;
     public float camSpeed = 50, camDist = 10, camMaxZoom = 20, camMinZoom = 5;
     public LayerMask tileMask, selectMask, directMask;
-
+    public bool camFocused = false;
+    public Cooldown dayTimer = new Cooldown(30);
+    public Light2D worldLight;
+    public bool day = true;
     void Start()
     {
         load = GetComponent<Load>();
@@ -42,6 +45,12 @@ public class GameController : MonoSingleton<GameController>
         ClickControl();
         CameraControl();
 
+        if (dayTimer.Tick())
+        {
+            dayTimer.Reset();
+            StartCoroutine(DayFade());
+        }
+
         if (Input.GetKey(KeyCode.Escape))
         {
             save.SaveGame();
@@ -53,6 +62,17 @@ public class GameController : MonoSingleton<GameController>
         }
     }
 
+
+    IEnumerator DayFade()
+    {
+        Debug.Log("STARTING FADE");
+        while ((day) ? worldLight.intensity > 0.25f : worldLight.intensity < 1)
+        {
+            worldLight.intensity = (day) ? worldLight.intensity - (0.25f * Time.deltaTime) : worldLight.intensity + (0.25f * Time.deltaTime);
+            yield return null;
+        }
+        day = !day;
+    }
 
     void ClickControl()
     {
@@ -158,6 +178,11 @@ public class GameController : MonoSingleton<GameController>
             StartCoroutine(RecenterCam());
         }
 
+        if (Input.GetKeyDown(KeyCode.F) && !camRecentering && Followers.selected != null)
+        {
+            StartCoroutine(FocusCam());
+        }
+
         if (Input.GetAxis("Mouse ScrollWheel") > 0f && gameCam.orthographicSize > camMinZoom) // forward
         {
             gameCam.orthographicSize--;
@@ -171,12 +196,19 @@ public class GameController : MonoSingleton<GameController>
         {
             Vector3 newPos = new Vector3(gameCam.transform.position.x + (Input.GetAxis("Mouse X") * (camSpeed * Time.deltaTime)), gameCam.transform.position.y, -camDist);
             gameCam.transform.position = newPos;
+            camFocused = false;
         }
 
         if ((mousePos.y <= 10 && Input.GetAxis("Mouse Y") < 0) || (mousePos.y >= Screen.height - 10 && Input.GetAxis("Mouse Y") > 0))
         {
             Vector3 newPos = new Vector3(gameCam.transform.position.x, gameCam.transform.position.y + (Input.GetAxis("Mouse Y") * (camSpeed * Time.deltaTime)), -camDist);
             gameCam.transform.position = newPos;
+            camFocused = false;
+        }
+
+        if (camFocused && Followers.selected != null)
+        {
+            gameCam.transform.position = Vector3.MoveTowards(gameCam.transform.position, new Vector3(Followers.selected.transform.position.x, Followers.selected.transform.position.y, gameCam.transform.position.z), Time.deltaTime * camSpeed);
         }
     }
 
@@ -191,5 +223,18 @@ public class GameController : MonoSingleton<GameController>
             yield return null;
         }
         camRecentering = false;
+    }
+
+    IEnumerator FocusCam()
+    {
+        camRecentering = true;
+        Vector3 targetPos = new Vector3(Followers.selected.transform.position.x, Followers.selected.transform.position.y, gameCam.transform.position.z);
+        while (gameCam.transform.position != targetPos)
+        {
+            gameCam.transform.position = Vector3.MoveTowards(gameCam.transform.position, targetPos, (camSpeed * 2) * Time.deltaTime);
+            yield return null;
+        }
+        camRecentering = false;
+        camFocused = true;
     }
 }

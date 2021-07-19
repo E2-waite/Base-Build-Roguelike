@@ -34,8 +34,7 @@ public class Spawner : MonoSingleton<Spawner>
     {
         if (start)
         {
-            enemySpawn.Tick();
-            if (enemySpawn.Complete())
+            if (enemySpawn.Tick())
             {
                 enemySpawn = new Cooldown(spawnTime / (1 + (corruptedTiles.Count / 100)));
                 SpawnEnemy();

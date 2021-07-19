@@ -10,16 +10,13 @@ public class Necromancer : Enemy
     public GameObject shadowBoltPrefab, necroSphere;
     private void Update()
     {
-        shotCooldown.Tick();
-        raiseCooldown.Tick();
-
-        if (raiseCooldown.Complete() && corpses.Count > 0)
+        if (raiseCooldown.Tick() && corpses.Count > 0)
         {
             raiseCooldown.Reset();
             StartCoroutine(RaiseDead());
         }
 
-        if (shotCooldown.Complete() && target != null && target.interact)
+        if (shotCooldown.Tick() && target != null && target.interact)
         {
             shotCooldown.Reset();
             GameObject bolt = Instantiate(shadowBoltPrefab, transform.position, Quaternion.identity);

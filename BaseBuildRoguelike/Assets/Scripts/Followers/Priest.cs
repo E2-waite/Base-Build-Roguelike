@@ -18,9 +18,8 @@ public class Priest : Follower
     Follower healTarget = null;
     void Update()
     {
-        healCooldown.Tick();
         TickEffects();
-        if (healCooldown.Complete() && healthCheck == null)
+        if (healCooldown.Tick() && healthCheck == null)
         {
             // If cooled down and not currently checking health
             healthCheck = StartCoroutine(HealthCheck());
@@ -98,7 +97,7 @@ public class Priest : Follower
         healthCheck = null;
         if (healTarget != null)
         {
-            healTarget.AddEffect(new HealEffect(healTarget, 3, 30, 1));
+            healTarget.AddEffect(new HealEffect(healTarget, 3, 1, 1));
         }
     }
 }

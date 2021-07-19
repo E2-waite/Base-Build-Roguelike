@@ -231,8 +231,9 @@ public class AIData
     public Vector2Int gridPos;
     public Inventory inventory;
     public StatusEffectData statusEffects = null;
+    public Cooldown[] cooldowns;
     public AIData(int _type, int _state, int _target, int _health, 
-        Vector2 _pos, Vector2Int _gridPos, List<StatusEffect> _statusEffects, Inventory _inventory = null)
+        Vector2 _pos, Vector2Int _gridPos, List<StatusEffect> _statusEffects, Inventory _inventory = null, Cooldown[] _cooldowns = null)
     {
         type = _type;
         state = _state;
@@ -241,8 +242,8 @@ public class AIData
         pos = _pos;
         gridPos = _gridPos;
         inventory = _inventory;
-
-            statusEffects = new StatusEffectData(_statusEffects);
+        statusEffects = new StatusEffectData(_statusEffects);
+        cooldowns = _cooldowns;
     }
 }
 

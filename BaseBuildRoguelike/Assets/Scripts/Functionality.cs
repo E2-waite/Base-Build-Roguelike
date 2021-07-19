@@ -2,21 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Cooldown
 {
-    private float max, current = 0;
+    public float max, current = 0;
     public Cooldown(float time)
     {
         max = time;
         current = max;
     }
 
-    public void Tick()
+    public bool Tick()
     {
         if (current > 0)
         {
             current -= Time.deltaTime;
+            return false;
         }
+        return true;
     }
 
     public void Reset()
@@ -32,7 +35,7 @@ public class Cooldown
         }
         return false;
     }
-    
+
 }
 
 public class Target
