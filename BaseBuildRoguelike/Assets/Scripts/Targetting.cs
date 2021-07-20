@@ -41,8 +41,10 @@ public static class Targetting
             if (target.squad == null)
             {
                 target = new Target(Targetting.GetClosestTarget(targets, pos));
-                if (target != null)
-                {  
+                Debug.Log("Got closest target");
+                if (target.interact != null)
+                {
+                    Debug.Log("RETURNING FUCKING TRUE");
                     return true;
                 }
             }
@@ -50,6 +52,7 @@ public static class Targetting
             {
                 // Targets closest enemy in targetted squad
                 target = new Target(target.squad.ClosestMember(pos));
+
                 return true;
             }
         }
@@ -57,21 +60,23 @@ public static class Targetting
         {
             if (squad.target != null)
             {
-                // Targets squad's current target
-                target = new Target(squad.target.interact);
-                return true;
-            }
-            else if (squad.target.squad != null)
-            {
-                // Finds closest enemy in squad's targetted enemy squad
-                target = new Target(squad.target.squad.ClosestMember(pos));
+                if (squad.target.squad == null)
+                {
+                    // Targets squad's current target
+                    target = new Target(squad.target.interact);
+                }
+                else
+                {
+                    // Finds closest enemy in squad's targetted enemy squad
+                    target = new Target(squad.target.squad.ClosestMember(pos));
+                }
                 return true;
             }
             else
             {
                 // Finds non-targetted enemy in range, then sets the squad target to that enemy
                 target = new Target(GetClosestTarget(targets, pos));
-                if (target != null)
+                if (target.interact != null)
                 {
                     squad.SetTarget(target.interact);
                     return true;

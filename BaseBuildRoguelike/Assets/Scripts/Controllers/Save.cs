@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 public class Save : MonoBehaviour
 {
+    public static string file = "SaveData";
     public void SaveGame()
     {
         GameData gameData = new GameData(Grid.size, Grid.noise, Resources.trees.Count + Resources.stones.Count);
@@ -16,7 +17,7 @@ public class Save : MonoBehaviour
         SaveCreatures(gameData);
         SaveSquads(gameData);
 
-        System.IO.File.WriteAllText(Application.persistentDataPath + "/SaveData.json", JsonUtility.ToJson(gameData));
+        System.IO.File.WriteAllText(Application.persistentDataPath + "/" + file + ".json", JsonUtility.ToJson(gameData));
     }
 
     private void SaveTiles(GameData gameData)
@@ -51,7 +52,7 @@ public class Save : MonoBehaviour
         for (int i = 0; i < Buildings.buildings.Count; i++)
         {
             Building building = Buildings.buildings[i];
-            int[] cost = new int[0], remaining = new int[0];
+            int[] cost = new int[Resources.NUM], remaining = new int[Resources.NUM];
             if (building.construct != null)
             {
                 cost = building.construct.cost;
@@ -74,7 +75,7 @@ public class Save : MonoBehaviour
                 {
                     targetInd = follower.target.interact.Index();
                 }
-                gameData.followers[i] = new AIData((int)follower.type, (int)follower.state, targetInd, follower.health, follower.transform.position, follower.currentPos, follower.statusEffects, 
+                gameData.followers[i] = new AIData((int)follower.type, follower.state, targetInd, follower.health, follower.transform.position, follower.currentPos, follower.statusEffects, 
                     (follower is Worker) ? (follower as Worker).inventory : null);
             }
             else
@@ -297,7 +298,6 @@ public class StatusEffectData
 
     public List<StatusEffect> Read(Interaction target)
     {
-        Debug.Log(numEffects);
         if (numEffects > 0)
         {
             StatusEffect[] effects = new StatusEffect[numEffects];

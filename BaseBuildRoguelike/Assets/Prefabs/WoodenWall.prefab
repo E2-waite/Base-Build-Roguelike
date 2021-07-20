@@ -100,11 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contruction: {fileID: 21300000, guid: 5b03fdbe90e8e4d4abd4620783ce2b9d, type: 3}
-  constructed: {fileID: 0}
-  woodCost: 0
-  stoneCost: 0
-  woodRemaining: 0
-  stoneRemaining: 0
+  constructed: {fileID: 6116906653869191027, guid: 12925ef923cad9849b017f1c26a508d7, type: 3}
+  cost: 000000000000000000000000
+  remaining: 000000000000000000000000
 --- !u!114 &3963982256496168287
 MonoBehaviour:
   m_ObjectHideFlags: 0

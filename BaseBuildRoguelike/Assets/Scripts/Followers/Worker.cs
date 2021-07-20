@@ -33,7 +33,7 @@ public class Worker : Follower
         }
 
         marker.transform.position = pos;
-        Pathfinding.FindPath(ref path, transform.position, new Vector2Int(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y)), 1);
+        Pathfinding.FindPath(ref path, currentPos, new Vector2Int(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y)), 1);
         lastState = (int)State.idle;
         if (obj != null)
         {
@@ -114,7 +114,7 @@ public class Worker : Follower
                 {
                     target = new Target(FindResource());
 
-                    if (Pathfinding.FindPath(ref path, transform.position, target.Position2D(), 1))
+                    if (Pathfinding.FindPath(ref path, currentPos, target.Position2D(), 1))
                     {
                         Debug.Log("Path Found");
                     }
@@ -177,7 +177,7 @@ public class Worker : Follower
 
             if (target.interact != null)
             {
-                Pathfinding.FindPath(ref path, transform.position, target.Position2D(), 1);
+                Pathfinding.FindPath(ref path, currentPos, target.Position2D(), 1);
             }
         }
     }
@@ -194,7 +194,7 @@ public class Worker : Follower
         else
         {
             state = (int)State.store;
-            Pathfinding.FindPath(ref path, transform.position, target.Position2D(), 1);
+            Pathfinding.FindPath(ref path, currentPos, target.Position2D(), 1);
             return true;
         }
     }

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Experimental.Rendering.Universal;
 public abstract class Follower : Interaction
 {
     public enum Type
@@ -28,6 +28,7 @@ public abstract class Follower : Interaction
     public GameObject highlight, marker, squadPrefab, corpsePrefab, bloodEffect = null;
     public List<Vector2Int> path = new List<Vector2Int>();
     public Vector2Int currentPos;
+    public Light2D torchLight;
     protected Animator anim;
     protected SpriteRenderer rend;
     protected Coroutine interactRoutine = null;
@@ -38,6 +39,7 @@ public abstract class Follower : Interaction
         health = maxHealth;
         anim = GetComponent<Animator>();
         rend = GetComponent<SpriteRenderer>();
+        torchLight = GetComponent<Light2D>();
         StartCoroutine(PathUpdate());
         Setup();
     }
@@ -69,6 +71,7 @@ public abstract class Follower : Interaction
             {
                 if (transform.position == pathPos)
                 {
+                    currentPos = path[0];
                     path.RemoveAt(0);
                 }
             }
@@ -78,6 +81,7 @@ public abstract class Follower : Interaction
                 if (dist <= 1 + (squad.members.Count / 10))
                 {
                     currentPos = path[0];
+
                     path.RemoveAt(0);
                 }
             }
@@ -86,7 +90,15 @@ public abstract class Follower : Interaction
         }
     }
 
-
+    public IEnumerator LightFade(bool on)
+    {
+        Debug.Log("STARTING FADE");
+        while ((on) ? torchLight.intensity < 0.75f : torchLight.intensity > 0)
+        {
+            torchLight.intensity = (on) ? torchLight.intensity + (0.5f * Time.deltaTime) : torchLight.intensity - (0.5f * Time.deltaTime);
+            yield return null;
+        }
+    }
 
     public void Move(Vector3 position)
     {
@@ -154,7 +166,7 @@ public abstract class Follower : Interaction
 
 
         marker.transform.position = pos;
-        if (Pathfinding.FindPath(ref path, transform.position, new Vector2Int(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y))))
+        if (Pathfinding.FindPath(ref path, currentPos, new Vector2Int(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y))))
         {
             Debug.Log("Path Found");
         }
@@ -209,7 +221,7 @@ public abstract class Follower : Interaction
     {
         target = new Target();
         marker.transform.position = pos;
-        Pathfinding.FindPath(ref path, transform.position, new Vector2Int(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y)));
+        Pathfinding.FindPath(ref path, currentPos, new Vector2Int(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y)));
         state = (int)DefaultState.move;
     }
 
@@ -232,11 +244,11 @@ public abstract class Follower : Interaction
             else
             {
                 // If target enemy is in a squad, instead target closest member of the squad
-                target = new Target(target.squad.ClosestMember(transform.position));
+                target = new Target(enemy.squad.ClosestMember(transform.position));
             }
 
             marker.transform.position = target.Position();
-            Pathfinding.FindPath(ref path, transform.position, target.Position2D());
+            Pathfinding.FindPath(ref path, currentPos, target.Position2D());
             state = (int)DefaultState.attack;
         }
     }

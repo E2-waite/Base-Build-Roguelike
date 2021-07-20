@@ -14,4 +14,9 @@ public static class Creatures
     {
         creatures.Remove(creature);
     }
+
+    public static void Reset()
+    {
+        creatures = new List<Interaction>();
+    }
 }

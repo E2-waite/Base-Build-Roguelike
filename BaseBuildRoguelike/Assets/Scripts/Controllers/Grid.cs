@@ -92,6 +92,10 @@ public static class Grid
 
     public static Tile GetTile(Vector2Int pos)
     {
+        if (tiles == null)
+        {
+            return null;
+        }
         return tiles[pos.x, pos.y];
     }
 
@@ -119,5 +123,11 @@ public static class Grid
         {
             return null;
         }
+    }
+
+    public static void Reset()
+    {
+        tiles = null;
+        selectedTiles = new List<Tile>();
     }
 }

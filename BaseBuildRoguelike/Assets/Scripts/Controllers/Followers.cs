@@ -10,6 +10,15 @@ public  static class Followers
     public static Squad selectedSquad = null;
     public static int maxFollowers = 1;
 
+    public static void Reset()
+    {
+        followers = new List<Follower>();
+        squads = new List<Squad>();
+        selected = null;
+        selectedSquad = null;
+        maxFollowers = 1;
+    }
+
     public static void Add(Follower follower)
     {
         followers.Add(follower);

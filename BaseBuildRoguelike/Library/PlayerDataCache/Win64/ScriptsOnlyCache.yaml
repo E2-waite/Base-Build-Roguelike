@@ -91,8 +91,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -126,8 +128,6 @@ ScriptsOnlyBuild:
     - Class: 21
       Script: {instanceID: 0}
     - Class: 28
-      Script: {instanceID: 0}
-    - Class: 43
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
@@ -170,37 +170,37 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2182}
     - Class: 114
-      Script: {instanceID: 2610}
+      Script: {instanceID: 2608}
     - Class: 114
-      Script: {instanceID: 2652}
+      Script: {instanceID: 2650}
     - Class: 114
-      Script: {instanceID: 2760}
+      Script: {instanceID: 2758}
     - Class: 114
-      Script: {instanceID: 2828}
+      Script: {instanceID: 2826}
     - Class: 114
-      Script: {instanceID: 3060}
+      Script: {instanceID: 3058}
     - Class: 114
-      Script: {instanceID: 3232}
+      Script: {instanceID: 3230}
     - Class: 114
-      Script: {instanceID: 3256}
+      Script: {instanceID: 3254}
     - Class: 114
-      Script: {instanceID: 3600}
+      Script: {instanceID: 3598}
     - Class: 114
-      Script: {instanceID: 3722}
+      Script: {instanceID: 3720}
     - Class: 114
-      Script: {instanceID: 3838}
+      Script: {instanceID: 3836}
     - Class: 114
-      Script: {instanceID: 3940}
+      Script: {instanceID: 3938}
     - Class: 114
-      Script: {instanceID: 3978}
+      Script: {instanceID: 3976}
     - Class: 114
-      Script: {instanceID: 4024}
+      Script: {instanceID: 4022}
     - Class: 114
-      Script: {instanceID: 4078}
+      Script: {instanceID: 4076}
     - Class: 114
-      Script: {instanceID: 4140}
+      Script: {instanceID: 4138}
     - Class: 114
-      Script: {instanceID: 4288}
+      Script: {instanceID: 4286}
     - Class: 114
       Script: {instanceID: 4430}
     - Class: 114
@@ -216,9 +216,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5500}
     - Class: 114
-      Script: {instanceID: 6396}
+      Script: {instanceID: 6394}
     - Class: 114
-      Script: {instanceID: 6414}
+      Script: {instanceID: 6412}
     - Class: 114
       Script: {instanceID: 6464}
     - Class: 114
@@ -632,7 +632,7 @@ ScriptsOnlyBuild:
     className: UnityMessageListener
   - hash:
       serializedVersion: 2
-      Hash: e0e97d7ff58b875a97fae8a111b79bc7
+      Hash: fa57526017116fe9fbd5b3b61640fa00
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Wall
@@ -644,7 +644,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerWidget
   - hash:
       serializedVersion: 2
-      Hash: 3b509a37d9849e92114bc955b1a3624d
+      Hash: e393cb97d1580d774a3cafc92257b00d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Squad
@@ -782,7 +782,7 @@ ScriptsOnlyBuild:
     className: VariablesAsset
   - hash:
       serializedVersion: 2
-      Hash: eacd8ce64c9820f2e2169e04c54f4518
+      Hash: 5a86c22d19f849122caab50baefd011d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameController
@@ -806,7 +806,7 @@ ScriptsOnlyBuild:
     className: UnityOnSelectMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 87f59184229986fecf959026fb68e116
+      Hash: 20ae67b404f98c6ac0fb91e99af005b6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Priest
@@ -884,7 +884,7 @@ ScriptsOnlyBuild:
     className: ColorAdjustments
   - hash:
       serializedVersion: 2
-      Hash: 1e2028dd50c4a09ff6a008a577f6070b
+      Hash: fcea5adc92e80229a19a5a549d537ec1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Pier
@@ -908,7 +908,7 @@ ScriptsOnlyBuild:
     className: Spawner
   - hash:
       serializedVersion: 2
-      Hash: 53666fbd6e0e3aeaf56de390bad383b8
+      Hash: 21d4ae87efdbece6443d53575b310599
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Creature
@@ -1106,13 +1106,13 @@ ScriptsOnlyBuild:
     className: GridLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 1775c9054dfba4df65968a138c0bc894
+      Hash: 278062db43f2f708c7af3c5f9ae307ed
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Necromancer
   - hash:
       serializedVersion: 2
-      Hash: 1e2028dd50c4a09ff6a008a577f6070b
+      Hash: fcea5adc92e80229a19a5a549d537ec1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GuardTower
@@ -1172,10 +1172,16 @@ ScriptsOnlyBuild:
     className: Light2D
   - hash:
       serializedVersion: 2
-      Hash: c85975d1227bcb9c7e6313150b8e6c75
+      Hash: 821bd98b948d91f8d0790ea17726d1a7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Undead
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DescriptionBox
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1298,7 +1304,7 @@ ScriptsOnlyBuild:
     className: VolumeComponent
   - hash:
       serializedVersion: 2
-      Hash: 0c80753ee026c4118fdb752debc81db6
+      Hash: c88f1116f8a22c2e572c9cbc04f40ab4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ResourceStorage
@@ -1316,7 +1322,7 @@ ScriptsOnlyBuild:
     className: UIFoldout
   - hash:
       serializedVersion: 2
-      Hash: d76d723f69b32654e52e83b7e8e54cef
+      Hash: d4118e7316915ebcfdccba8e5d7638bb
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HomeBase
@@ -1334,7 +1340,7 @@ ScriptsOnlyBuild:
     className: CanvasScaler
   - hash:
       serializedVersion: 2
-      Hash: c4eb9b4949e39371ac6f7c3ff155c64b
+      Hash: 46d16feda72eca6cf91da5f460759e78
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: House
@@ -1376,7 +1382,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: 8ed799a1ef273e75adcad4ac6ff11e52
+      Hash: bfdb836929931ba99b7a1308dfd82177
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Archer
@@ -1538,7 +1544,7 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 720dcd4686f23a8ad57cd1cfed439252
+      Hash: 34f3d0629c3a4719667d9a98d1af48ad
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Resource
@@ -1652,7 +1658,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 725beb8c5fef9545a4ab70d217e3581f
+      Hash: ec192be704178839abc5ceb535ff38fc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Worker
@@ -1748,7 +1754,7 @@ ScriptsOnlyBuild:
     className: Variables
   - hash:
       serializedVersion: 2
-      Hash: 1e2028dd50c4a09ff6a008a577f6070b
+      Hash: fcea5adc92e80229a19a5a549d537ec1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PurifyPillar
@@ -1814,7 +1820,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerFoldout
   - hash:
       serializedVersion: 2
-      Hash: 1a7638421cacdef826ab514128d27e62
+      Hash: e698c8d7342daa9eed518b3b3d67d1f1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Soldier
@@ -1868,7 +1874,7 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: f3ef93be06ab2296b0188605f99d6fce
+      Hash: 553c46a1b77442ea69e6e903efb12ff5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Corpse

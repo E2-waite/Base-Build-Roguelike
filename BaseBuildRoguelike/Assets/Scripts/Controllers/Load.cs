@@ -8,12 +8,14 @@ public class Load : MonoBehaviour
     public GameObject squadPrefab;
     public bool LoadGame()
     {
-        if (!System.IO.File.Exists(Application.persistentDataPath + "/SaveData.json"))
+        Debug.Log(Save.file);
+        if (!System.IO.File.Exists(Application.persistentDataPath + "/" + Save.file + ".json"))
         {
+            Debug.Log(Save.file + " Doesn't exist");
             return false;
         }
 
-        string jsonString = File.ReadAllText(Application.persistentDataPath + "/SaveData.json");
+        string jsonString = File.ReadAllText(Application.persistentDataPath + "/" + Save.file + ".json");
         GameData gameData = JsonUtility.FromJson<GameData>(jsonString);
 
         GameController.Instance.gameCam.transform.position = new Vector3(gameData.camX, gameData.camY, GameController.Instance.gameCam.transform.position.z);
@@ -119,7 +121,7 @@ public class Load : MonoBehaviour
             BuildingData buildingData = gameData.buildings[i];
             Vector2Int pos = new Vector2Int(buildingData.x, buildingData.y);
             GameObject buildingObj;
-            if (gameData.buildings[i].type == 99)
+            if (buildingData.type == 99)
             {
                 buildingObj = Instantiate(Spawner.Instance.firepitPrefab, Grid.tiles[pos.x, pos.y].transform.position, Quaternion.identity);
                 Buildings.homeBase = buildingObj.GetComponent<HomeBase>();
@@ -131,14 +133,16 @@ public class Load : MonoBehaviour
             Building building = buildingObj.GetComponent<Building>();
             Buildings.Add(building);
 
-            if (building != null && gameData.buildings[i].type != 99)
+            if (building != null && buildingData.type != 99)
             {
                 Grid.tiles[pos.x, pos.y].structure = building;
                 building.type = buildingData.type;
 
                 Construct construct = buildingObj.GetComponent<Construct>();
-                construct.remaining = gameData.buildings[i].resourceRemaining;
-                construct.CheckComplete();
+                if (construct != null)
+                {
+                    construct.CheckComplete(buildingData);
+                }
 
                 if (building is ResourceStorage)
                 {
@@ -170,14 +174,6 @@ public class Load : MonoBehaviour
                 if (followerData.statusEffects != null)
                 {
                     follower.statusEffects = followerData.statusEffects.Read(follower);
-                    if (follower.statusEffects.Count == 0)
-                    {
-                        Debug.Log(follower.name + " LIST EMPTY");
-                    }
-                    else
-                    {
-                        Debug.Log(follower.name + " MUST BE OVERWRITING");
-                    }
                     follower.glow.SetupGlow(follower.statusEffects);
                 }
                 else

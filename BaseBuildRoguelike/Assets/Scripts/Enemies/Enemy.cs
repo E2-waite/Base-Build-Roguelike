@@ -19,6 +19,11 @@ public abstract class Enemy : Interaction
     private void Start()
     {
         currentPos = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
+        if (!Targetting.FindTarget(ref target, squad, transform.position, Followers.followers))
+        {
+            target = new Target(Buildings.homeBase);
+        }
+
         if (target.interact != null)
         {
             Pathfinding.FindPath(ref path, currentPos, target.Position2D());
@@ -41,6 +46,7 @@ public abstract class Enemy : Interaction
             {
                 if (transform.position == pathPos)
                 {
+                    currentPos = path[0];
                     path.RemoveAt(0);
                 }
             }
@@ -126,7 +132,7 @@ public abstract class Enemy : Interaction
             {
                 squad.SetTarget(attacker);
             }
-            Pathfinding.FindPath(ref path, transform.position, target.Position2D());
+            Pathfinding.FindPath(ref path, currentPos, target.Position2D());
         }
         HitReaction(attacker.transform.position);
         StartCoroutine(HitRoutine());
@@ -148,7 +154,7 @@ public abstract class Enemy : Interaction
         if (!(target.interact is Follower))
         {
             target = new Target(newTarget);
-            Pathfinding.FindPath(ref path, transform.position, target.Position2D());
+            Pathfinding.FindPath(ref path, currentPos, target.Position2D());
         }
     }
 

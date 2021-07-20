@@ -38,6 +38,7 @@ public class Cooldown
 
 }
 
+[System.Serializable]
 public class Target
 {
     public Interaction interact = null;
@@ -79,7 +80,13 @@ public class Target
 
     public Vector2Int Position2D()
     {
-        return new Vector2Int(Mathf.RoundToInt(interact.transform.position.x), Mathf.RoundToInt(interact.transform.position.y));
+        if (interact == null)
+        {
+            return new Vector2Int(0, 0);
+        }
+        {
+            return new Vector2Int(Mathf.RoundToInt(interact.transform.position.x), Mathf.RoundToInt(interact.transform.position.y));
+        }
     }
 
     public Vector2Int LastPos()

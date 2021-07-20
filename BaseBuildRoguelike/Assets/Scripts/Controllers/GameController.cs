@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
+using UnityEngine.SceneManagement;
 public class GameController : MonoSingleton<GameController>
 {
     public enum GameState
@@ -25,6 +26,7 @@ public class GameController : MonoSingleton<GameController>
     public bool day = true;
     void Start()
     {
+        Debug.Log("STARTED");
         load = GetComponent<Load>();
         spawner = Spawner.Instance;
         if (!loadGame || !load.LoadGame())
@@ -54,19 +56,29 @@ public class GameController : MonoSingleton<GameController>
         if (Input.GetKey(KeyCode.Escape))
         {
             save.SaveGame();
-            Application.Quit();
-        }
-        if (Input.GetKeyDown(KeyCode.F1))
-        {
-            save.SaveGame();
+            ResetStatics();
+            SceneManager.LoadScene(0);
         }
     }
 
+    void ResetStatics()
+    {
+        Buildings.Reset();
+        Creatures.Reset();
+        Enemies.Reset();
+        Followers.Reset();
+        Grid.Reset();
+        Resources.Reset();
+    }
 
     IEnumerator DayFade()
     {
         Debug.Log("STARTING FADE");
-        while ((day) ? worldLight.intensity > 0.25f : worldLight.intensity < 1)
+        for (int i = 0; i < Followers.followers.Count; i++)
+        {
+            Followers.followers[i].StartCoroutine(Followers.followers[i].LightFade(day));
+        }
+        while ((day) ? worldLight.intensity > 0.05f : worldLight.intensity < 1)
         {
             worldLight.intensity = (day) ? worldLight.intensity - (0.25f * Time.deltaTime) : worldLight.intensity + (0.25f * Time.deltaTime);
             yield return null;

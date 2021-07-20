@@ -48,4 +48,13 @@ public static class Buildings
     {
         buildings.Add(building);
     }
+
+    public static void Reset()
+    {
+        selected = null;
+        homeBase = null;
+        buildings = new List<Building>();
+        storages = new List<ResourceStorage>[Resources.NUM];
+        walls = null;
+    }
 }

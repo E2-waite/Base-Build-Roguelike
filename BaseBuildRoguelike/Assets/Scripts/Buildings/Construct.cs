@@ -56,4 +56,23 @@ public class Construct : MonoBehaviour
         building.Constructed();
         Destroy(this);
     }
+
+    public void CheckComplete(BuildingData data)
+    {
+        remaining = data.resourceRemaining;
+        building = GetComponent<Building>();
+        rend = GetComponent<SpriteRenderer>();
+
+        for (int i = 0; i < Resources.NUM; i++)
+        {
+            if (remaining[i] > 0)
+            {
+                return;
+            }
+        }
+
+        rend.sprite = constructed;
+        building.Constructed();
+        Destroy(this);
+    }
 }

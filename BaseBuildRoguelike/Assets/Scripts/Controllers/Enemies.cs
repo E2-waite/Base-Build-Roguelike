@@ -33,4 +33,10 @@ public static class Enemies
         }
         return closest;
     }
+
+    public static void Reset()
+    {
+        enemies = new List<Enemy>();
+        squads = new List<Squad>();
+    }
 }

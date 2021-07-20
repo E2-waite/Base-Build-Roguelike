@@ -23,4 +23,10 @@ public class Resources : MonoBehaviour
     {
         return resources[(int)type];
     }
+
+    public static void Reset()
+    {
+        resources = new int[NUM];
+        resources = new int[NUM];
+    }
 }
