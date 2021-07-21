@@ -1635,6 +1635,10 @@ MonoBehaviour:
     prefab: {fileID: 2229980545842200965, guid: 7f37d00c87f66f442936d0bc62d99ad2, type: 3}
     sprite: {fileID: 1325237055625117177, guid: 4d385f139351d89429655e617e2423a8, type: 3}
     type: 0
+  - name: Archery Range
+    prefab: {fileID: 8409684493181859174, guid: c9cc39c57f2ed3f40bc695bd1e6fc530, type: 3}
+    sprite: {fileID: 21300000, guid: 4b6f0a1292334d543ac66ea37695f1aa, type: 3}
+    type: 1
   selectedTemplate: 0
   rabbitPrefab: {fileID: 6563278837278293193, guid: e50a273da9c7dff439d70dd735cb9fdd, type: 3}
   creatureScale: 10
@@ -1663,7 +1667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyOnLoad: 1
-  loadGame: 1
+  loadGame: 0
   gameState: 0
   gameCam: {fileID: 519420031}
   camSpeed: 50

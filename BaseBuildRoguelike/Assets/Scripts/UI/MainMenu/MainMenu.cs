@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.IO;
 public class MainMenu : MonoBehaviour, IPointerClickHandler
 {
     enum Buttons
@@ -24,6 +25,34 @@ public class MainMenu : MonoBehaviour, IPointerClickHandler
     public GameObject[] menus;
     public GameObject[] menuButtons = new GameObject[3];
     public GameObject[] gameSaves = new GameObject[3];
+
+    private void Start()
+    {
+        for (int i = 0; i < gameSaves.Length; i++)
+        {
+            if (System.IO.File.Exists(Application.persistentDataPath + "/SaveData" + (i + 1).ToString() + ".json"))
+            {
+                gameSaves[i].transform.GetChild(0).GetComponent<Text>().text = ("-Save " + (i + 1).ToString() + "-");
+            }
+        }
+        menus[1].SetActive(false);
+        menus[2].SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (currentMenu == Menu.main)
+            {
+                Application.Quit();
+            }
+            else
+            {
+                SwitchMenu(Menu.main);
+            }
+        }
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {

@@ -359,6 +359,7 @@
 "Assets/Scripts/UI/Inspector/SquadInspector.cs"
 "Assets/Scripts/UI/Inspector/StorageInspector.cs"
 "Assets/Scripts/UI/InspectorObject.cs"
+"Assets/Scripts/UI/MainMenu/MainMenu.cs"
 -langversion:8.0
 
 /deterministic

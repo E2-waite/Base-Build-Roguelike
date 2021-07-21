@@ -16,7 +16,6 @@ public class Resource : Interaction
 
     protected Animator anim;
     protected SpriteRenderer rend;
-
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -47,7 +46,7 @@ public class Resource : Interaction
         anim.SetBool("Hit", false);
     }
 
-    private void OnDestroy()
+    void Remove()
     {
         if (type == Type.wood)
         {
@@ -58,5 +57,7 @@ public class Resource : Interaction
             Resources.stones.Remove(this);
         }
         Resources.allResources.Remove(this);
+        Grid.GetTile(new Vector2Int((int)transform.position.x, (int)transform.position.y)).structure = null;
+        Pathfinding.UpdateNodeGrid();
     }
 }

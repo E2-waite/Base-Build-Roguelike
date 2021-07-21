@@ -181,7 +181,10 @@ public class Tile : MonoBehaviour
         if (pillars.Count == 0)
         {
             isProtected = false;
-            StopAllCoroutines();
+            if (this != null)
+            {
+                StopAllCoroutines();
+            }
         }
 
         // check if adjascent to corrupted tile, if so start corrupting

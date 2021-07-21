@@ -26,6 +26,10 @@ public  static class Followers
     public static void Remove(Follower follower)
     {
         followers.Remove(follower);
+        if (followers.Count == 0 && Resources.resources[(int)Resource.Type.food] >= 10)
+        {
+            GameController.Instance.GameOver();
+        }
     }
     public static int Count()
     {

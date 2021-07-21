@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using System.IO;
 public class GameController : MonoSingleton<GameController>
 {
     public enum GameState
@@ -99,8 +100,14 @@ public class GameController : MonoSingleton<GameController>
 
             if (hit && !Grid.IsSelected(hit.transform.position))
             {
-                Grid.SelectTile(hit.transform.position, spawner.buildings[spawner.selectedTemplate]);
-                //Grid.SelectTiles(hit.transform.position, new Vector2(2, 2));
+                if (spawner.buildings[spawner.selectedTemplate].type == Build.Type.multi)
+                {
+                    Grid.SelectTiles(hit.transform.position, new Vector2(2, 2));
+                }
+                else
+                {
+                    Grid.SelectTile(hit.transform.position, spawner.buildings[spawner.selectedTemplate]);
+                }
             }
         }
         else
@@ -248,5 +255,16 @@ public class GameController : MonoSingleton<GameController>
         }
         camRecentering = false;
         camFocused = true;
+    }
+
+    public void GameOver()
+    {
+        if (System.IO.File.Exists(Application.persistentDataPath + "/" + Save.file + ".json"))
+        {
+            Debug.Log("DELETING");
+            File.Delete(Application.persistentDataPath + "/" + Save.file + ".json");
+        }
+        ResetStatics();
+        SceneManager.LoadScene(0);
     }
 }

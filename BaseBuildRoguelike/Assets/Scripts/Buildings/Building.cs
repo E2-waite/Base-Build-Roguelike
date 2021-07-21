@@ -10,7 +10,6 @@ public abstract class Building : Interaction
     public bool selected = false;
 
     public int repair, maxRepair = 25;
-
     [HideInInspector] public Construct construct;
     protected SpriteRenderer rend;
 
@@ -22,6 +21,10 @@ public abstract class Building : Interaction
         {
             construct = GetComponent<Construct>();
         }
+        else
+        {
+            Pathfinding.UpdateNodeGrid();
+        }
     }
 
     public void Constructed()
@@ -29,6 +32,7 @@ public abstract class Building : Interaction
         isConstructed = true;
         Setup();
         ReloadInspector();
+        Pathfinding.UpdateNodeGrid();
     }
 
     public virtual void Setup()
@@ -50,14 +54,21 @@ public abstract class Building : Interaction
 
         if (repair <= 0)
         {
+            Remove();
             Destroy(gameObject);
             return true;
         }
         return false;
     }
 
-    private void OnDestroy()
+    void Remove()
     {
         Buildings.buildings.Remove(this);
+        Grid.GetTile(new Vector2Int((int)transform.position.x, (int)transform.position.y)).structure = null;
+        if (this is HomeBase)
+        {
+            GameController.Instance.GameOver();
+        }
+        Pathfinding.UpdateNodeGrid();
     }
 }

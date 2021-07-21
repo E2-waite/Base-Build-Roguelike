@@ -23,6 +23,8 @@ public class Load : MonoBehaviour
         return LoadTiles(gameData);
     }
 
+
+
     bool LoadTiles(GameData gameData)
     {
         Grid.Init(gameData.mapSize, gameData.noise);
