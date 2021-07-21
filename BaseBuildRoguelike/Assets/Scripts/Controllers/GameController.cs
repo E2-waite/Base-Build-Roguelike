@@ -102,7 +102,7 @@ public class GameController : MonoSingleton<GameController>
             {
                 if (spawner.buildings[spawner.selectedTemplate].type == Build.Type.multi)
                 {
-                    Grid.SelectTiles(hit.transform.position, new Vector2(2, 2));
+                    Grid.SelectTiles(hit.transform.position, spawner.buildings[spawner.selectedTemplate]);
                 }
                 else
                 {
@@ -120,7 +120,7 @@ public class GameController : MonoSingleton<GameController>
             if (gameState == GameState.build)
             {
                 // Place building on selected tile
-                spawner.BuildStructure(Grid.selectedTiles[0]);
+                spawner.BuildStructure();
                 Grid.SelectTile(Grid.selectedTiles[0].transform.position, spawner.buildings[spawner.selectedTemplate]);
             }
             else if (gameState == GameState.destroy)

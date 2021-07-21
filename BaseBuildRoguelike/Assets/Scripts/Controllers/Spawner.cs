@@ -110,15 +110,28 @@ public class Spawner : MonoSingleton<Spawner>
         Buildings.homeBase = tile.structure as HomeBase;
         Buildings.buildings.Add(Buildings.homeBase);
     }
-    public void BuildStructure(Tile tile)
+    public void BuildStructure()
     {
-        if (Build.CanBuild(buildings[selectedTemplate].type, new Vector2Int((int)tile.transform.position.x, (int)tile.transform.position.y)))
+        if (Build.CanBuild(buildings[selectedTemplate].type))
         {
-            GameObject building = Instantiate(buildings[selectedTemplate].prefab, tile.transform.position, Quaternion.identity);
-            tile.structure = building.GetComponent<Interaction>();
-            (tile.structure as Building).type = selectedTemplate;
-            Buildings.buildings.Add(tile.structure as Building);
-            tile.structure.transform.parent = tile.transform;
+            Vector3 pos = Grid.selectedTiles[0].transform.position;
+            if (Grid.selectedTiles.Count > 1)
+            {
+                Vector3 centre = new Vector3();
+                for (int i = 0; i < Grid.selectedTiles.Count;  i++)
+                {
+                    centre += Grid.selectedTiles[i].transform.position;
+                }
+                pos = centre / Grid.selectedTiles.Count;
+            }
+            GameObject building = Instantiate(buildings[selectedTemplate].prefab, pos, Quaternion.identity);
+            Interaction structure = building.GetComponent<Interaction>();
+            for (int i = 0; i < Grid.selectedTiles.Count; i++)
+            {
+                Grid.selectedTiles[i].structure = structure;
+            }
+            (structure as Building).type = selectedTemplate;
+            Buildings.buildings.Add(structure as Building);
             Pathfinding.UpdateNodeGrid();
         }
     }

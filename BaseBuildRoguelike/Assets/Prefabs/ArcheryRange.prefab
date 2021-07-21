@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7355276158821869780}
   - component: {fileID: 128461321568095130}
   - component: {fileID: 6278972727006758071}
+  - component: {fileID: 4819493926214089216}
   m_Layer: 0
   m_Name: ArcheryRange
   m_TagString: Untagged
@@ -96,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2f47032e75dab47b1ee93bb76d07c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inspectorName: 
-  staticObject: 0
+  inspectorName: Archery Range
+  staticObject: 1
   statusEffects: []
   glow: {fileID: 0}
   type: 99
@@ -106,4 +107,17 @@ MonoBehaviour:
   repair: 0
   maxRepair: 25
   construct: {fileID: 0}
-  archerPrefab: {fileID: 0}
+  archerPrefab: {fileID: 8840559666961402214, guid: aa27a70a0b3e25b469136317101ae80d, type: 3}
+--- !u!114 &4819493926214089216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8409684493181859174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9253cf6d0bc70c74caae7bb934c9b31c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  update: 0

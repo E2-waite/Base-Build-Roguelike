@@ -11,11 +11,12 @@ public static class Build
         shore
     }
 
-    public static bool CanBuild(Type type, Vector2Int pos)
+    public static bool CanBuild(Type type)
     {
         if (type == Type.standard)
         {
-            Tile tile = Grid.tiles[pos.x, pos.y];
+
+            Tile tile = Grid.selectedTiles[0];
             if (tile != null && tile.structure == null && tile.type != Tile.Type.water)
             {
                 return true;
@@ -23,7 +24,7 @@ public static class Build
         }
         else if (type == Type.shore)
         {
-            Vector2Int[] neighbours = Params.Get4Neighbours(pos);
+            Vector2Int[] neighbours = Params.Get4Neighbours(Grid.selectedPos);
             int neighbouringLand = 0;
             for (int i = 0; i < 4; i++)
             {
@@ -40,6 +41,18 @@ public static class Build
             {
                 return true;
             }
+        }
+        else if (type == Type.multi)
+        {
+            for (int i = 0; i < Grid.selectedTiles.Count; i++)
+            {
+                Tile tile = Grid.selectedTiles[i];
+                if (tile == null || tile.structure != null || tile.type == Tile.Type.water)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
         return false;
     }

@@ -41,11 +41,11 @@ public static class Grid
         selectedTiles = new List<Tile>();
 
         selectedTiles.Add(tiles[selectedPos.x, selectedPos.y]);
-        tiles[selectedPos.x, selectedPos.y].Select(Build.CanBuild(buildingTemplate.type, selectedPos));
+        tiles[selectedPos.x, selectedPos.y].Select(Build.CanBuild(buildingTemplate.type));
     }
 
     // Selects tiles in a 2x2 grid 
-    public static void SelectTiles(Vector3 tilePos, Vector2 size)
+    public static void SelectTiles(Vector3 tilePos, Spawner.BuildingTemplate buildingTemplate)
     {
         selectedPos = new Vector2Int((int)tilePos.x, (int)tilePos.y);
 
@@ -66,9 +66,16 @@ public static class Grid
                 {
                     Tile tile = tiles[pos.x, pos.y];
                     selectedTiles.Add(tile);
-                    tile.Select(false);
                 }
             }
+        }
+
+        bool canBuild = Build.CanBuild(buildingTemplate.type);
+        Debug.Log((canBuild) ? "Can Build" : "Can't Build");
+        for (int i = 0; i < selectedTiles.Count; i++)
+        {
+            Tile tile = selectedTiles[i];
+            tile.Select(canBuild);
         }
     }
 
