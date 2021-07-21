@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IconSprites : MonoBehaviour
 {
-    public Sprite[] resourceIcons = new Sprite[Resources.NUM], followerIcons;
+    public Sprite[] resourceIcons = new Sprite[Resources.NUM], followerIcons, modifyIcons;
 
     private void Start()
     {
@@ -23,6 +23,11 @@ public static class Icons
     public static Sprite Follower(Follower.Type type)
     {
         return sprites.followerIcons[(int)type];
+    }
+
+    public static Sprite Modify(int type)
+    {
+        return sprites.modifyIcons[type];
     }
 }
 

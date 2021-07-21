@@ -7,7 +7,7 @@ public class InspectorObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
 {
     public Text title;
     public InspectorDetails currentDetails = null;
-    public InspectorDetails storageDetails, constructionDetails, homeDetails, followerDetails, squadDetails;
+    public InspectorDetails storageDetails, constructionDetails, homeDetails, followerDetails, squadDetails, trainerDetails;
     public bool mouseOver = false;
     public float toggleSpeed = 500f;
     public GameObject toggleButton;
@@ -130,6 +130,10 @@ public class InspectorObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
             else if (building is HomeBase)
             {
                 return homeDetails;
+            }
+            else if (building is Trainer)
+            {
+                return trainerDetails;
             }
         }
         else

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Trainer : Building
 {
-    public struct Training
+    public class Training
     {
         public Follower follower;
         public Cooldown time;
@@ -15,25 +15,24 @@ public abstract class Trainer : Building
             time = _time;
         }
     }
-    const int maxTraining = 3;
-    protected List<Training> training = new List<Training>();
+    public Training[] training = new Training[3];
 
     private void Update()
     {
-        for (int i = 0; i < training.Count; i++)
+        for (int i = 0; i < 3; i++)
         {
-            if (training[i].time.Tick())
+            if (training[i] != null && training[i].time.Tick())
             {
                 FinishTraining(i);
             }
         }
     }
 
-    public bool AddFollower(Follower follower)
+    public bool AddFollower(Follower follower, int index)
     {
-        if (training.Count < maxTraining)
+        if (training[index] == null)
         {
-            training.Add(new Training(follower, new Cooldown(5)));
+            training[index] = new Training(follower, new Cooldown(5));
             return true;
         }
         return false;

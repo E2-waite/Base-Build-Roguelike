@@ -151,13 +151,13 @@ public class GameController : MonoSingleton<GameController>
                     if (target is Follower)
                     {
                         Followers.Select(target as Follower);
-                        Buildings.Deselect();
+                        //Buildings.Deselect();
                         gameState = GameState.direct;
                         return;
                     }
                     else if (target is Building)
                     {
-                        Followers.Deselect();
+                        //Followers.Deselect();
                         Buildings.Select(hit.collider.gameObject);
                         return;
                     }

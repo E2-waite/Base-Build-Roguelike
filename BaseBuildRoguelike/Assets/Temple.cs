@@ -12,6 +12,6 @@ public class Temple : Trainer
         Followers.Remove(training[index].follower);
         Destroy(training[index].follower.gameObject);
         Followers.Add(priest.GetComponent<Priest>());
-        training.RemoveAt(index);
+        training[index] = null;
     }
 }

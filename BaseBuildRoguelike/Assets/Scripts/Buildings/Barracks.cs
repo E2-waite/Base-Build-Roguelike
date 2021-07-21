@@ -12,6 +12,6 @@ public class Barracks : Trainer
         Followers.Remove(training[index].follower);
         Destroy(training[index].follower.gameObject);
         Followers.Add(soldier.GetComponent<Soldier>());
-        training.RemoveAt(index);
+        training[index] = null;
     }
 }

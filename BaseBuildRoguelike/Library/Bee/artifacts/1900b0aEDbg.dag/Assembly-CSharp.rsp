@@ -412,6 +412,7 @@
 "Assets/Scripts/UI/Inspector/FollowerInspector.cs"
 "Assets/Scripts/UI/Inspector/SquadInspector.cs"
 "Assets/Scripts/UI/Inspector/StorageInspector.cs"
+"Assets/Scripts/UI/Inspector/TrainerInspector.cs"
 "Assets/Scripts/UI/InspectorObject.cs"
 "Assets/Scripts/UI/MainMenu/MainMenu.cs"
 "Assets/Temple.cs"

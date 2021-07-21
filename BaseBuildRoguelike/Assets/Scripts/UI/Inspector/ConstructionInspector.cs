@@ -6,6 +6,7 @@ public class ConstructionInspector : InspectorDetails
 {
     public Image[] icons;
     public Text[] texts;
+
     public override int Reload(Interaction selected)
     {
         Construct construct = (selected as Building).construct;

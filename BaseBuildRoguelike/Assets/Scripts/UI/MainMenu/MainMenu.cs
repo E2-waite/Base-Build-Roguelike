@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.IO;
-public class MainMenu : MonoBehaviour, IPointerClickHandler
+public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     enum Buttons
     {
@@ -32,7 +32,7 @@ public class MainMenu : MonoBehaviour, IPointerClickHandler
         {
             if (System.IO.File.Exists(Application.persistentDataPath + "/SaveData" + (i + 1).ToString() + ".json"))
             {
-                gameSaves[i].transform.GetChild(0).GetComponent<Text>().text = ("-Save " + (i + 1).ToString() + "-");
+                gameSaves[i].transform.GetChild(1).GetComponent<Text>().text = ("-Save " + (i + 1).ToString() + "-");
             }
         }
         menus[1].SetActive(false);
@@ -75,13 +75,21 @@ public class MainMenu : MonoBehaviour, IPointerClickHandler
         {
             for (int i = 0; i < gameSaves.Length; i++)
             {
-                if (eventData.pointerCurrentRaycast.gameObject == gameSaves[i])
+                if (eventData.pointerCurrentRaycast.gameObject == gameSaves[i].transform.GetChild(0))
+                {
+                    File.Delete(Application.persistentDataPath + "/SaveData" + (i + 1).ToString() + ".json");
+                    gameSaves[i].transform.GetChild(1).GetComponent<Text>().text = "-Blank Save";
+                    gameSaves[i].transform.GetChild(0).gameObject.SetActive(false);
+
+                }
+                else if (eventData.pointerCurrentRaycast.gameObject == gameSaves[i])
                 {
                     Save.file = "SaveData" + (i + 1).ToString();
                     SceneManager.LoadScene(1);
                 }
             }
         }
+
     }
 
     void SwitchMenu(Menu menu)
@@ -89,5 +97,27 @@ public class MainMenu : MonoBehaviour, IPointerClickHandler
         menus[(int)currentMenu].SetActive(false);
         currentMenu = menu;
         menus[(int)currentMenu].SetActive(true);
+    }
+
+    public void OnPointerEnter(PointerEventData pointerEventData)
+    {
+        if (currentMenu == Menu.saves)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                if (pointerEventData.pointerCurrentRaycast.gameObject == gameSaves[i] && System.IO.File.Exists(Application.persistentDataPath + "/SaveData" + (i + 1).ToString() + ".json"))
+                {
+                    gameSaves[i].transform.GetChild(0).gameObject.SetActive(true);
+                }
+            }
+        }
+    }
+
+    public void OnPointerExit(PointerEventData pointerEventData)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            gameSaves[i].transform.GetChild(0).gameObject.SetActive(false);
+        }
     }
 }

@@ -13,6 +13,6 @@ public class ArcheryRange : Trainer
         Followers.Remove(training[index].follower);
         Destroy(training[index].follower.gameObject);
         Followers.Add(archer.GetComponent<Archer>());
-        training.RemoveAt(index);
+        training[index] = null;
     }
 }
