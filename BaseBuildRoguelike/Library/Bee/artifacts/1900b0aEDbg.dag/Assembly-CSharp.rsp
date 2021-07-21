@@ -354,6 +354,7 @@
 "Assets/ParticleManager.cs"
 "Assets/Scripts/Build.cs"
 "Assets/Scripts/Buildings/ArcheryRange.cs"
+"Assets/Scripts/Buildings/Barracks.cs"
 "Assets/Scripts/Buildings/Building.cs"
 "Assets/Scripts/Buildings/Construct.cs"
 "Assets/Scripts/Buildings/GuardTower.cs"
@@ -362,6 +363,7 @@
 "Assets/Scripts/Buildings/Pier.cs"
 "Assets/Scripts/Buildings/PurifyPillar.cs"
 "Assets/Scripts/Buildings/ResourceStorage.cs"
+"Assets/Scripts/Buildings/Trainer.cs"
 "Assets/Scripts/Buildings/Wall.cs"
 "Assets/Scripts/Controllers/Buildings.cs"
 "Assets/Scripts/Controllers/Creatures.cs"
@@ -412,6 +414,7 @@
 "Assets/Scripts/UI/Inspector/StorageInspector.cs"
 "Assets/Scripts/UI/InspectorObject.cs"
 "Assets/Scripts/UI/MainMenu/MainMenu.cs"
+"Assets/Temple.cs"
 -langversion:8.0
 
 /deterministic

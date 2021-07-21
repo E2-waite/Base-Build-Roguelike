@@ -1639,6 +1639,14 @@ MonoBehaviour:
     prefab: {fileID: 8409684493181859174, guid: c9cc39c57f2ed3f40bc695bd1e6fc530, type: 3}
     sprite: {fileID: 21300000, guid: 4b6f0a1292334d543ac66ea37695f1aa, type: 3}
     type: 1
+  - name: Barracks
+    prefab: {fileID: 8409684493181859174, guid: 809f6bdabf29e6642b09e257c92acb0a, type: 3}
+    sprite: {fileID: 21300000, guid: 9680abfa49ff5334bbd33d7c32aa536e, type: 3}
+    type: 1
+  - name: Temple
+    prefab: {fileID: 8409684493181859174, guid: 257c36affca64ff4fb5a93eb46f4aa13, type: 3}
+    sprite: {fileID: 21300000, guid: c414c7fcafe71f24f9ef0657d8ec6d46, type: 3}
+    type: 1
   selectedTemplate: 0
   rabbitPrefab: {fileID: 6563278837278293193, guid: e50a273da9c7dff439d70dd735cb9fdd, type: 3}
   creatureScale: 10
