@@ -11,6 +11,7 @@ public abstract class Enemy : Interaction
     public LayerMask buildingMask;
     public Squad squad;
     public Target target = new Target();
+    public List<Target> targets = new List<Target>();
     public List<Vector2Int> path = new List<Vector2Int>();
     public Vector2Int currentPos;
     protected SpriteRenderer rend;
@@ -19,12 +20,14 @@ public abstract class Enemy : Interaction
     private void Start()
     {
         currentPos = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
-        if (!Targetting.FindTarget(ref target, squad, transform.position, Followers.followers))
+        targets.Add(new Target(Buildings.homeBase));
+        Target newTarget = new Target();
+        if (Targetting.FindTarget(ref newTarget, squad, transform.position, Followers.followers))
         {
-            target = new Target(Buildings.homeBase);
-            Pathfinding.FindPath(ref path, currentPos, target.Position2D(), 1);
+            targets.Add(newTarget);
         }
-
+        target = targets[targets.Count - 1];
+        Pathfinding.FindPath(ref path, currentPos, target.Position2D(), 1);
         rend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         health = maxHealth;
@@ -58,16 +61,33 @@ public abstract class Enemy : Interaction
             }
             float diff = pathPos.y - transform.position.y;
             anim.SetInteger("Direction", Mathf.RoundToInt(diff));
-
-
-            // Damage building in path
-            //RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(xDiff, yDiff), .2f, buildingMask);
-
-            //if (hit.collider != null && !(target is Follower) && target.gameObject != hit.collider.gameObject)
-            //{
-            //    target = hit.collider.GetComponent<Interaction>();
-            //}
         }
+    }
+
+    protected void UpdateTarget()
+    {
+        Target newTarget = new Target();
+        if (Targetting.FindTarget(ref newTarget, squad, transform.position, Followers.followers))
+        {
+            targets.Add(newTarget);
+        }
+        else
+        {
+            for (int i = targets.Count - 1; i >= 0; i--)
+            {
+                if (targets[i].interact == null)
+                {
+                    targets.RemoveAt(i);
+                }
+                else
+                {
+                    newTarget = targets[i];
+                    break;
+                }
+            }
+        }
+        target = newTarget;
+        Pathfinding.FindPath(ref path, transform.position, target.Position2D(), 1);
     }
 
     protected void Swarm()

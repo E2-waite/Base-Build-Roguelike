@@ -137,7 +137,7 @@ public class Tile : MonoBehaviour
             if (Grid.InGrid(neighbours[i]))
             {
                 Tile neighbour = Grid.GetTile(neighbours[i]);
-                if (neighbour.type != Type.water && !neighbour.isProtected)
+                if (neighbour != null && neighbour.type != Type.water && !neighbour.isProtected)
                 {
                     neighbour.Corrupt(neighbours[i]);
                 }

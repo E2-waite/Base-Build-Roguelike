@@ -168,7 +168,7 @@ MonoBehaviour:
   isConstructed: 1
   selected: 0
   repair: 0
-  maxRepair: 20
+  maxRepair: 5
   construct: {fileID: 0}
   range: 5
   archer: {fileID: 0}

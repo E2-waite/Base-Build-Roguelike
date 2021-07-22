@@ -24,18 +24,7 @@ public class Undead : Enemy
             Swarm();
             if (target.interact == null)
             {
-                if (Targetting.FindTarget(ref target, squad, transform.position, Followers.followers))
-                {
-                    Debug.Log("New target found");
-
-                }
-                else
-                {
-                    Debug.Log("No new target found");
-                    // Go back to attacking the home building if no targets could be found
-                    target = new Target(Buildings.homeBase);
-                    Pathfinding.FindPath(ref path, transform.position, target.Position2D(), 1);
-                }
+                UpdateTarget();
             }
             else
             {

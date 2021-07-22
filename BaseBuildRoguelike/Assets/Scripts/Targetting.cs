@@ -14,7 +14,7 @@ public static class Targetting
         foreach (T tempTarget in targets)
         {
             Interaction target = tempTarget as Interaction;
-            if (target != null)
+            if (target != null && target.gameObject.activeSelf)
             {
                 float dist = Vector3.Distance(pos, target.transform.position);
 
