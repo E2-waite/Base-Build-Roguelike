@@ -56,6 +56,11 @@ public  static class Followers
         HUD.Instance.UpdateFollowers(followers.Count, maxFollowers);
     }
 
+    public static void UpdateHUD()
+    {
+        HUD.Instance.UpdateFollowers(followers.Count, maxFollowers);
+    }
+
     public static void Direct(Vector2 pos, GameObject obj)
     {
         Interaction objInteraction = null;

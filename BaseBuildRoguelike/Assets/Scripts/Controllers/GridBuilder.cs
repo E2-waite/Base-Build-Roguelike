@@ -12,7 +12,7 @@ public class GridBuilder : MonoSingleton<GridBuilder>
     public void Generate()
     {
         Grid.Init(mapSize, noise);
-        Grid.startPos = new Vector2Int((int)(Grid.size / 2), (int)(Grid.size / 2));
+        Vector2Int centre = new Vector2Int((int)(Grid.size / 2), (int)(Grid.size / 2));
         Random.seed = System.DateTime.Now.Millisecond;
         Vector2 noiseStart = new Vector2(Random.Range(0, 10000), Random.Range(0, 10000));
         for (int y = 0; y < Grid.size; y++)
@@ -21,7 +21,7 @@ public class GridBuilder : MonoSingleton<GridBuilder>
             {
                 Vector2 pos = new Vector2(x, y);
                 
-                if (Vector2.Distance(pos, Grid.startPos) <= Grid.size / 2)
+                if (Vector2.Distance(pos, centre) <= Grid.size / 2)
                 {
                     GameObject tile;
                     float noise = Mathf.PerlinNoise((noiseStart.x + x) / (Grid.noise / 10), (noiseStart.y + y) / (Grid.noise / 10));
@@ -48,6 +48,17 @@ public class GridBuilder : MonoSingleton<GridBuilder>
                         Grid.tiles[x, y].Setup();
                     }
                 }
+            }
+        }
+
+        bool startSet = false;
+        while (!startSet)
+        {
+            Grid.startPos = new Vector2Int(Random.Range(centre.x - (Grid.size / 5), centre.x + (Grid.size / 5)), Random.Range(centre.y - (Grid.size / 5), centre.y + (Grid.size / 5)));
+            Tile baseTile = Grid.tiles[Grid.startPos.x, Grid.startPos.y], followerTile = Grid.tiles[Grid.startPos.x, Grid.startPos.y - 1];
+            if (baseTile != null && followerTile != null && baseTile.type != Tile.Type.water && followerTile.type != Tile.Type.water && baseTile.structure == null && followerTile.structure == null)
+            {
+                startSet = true;
             }
         }
 

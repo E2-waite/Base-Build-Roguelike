@@ -39,6 +39,16 @@ public abstract class Trainer : Building
         }
         return false;
     }
+    public override void Destroy()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            if (training[i].follower != null)
+            {
+                training[i].follower.gameObject.SetActive(true);
+            }
+        }
+    }
 
     public virtual void FinishTraining(int index) {}
 }

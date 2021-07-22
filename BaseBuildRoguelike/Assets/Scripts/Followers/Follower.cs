@@ -304,6 +304,7 @@ public abstract class Follower : Interaction
         {
             Instantiate(corpsePrefab, transform.position, Quaternion.identity);
             Followers.Remove(this);
+            Followers.UpdateHUD();
             if (squad != null)
             {
                 squad.RemoveMember(this);

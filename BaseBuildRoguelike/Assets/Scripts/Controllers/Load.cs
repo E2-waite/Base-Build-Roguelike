@@ -150,6 +150,10 @@ public class Load : MonoBehaviour
                 {
                     (building as ResourceStorage).SetVal(buildingData.storage);
                 }
+                else if (building is House)
+                {
+                    Followers.AdjustMaxFollowers(5);
+                }
             }
 
             // Add to building list based on type

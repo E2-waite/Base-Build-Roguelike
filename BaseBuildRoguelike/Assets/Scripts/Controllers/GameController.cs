@@ -34,7 +34,7 @@ public class GameController : MonoSingleton<GameController>
         {
             GridBuilder.Instance.Generate();
             spawner.Setup();
-            spawner.SpawnFollower(new Vector3(Grid.startPos.x, Grid.startPos.y, 0));
+            spawner.SpawnFollower(new Vector3(Grid.startPos.x, Grid.startPos.y - 1, 0));
             spawner.SpawnHome(Grid.tiles[Grid.startPos.x, Grid.startPos.y]);
             gameCam.transform.position = new Vector3(Grid.startPos.x, Grid.startPos.y, gameCam.transform.position.z);
         }
@@ -127,7 +127,8 @@ public class GameController : MonoSingleton<GameController>
             {
                 if (Grid.selectedTiles[0].structure is Building && !(Grid.selectedTiles[0].structure is HomeBase))
                 {
-                    Destroy(Grid.selectedTiles[0].structure.gameObject);
+                    (Grid.selectedTiles[0].structure as Building).Destroy();
+                    Destroy(Grid.selectedTiles[0].structure);
                 }
             }
             else
