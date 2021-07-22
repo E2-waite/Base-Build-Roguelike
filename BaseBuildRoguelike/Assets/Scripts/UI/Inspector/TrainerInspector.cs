@@ -5,45 +5,41 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 public class TrainerInspector : InspectorDetails, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
-    public GameObject[] icons = new GameObject[3];
+    public GameObject[] buttons = new GameObject[3];
+    public Image[] progressBars = new Image[3];
     public Trainer trainer;
     public override int Reload(Interaction selected)
     {
         trainer = selected as Trainer;
 
-        //Sprite sprite = null;
-        //if (trainer is Barracks)
-        //{
-        //    sprite = Icons.Follower(Follower.Type.soldier);
-        //}
-        //else if (trainer is ArcheryRange)
-        //{
-        //    sprite = Icons.Follower(Follower.Type.archer);
-        //}
-        //else if (trainer is Temple)
-        //{
-        //    sprite = Icons.Follower(Follower.Type.priest);
-        //}
-        //int resizeVal = 0;
-        //Vector2 iconPos = startIcon, progressBarPos = startInfo;
-        //for (int i = 0; i < 3; i++)
-        //{
-        //    icons[i].GetComponent<Image>().sprite = sprite;
-        //    iconPos.y -= offset;
-        //    progressBarPos.y -= offset;
-        //    resizeVal = i * offset;
-        //}
-
-        return 90;
+        for (int i = 0; i < 3; i++)
+        {
+            if (trainer.training[i] == null)
+            {
+                buttons[i].transform.GetChild(0).gameObject.SetActive(false);
+                progressBars[i].gameObject.SetActive(false);
+            }
+            else
+            {
+                buttons[i].transform.GetChild(0).gameObject.SetActive(true);
+                progressBars[i].gameObject.SetActive(true);
+                Image icon = buttons[i].transform.GetChild(0).GetComponent<Image>();
+                icon.sprite = Icons.Follower(Follower.Type.worker);
+            }
+        }
+        return 70;
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
         for (int i = 0; i < 3; i++)
         { 
-            if (eventData.pointerCurrentRaycast.gameObject == icons[i] && trainer.training[i] == null && Followers.selected != null && Followers.selected is Worker)
+            if (eventData.pointerCurrentRaycast.gameObject == buttons[i] && trainer.training[i] == null && Followers.selected != null && Followers.selected is Worker)
             {
+                progressBars[i].gameObject.SetActive(true);
                 trainer.AddFollower(Followers.selected, i);
+                Image icon = buttons[i].transform.GetChild(0).GetComponent<Image>();
+                icon.sprite = Icons.Follower(Follower.Type.worker);
             }
         }
     }
@@ -52,9 +48,10 @@ public class TrainerInspector : InspectorDetails, IPointerEnterHandler, IPointer
     {
         for (int i = 0; i < 3; i++)
         {
-            if (pointerEventData.pointerCurrentRaycast.gameObject == icons[i] && trainer.training[i] == null && Followers.selected != null && Followers.selected is Worker)
+            if (pointerEventData.pointerCurrentRaycast.gameObject == buttons[i] && trainer.training[i] == null && Followers.selected != null && Followers.selected is Worker)
             {
-                icons[i].GetComponent<Image>().sprite = Icons.Modify(0);
+                buttons[i].transform.GetChild(0).gameObject.SetActive(true);
+                buttons[i].transform.GetChild(0).GetComponent<Image>().sprite = Icons.Modify(0);
             }
         }
     }
@@ -63,9 +60,45 @@ public class TrainerInspector : InspectorDetails, IPointerEnterHandler, IPointer
     {
         for (int i = 0; i < 3; i++)
         {
-
-                Image icon = icons[i].GetComponent<Image>();
+            if (trainer.training[i] == null)
+            {
+                buttons[i].transform.GetChild(0).gameObject.SetActive(false);
+            }
+            else
+            {
+                Image icon = buttons[i].transform.GetChild(0).GetComponent<Image>();
                 icon.sprite = Icons.Follower(Follower.Type.worker);
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (trainer != null)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                if (trainer.training[i] == null)
+                {
+                    if (progressBars[i].gameObject.activeSelf)
+                    {
+                        progressBars[i].gameObject.SetActive(false);
+                    }
+                }
+                else
+                {
+                    if (trainer.training[i].time.Complete())
+                    {
+                        buttons[i].transform.GetChild(0).gameObject.SetActive(false);
+                    }
+                    if (progressBars[i].gameObject.activeSelf)
+                    {
+                        Cooldown time = trainer.training[i].time;
+                        progressBars[i].fillAmount = (time.max - time.current) / time.max;
+                    }
+                }
+
+            }
         }
     }
 }

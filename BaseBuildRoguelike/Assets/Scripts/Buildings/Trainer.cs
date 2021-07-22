@@ -33,6 +33,8 @@ public abstract class Trainer : Building
         if (training[index] == null)
         {
             training[index] = new Training(follower, new Cooldown(5));
+            Followers.selected = null;
+            follower.gameObject.SetActive(false);
             return true;
         }
         return false;
