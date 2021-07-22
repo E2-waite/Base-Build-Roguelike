@@ -22,12 +22,9 @@ public abstract class Enemy : Interaction
         if (!Targetting.FindTarget(ref target, squad, transform.position, Followers.followers))
         {
             target = new Target(Buildings.homeBase);
+            Pathfinding.FindPath(ref path, currentPos, target.Position2D(), 1);
         }
 
-        if (target.interact != null)
-        {
-            Pathfinding.FindPath(ref path, currentPos, target.Position2D());
-        }
         rend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         health = maxHealth;
@@ -162,7 +159,7 @@ public abstract class Enemy : Interaction
     {
         if (target != null && target.interact != null && target.UpdatePath())
         {
-            Pathfinding.FindPath(ref path, currentPos, target.Position2D());
+            Pathfinding.FindPath(ref path, currentPos, target.Position2D(), 1);
         }
         else
         {

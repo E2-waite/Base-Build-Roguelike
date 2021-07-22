@@ -33,7 +33,11 @@ public static class Pathfinding
             {
                 bool isObstacle = false;
                 Tile tile = Grid.tiles[x, y];
-                if ((tile.structure != null && (tile.structure is Resource || (tile.structure is Building && (tile.structure as Building).isConstructed))) || tile.type == Tile.Type.water)
+                if (tile == null)
+                {
+                    isObstacle = true;
+                }
+                else if ((tile.structure != null && (tile.structure is Resource || (tile.structure is Building && (tile.structure as Building).isConstructed))) || tile.type == Tile.Type.water)
                 {
                     isObstacle = true;
                 }

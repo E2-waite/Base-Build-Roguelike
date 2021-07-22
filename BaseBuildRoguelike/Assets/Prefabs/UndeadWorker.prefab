@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ed4355d19cced34a9ec79edb2e08ba3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inspectorName: 
   staticObject: 0
   statusEffects: []
   glow: {fileID: 0}
@@ -113,14 +114,18 @@ MonoBehaviour:
   speed: 2
   targetDist: 1
   targetRange: 15
-  target: {fileID: 0}
   buildingMask:
     serializedVersion: 2
     m_Bits: 512
   squad: {fileID: 0}
-  targetSquad: {fileID: 0}
+  target:
+    interact: {fileID: 0}
+    squad: {fileID: 0}
+    lastPos: {x: 0, y: 0}
+    staticObject: 0
   path: []
-  squadPrefab: {fileID: 8437693019058054867, guid: 4f60460212a58984992ec2ab3a5e4e3b, type: 3}
+  currentPos: {x: 0, y: 0}
+  squadPrefab: {fileID: 8437693019058054867, guid: 3736310da1bc78f42baeb268d09a99ae, type: 3}
   undeadType: 0
   hitSpeed: 1
   canAttack: 1

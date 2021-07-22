@@ -42,7 +42,10 @@ public class Save : MonoBehaviour
         for (int i = 0; i < Resources.allResources.Count; i++)
         {
             Resource resource = Resources.allResources[i] as Resource;
-            gameData.resources[i] = new ResourceData((int)resource.type, resource.val, (int)resource.transform.position.x, (int)resource.transform.position.y);
+            if (resource != null)
+            {
+                gameData.resources[i] = new ResourceData((int)resource.type, resource.val, (int)resource.transform.position.x, (int)resource.transform.position.y);
+            }
         }
     }
 

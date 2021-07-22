@@ -32,7 +32,7 @@ public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             if (System.IO.File.Exists(Application.persistentDataPath + "/SaveData" + (i + 1).ToString() + ".json"))
             {
-                gameSaves[i].transform.GetChild(1).GetComponent<Text>().text = ("-Save " + (i + 1).ToString() + "-");
+                gameSaves[i].transform.GetChild(0).GetComponent<Text>().text = ("-Save " + (i + 1).ToString() + "-");
             }
         }
         menus[1].SetActive(false);
@@ -75,11 +75,11 @@ public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             for (int i = 0; i < gameSaves.Length; i++)
             {
-                if (eventData.pointerCurrentRaycast.gameObject == gameSaves[i].transform.GetChild(0))
+                if (eventData.pointerCurrentRaycast.gameObject == gameSaves[i].transform.GetChild(1))
                 {
                     File.Delete(Application.persistentDataPath + "/SaveData" + (i + 1).ToString() + ".json");
-                    gameSaves[i].transform.GetChild(1).GetComponent<Text>().text = "-Blank Save";
-                    gameSaves[i].transform.GetChild(0).gameObject.SetActive(false);
+                    gameSaves[i].transform.GetChild(0).GetComponent<Text>().text = "-Blank Save";
+                    gameSaves[i].transform.GetChild(1).gameObject.SetActive(false);
 
                 }
                 else if (eventData.pointerCurrentRaycast.gameObject == gameSaves[i])
@@ -107,7 +107,7 @@ public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             {
                 if (pointerEventData.pointerCurrentRaycast.gameObject == gameSaves[i] && System.IO.File.Exists(Application.persistentDataPath + "/SaveData" + (i + 1).ToString() + ".json"))
                 {
-                    gameSaves[i].transform.GetChild(0).gameObject.SetActive(true);
+                    gameSaves[i].transform.GetChild(1).gameObject.SetActive(true);
                 }
             }
         }
@@ -117,7 +117,7 @@ public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         for (int i = 0; i < 3; i++)
         {
-            gameSaves[i].transform.GetChild(0).gameObject.SetActive(false);
+            gameSaves[i].transform.GetChild(1).gameObject.SetActive(false);
         }
     }
 }

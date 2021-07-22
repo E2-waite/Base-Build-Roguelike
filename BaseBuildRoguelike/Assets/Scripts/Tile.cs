@@ -20,7 +20,7 @@ public class Tile : MonoBehaviour
     public SpriteRenderer rend;
 
     public float corruptionVal = 0;
-    float corruptionSpeed = 10, purifySpeed = 50;
+    float corruptionSpeed = 1f, purifySpeed = 50;
     private bool selected;
 
     private List<PurifyPillar> pillars = new List<PurifyPillar>();
@@ -74,13 +74,13 @@ public class Tile : MonoBehaviour
     public void UpdateSprite(int x, int y)
     {
         bool higherTile = false;
-        if (y > 0 && Grid.tiles[x, y - 1].type < type)
+        if (y > 0 && Grid.tiles[x, y - 1] != null && Grid.tiles[x, y - 1].type < type)
         {
             higherTile = true;
         }
 
         bool lowerTile = false;
-        if (y < Grid.tiles.GetLength(1) - 1 && Grid.tiles[x, y + 1].type > type)
+        if (y < Grid.tiles.GetLength(1) - 1 && Grid.tiles[x, y + 1] != null && Grid.tiles[x, y + 1].type > type)
         {
             lowerTile = true;
         }

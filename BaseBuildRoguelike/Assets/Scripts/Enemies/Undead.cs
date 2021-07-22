@@ -34,10 +34,7 @@ public class Undead : Enemy
                     Debug.Log("No new target found");
                     // Go back to attacking the home building if no targets could be found
                     target = new Target(Buildings.homeBase);
-                    if (target.interact != null)
-                    {
-                        Pathfinding.FindPath(ref path, transform.position, target.Position2D());
-                    }
+                    Pathfinding.FindPath(ref path, transform.position, target.Position2D(), 1);
                 }
             }
             else

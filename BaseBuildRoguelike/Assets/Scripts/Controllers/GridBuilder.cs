@@ -20,30 +20,34 @@ public class GridBuilder : MonoSingleton<GridBuilder>
             for (int x = 0; x < Grid.size; x++)
             {
                 Vector2 pos = new Vector2(x, y);
-                GameObject tile;
+                
+                if (Vector2.Distance(pos, Grid.startPos) <= Grid.size / 2)
+                {
+                    Debug.Log(Vector2.Distance(pos, Grid.startPos) + " " + (Grid.size / 4));
+                    GameObject tile;
+                    float noise = Mathf.PerlinNoise((noiseStart.x + x) / (Grid.noise / 10), (noiseStart.y + y) / (Grid.noise / 10));
+                    if (noise < .25)
+                    {
+                        tile = Instantiate(waterTile, pos, Quaternion.identity);
+                    }
+                    else if (noise >= .25 && noise < .35)
+                    {
+                        tile = Instantiate(sandTile, pos, Quaternion.identity);
+                    }
+                    else if (noise >= .35 && noise < .75)
+                    {
+                        tile = Instantiate(grassTile, pos, Quaternion.identity);
+                    }
+                    else
+                    {
+                        tile = Instantiate(dGrassTile, pos, Quaternion.identity);
+                    }
 
-                float noise = Mathf.PerlinNoise((noiseStart.x + x) / (Grid.noise / 10), (noiseStart.y + y) / (Grid.noise / 10));
-                if (noise < .25)
-                {
-                    tile = Instantiate(waterTile, pos, Quaternion.identity);
-                }
-                else if (noise >= .25 && noise < .35)
-                {
-                    tile = Instantiate(sandTile, pos, Quaternion.identity);
-                }
-                else if (noise >= .35 && noise < .75)
-                {
-                    tile = Instantiate(grassTile, pos, Quaternion.identity);
-                }
-                else
-                {
-                    tile = Instantiate(dGrassTile, pos, Quaternion.identity);
-                }
-
-                if (tile != null)
-                {
-                    Grid.tiles[x, y] = tile.GetComponent<Tile>();
-                    Grid.tiles[x, y].Setup();
+                    if (tile != null)
+                    {
+                        Grid.tiles[x, y] = tile.GetComponent<Tile>();
+                        Grid.tiles[x, y].Setup();
+                    }
                 }
             }
         }
@@ -52,7 +56,10 @@ public class GridBuilder : MonoSingleton<GridBuilder>
         {
             for (int x = 0; x < Grid.size; x++)
             {
-                Grid.tiles[x, y].UpdateSprite(x, y);
+                if (Grid.tiles[x, y] != null)
+                {
+                    Grid.tiles[x, y].UpdateSprite(x, y);
+                }
             }
         }
 
@@ -64,7 +71,7 @@ public class GridBuilder : MonoSingleton<GridBuilder>
             while (!treePlaced)
             {
                 Vector2Int treePos = new Vector2Int((int)(Random.Range(0, mapSize)), (int)(Random.Range(0, mapSize)));
-                if (Grid.tiles[treePos.x, treePos.y].structure == null &&
+                if (Grid.tiles[treePos.x, treePos.y] != null && Grid.tiles[treePos.x, treePos.y].structure == null &&
                     (Grid.tiles[treePos.x, treePos.y].type == Tile.Type.grass || Grid.tiles[treePos.x, treePos.y].type == Tile.Type.darkGrass))
                 {
                     GameObject obj = Instantiate(treePrefab, Grid.tiles[treePos.x, treePos.y].transform.position, Quaternion.identity);
@@ -83,7 +90,7 @@ public class GridBuilder : MonoSingleton<GridBuilder>
             while (!stonePlaced)
             {
                 Vector2Int stonePos = new Vector2Int((int)(Random.Range(0, mapSize)), (int)(Random.Range(0, mapSize)));
-                if (Grid.tiles[stonePos.x, stonePos.y].structure == null && Grid.tiles[stonePos.x, stonePos.y].type != Tile.Type.water)
+                if (Grid.tiles[stonePos.x, stonePos.y] != null && Grid.tiles[stonePos.x, stonePos.y].structure == null && Grid.tiles[stonePos.x, stonePos.y].type != Tile.Type.water)
                 {
                     GameObject obj = Instantiate(stonePrefab, Grid.tiles[stonePos.x, stonePos.y].transform.position, Quaternion.identity);
                     Grid.tiles[stonePos.x, stonePos.y].structure = obj.GetComponent<Interaction>();
@@ -101,7 +108,7 @@ public class GridBuilder : MonoSingleton<GridBuilder>
         {
             Vector2Int corruptPos = new Vector2Int(Random.Range(0, mapSize), Random.Range(0, mapSize));
             float dist = Vector2Int.Distance(corruptPos, Grid.startPos);
-            if (Grid.tiles[corruptPos.x, corruptPos.y].type != Tile.Type.water && dist > Grid.size / 4)
+            if (Grid.tiles[corruptPos.x, corruptPos.y] != null && Grid.tiles[corruptPos.x, corruptPos.y].type != Tile.Type.water && dist > Grid.size / 4)
             {
                 Debug.Log(corruptPos.ToString() + " Started Corruption");
                 Grid.tiles[corruptPos.x, corruptPos.y].Corrupt(corruptPos);

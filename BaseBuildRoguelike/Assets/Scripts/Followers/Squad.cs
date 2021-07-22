@@ -56,6 +56,7 @@ public class Squad : MonoBehaviour
         members.Add(enemy2);
         enemy1.squad = this;
         enemy2.squad = this;
+        type = Type.hostile;
     }
 
     public void Setup(int[] memberIndexes)

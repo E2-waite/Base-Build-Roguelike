@@ -41,10 +41,8 @@ public static class Targetting
             if (target.squad == null)
             {
                 target = new Target(Targetting.GetClosestTarget(targets, pos));
-                Debug.Log("Got closest target");
                 if (target.interact != null)
                 {
-                    Debug.Log("RETURNING FUCKING TRUE");
                     return true;
                 }
             }

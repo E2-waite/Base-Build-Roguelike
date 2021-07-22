@@ -121,7 +121,7 @@ MonoBehaviour:
   repair: 0
   maxRepair: 25
   construct: {fileID: 0}
-  priestPrefab: {fileID: 0}
+  priestPrefab: {fileID: 8840559666961402214, guid: e527585eeb9171043a3bac4c7574ba53, type: 3}
 --- !u!61 &785670143068407724
 BoxCollider2D:
   m_ObjectHideFlags: 0
