@@ -13,7 +13,7 @@ public class GuardTower : Building
     public Animator archerAnim;
     public Cooldown shotCooldown = new Cooldown(2.5f);
     // Start is called before the first frame update
-    void Start()
+    public override void Setup()
     {
         detectCol = transform.GetChild(0).GetComponent<CircleCollider2D>();
         archerRend = transform.GetChild(1).GetComponent<SpriteRenderer>();
@@ -25,7 +25,8 @@ public class GuardTower : Building
         if (archer == null)
         {
             archer = newArcher;
-            archerRend.enabled = true;
+            newArcher.gameObject.SetActive(false);
+            archerRend.gameObject.SetActive(true);
             archer.guardTower = this;
         }
     }
@@ -34,12 +35,17 @@ public class GuardTower : Building
     {
         if (archer != null)
         {
-            archerRend.enabled = false;
+            archerRend.gameObject.SetActive(false);
             archer.gameObject.SetActive(true);
-            archer.transform.position = transform.position;
+            archer.transform.position = new Vector3(transform.position.x, transform.position.y - 1, 0);
             archer.guardTower = null;
             archer = null;
         }
+    }
+
+    public override void Destroy()
+    {
+        RemoveArcher();
     }
 
     // Update is called once per frame
@@ -62,6 +68,8 @@ public class GuardTower : Building
             }
             else
             {
+                float diff = target.transform.position.y - transform.position.y;
+                archerAnim.SetInteger("Direction", Mathf.RoundToInt(diff));
                 if (shotCooldown.Complete())
                 {
                     StartCoroutine(FireRoutine());

@@ -24,6 +24,7 @@ public abstract class Building : Interaction
         else
         {
             Pathfinding.UpdateNodeGrid();
+            Setup();
         }
     }
 
@@ -51,14 +52,20 @@ public abstract class Building : Interaction
     public bool Hit(int damage)
     {
         repair -= damage;
-
+        Debug.Log(name + " " + repair);
         if (repair <= 0)
         {
             Remove();
             Destroy(gameObject);
+            Destroy();
             return true;
         }
         return false;
+    }
+
+    public virtual void Destroy()
+    {
+
     }
 
     void Remove()

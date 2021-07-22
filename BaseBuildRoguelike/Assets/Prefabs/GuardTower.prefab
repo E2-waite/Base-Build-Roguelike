@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136b9e642f34f474f947d7ffe4f79fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inspectorName: 
+  inspectorName: Guard Tower
   staticObject: 1
   statusEffects: []
   glow: {fileID: 0}
@@ -168,11 +168,17 @@ MonoBehaviour:
   isConstructed: 1
   selected: 0
   repair: 0
-  maxRepair: 25
+  maxRepair: 20
   construct: {fileID: 0}
   range: 5
   archer: {fileID: 0}
   inRange: []
+  target: {fileID: 0}
+  archerRend: {fileID: 0}
+  archerAnim: {fileID: 0}
+  shotCooldown:
+    max: 2.5
+    current: 2.5
 --- !u!114 &4819493926214089216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,12 +230,12 @@ GameObject:
   - component: {fileID: 8511176511570132636}
   - component: {fileID: 7707405743317178227}
   m_Layer: 0
-  m_Name: ArcherPos
+  m_Name: Archer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8492468856033722187
 Transform:
   m_ObjectHideFlags: 0

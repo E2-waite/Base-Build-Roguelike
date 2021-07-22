@@ -129,9 +129,10 @@ public abstract class Enemy : Interaction
             {
                 squad.SetTarget(attacker);
             }
-            Pathfinding.FindPath(ref path, currentPos, target.Position2D());
+            Pathfinding.FindPath(ref path, currentPos, target.Position2D(), 1);
+            HitReaction(attacker.transform.position);
         }
-        HitReaction(attacker.transform.position);
+
         StartCoroutine(HitRoutine());
 
         if (health <= 0)

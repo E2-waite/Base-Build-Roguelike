@@ -351,6 +351,7 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/VSSettingsProvider.ref.dll"
 "Assets/EnumNamedArrayAttribute.cs"
 "Assets/GuardDetect.cs"
+"Assets/GuardInspector.cs"
 "Assets/IconSprites.cs"
 "Assets/ParticleManager.cs"
 "Assets/Scripts/Build.cs"
