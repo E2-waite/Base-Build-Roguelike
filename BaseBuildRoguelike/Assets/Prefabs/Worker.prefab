@@ -111,6 +111,11 @@ MonoBehaviour:
   glow: {fileID: 474161283604422675}
   type: 0
   state: 0
+  target:
+    interact: {fileID: 0}
+    squad: {fileID: 0}
+    lastPos: {x: 0, y: 0}
+    staticObject: 0
   squad: {fileID: 0}
   maxHealth: 10
   health: 0

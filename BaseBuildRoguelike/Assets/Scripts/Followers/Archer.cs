@@ -4,71 +4,119 @@ using UnityEngine;
 
 public class Archer : Follower
 {
-    enum State
+    public enum State
     {
         idle = 0,
         move = 1,
         attack = 2,
         defend = 3
     }
+    public GuardTower guardTower;
     public float fireRange = 5f, shotTime = 0.5f, shotSpeed = 10;
     public const float cooldownTime = 2.5f;
     public GameObject arrowPrefab;
     public Cooldown shotCooldown = new Cooldown(cooldownTime);
+    public override void BuildingDirect(Building building)
+    {
+        if (building is GuardTower && squad == null)
+        {
+            (building as GuardTower).AddArcher(this);
+        }
+    }
     private void Update()
     {
         shotCooldown.Tick();
-        Swarm();
         TickEffects();
-        if (state == (int)State.move)
+        if (guardTower == null)
         {
-            if (transform.position == marker.transform.position)
+            Swarm();
+            if (state == (int)State.move)
             {
-                state = (int)State.idle;
+                if (transform.position == marker.transform.position)
+                {
+                    state = (int)State.idle;
+                }
+                else
+                {
+                    Move();
+                }
             }
             else
             {
-                Move();
-            }
-        }
-        else
-        {
-            if (target == null || target.interact == null)
-            {
-                if (state == (int)State.attack)
+                if (target == null || target.interact == null)
                 {
-                    if (Targetting.FindTarget(ref target, squad, transform.position, Enemies.enemies))
+                    if (state == (int)State.attack)
                     {
-                        // Debug.Log("Target Found");
+                        if (Targetting.FindTarget(ref target, squad, transform.position, Enemies.enemies))
+                        {
+                            // Debug.Log("Target Found");
+                        }
+                        else
+                        {
+                            state = (int)State.move;
+                        }
                     }
                     else
                     {
-                        state = (int)State.move;
+                        state = (int)State.idle;
                     }
                 }
                 else
                 {
-                    state = (int)State.idle;
+                    float dist = Vector2.Distance(transform.position, target.Position());
+                    if (dist <= fireRange)
+                    {
+                        // Moves away from target if not charging up shot, the target is an enemy and this archer is too close
+                        //if (!attacking && dist < fireRange - 3f && target is Enemy)
+                        //{
+                        //    Move(transform.position + ((transform.position - target.transform.position).normalized));
+                        //}
+                        if (state == (int)State.attack && shotCooldown.Complete() && interactRoutine == null)
+                        {
+                            interactRoutine = StartCoroutine(FireRoutine());
+                        }
+                    }
+                    else
+                    {
+                        Move();
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (target.interact == null)
+            {
+                if (state == (int)State.defend)
+                {
+                    Interaction newTarget = Targetting.GetClosestTarget(guardTower.inRange, guardTower.transform.position);
+                    if (newTarget == null)
+                    {
+                        state = (int)State.idle;
+                    }
+                    else
+                    {
+                        target = new Target(newTarget);
+                    }
                 }
             }
             else
             {
-                float dist = Vector2.Distance(transform.position, target.Position());
-                if (dist <= fireRange)
+                if (state == (int)State.defend)
                 {
-                    // Moves away from target if not charging up shot, the target is an enemy and this archer is too close
-                    //if (!attacking && dist < fireRange - 3f && target is Enemy)
-                    //{
-                    //    Move(transform.position + ((transform.position - target.transform.position).normalized));
-                    //}
-                    if (state == (int)State.attack && shotCooldown.Complete() && interactRoutine == null)
+                    float dist = Vector2.Distance(guardTower.transform.position, target.Position());
+                    if (dist > guardTower.range)
+                    {
+                        target = new Target();
+                    }
+                    else if (shotCooldown.Complete() && interactRoutine == null)
                     {
                         interactRoutine = StartCoroutine(FireRoutine());
                     }
                 }
                 else
                 {
-                    Move();
+                    state = (int)State.defend;
                 }
             }
         }

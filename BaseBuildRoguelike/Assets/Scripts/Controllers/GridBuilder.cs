@@ -23,7 +23,6 @@ public class GridBuilder : MonoSingleton<GridBuilder>
                 
                 if (Vector2.Distance(pos, Grid.startPos) <= Grid.size / 2)
                 {
-                    Debug.Log(Vector2.Distance(pos, Grid.startPos) + " " + (Grid.size / 4));
                     GameObject tile;
                     float noise = Mathf.PerlinNoise((noiseStart.x + x) / (Grid.noise / 10), (noiseStart.y + y) / (Grid.noise / 10));
                     if (noise < .25)

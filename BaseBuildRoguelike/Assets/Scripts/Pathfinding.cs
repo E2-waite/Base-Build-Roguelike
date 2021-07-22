@@ -27,21 +27,24 @@ public static class Pathfinding
     {
         nodeGrid = new Node[Grid.size, Grid.size];
 
-        for (int y = 0; y < Grid.size; y++)
+        if (Grid.tiles != null)
         {
-            for (int x = 0; x < Grid.size; x++)
+            for (int y = 0; y < Grid.size; y++)
             {
-                bool isObstacle = false;
-                Tile tile = Grid.tiles[x, y];
-                if (tile == null)
+                for (int x = 0; x < Grid.size; x++)
                 {
-                    isObstacle = true;
+                    bool isObstacle = false;
+                    Tile tile = Grid.tiles[x, y];
+                    if (tile == null)
+                    {
+                        isObstacle = true;
+                    }
+                    else if ((tile.structure != null && (tile.structure is Resource || (tile.structure is Building && (tile.structure as Building).isConstructed))) || tile.type == Tile.Type.water)
+                    {
+                        isObstacle = true;
+                    }
+                    nodeGrid[x, y] = new Node(isObstacle, new Vector2Int(x, y));
                 }
-                else if ((tile.structure != null && (tile.structure is Resource || (tile.structure is Building && (tile.structure as Building).isConstructed))) || tile.type == Tile.Type.water)
-                {
-                    isObstacle = true;
-                }
-                nodeGrid[x, y] = new Node(isObstacle, new Vector2Int(x, y));
             }
         }
     }

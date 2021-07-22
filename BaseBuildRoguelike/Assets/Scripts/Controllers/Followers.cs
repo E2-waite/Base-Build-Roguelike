@@ -86,15 +86,18 @@ public  static class Followers
             selectedSquad = null;
         }
 
-        selected = follower;
-        if (selected.squad != null)
+        if (follower.selectable)
         {
-            selectedSquad = selected.squad;
-            selectedSquad.Select();
-        }
-        else
-        {
-            selected.Select();
+            selected = follower;
+            if (selected.squad != null)
+            {
+                selectedSquad = selected.squad;
+                selectedSquad.Select();
+            }
+            else
+            {
+                selected.Select();
+            }
         }
     }
 

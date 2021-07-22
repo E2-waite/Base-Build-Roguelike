@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
-public class SquadInspector : InspectorDetails
+public class SquadInspector : InspectorDetails, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public Image[] icons, healthBars;
-
+    Squad squad;
     public override int Reload(Interaction selected)
     {
-        Squad squad = (selected as Follower).squad;
+        squad = (selected as Follower).squad;
 
         if (icons != null)
         {
@@ -44,5 +45,35 @@ public class SquadInspector : InspectorDetails
         }
 
         return resizeVal;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        for (int i = 0; i < icons.Length; i++)
+        {
+            if (eventData.pointerCurrentRaycast.gameObject == icons[i].gameObject)
+            {
+                squad.RemoveMember(squad.members[i]);
+            }
+        }
+    }
+
+    public void OnPointerEnter(PointerEventData pointerEventData)
+    {
+        for (int i = 0; i < icons.Length; i++)
+        {
+            if (pointerEventData.pointerCurrentRaycast.gameObject == icons[i].gameObject)
+            {
+                icons[i].sprite = Icons.Modify(1);
+            }
+        }
+    }
+
+    public void OnPointerExit(PointerEventData pointerEventData)
+    {
+        for (int i = 0; i < icons.Length; i++)
+        {
+            icons[i].sprite = Icons.Follower((squad.members[i] as Follower).type);
+        }
     }
 }

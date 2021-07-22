@@ -432,6 +432,11 @@ MonoBehaviour:
   glow: {fileID: 5484943000779459005}
   type: 3
   state: 0
+  target:
+    interact: {fileID: 0}
+    squad: {fileID: 0}
+    lastPos: {x: 0, y: 0}
+    staticObject: 0
   squad: {fileID: 0}
   maxHealth: 5
   health: 0
@@ -448,6 +453,7 @@ MonoBehaviour:
   path: []
   currentPos: {x: 0, y: 0}
   torchLight: {fileID: 0}
+  selectable: 1
   healAmount: 5
   healRange: 5
   canHeal: 1
@@ -482,7 +488,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.6666667, y: 0.6666667}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

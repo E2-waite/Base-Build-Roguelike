@@ -350,6 +350,7 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/VSSettingsProvider.ref.dll"
 "Assets/EnumNamedArrayAttribute.cs"
+"Assets/GuardDetect.cs"
 "Assets/IconSprites.cs"
 "Assets/ParticleManager.cs"
 "Assets/Scripts/Build.cs"
@@ -363,6 +364,7 @@
 "Assets/Scripts/Buildings/Pier.cs"
 "Assets/Scripts/Buildings/PurifyPillar.cs"
 "Assets/Scripts/Buildings/ResourceStorage.cs"
+"Assets/Scripts/Buildings/Temple.cs"
 "Assets/Scripts/Buildings/Trainer.cs"
 "Assets/Scripts/Buildings/Wall.cs"
 "Assets/Scripts/Controllers/Buildings.cs"
@@ -415,7 +417,6 @@
 "Assets/Scripts/UI/Inspector/TrainerInspector.cs"
 "Assets/Scripts/UI/InspectorObject.cs"
 "Assets/Scripts/UI/MainMenu/MainMenu.cs"
-"Assets/Temple.cs"
 -langversion:8.0
 
 /deterministic

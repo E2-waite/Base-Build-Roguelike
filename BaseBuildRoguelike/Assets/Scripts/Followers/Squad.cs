@@ -128,6 +128,7 @@ public class Squad : MonoBehaviour
             {
                 Followers.selectedSquad = this;
                 Select();
+                Inspector.Enable(members[0]);
             }
         }
     }
@@ -217,8 +218,15 @@ public class Squad : MonoBehaviour
     }
 
     public bool RemoveMember (Interaction member)
-    {
+    { 
         members.Remove(member);
+        if (member is Follower)
+        {
+            Follower follower = member as Follower;
+            follower.Deselect();
+            follower.squad = null;
+        }
+
         if (members.Count == 1)
         {
             if (selected && type == Type.friendly)
@@ -239,6 +247,8 @@ public class Squad : MonoBehaviour
         }
         return false;
     }
+
+
 
     public Interaction ClosestMember(Vector3 pos)
     {

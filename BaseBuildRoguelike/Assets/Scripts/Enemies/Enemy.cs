@@ -117,7 +117,7 @@ public abstract class Enemy : Interaction
     }
 
     // GET HIT
-    public bool Hit(int damage, Follower attacker)
+    public bool Hit(int damage, Interaction attacker)
     {
         health -= damage;
 

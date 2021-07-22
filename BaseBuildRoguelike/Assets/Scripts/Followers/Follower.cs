@@ -29,6 +29,7 @@ public abstract class Follower : Interaction
     public List<Vector2Int> path = new List<Vector2Int>();
     public Vector2Int currentPos;
     public Light2D torchLight;
+    public bool selectable = true;
     protected Animator anim;
     protected SpriteRenderer rend;
     protected Coroutine interactRoutine = null;
@@ -200,6 +201,11 @@ public abstract class Follower : Interaction
             target = new Target();
             state = (int)DefaultState.move; 
         }
+    }
+
+    public virtual void BuildingDirect(Building building)
+    {
+
     }
 
     public virtual IEnumerator PathUpdate()

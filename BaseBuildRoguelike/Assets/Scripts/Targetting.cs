@@ -5,7 +5,7 @@ using UnityEngine;
 public static class Targetting
 {
     public static float targetRange = 15;
-    static Interaction GetClosestTarget<T>(List<T> targets, Vector3 pos)
+    public static Interaction GetClosestTarget<T>(List<T> targets, Vector3 pos)
     {
         // Gets closest target within range out of all target of type
         Interaction newTarget = null;
