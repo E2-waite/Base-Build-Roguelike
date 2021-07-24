@@ -27,12 +27,26 @@ public abstract class Enemy : Interaction
             targets.Add(newTarget);
         }
         target = targets[targets.Count - 1];
-        Pathfinding.FindPath(ref path, currentPos, target.Position2D(), 1);
+
+        FindPath();
+
         rend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         health = maxHealth;
         
         StartCoroutine(PathUpdate());
+    }
+
+    void FindPath()
+    {
+        // Find path and add any buildings blocking the way to the targets list.
+        List<Target> newTargets = new List<Target>();
+        Pathfinding.FindPath(ref path, ref newTargets, currentPos, target.Position2D(), 1);
+        if (newTargets.Count > 0)
+        {
+            targets.AddRange(newTargets);
+            target = targets[targets.Count - 1];
+        }
     }
 
     protected void Move()
@@ -87,7 +101,7 @@ public abstract class Enemy : Interaction
             }
         }
         target = newTarget;
-        Pathfinding.FindPath(ref path, transform.position, target.Position2D(), 1);
+        FindPath();
     }
 
     protected void Swarm()
@@ -145,11 +159,12 @@ public abstract class Enemy : Interaction
         {
             // Update target if current target is not an enemy (stops switching target while in combat)
             target = new Target(attacker);
+            targets.Add(target);
             if (squad != null)
             {
                 squad.SetTarget(attacker);
             }
-            Pathfinding.FindPath(ref path, currentPos, target.Position2D(), 1);
+            FindPath();
             HitReaction(attacker.transform.position);
         }
 
@@ -172,7 +187,7 @@ public abstract class Enemy : Interaction
         if (!(target.interact is Follower))
         {
             target = new Target(newTarget);
-            Pathfinding.FindPath(ref path, currentPos, target.Position2D());
+            FindPath();
         }
     }
 
@@ -180,7 +195,7 @@ public abstract class Enemy : Interaction
     {
         if (target != null && target.interact != null && target.UpdatePath())
         {
-            Pathfinding.FindPath(ref path, currentPos, target.Position2D(), 1);
+            FindPath();
         }
         else
         {

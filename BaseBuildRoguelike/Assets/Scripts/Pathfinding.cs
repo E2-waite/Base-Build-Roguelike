@@ -21,29 +21,52 @@ public static class Pathfinding
         }
     }
 
-    private static Node[,] nodeGrid;
-
+    private static Node[,] followerGrid, enemyGrid;
     public static void UpdateNodeGrid()
     {
-        nodeGrid = new Node[Grid.size, Grid.size];
-
+        followerGrid = new Node[Grid.size, Grid.size];
+        enemyGrid = new Node[Grid.size, Grid.size];
         if (Grid.tiles != null)
         {
             for (int y = 0; y < Grid.size; y++)
             {
                 for (int x = 0; x < Grid.size; x++)
                 {
-                    bool isObstacle = false;
                     Tile tile = Grid.tiles[x, y];
                     if (tile == null)
                     {
-                        isObstacle = true;
+                        followerGrid[x, y] = new Node(true, new Vector2Int(x, y));
+                        enemyGrid[x, y] = new Node(true, new Vector2Int(x, y));
+                        continue;
                     }
-                    else if ((tile.structure != null && (tile.structure is Resource || (tile.structure is Building && (tile.structure as Building).isConstructed))) || tile.type == Tile.Type.water)
+                    else
                     {
-                        isObstacle = true;
+                        if (tile.structure == null)
+                        {
+                            followerGrid[x, y] = new Node(false, new Vector2Int(x, y));
+                            enemyGrid[x, y] = new Node(false, new Vector2Int(x, y));
+                        }
+                        else
+                        {
+                            if (tile.structure is Resource)
+                            {
+                                followerGrid[x, y] = new Node(true, new Vector2Int(x, y));
+                                enemyGrid[x, y] = new Node(true, new Vector2Int(x, y));
+                                continue;
+                            }
+                            else if (tile.structure is Building && (tile.structure as Building).isConstructed)
+                            {
+                                followerGrid[x, y] = new Node(true, new Vector2Int(x, y));
+                                enemyGrid[x, y] = new Node(false, new Vector2Int(x, y));
+                            }
+                            else
+                            {
+                                followerGrid[x, y] = new Node(false, new Vector2Int(x, y));
+                                enemyGrid[x, y] = new Node(false, new Vector2Int(x, y));
+                            }
+                        }
                     }
-                    nodeGrid[x, y] = new Node(isObstacle, new Vector2Int(x, y));
+
                 }
             }
         }
@@ -51,7 +74,8 @@ public static class Pathfinding
 
     public static bool FindPath(ref List<Vector2Int> path, Vector2 startPos, Vector2Int endPos, int maxDist = 0)
     {
-        path = IsPath(new Vector2Int((int)startPos.x, (int)startPos.y), endPos, maxDist);
+
+        path = IsPath(new Vector2Int((int)startPos.x, (int)startPos.y), endPos, maxDist, followerGrid);
 
         if (path.Count > 0)
         {
@@ -61,15 +85,43 @@ public static class Pathfinding
     }
 
 
-    private static List<Vector2Int> IsPath(Vector2 startPos, Vector2Int endPos, int maxDist)
+    public static bool FindPath(ref List<Vector2Int> path, ref List<Target> newTargets, Vector2 startPos, Vector2Int endPos, int maxDist = 0)
     {
-        Node startNode = nodeGrid[(int)startPos.x, (int)startPos.y];
+        // Attempt to find path, around any walls etc.
+        path = IsPath(new Vector2Int((int)startPos.x, (int)startPos.y), endPos, maxDist, followerGrid);
+
+        if (path.Count > 0)
+        {
+            return true;
+        }
+
+        // If no clear path exists, return path including buildings and return a list of building targets
+        path = IsPath(new Vector2Int((int) startPos.x, (int) startPos.y), endPos, maxDist, enemyGrid);
+        if (path.Count > 0)
+        {
+            for (int i = path.Count - 1; i >= 0; i--)
+            {
+                Tile tile = Grid.tiles[path[i].x, path[i].y];
+                if (tile.structure != null)
+                {
+                    path.RemoveRange(i, path.Count - i);
+                    newTargets.Add(new Target(tile.structure));
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
+    private static List<Vector2Int> IsPath(Vector2 startPos, Vector2Int endPos, int maxDist, Node[,] grid)
+    {
+        Node startNode = grid[(int)startPos.x, (int)startPos.y];
         if (startNode.isWall)
         {
             //return new List<Vector2Int>();
-            startNode = nodeGrid[Mathf.RoundToInt(startPos.x), Mathf.RoundToInt(startPos.y)];
+            startNode = grid[Mathf.RoundToInt(startPos.x), Mathf.RoundToInt(startPos.y)];
         }
-        Node endNode = nodeGrid[endPos.x, endPos.y];
+        Node endNode = grid[endPos.x, endPos.y];
 
         List<Node> openList = new List<Node>();
         HashSet<Node> closedList = new HashSet<Node>();
@@ -112,7 +164,7 @@ public static class Pathfinding
                 }
             }
 
-            foreach (Node neighbour in GetNeighbourNodes(nodeGrid, current_node))
+            foreach (Node neighbour in GetNeighbourNodes(grid, current_node))
             {
                 // If the neighbour is a wall, or is on the closed list (already checked) skip over it
                 if (neighbour.isWall || closedList.Contains(neighbour))
