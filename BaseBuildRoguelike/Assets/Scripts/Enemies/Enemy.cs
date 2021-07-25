@@ -21,11 +21,6 @@ public abstract class Enemy : Interaction
     {
         currentPos = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
         targets.Add(new Target(Buildings.homeBase));
-        Target newTarget = new Target();
-        if (Targetting.FindTarget(ref newTarget, squad, transform.position, Followers.followers))
-        {
-            targets.Add(newTarget);
-        }
         target = targets[targets.Count - 1];
 
         FindPath();
@@ -35,18 +30,6 @@ public abstract class Enemy : Interaction
         health = maxHealth;
         
         StartCoroutine(PathUpdate());
-    }
-
-    void FindPath()
-    {
-        // Find path and add any buildings blocking the way to the targets list.
-        List<Target> newTargets = new List<Target>();
-        Pathfinding.FindPath(ref path, ref newTargets, currentPos, target.Position2D(), 1);
-        if (newTargets.Count > 0)
-        {
-            targets.AddRange(newTargets);
-            target = targets[targets.Count - 1];
-        }
     }
 
     protected void Move()
@@ -76,32 +59,6 @@ public abstract class Enemy : Interaction
             float diff = pathPos.y - transform.position.y;
             anim.SetInteger("Direction", Mathf.RoundToInt(diff));
         }
-    }
-
-    protected void UpdateTarget()
-    {
-        Target newTarget = new Target();
-        if (Targetting.FindTarget(ref newTarget, squad, transform.position, Followers.followers))
-        {
-            targets.Add(newTarget);
-        }
-        else
-        {
-            for (int i = targets.Count - 1; i >= 0; i--)
-            {
-                if (targets[i].interact == null)
-                {
-                    targets.RemoveAt(i);
-                }
-                else
-                {
-                    newTarget = targets[i];
-                    break;
-                }
-            }
-        }
-        target = newTarget;
-        FindPath();
     }
 
     protected void Swarm()
@@ -155,16 +112,9 @@ public abstract class Enemy : Interaction
     {
         health -= damage;
 
-        if (!(target.interact is Follower) && attacker != null)
+        if (attacker != null)
         {
-            // Update target if current target is not an enemy (stops switching target while in combat)
-            target = new Target(attacker);
-            targets.Add(target);
-            if (squad != null)
-            {
-                squad.SetTarget(attacker);
-            }
-            FindPath();
+            UpdateTarget(attacker);
             HitReaction(attacker.transform.position);
         }
 
@@ -182,12 +132,70 @@ public abstract class Enemy : Interaction
 
     }
 
-    public void UpdateTarget(Interaction newTarget)
+    protected void UpdateTarget()
     {
-        if (!(target.interact is Follower))
+        if (squad != null)
         {
-            target = new Target(newTarget);
-            FindPath();
+
+        }
+    }
+
+    protected void PreviousTarget()
+    {
+        // Loop through previous targets, selecting the first suitable target
+        Target newTarget = new Target();
+        for (int i = targets.Count - 1; i >= 0; i--)
+        {
+            if (targets[i].interact == null)
+            {
+                targets.RemoveAt(i);
+            }
+            else
+            {
+                newTarget = targets[i];
+                break;
+            }
+        }
+
+        target = newTarget;
+        FindPath();
+    }
+
+    public void UpdateTarget(Interaction interaction, bool fromSquad = false)
+    {
+        if (target.interact != null && !(target.interact is Building))
+        {
+            // Continue attacking current target
+            return;
+        }
+
+        if  (!fromSquad && squad != null)
+        {
+            // If called from a squad, do not attempt to update the target of squad members
+            for (int i = 0; i < squad.members.Count; i++)
+            {
+                if (squad.members[i] != this)
+                {
+                    (squad.members[i] as Enemy).UpdateTarget(interaction, true);
+                }
+            }
+        }
+
+        // Target desired interaction
+        target = new Target(interaction);
+        targets.Add(target);
+        FindPath();
+    }
+
+    void FindPath()
+    {
+        // Find path and add any buildings blocking the way to the targets list.
+        List<Target> newTargets = new List<Target>();
+        Pathfinding.FindPath(ref path, ref newTargets, currentPos, target.Position2D(), 1);
+        if (newTargets.Count > 0)
+        {
+            targets.AddRange(newTargets);
+            target = targets[targets.Count - 1];
         }
     }
 

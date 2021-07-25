@@ -5,15 +5,15 @@ using UnityEngine;
 public  static class Followers
 {
     public static List<Follower> followers = new List<Follower>();
-    public static List<Squad> squads = new List<Squad>();
+    public static List<FollowerSquad> squads = new List<FollowerSquad>();
     public static Follower selected;
-    public static Squad selectedSquad = null;
+    public static FollowerSquad selectedSquad = null;
     public static int maxFollowers = 1;
 
     public static void Reset()
     {
         followers = new List<Follower>();
-        squads = new List<Squad>();
+        squads = new List<FollowerSquad>();
         selected = null;
         selectedSquad = null;
         maxFollowers = 1;

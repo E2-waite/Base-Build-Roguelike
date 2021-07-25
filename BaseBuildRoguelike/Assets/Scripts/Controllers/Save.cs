@@ -130,18 +130,14 @@ public class Save : MonoBehaviour
 
     private void SaveSquads(GameData gameData)
     {
-        List<Squad> allSquads = Followers.squads;
+        List<Squad> allSquads = new List<Squad>();
+        allSquads.AddRange(Followers.squads);
         allSquads.AddRange(Enemies.squads);
         for (int i = 0; i < allSquads.Count; i++)
         {
             Squad squad = allSquads[i];
             int[] members = SquadMembersIndexes(squad);
-            int targetInd = 99999;
-            if (squad.target != null && squad.target.interact != null)
-            {
-                targetInd = squad.target.interact.Index();
-            }
-            gameData.squads[i] = new SquadData(members, 0, targetInd, squad.marker.transform.position.x, squad.marker.transform.position.y);
+            gameData.squads[i] = new SquadData(members);
         }
     }
 
@@ -272,16 +268,9 @@ public class CreatureData
 public class SquadData
 {
     public int[] members;
-    public int state, target;
-    public float x, y;
-
-    public SquadData(int[] _members, int _state, int _target, float _x, float _y)
+    public SquadData(int[] _members)
     {
         members = _members;
-        state = _state;
-        target = _target;
-        x = _x;
-        y = _y;
     }
 }
 

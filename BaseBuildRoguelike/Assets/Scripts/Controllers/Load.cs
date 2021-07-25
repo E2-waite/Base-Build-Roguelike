@@ -252,8 +252,6 @@ public class Load : MonoBehaviour
             {
                 Squad squad = squadObj.GetComponent<Squad>();
                 squad.Setup(squadData.members);
-                squad.target = new Target(Grid.TargetFromIndex(squadData.target));
-                squad.marker.transform.position = new Vector3(squadData.x, squadData.y, 0);
             }
         }
         return SetTargets(gameData);

@@ -52,7 +52,6 @@ public abstract class Building : Interaction
     public bool Hit(int damage)
     {
         repair -= damage;
-        Debug.Log(name + " " + repair);
         if (repair <= 0)
         {
             Remove();

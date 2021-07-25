@@ -22,7 +22,7 @@ public abstract class Follower : Interaction
     public Type type;
     public int state = 0;
     public Target target = new Target();
-    public Squad squad;
+    public FollowerSquad squad;
     public int maxHealth = 10, health, hitDamage = 1;
     public float targetDist = 0.25f, speed = 5f, targetRange = 15, chaseDist = 0.5f;
     public GameObject highlight, marker, squadPrefab, corpsePrefab, bloodEffect = null;
@@ -135,7 +135,7 @@ public abstract class Follower : Interaction
         {
             // No squad - create one
             GameObject newSquad = Instantiate(squadPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-            squad = newSquad.GetComponent<Squad>();
+            squad = newSquad.GetComponent<FollowerSquad>();
             squad.Setup(this, follower);
             return;
         }
@@ -231,33 +231,33 @@ public abstract class Follower : Interaction
         state = (int)DefaultState.move;
     }
 
-    public void TargetEnemy(Enemy enemy)
-    {
-        if (enemy != null)
-        {
-            // Direct follower to target the input enemy
-            if (interactRoutine != null)
-            {
-                StopCoroutine(interactRoutine);
-                interactRoutine = null;
-            }
+    //public void TargetEnemy(Enemy enemy)
+    //{
+    //    if (enemy != null)
+    //    {
+    //        // Direct follower to target the input enemy
+    //        if (interactRoutine != null)
+    //        {
+    //            StopCoroutine(interactRoutine);
+    //            interactRoutine = null;
+    //        }
 
             
-            if (enemy.squad == null)
-            {
-                target = new Target(enemy);
-            }
-            else
-            {
-                // If target enemy is in a squad, instead target closest member of the squad
-                target = new Target(enemy.squad.ClosestMember(transform.position));
-            }
+    //        if (enemy.squad == null)
+    //        {
+    //            target = new Target(enemy);
+    //        }
+    //        else
+    //        {
+    //            // If target enemy is in a squad, instead target closest member of the squad
+    //            target = new Target(enemy.squad.ClosestMember(transform.position));
+    //        }
 
-            marker.transform.position = target.Position();
-            Pathfinding.FindPath(ref path, currentPos, target.Position2D());
-            state = (int)DefaultState.attack;
-        }
-    }
+    //        marker.transform.position = target.Position();
+    //        Pathfinding.FindPath(ref path, currentPos, target.Position2D());
+    //        state = (int)DefaultState.attack;
+    //    }
+    //}
 
     public bool Hit(int damage, Enemy attacker)
     {
@@ -268,11 +268,7 @@ public abstract class Follower : Interaction
 
         if (attacker != null && (state == (int)DefaultState.idle || state == (int)DefaultState.move) && (this is Soldier || this is Archer))
         {
-            TargetEnemy(attacker);
-            if (squad != null)
-            {
-                squad.SetTarget(attacker);
-            }
+            UpdateTarget(attacker);
         }
 
         if (health <= 0)
@@ -281,6 +277,32 @@ public abstract class Follower : Interaction
         }
         return false;
     }
+
+    public void UpdateTarget(Interaction interaction, bool fromSquad = false)
+    {
+        if (target.interact != null && !(target.interact is Building))
+        {
+            // Continue attacking current target
+            return;
+        }
+
+        if (!fromSquad && squad != null)
+        {
+            // If called from a squad, do not attempt to update the target of squad members
+            for (int i = 0; i < squad.members.Count; i++)
+            {
+                if (squad.members[i] != this)
+                {
+                    (squad.members[i] as Enemy).UpdateTarget(interaction, true);
+                }
+            }
+        }
+
+        // Target desired interaction
+        target = new Target(interaction);
+
+    }
+
 
     void Bleed(Vector3 hitPos)
     {

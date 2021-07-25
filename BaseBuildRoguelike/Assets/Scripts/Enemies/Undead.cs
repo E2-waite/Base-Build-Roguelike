@@ -24,7 +24,7 @@ public class Undead : Enemy
             Swarm();
             if (target.interact == null)
             {
-                UpdateTarget();
+                PreviousTarget();
             }
             else
             {
