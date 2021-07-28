@@ -18,11 +18,11 @@ public class Soldier : Follower
     {
         Swarm();
         TickEffects();
-        if (state == (int)State.move)
+        if (currentAction.state == (int)State.move)
         {
             if (transform.position == marker.transform.position)
             {
-                state = (int)State.idle;
+                Idle();
             }
             else
             {
@@ -31,37 +31,39 @@ public class Soldier : Follower
         }
         else
         {
-            if (target.interact == null)
+            if (currentAction.target.interact == null)
             {
-                if (state == (int)State.attack)
+                if (currentAction.state == (int)State.attack)
                 {
-                    if (Targetting.FindTarget(ref target, squad, transform.position, Enemies.enemies))
-                    {
-                        Debug.Log("Target Found");
-                    }
-                    else
-                    {
-                        state = (int)State.move;
-                    }
+                    // Find target
+                    //if (Targetting.FindTarget(ref target, squad, transform.position, Enemies.enemies))
+                    //{
+                    //    Debug.Log("Target Found");
+                    //}
+                    //else
+                    //{
+
+                    //}
+                    MoveTo(marker.transform.position);
                 }
                 else
                 {
-                    state = (int)State.idle;
+                    Idle();
                 }
             }
             else
             {
-                float dist = Vector2.Distance(transform.position, target.Position());
+                float dist = Vector2.Distance(transform.position, currentAction.target.Position());
                 if (dist <= targetDist)
                 {
-                    if (state == (int)State.attack && interactRoutine == null)
+                    if (currentAction.state == (int)State.attack && interactRoutine == null)
                     {
                         interactRoutine = StartCoroutine(AttackRoutine());
                     }
                 }
                 else if (dist <= chaseDist)
                 {
-                    Move(target.Position());
+                    Move(currentAction.target.Position());
                 }
                 else
                 {
@@ -74,9 +76,9 @@ public class Soldier : Follower
     IEnumerator AttackRoutine()
     {
         yield return new WaitForSeconds(1 / hitSpeed);
-        if (target.interact != null && Vector2.Distance(transform.position, target.Position()) <= targetDist)
+        if (currentAction.target.interact != null && Vector2.Distance(transform.position, currentAction.target.Position()) <= targetDist)
         {
-            Enemy enemy = target.interact as Enemy;
+            Enemy enemy = currentAction.target.interact as Enemy;
             enemy.Hit(hitDamage, this);
         }
         interactRoutine = null;

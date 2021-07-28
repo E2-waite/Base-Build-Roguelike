@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8437693019058054865}
-  - component: {fileID: 8437693019058054866}
+  - component: {fileID: 7075476604916585155}
   m_Layer: 0
   m_Name: SquadFriendly
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8437693019058054866
+--- !u!114 &7075476604916585155
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,16 +41,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8437693019058054867}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe92a63b91e76484b9fd347317b1e75b, type: 3}
+  m_Script: {fileID: 11500000, guid: 2974d1bab2a2a974ba2029c6d165285f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
-  marker: {fileID: 8437693019553104674}
   maxFollowers: 5
-  followers:
-  - {fileID: 0}
-  - {fileID: 0}
-  target: {fileID: 0}
+  targetRange: 15
+  members: []
   selected: 0
 --- !u!1 &8437693019553104674
 GameObject:

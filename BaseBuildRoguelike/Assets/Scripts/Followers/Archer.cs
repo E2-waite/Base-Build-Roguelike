@@ -27,96 +27,59 @@ public class Archer : Follower
     {
         shotCooldown.Tick();
         TickEffects();
-        if (guardTower == null)
+        Swarm();
+        if (currentAction.state == (int)State.move)
         {
-            Swarm();
-            if (state == (int)State.move)
+            if (transform.position == marker.transform.position)
             {
-                if (transform.position == marker.transform.position)
-                {
-                    state = (int)State.idle;
-                }
-                else
-                {
-                    Move();
-                }
+                Idle();
             }
             else
             {
-                if (target == null || target.interact == null)
-                {
-                    if (state == (int)State.attack)
-                    {
-                        if (Targetting.FindTarget(ref target, squad, transform.position, Enemies.enemies))
-                        {
-                            // Debug.Log("Target Found");
-                        }
-                        else
-                        {
-                            state = (int)State.move;
-                        }
-                    }
-                    else
-                    {
-                        state = (int)State.idle;
-                    }
-                }
-                else
-                {
-                    float dist = Vector2.Distance(transform.position, target.Position());
-                    if (dist <= fireRange)
-                    {
-                        // Moves away from target if not charging up shot, the target is an enemy and this archer is too close
-                        //if (!attacking && dist < fireRange - 3f && target is Enemy)
-                        //{
-                        //    Move(transform.position + ((transform.position - target.transform.position).normalized));
-                        //}
-                        if (state == (int)State.attack && shotCooldown.Complete() && interactRoutine == null)
-                        {
-                            interactRoutine = StartCoroutine(FireRoutine());
-                        }
-                    }
-                    else
-                    {
-                        Move();
-                    }
-                }
+                Move();
             }
         }
         else
         {
-            if (target.interact == null)
+            if (currentAction.target.interact == null)
             {
-                if (state == (int)State.defend)
+                if (currentAction.state == (int)State.attack)
                 {
-                    Interaction newTarget = Targetting.GetClosestTarget(guardTower.inRange, guardTower.transform.position);
-                    if (newTarget == null)
-                    {
-                        state = (int)State.idle;
-                    }
-                    else
-                    {
-                        target = new Target(newTarget);
-                    }
+                    //if (Targetting.FindTarget(ref target, squad, transform.position, Enemies.enemies))
+                    //{
+                    //    // Debug.Log("Target Found");
+                    //}
+                    //else
+                    //{
+                    //    state = (int)State.move;
+                    //}
+
+                    // Currently just goes back to move state rather than finding a new target
+                    MoveTo(marker.transform.position);
+                }
+                else
+                {
+                    Idle();
                 }
             }
             else
             {
-                if (state == (int)State.defend)
+                float dist = Vector2.Distance(transform.position, currentAction.target.Position());
+                if (dist <= fireRange)
                 {
-                    float dist = Vector2.Distance(guardTower.transform.position, target.Position());
-                    if (dist > guardTower.range)
-                    {
-                        target = new Target();
-                    }
-                    else if (shotCooldown.Complete() && interactRoutine == null)
+                    // Moves away from target if not charging up shot, the target is an enemy and this archer is too close
+                    //if (!attacking && dist < fireRange - 3f && target is Enemy)
+                    //{
+                    //    Move(transform.position + ((transform.position - target.transform.position).normalized));
+                    //}
+                    if (currentAction.state == (int)State.attack && shotCooldown.Complete() && interactRoutine == null)
                     {
                         interactRoutine = StartCoroutine(FireRoutine());
                     }
                 }
                 else
                 {
-                    state = (int)State.defend;
+                    Move();
                 }
             }
         }
@@ -126,7 +89,7 @@ public class Archer : Follower
     {
         yield return new WaitForSeconds(shotTime);
         GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
-        arrow.GetComponent<Arrow>().Setup(target.interact, this, shotSpeed, hitDamage);
+        arrow.GetComponent<Arrow>().Setup(currentAction.target.interact, this, shotSpeed, hitDamage);
         shotCooldown.Reset();
     }
 }

@@ -4,6 +4,17 @@ using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 public abstract class Follower : Interaction
 {
+    public class Action
+    {
+        public Target target;
+        public int state;
+        public Action (Target _target, int _state)
+        {
+            target = _target;
+            state = _state;
+        }
+    }
+
     public enum Type
     {
         worker = 0,
@@ -20,8 +31,10 @@ public abstract class Follower : Interaction
 
     [Header("Follower Settings")]
     public Type type;
-    public int state = 0;
-    public Target target = new Target();
+    //public int state = 0;
+    //public Target target = new Target();
+    public Action currentAction = new Action(new Target(), 0);
+    public List<Action> actions = new List<Action>();
     public FollowerSquad squad;
     public int maxHealth = 10, health, hitDamage = 1;
     public float targetDist = 0.25f, speed = 5f, targetRange = 15, chaseDist = 0.5f;
@@ -36,6 +49,7 @@ public abstract class Follower : Interaction
 
     private void Start()
     {
+        actions.Add(currentAction);
         currentPos = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
         health = maxHealth;
         anim = GetComponent<Animator>();
@@ -165,6 +179,11 @@ public abstract class Follower : Interaction
             interactRoutine = null;
         }
 
+        // Clear the action list, before assigning a new action 
+        actions = new List<Action>();
+        actions.Add(new Action(new Target(), (int)DefaultState.idle));
+        int state = 0;
+        Target target = new Target();
 
         marker.transform.position = pos;
         if (Pathfinding.FindPath(ref path, currentPos, new Vector2Int(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y))))
@@ -201,6 +220,10 @@ public abstract class Follower : Interaction
             target = new Target();
             state = (int)DefaultState.move; 
         }
+
+        // Adds the action to the list of actions and sets as current target
+        actions.Add(new Action(target, state));
+        currentAction = actions[actions.Count - 1];
     }
 
     public virtual void BuildingDirect(Building building)
@@ -210,11 +233,11 @@ public abstract class Follower : Interaction
 
     public virtual IEnumerator PathUpdate()
     {
-        if (target != null && target.interact != null && target.UpdatePath())
+        if (currentAction.target.interact != null && currentAction.target.UpdatePath())
         {
             // Update path less often when further away from the target (and only update path if target moves)
             //yield return new WaitForSeconds(Vector3.Distance(transform.position, target.transform.position) / 100);
-            Pathfinding.FindPath(ref path, currentPos, target.Position2D());
+            Pathfinding.FindPath(ref path, currentPos, currentAction.target.Position2D());
         }
         else
         {
@@ -225,39 +248,46 @@ public abstract class Follower : Interaction
 
     public void MoveTo(Vector2 pos)
     {
-        target = new Target();
+        actions = new List<Action>();
+        actions.Add(new Action(new Target(), (int)DefaultState.move));
+        currentAction = actions[actions.Count - 1];
         marker.transform.position = pos;
         Pathfinding.FindPath(ref path, currentPos, new Vector2Int(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y)));
-        state = (int)DefaultState.move;
     }
 
-    //public void TargetEnemy(Enemy enemy)
-    //{
-    //    if (enemy != null)
-    //    {
-    //        // Direct follower to target the input enemy
-    //        if (interactRoutine != null)
-    //        {
-    //            StopCoroutine(interactRoutine);
-    //            interactRoutine = null;
-    //        }
+    protected void Idle()
+    {
+        actions = new List<Action>();
+        currentAction = new Action(new Target(), 0);
+    }
 
-            
-    //        if (enemy.squad == null)
-    //        {
-    //            target = new Target(enemy);
-    //        }
-    //        else
-    //        {
-    //            // If target enemy is in a squad, instead target closest member of the squad
-    //            target = new Target(enemy.squad.ClosestMember(transform.position));
-    //        }
+    public void TargetEnemy(Enemy enemy)
+    {
+        if (enemy != null)
+        {
+            // Direct follower to target the input enemy
+            if (interactRoutine != null)
+            {
+                StopCoroutine(interactRoutine);
+                interactRoutine = null;
+            }
 
-    //        marker.transform.position = target.Position();
-    //        Pathfinding.FindPath(ref path, currentPos, target.Position2D());
-    //        state = (int)DefaultState.attack;
-    //    }
-    //}
+
+            if (enemy.squad == null)
+            {
+                actions.Add(new Action(new Target(enemy), (int)DefaultState.attack));
+            }
+            else
+            {
+                // If target enemy is in a squad, instead target closest member of the squad
+                actions.Add(new Action(new Target(enemy.squad.ClosestMember(transform.position)), (int)DefaultState.attack));
+            }
+
+            currentAction = actions[actions.Count - 1];
+            marker.transform.position = currentAction.target.Position();
+            Pathfinding.FindPath(ref path, currentPos, currentAction.target.Position2D());
+        }
+    }
 
     public bool Hit(int damage, Enemy attacker)
     {
@@ -266,7 +296,7 @@ public abstract class Follower : Interaction
         StartCoroutine(HitRoutine());
         Bleed(attacker.transform.position);
 
-        if (attacker != null && (state == (int)DefaultState.idle || state == (int)DefaultState.move) && (this is Soldier || this is Archer))
+        if (attacker != null && (currentAction.state == (int)DefaultState.idle || currentAction.state == (int)DefaultState.move) && (this is Soldier || this is Archer))
         {
             UpdateTarget(attacker);
         }
@@ -280,7 +310,7 @@ public abstract class Follower : Interaction
 
     public void UpdateTarget(Interaction interaction, bool fromSquad = false)
     {
-        if (target.interact != null && !(target.interact is Building))
+        if (currentAction.target.interact != null)
         {
             // Continue attacking current target
             return;
@@ -299,7 +329,8 @@ public abstract class Follower : Interaction
         }
 
         // Target desired interaction
-        target = new Target(interaction);
+        actions.Add(new Action(new Target(), (int)DefaultState.attack));
+        currentAction = actions[actions.Count - 1];
 
     }
 

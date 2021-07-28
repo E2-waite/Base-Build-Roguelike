@@ -175,7 +175,7 @@ public class Load : MonoBehaviour
                 Follower follower = followerObj.GetComponent<Follower>();
                 follower.transform.position = followerData.pos;
                 follower.health = followerData.health;
-                follower.state = followerData.state;
+                follower.currentAction.state = followerData.state;
                 follower.currentPos = followerData.gridPos;
                 if (followerData.statusEffects != null)
                 {
@@ -263,7 +263,7 @@ public class Load : MonoBehaviour
         {
             if (gameData.followers[i].target != 99999)
             {
-                Followers.followers[i].target = new Target(Grid.TargetFromIndex(gameData.followers[i].target));
+                Followers.followers[i].currentAction.target = new Target(Grid.TargetFromIndex(gameData.followers[i].target));
             }
         }
 

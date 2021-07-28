@@ -14,11 +14,6 @@ public class GuardDetect : MonoBehaviour
         Debug.Log("TRIGGER: " + collision.name);
         if (collision.CompareTag("Enemy"))
         {
-            Debug.Log("ENEMY");
-            if (guardTower.archer != null && guardTower.archer.state == (int)Archer.State.idle)
-            {
-                guardTower.archer.state = (int)Archer.State.defend;
-            }
             guardTower.inRange.Add(collision.gameObject.GetComponent<Enemy>());
         }
     }

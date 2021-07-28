@@ -77,11 +77,11 @@ public class Save : MonoBehaviour
             if (follower != null)
             {
                 int targetInd = 99999;
-                if (follower.target != null && follower.target.interact != null)
+                if (follower.currentAction.target != null && follower.currentAction.target.interact != null)
                 {
-                    targetInd = follower.target.interact.Index();
+                    targetInd = follower.currentAction.target.interact.Index();
                 }
-                gameData.followers[i] = new AIData((int)follower.type, follower.state, targetInd, follower.health, follower.transform.position, follower.currentPos, follower.statusEffects, 
+                gameData.followers[i] = new AIData((int)follower.type, follower.currentAction.state, targetInd, follower.health, follower.transform.position, follower.currentPos, follower.statusEffects, 
                     (follower is Worker) ? (follower as Worker).inventory : null);
             }
             else

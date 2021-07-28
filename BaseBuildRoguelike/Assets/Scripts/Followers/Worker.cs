@@ -15,9 +15,7 @@ public class Worker : Follower
         hunt = 6, 
     }
     [Header("Worker Settings")]
-    public int lastState = 0;
     public float gatherTime = 2, buildTime = 1, hitTime = 0.5f;
-    public Interaction lastTarget;
 
     public Inventory inventory = new Inventory();
     public override void Setup()
@@ -32,9 +30,15 @@ public class Worker : Follower
             interactRoutine = null;
         }
 
+        // Clear the action list, before assigning a new action 
+        actions = new List<Action>();
+        actions.Add(new Action(new Target(), (int)State.idle));
+        int state = 0;
+        Target target = new Target();
+
+
         marker.transform.position = pos;
         Pathfinding.FindPath(ref path, currentPos, new Vector2Int(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y)), 1);
-        lastState = (int)State.idle;
         if (obj != null)
         {
             target = new Target(obj);
@@ -81,25 +85,26 @@ public class Worker : Follower
                     FindStorage();
                 }
             }
-
-            lastTarget = target.interact;
-            lastState = state;
         }
         else
         {
             target = new Target();
             state = (int)State.move;
         }
+
+        // Adds the action to the list of actions and sets as current target
+        actions.Add(new Action(target, state));
+        currentAction = actions[actions.Count - 1];
     }
 
     private void Update()
     {
         TickEffects();
-        if (state == (int)State.move)
+        if (currentAction.state == (int)State.move)
         {
             if (transform.position == marker.transform.position)
             {
-                state = (int)State.idle;
+                Idle();
             }
             else
             {
@@ -108,43 +113,35 @@ public class Worker : Follower
         }
         else
         {
-            if (target.interact == null)
+            if (currentAction.target.interact == null)
             {
-                if ((state == (int)State.chopWood || state == (int)State.mineStone || state == (int)State.hunt) && !inventory.AtCapacity())
+                if ((currentAction.state == (int)State.chopWood || currentAction.state == (int)State.mineStone || currentAction.state == (int)State.hunt) && !inventory.AtCapacity())
                 {
-                    target = new Target(FindResource());
-
-                    if (Pathfinding.FindPath(ref path, currentPos, target.Position2D(), 1))
-                    {
-                        Debug.Log("Path Found");
-                    }
-                    else
-                    {
-                        Debug.Log("No Path");
-                    }
+                    FindResource((State)currentAction.state);
+                    //target = new Target(FindResource());
                 }
                 else
                 {
-                    state = (int)State.idle;
+                    Idle();
                 }
             }
             else
             {
-                if (Vector2.Distance(transform.position, target.Position()) <= targetDist)
+                if (Vector2.Distance(transform.position, currentAction.target.Position()) <= targetDist)
                 {
-                    if ((state == (int)State.chopWood || state == (int)State.mineStone) && interactRoutine == null)
+                    if ((currentAction.state == (int)State.chopWood || currentAction.state == (int)State.mineStone) && interactRoutine == null)
                     {
                         interactRoutine = StartCoroutine(GatherRoutine());
                     }
-                    else if (state == (int)State.store)
+                    else if (currentAction.state == (int)State.store)
                     {
                         Store();
                     }
-                    else if (state == (int)State.build && interactRoutine == null)
+                    else if (currentAction.state == (int)State.build && interactRoutine == null)
                     {
                         interactRoutine = StartCoroutine(BuildRoutine());
                     }
-                    else if (state == (int)State.hunt && interactRoutine == null)
+                    else if (currentAction.state == (int)State.hunt && interactRoutine == null)
                     {
                         interactRoutine = StartCoroutine(HitRoutine());
                     }
@@ -159,42 +156,50 @@ public class Worker : Follower
 
     void Store()
     {
-        ResourceStorage storage = target.interact as ResourceStorage;
+        ResourceStorage storage = currentAction.target.interact as ResourceStorage;
 
         storage.Store(ref inventory.resources[(int)storage.storageType]);
 
-        if (!FindStorage() && (lastState == (int)State.chopWood || lastState == (int)State.mineStone || lastState == (int)State.hunt))
+        if (!FindStorage())
         {
-            state = lastState;
-            if (lastTarget != null)
+            for (int i = actions.Count - 1; i >= 0; i--)
             {
-                target = new Target(lastTarget);
+                if (actions[i].state != (int)State.store)
+                {
+                    if (actions[i].target.interact != null)
+                    {
+                        currentAction = actions[i];
+                        Pathfinding.FindPath(ref path, currentPos, currentAction.target.Position2D(), 1);
+                    }
+                    else
+                    {
+                        FindResource((State)actions[i].state);
+                    }
+                    return;
+                }
+                else
+                {
+                    actions.RemoveAt(i);
+                }
             }
-            else
-            {
-                target = new Target(FindResource());
-            }
-
-            if (target.interact != null)
-            {
-                Pathfinding.FindPath(ref path, currentPos, target.Position2D(), 1);
-            }
+            Idle();
         }
     }
 
     bool FindStorage()
     {
-        target = new Target(ClosestStorage());
+        Interaction storage = ClosestStorage();
 
-        if (target.interact == null)
+        if (storage == null)
         {
             Debug.Log("Either no resource storage available, or nothing to store...");
             return false;
         }
         else
         {
-            state = (int)State.store;
-            Pathfinding.FindPath(ref path, currentPos, target.Position2D(), 1);
+            actions.Add(new Action(new Target(storage), (int)State.store));
+            currentAction = actions[actions.Count - 1];
+            Pathfinding.FindPath(ref path, currentPos, currentAction.target.Position2D(), 1);
             return true;
         }
     }
@@ -228,21 +233,22 @@ public class Worker : Follower
         return closestStorage;
     }
 
-    Interaction FindResource()
+    void FindResource(State state)
     {
         // Find closest resource of the correct type, based on the previous resource
         List<Interaction> resources = new List<Interaction>();
-        if (lastState == (int)State.chopWood)
+
+        if (state == State.chopWood)
         {
             resources = Resources.trees;
         }
 
-        if (lastState == (int)State.mineStone)
+        if (state == State.mineStone)
         {
             resources = Resources.stones;
         }
 
-        if (lastState == (int)State.hunt)
+        if (state == State.hunt)
         {
             resources = Creatures.creatures;
         }
@@ -263,8 +269,9 @@ public class Worker : Follower
             }
         }
 
-        state = lastState;
-        return closestResource;
+        currentAction = new Action(new Target(closestResource), (int)state);
+        actions.Add(currentAction);
+        Pathfinding.FindPath(ref path, currentPos, currentAction.target.Position2D(), 1);
     }
 
     IEnumerator GatherRoutine()
@@ -272,9 +279,9 @@ public class Worker : Follower
         // Gather resource in range
         yield return new WaitForSeconds(gatherTime);
 
-        if (target.interact != null)
+        if (currentAction.target.interact != null)
         {
-            Resource resource = target.interact as Resource;
+            Resource resource = currentAction.target.interact as Resource;
             resource.Gather(inventory);
         }
 
@@ -291,9 +298,9 @@ public class Worker : Follower
         // Construct building in range
         yield return new WaitForSeconds(buildTime);
 
-        if (target.interact != null)
+        if (currentAction.target.interact != null)
         {
-            Building building = target.interact as Building;
+            Building building = currentAction.target.interact as Building;
             building.construct.Build();
         }
         interactRoutine = null;
@@ -304,10 +311,10 @@ public class Worker : Follower
         // Hit target in range
         yield return new WaitForSeconds(hitTime);
 
-        if (target.interact != null)
+        if (currentAction.target.interact != null)
         {
-            Creature creature = target.interact as Creature;
-            if (state == (int)State.hunt && creature.Hit(hitDamage))
+            Creature creature = currentAction.target.interact as Creature;
+            if (currentAction.state == (int)State.hunt && creature.Hit(hitDamage))
             {
                 // If target creature dies, gather food
                 creature.GatherFood(inventory);

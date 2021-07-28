@@ -37,7 +37,7 @@ public class Priest : Follower
         //    }
         //}
 
-        if (state != (int)State.heal)
+        if (currentAction.state != (int)State.heal)
         {
             Swarm();
             Move();
@@ -84,7 +84,7 @@ public class Priest : Follower
                 }
             }
         }
-        state = (int)State.heal;
+        currentAction = new Action(new Target(healTarget), (int)State.heal);
         anim.SetBool("Heal", true);
         healCooldown.Reset();
     }
@@ -93,7 +93,7 @@ public class Priest : Follower
     void Heal()
     {
         anim.SetBool("Heal", false);
-        state = (int)State.move;
+        currentAction = new Action(new Target(), (int)State.move);
         healthCheck = null;
         if (healTarget != null)
         {
