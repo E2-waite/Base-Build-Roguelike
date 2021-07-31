@@ -53,12 +53,7 @@ public  static class Followers
     public static void AdjustMaxFollowers(int val)
     {
         maxFollowers += val;
-        HUD.Instance.UpdateFollowers(followers.Count, maxFollowers);
-    }
-
-    public static void UpdateHUD()
-    {
-        HUD.Instance.UpdateFollowers(followers.Count, maxFollowers);
+        HUD.Instance.UpdateFollowers();
     }
 
     public static void Direct(Vector2 pos, GameObject obj)

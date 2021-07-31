@@ -179,6 +179,7 @@ public class Load : MonoBehaviour
                 follower.transform.position = followerData.pos;
                 follower.health = followerData.health;
                 follower.currentPos = followerData.gridPos;
+                follower.marker.transform.position = followerData.markerPos;
                 if (followerData.statusEffects != null)
                 {
                     follower.statusEffects = followerData.statusEffects.Read(follower);

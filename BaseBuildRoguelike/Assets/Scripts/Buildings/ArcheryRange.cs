@@ -12,7 +12,7 @@ public class ArcheryRange : Trainer
         GameObject archer = Instantiate(archerPrefab, training[index].follower.transform.position, Quaternion.identity);
         Followers.Remove(training[index].follower);
         Destroy(training[index].follower.gameObject);
-        Followers.Add(archer.GetComponent<Archer>());
+        Followers.Add(archer.transform.GetChild(0).GetComponent<Archer>());
         training[index] = null;
     }
 }

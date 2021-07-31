@@ -41,7 +41,12 @@ public static class Pathfinding
                     }
                     else
                     {
-                        if (tile.structure == null)
+                        if (tile.type == Tile.Type.water)
+                        {
+                            followerGrid[x, y] = new Node(true, new Vector2Int(x, y));
+                            enemyGrid[x, y] = new Node(true, new Vector2Int(x, y));
+                        }
+                        else if (tile.structure == null)
                         {
                             followerGrid[x, y] = new Node(false, new Vector2Int(x, y));
                             enemyGrid[x, y] = new Node(false, new Vector2Int(x, y));
@@ -52,7 +57,6 @@ public static class Pathfinding
                             {
                                 followerGrid[x, y] = new Node(true, new Vector2Int(x, y));
                                 enemyGrid[x, y] = new Node(true, new Vector2Int(x, y));
-                                continue;
                             }
                             else if (tile.structure is Building && (tile.structure as Building).isConstructed)
                             {

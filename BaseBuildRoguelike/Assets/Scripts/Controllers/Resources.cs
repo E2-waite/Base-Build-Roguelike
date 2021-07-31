@@ -12,6 +12,7 @@ public class Resources : MonoBehaviour
 
     public static void Adjust(Resource.Type type, int val, int maxVal)
     {
+        Debug.Log("ADJUSTING");
         int pos = (int)type;
         resources[pos] += val;
         maxResources[pos] += maxVal;

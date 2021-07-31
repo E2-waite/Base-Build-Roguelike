@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contruction: {fileID: 21300000, guid: 5b03fdbe90e8e4d4abd4620783ce2b9d, type: 3}
   constructed: {fileID: 6116906653869191027, guid: 12925ef923cad9849b017f1c26a508d7, type: 3}
-  cost: 000000000000000000000000
+  cost: 050000000000000000000000
   remaining: 000000000000000000000000
 --- !u!114 &3963982256496168287
 MonoBehaviour:

@@ -50,7 +50,7 @@ public class Spawner : MonoSingleton<Spawner>
         GameObject follower = Instantiate(followerPrefab[0], Vector3.zero, Quaternion.identity).transform.GetChild(0).gameObject;
         follower.transform.position = pos;
         Followers.Add(follower.GetComponent<Worker>());
-        HUD.Instance.UpdateFollowers(Followers.Count(), Followers.Max());
+        HUD.Instance.UpdateFollowers();
     }
 
 

@@ -11,7 +11,7 @@ public class Temple : Trainer
         GameObject priest = Instantiate(priestPrefab, training[index].follower.transform.position, Quaternion.identity);
         Followers.Remove(training[index].follower);
         Destroy(training[index].follower.gameObject);
-        Followers.Add(priest.GetComponent<Priest>());
+        Followers.Add(priest.transform.GetChild(0).GetComponent<Priest>());
         training[index] = null;
     }
 }

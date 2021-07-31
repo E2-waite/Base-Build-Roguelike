@@ -15,8 +15,8 @@ public class HUD : MonoSingleton<HUD>
         }
     }
 
-    public void UpdateFollowers(int followers, int maxFollowers)
+    public void UpdateFollowers()
     {
-        followersVal.text = followers.ToString() + "/" + maxFollowers.ToString();
+        followersVal.text = Followers.followers.Count.ToString() + "/" + Followers.maxFollowers.ToString();
     }
 }

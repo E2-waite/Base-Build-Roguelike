@@ -17,15 +17,7 @@ public abstract class Building : Interaction
     {
         rend = GetComponent<SpriteRenderer>();
         repair = maxRepair;
-        if (!isConstructed)
-        {
-            construct = GetComponent<Construct>();
-        }
-        else
-        {
-            Pathfinding.UpdateNodeGrid();
-            Setup();
-        }
+        construct = GetComponent<Construct>();
     }
 
     public void Constructed()

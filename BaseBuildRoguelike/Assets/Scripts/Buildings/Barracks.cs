@@ -11,7 +11,7 @@ public class Barracks : Trainer
         GameObject soldier = Instantiate(soldierPrefab, training[index].follower.transform.position, Quaternion.identity);
         Followers.Remove(training[index].follower);
         Destroy(training[index].follower.gameObject);
-        Followers.Add(soldier.GetComponent<Soldier>());
+        Followers.Add(soldier.transform.GetChild(0).GetComponent<Soldier>());
         training[index] = null;
     }
 }
