@@ -10,8 +10,8 @@ public abstract class Enemy : Interaction
     public float speed = 2, targetDist = 1f, targetRange = 15;
     public LayerMask buildingMask;
     public Squad squad;
-    public Target target = new Target();
-    public List<Target> targets = new List<Target>();
+    public Action currentAction = new Action();
+    public List<Action> actions = new List<Action>();
     public List<Vector2Int> path = new List<Vector2Int>();
     public Vector2Int currentPos;
     protected SpriteRenderer rend;
@@ -20,8 +20,8 @@ public abstract class Enemy : Interaction
     private void Start()
     {
         currentPos = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
-        targets.Add(new Target(Buildings.homeBase));
-        target = targets[targets.Count - 1];
+        actions.Add(new Action(new Target(Buildings.homeBase)));
+        currentAction = actions[actions.Count - 1];
 
         FindPath();
 
@@ -143,27 +143,27 @@ public abstract class Enemy : Interaction
     protected void PreviousTarget()
     {
         // Loop through previous targets, selecting the first suitable target
-        Target newTarget = new Target();
-        for (int i = targets.Count - 1; i >= 0; i--)
+        Action newAction = new Action();
+        for (int i = actions.Count - 1; i >= 0; i--)
         {
-            if (targets[i].interact == null)
+            if (actions[i].target.interact == null)
             {
-                targets.RemoveAt(i);
+                actions.RemoveAt(i);
             }
             else
             {
-                newTarget = targets[i];
+                newAction = actions[i];
                 break;
             }
         }
 
-        target = newTarget;
+        currentAction = newAction;
         FindPath();
     }
 
     public void UpdateTarget(Interaction interaction, bool fromSquad = false)
     {
-        if (target.interact != null && !(target.interact is Building))
+        if (currentAction.target.interact != null && !(currentAction.target.interact is Building))
         {
             // Continue attacking current target
             return;
@@ -182,26 +182,26 @@ public abstract class Enemy : Interaction
         }
 
         // Target desired interaction
-        target = new Target(interaction);
-        targets.Add(target);
+        currentAction = new Action(new Target(interaction));
+        actions.Add(currentAction);
         FindPath();
     }
 
     void FindPath()
     {
         // Find path and add any buildings blocking the way to the targets list.
-        List<Target> newTargets = new List<Target>();
-        Pathfinding.FindPath(ref path, ref newTargets, currentPos, target.Position2D(), 1);
+        List<Action> newTargets = new List<Action>();
+        Pathfinding.FindPath(ref path, ref newTargets, currentPos, currentAction.target.Position2D(), 1);
         if (newTargets.Count > 0)
         {
-            targets.AddRange(newTargets);
-            target = targets[targets.Count - 1];
+            actions.AddRange(newTargets);
+            currentAction = actions[actions.Count - 1];
         }
     }
 
     IEnumerator PathUpdate()
     {
-        if (target != null && target.interact != null && target.UpdatePath())
+        if (currentAction != null && currentAction.target.interact != null && currentAction.target.UpdatePath())
         {
             FindPath();
         }

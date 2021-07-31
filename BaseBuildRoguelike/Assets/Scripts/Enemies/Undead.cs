@@ -22,13 +22,13 @@ public class Undead : Enemy
         if (alive)
         {
             Swarm();
-            if (target.interact == null)
+            if (currentAction.target.interact == null)
             {
                 PreviousTarget();
             }
             else
             {
-                if (canAttack && Vector2.Distance(transform.position, target.Position()) <= targetDist)
+                if (canAttack && Vector2.Distance(transform.position, currentAction.target.Position()) <= targetDist)
                 {
                     // Attack
                     StartCoroutine(AttackRoutine());
@@ -46,15 +46,15 @@ public class Undead : Enemy
     {
         canAttack = false;
         yield return new WaitForSeconds(1 / hitSpeed);
-        if (target.interact != null)
+        if (currentAction.target.interact != null)
         {
-            if (target.interact is Follower && Vector2.Distance(transform.position, target.Position()) <= targetDist)
+            if (currentAction.target.interact is Follower && Vector2.Distance(transform.position, currentAction.target.Position()) <= targetDist)
             {
-                (target.interact as Follower).Hit(hitDamage, this);
+                (currentAction.target.interact as Follower).Hit(hitDamage, this);
             }
-            else if (target.interact is Building)
+            else if (currentAction.target.interact is Building)
             {
-                (target.interact as Building).Hit(hitDamage);
+                (currentAction.target.interact as Building).Hit(hitDamage);
             }
         }
         canAttack = true;

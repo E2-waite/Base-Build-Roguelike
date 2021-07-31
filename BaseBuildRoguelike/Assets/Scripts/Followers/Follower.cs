@@ -4,17 +4,6 @@ using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 public abstract class Follower : Interaction
 {
-    public class Action
-    {
-        public Target target;
-        public int state;
-        public Action (Target _target, int _state)
-        {
-            target = _target;
-            state = _state;
-        }
-    }
-
     public enum Type
     {
         worker = 0,

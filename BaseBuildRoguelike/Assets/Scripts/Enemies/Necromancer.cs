@@ -16,11 +16,11 @@ public class Necromancer : Enemy
             StartCoroutine(RaiseDead());
         }
 
-        if (shotCooldown.Tick() && target != null && target.interact)
+        if (shotCooldown.Tick() && currentAction != null && currentAction.target.interact)
         {
             shotCooldown.Reset();
             GameObject bolt = Instantiate(shadowBoltPrefab, transform.position, Quaternion.identity);
-            bolt.GetComponent<Projectile>().Setup(target.interact, this, 5, 1);
+            bolt.GetComponent<Projectile>().Setup(currentAction.target.interact, this, 5, 1);
         }
     }
 

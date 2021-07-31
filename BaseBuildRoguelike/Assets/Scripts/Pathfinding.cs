@@ -85,7 +85,7 @@ public static class Pathfinding
     }
 
 
-    public static bool FindPath(ref List<Vector2Int> path, ref List<Target> newTargets, Vector2 startPos, Vector2Int endPos, int maxDist = 0)
+    public static bool FindPath(ref List<Vector2Int> path, ref List<Action> newTargets, Vector2 startPos, Vector2Int endPos, int maxDist = 0)
     {
         // Attempt to find path, around any walls etc.
         path = IsPath(new Vector2Int((int)startPos.x, (int)startPos.y), endPos, maxDist, followerGrid);
@@ -105,7 +105,7 @@ public static class Pathfinding
                 if (tile.structure != null)
                 {
                     path.RemoveRange(i, path.Count - i);
-                    newTargets.Add(new Target(tile.structure));
+                    newTargets.Add(new Action(new Target(tile.structure)));
                 }
             }
             return true;

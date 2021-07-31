@@ -76,12 +76,7 @@ public class Save : MonoBehaviour
             Follower follower = Followers.followers[i];
             if (follower != null)
             {
-                int targetInd = 99999;
-                if (follower.currentAction.target != null && follower.currentAction.target.interact != null)
-                {
-                    targetInd = follower.currentAction.target.interact.Index();
-                }
-                gameData.followers[i] = new AIData((int)follower.type, follower.currentAction.state, targetInd, follower.health, follower.transform.position, follower.currentPos, follower.statusEffects, 
+                gameData.followers[i] = new AIData((int)follower.type, follower.health, follower.transform.position, follower.currentPos, follower.statusEffects, follower.actions, 
                     (follower is Worker) ? (follower as Worker).inventory : null);
             }
             else
@@ -98,12 +93,7 @@ public class Save : MonoBehaviour
             Enemy enemy = Enemies.enemies[i];
             if (enemy != null)
             {
-                int targetInd = 99999;
-                if (enemy.target != null && enemy.target.interact != null)
-                {
-                    targetInd = enemy.target.interact.Index();
-                }
-                gameData.enemies[i] = new AIData((int)enemy.type, 0, targetInd, enemy.health, enemy.transform.position, enemy.currentPos, enemy.statusEffects);
+                gameData.enemies[i] = new AIData((int)enemy.type, enemy.health, enemy.transform.position, enemy.currentPos, enemy.statusEffects, enemy.actions);
             }
             else
             {
@@ -229,24 +219,35 @@ public class BuildingData
 [System.Serializable]
 public class AIData
 {
-    public int type, state, target, health;
-    public Vector2 pos;
+    public int type, health;
+    public Vector2 pos, markerPos;
     public Vector2Int gridPos;
     public Inventory inventory;
     public StatusEffectData statusEffects = null;
     public Cooldown[] cooldowns;
-    public AIData(int _type, int _state, int _target, int _health, 
-        Vector2 _pos, Vector2Int _gridPos, List<StatusEffect> _statusEffects, Inventory _inventory = null, Cooldown[] _cooldowns = null)
+    public int[] targets, states;
+    public int numActions = 0;
+    public AIData(int _type, int _health, 
+        Vector2 _pos, Vector2Int _gridPos, List<StatusEffect> _statusEffects, List<Action> _actions, Inventory _inventory = null, Cooldown[] _cooldowns = null)
     {
         type = _type;
-        state = _state;
-        target = _target;
         health = _health;
         pos = _pos;
         gridPos = _gridPos;
         inventory = _inventory;
         statusEffects = new StatusEffectData(_statusEffects);
         cooldowns = _cooldowns;
+
+        numActions = _actions.Count;
+        Debug.Log(numActions);
+        targets = new int[numActions];
+        states = new int[numActions];
+        for (int i = 0; i < numActions; i++)
+        {
+            _actions[i].Save();
+            targets[i] = _actions[i].targetInd;
+            states[i] = _actions[i].state;
+        }
     }
 }
 

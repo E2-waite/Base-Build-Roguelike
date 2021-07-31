@@ -38,6 +38,51 @@ public class Cooldown
 }
 
 [System.Serializable]
+public class Action
+{
+    public int targetInd;
+    public int state;
+    [System.NonSerialized] public Target target;
+
+    public Action()
+    {
+        target = new Target();
+        state = 0;
+    }
+
+    public Action(Target _target, int _state = 0)
+    {
+        target = _target;
+        state = _state;
+    }
+
+    public Action(int _target, int _state = 0)
+    {
+        // Constructor for loading target from index
+        if (_target == 99999)
+        {
+            target = new Target();
+        }
+        else
+        {
+            target = new Target(Grid.TargetFromIndex(_target));
+        }
+        state = _state;
+    }
+
+    public void Save()
+    {
+        if (target.interact == null)
+        {
+            targetInd = 99999;
+            return;
+        }
+        targetInd = target.interact.Index();
+    }
+}
+
+
+[System.Serializable]
 public class Target
 {
     public Interaction interact = null;

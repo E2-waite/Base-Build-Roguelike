@@ -66,8 +66,11 @@ public class Load : MonoBehaviour
         {
             for (int x = 0; x < Grid.size; x++)
             {
-                Grid.tiles[x, y].StartSpreading();
-                Grid.tiles[x, y].UpdateSprite(x, y);
+                if (Grid.tiles[x, y] != null)
+                {
+                    Grid.tiles[x, y].StartSpreading();
+                    Grid.tiles[x, y].UpdateSprite(x, y);
+                }
             }
         }
 
@@ -175,7 +178,6 @@ public class Load : MonoBehaviour
                 Follower follower = followerObj.GetComponent<Follower>();
                 follower.transform.position = followerData.pos;
                 follower.health = followerData.health;
-                follower.currentAction.state = followerData.state;
                 follower.currentPos = followerData.gridPos;
                 if (followerData.statusEffects != null)
                 {
@@ -261,17 +263,38 @@ public class Load : MonoBehaviour
     {
         for (int i = 0; i < gameData.followers.Length; i++)
         {
-            if (gameData.followers[i].target != 99999)
+            AIData aiData = gameData.followers[i];
+            Followers.followers[i].actions = new List<Action>();
+            Debug.Log(aiData.numActions);
+            if (aiData.numActions > 0)
             {
-                Followers.followers[i].currentAction.target = new Target(Grid.TargetFromIndex(gameData.followers[i].target));
+                for (int j = 0; j < aiData.numActions; j++)
+                {
+                    Followers.followers[i].actions.Add(new Action(aiData.targets[j], aiData.states[j]));
+                }
+                Followers.followers[i].currentAction = Followers.followers[i].actions[Followers.followers[i].actions.Count - 1];
+            }
+            else
+            {
+                Followers.followers[i].currentAction = new Action();
             }
         }
 
         for (int i = 0; i < gameData.enemies.Length; i++)
         {
-            if (gameData.enemies[i].target != 99999)
+            AIData aiData = gameData.enemies[i];
+            Enemies.enemies[i].actions = new List<Action>();
+            if (aiData.numActions > 0)
             {
-                Enemies.enemies[i].target = new Target(Grid.TargetFromIndex(gameData.enemies[i].target));
+                for (int j = 0; j < aiData.numActions; j++)
+                {
+                    Enemies.enemies[i].actions.Add(new Action(aiData.targets[j], aiData.states[j]));
+                }
+                Enemies.enemies[i].currentAction = Enemies.enemies[i].actions[Enemies.enemies[i].actions.Count - 1];
+            }
+            else
+            {
+                Enemies.enemies[i].currentAction = new Action();
             }
         }
 
