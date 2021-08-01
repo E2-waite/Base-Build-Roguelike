@@ -235,6 +235,14 @@ public abstract class Follower : Interaction
         StartCoroutine(PathUpdate());
     }
 
+    public void FindPath()
+    {
+        if (currentAction.target.interact != null)
+        {
+            Pathfinding.FindPath(ref path, currentPos, currentAction.target.Position2D());
+        }
+    }
+
     public void MoveTo(Vector2 pos)
     {
         actions = new List<Action>();

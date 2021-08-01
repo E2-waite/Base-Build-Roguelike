@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cd60cac1d5d86e448b885e84d6cd413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inspectorName: 
   staticObject: 0
   statusEffects: []
   glow: {fileID: 0}
@@ -126,7 +127,7 @@ MonoBehaviour:
   speed: 1
   maxHealth: 3
   health: 0
-  food: 1
+  food: 2
   startPos: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}
 --- !u!114 &7843696977352902415
@@ -159,7 +160,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.3125, y: 0.3125}
+    oldSize: {x: 0.20833333, y: 0.20833333}
     newSize: {x: 0.3125, y: 0.3125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

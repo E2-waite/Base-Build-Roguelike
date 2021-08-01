@@ -187,17 +187,22 @@ public abstract class Enemy : Interaction
         FindPath();
     }
 
-    void FindPath()
+    public void FindPath()
     {
         // Find path and add any buildings blocking the way to the targets list.
-        List<Action> newTargets = new List<Action>();
-        Pathfinding.FindPath(ref path, ref newTargets, currentPos, currentAction.target.Position2D(), 1);
-        if (newTargets.Count > 0)
+        if (currentAction.target.interact != null)
         {
-            actions.AddRange(newTargets);
-            currentAction = actions[actions.Count - 1];
+            List<Action> newTargets = new List<Action>();
+            Pathfinding.FindPath(ref path, ref newTargets, currentPos, currentAction.target.Position2D(), 1);
+            if (newTargets.Count > 0)
+            {
+                actions.AddRange(newTargets);
+                currentAction = actions[actions.Count - 1];
+            }
         }
     }
+
+
 
     IEnumerator PathUpdate()
     {

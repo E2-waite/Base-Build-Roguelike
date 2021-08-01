@@ -97,6 +97,15 @@ public static class Grid
         return false;
     }
 
+    public static bool CanPath(Vector2Int pos)
+    {
+        if (InGrid(pos) && tiles[pos.x, pos.y] != null && tiles[pos.x, pos.y].type != Tile.Type.water && tiles[pos.x, pos.y].structure == null)
+        {
+            return true;
+        }
+        return false;
+    }
+
     public static Tile GetTile(Vector2Int pos)
     {
         if (tiles == null)

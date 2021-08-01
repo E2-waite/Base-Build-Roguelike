@@ -11,7 +11,9 @@ public class Creature : Interaction
     public Type type;
     public float wanderRange = 10, speed = 10;
     public int maxHealth = 3, health = 0, food = 5;
-    public Vector3 startPos, targetPos;
+    public List<Vector2Int> path = new List<Vector2Int>();
+    public Vector3 startPos;
+    public Vector2Int currentPos, targetPos;
     protected Animator anim;
     protected SpriteRenderer rend;
     // Start is called before the first frame update
@@ -19,29 +21,67 @@ public class Creature : Interaction
     {
         anim = GetComponent<Animator>();
         rend = GetComponent<SpriteRenderer>();
-        startPos = transform.position;
-        targetPos = RandomTargetPos();
+
         health = maxHealth;
+
+        startPos = transform.position;
+        currentPos = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
+        targetPos = RandomTargetPos();
+        FindPath();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (transform.position == targetPos)
+        Move();
+    }
+
+    public void Move()
+    {
+        // Move towards position and keep distance from other followers in squad
+        if (path.Count > 0)
         {
-            targetPos = RandomTargetPos();
+            Vector3 pathPos = new Vector3(path[0].x, path[0].y, 0);
+            transform.position = Vector2.MoveTowards(transform.position, pathPos, speed * Time.deltaTime);
+            SetAnimDir();
+
+            if (transform.position == pathPos)
+            {
+                currentPos = path[0];
+                path.RemoveAt(0);
+            }
         }
         else
         {
-            transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
-            SetAnimDir();
+            targetPos = RandomTargetPos();
+            FindPath();
         }
     }
 
-    Vector2 RandomTargetPos()
+    public Vector2Int RandomTargetPos()
     {
-        return new Vector3(Random.Range(startPos.x - wanderRange, startPos.x + wanderRange), Random.Range(startPos.y - wanderRange, startPos.y + wanderRange), 0);
+        bool selected = false;
+        Vector2Int pos = new Vector2Int((int)Random.Range(0, Grid.size), (int)Random.Range(0, Grid.size));
+        while (!selected)
+        {
+            if (Grid.CanPath(pos))
+            {
+                return pos;
+            }
+            else
+            {
+                pos = new Vector2Int((int)Random.Range(0, Grid.size), (int)Random.Range(0, Grid.size));
+            }
+        }
+        return new Vector2Int((int)Random.Range(0, Grid.size), (int)Random.Range(0, Grid.size));
+
     }
+
+    public void FindPath()
+    {
+        Pathfinding.FindPath(ref path, currentPos, targetPos);
+    }
+
 
     public bool Hit(int damage)
     {
@@ -73,7 +113,7 @@ public class Creature : Interaction
 
     void SetAnimDir()
     {
-        float xDiff = Mathf.Abs(transform.position.x - targetPos.x), yDiff = Mathf.Abs(transform.position.y - targetPos.y);
+        float xDiff = Mathf.Abs(transform.position.x - path[0].x), yDiff = Mathf.Abs(transform.position.y - path[0].y);
         if (xDiff > yDiff)
         {
             xDiff = transform.position.x - targetPos.x;

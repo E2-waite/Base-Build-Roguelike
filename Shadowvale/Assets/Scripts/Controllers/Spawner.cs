@@ -146,8 +146,11 @@ public class Spawner : MonoSingleton<Spawner>
         for (int i = 0; i < Creatures.maxCreatures; i++)
         {
             Vector3 creaturePos = new Vector3((int)(Random.Range(0, Grid.size)), (int)(Random.Range(0, Grid.size)), 0);
-            GameObject creature = Instantiate(rabbitPrefab, creaturePos, Quaternion.identity);
-            Creatures.Add(creature.GetComponent<Creature>());
+            GameObject obj = Instantiate(rabbitPrefab, creaturePos, Quaternion.identity);
+            Creature creature = obj.GetComponent<Creature>();
+            Creatures.Add(creature);
+            Vector2Int pos = creature.RandomTargetPos();
+            creature.transform.position = new Vector3(pos.x, pos.y, 0);
         }
     }
 }

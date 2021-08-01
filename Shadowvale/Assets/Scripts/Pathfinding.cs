@@ -73,6 +73,31 @@ public static class Pathfinding
 
                 }
             }
+
+            // Update all AI paths after updating grid
+            for (int i = 0; i < Followers.followers.Count; i++)
+            {
+                if (Followers.followers[i] != null)
+                {
+                    Followers.followers[i].FindPath();
+                }
+            }
+
+            for (int i = 0; i < Enemies.enemies.Count; i++)
+            {
+                if (Enemies.enemies[i] != null)
+                {
+                    Enemies.enemies[i].FindPath();
+                }
+            }
+
+            for (int i = 0; i < Creatures.creatures.Count; i++)
+            {
+                if (Creatures.creatures[i] != null)
+                {
+                    (Creatures.creatures[i] as Creature).FindPath();
+                }
+            }
         }
     }
 

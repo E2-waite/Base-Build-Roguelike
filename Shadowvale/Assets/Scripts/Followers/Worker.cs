@@ -49,16 +49,17 @@ public class Worker : Follower
                 Resource resource = target.interact as Resource;
                 if (resource.type == Resource.Type.wood)
                 {
-                    state = (int)State.chopWood;
+                    actions.Add(new Action(target, (int)State.chopWood));
                 }
                 else if (resource.type == Resource.Type.stone)
                 {
-                    state = (int)State.mineStone;
+                    actions.Add(new Action(target, (int)State.mineStone));
                 }
 
                 if (inventory.AtCapacity())
                 {
                     FindStorage();
+                    return;
                 }
             }
             else if (target.interact is Building)
@@ -68,32 +69,30 @@ public class Worker : Follower
                 {
                     if (building is ResourceStorage)
                     {
-                        state = (int)State.store;
+                        actions.Add(new Action(target, (int)State.store));
                     }
                 }
                 else
                 {
-                    state = (int)State.build;
+                    actions.Add(new Action(target, (int)State.build));
                 }
             }
             else if (target.interact is Creature)
             {
-                state = (int)State.hunt;
+                actions.Add(new Action(target, (int)State.hunt));
 
                 if (inventory.AtCapacity())
                 {
+                    currentAction = actions[actions.Count - 1];
                     FindStorage();
+                    return;
                 }
             }
         }
         else
         {
-            target = new Target();
-            state = (int)State.move;
+            actions.Add(new Action(new Target(), (int)State.move));
         }
-
-        // Adds the action to the list of actions and sets as current target
-        actions.Add(new Action(target, state));
         currentAction = actions[actions.Count - 1];
     }
 
@@ -118,7 +117,6 @@ public class Worker : Follower
                 if ((currentAction.state == (int)State.chopWood || currentAction.state == (int)State.mineStone || currentAction.state == (int)State.hunt) && !inventory.AtCapacity())
                 {
                     FindResource((State)currentAction.state);
-                    //target = new Target(FindResource());
                 }
                 else
                 {

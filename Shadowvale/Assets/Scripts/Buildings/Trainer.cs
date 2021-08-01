@@ -43,7 +43,7 @@ public abstract class Trainer : Building
     {
         for (int i = 0; i < 3; i++)
         {
-            if (training[i].follower != null)
+            if (training != null && training[i].follower != null)
             {
                 training[i].follower.gameObject.SetActive(true);
             }

@@ -50,7 +50,7 @@ public class ResourceStorage : Building
 
         rend.sprite = stages[(int)Mathf.Ceil((currentStorage * (stages.Count - 1)) / maxStorage)];
 
-        if (storageType == Resource.Type.food && Buildings.selected == Buildings.homeBase)
+        if (storageType == Resource.Type.food)
         {
             Buildings.homeBase.ReloadInspector();
         }

@@ -35,7 +35,7 @@ public abstract class Building : Interaction
 
     public void ReloadInspector()
     {
-        if (selected)
+        if (Buildings.selected == this)
         {
             Inspector.Enable(this);
         }
@@ -44,6 +44,7 @@ public abstract class Building : Interaction
     public bool Hit(int damage)
     {
         repair -= damage;
+        StartCoroutine(HitRoutine());
         if (repair <= 0)
         {
             Remove();
@@ -52,6 +53,14 @@ public abstract class Building : Interaction
             return true;
         }
         return false;
+    }
+
+    IEnumerator HitRoutine()
+    {
+        // React to hit after delay
+        rend.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        rend.color = Color.white;
     }
 
     public virtual void Destroy()
