@@ -42,7 +42,7 @@ public class Action
 {
     public int targetInd;
     public int state;
-    [System.NonSerialized] public Target target;
+    public Target target;
 
     public Action()
     {

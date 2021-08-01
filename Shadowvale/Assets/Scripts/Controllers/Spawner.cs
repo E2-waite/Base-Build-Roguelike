@@ -108,30 +108,30 @@ public class Spawner : MonoSingleton<Spawner>
         GameObject building = Instantiate(firepitPrefab, tile.transform.position, Quaternion.identity);
         tile.structure = building.GetComponent<Interaction>();
         Buildings.homeBase = tile.structure as HomeBase;
+        (tile.structure as Building).tiles = new Vector2Int[1] { tile.GridPos() };
         Buildings.buildings.Add(Buildings.homeBase);
     }
     public void BuildStructure()
     {
         if (Build.CanBuild(buildings[selectedTemplate].type))
         {
-            Vector3 pos = Grid.selectedTiles[0].transform.position;
-            if (Grid.selectedTiles.Count > 1)
-            {
-                Vector3 centre = new Vector3();
-                for (int i = 0; i < Grid.selectedTiles.Count;  i++)
-                {
-                    centre += Grid.selectedTiles[i].transform.position;
-                }
-                pos = centre / Grid.selectedTiles.Count;
-            }
-            GameObject building = Instantiate(buildings[selectedTemplate].prefab, pos, Quaternion.identity);
-            Interaction structure = building.GetComponent<Interaction>();
+
+
+            GameObject building = Instantiate(buildings[selectedTemplate].prefab, Vector3.zero, Quaternion.identity);
+            Building structure = building.GetComponent<Building>();
+
+
+            structure.tiles = new Vector2Int[Grid.selectedTiles.Count];
             for (int i = 0; i < Grid.selectedTiles.Count; i++)
             {
                 Grid.selectedTiles[i].structure = structure;
+                structure.tiles[i] = Grid.selectedTiles[i].GridPos();
             }
-            (structure as Building).type = selectedTemplate;
-            Buildings.buildings.Add(structure as Building);
+
+            structure.Centre();
+
+            structure.type = selectedTemplate;
+            Buildings.buildings.Add(structure);
             Pathfinding.UpdateNodeGrid();
         }
     }

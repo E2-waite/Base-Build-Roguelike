@@ -124,9 +124,9 @@ public class Load : MonoBehaviour
         for (int i = 0; i < gameData.buildings.Length; i++)
         {
             BuildingData buildingData = gameData.buildings[i];
-            Vector2Int pos = new Vector2Int(buildingData.x, buildingData.y);
+            Vector2Int pos = new Vector2Int(buildingData.tiles[0].x, buildingData.tiles[0].y);
             GameObject buildingObj;
-            if (buildingData.type == 99)
+            if (buildingData.type > Spawner.Instance.buildings.Count)
             {
                 buildingObj = Instantiate(Spawner.Instance.firepitPrefab, Grid.tiles[pos.x, pos.y].transform.position, Quaternion.identity);
                 Buildings.homeBase = buildingObj.GetComponent<HomeBase>();
@@ -135,27 +135,36 @@ public class Load : MonoBehaviour
             {
                 buildingObj = Instantiate(Spawner.Instance.buildings[buildingData.type].prefab, Grid.tiles[pos.x, pos.y].transform.position, Quaternion.identity);
             }
+
             Building building = buildingObj.GetComponent<Building>();
             Buildings.Add(building);
 
-            if (building != null && buildingData.type != 99)
+            if (building != null)
             {
-                Grid.tiles[pos.x, pos.y].structure = building;
+                building.tiles = buildingData.tiles;
+                for (int j = 0; j < building.tiles.Length; j++)
+                {
+                    Grid.tiles[building.tiles[j].x, building.tiles[j].y].structure = building;
+                }
+                building.Centre();
                 building.type = buildingData.type;
 
-                Construct construct = buildingObj.GetComponent<Construct>();
-                if (construct != null)
+                if (!(building is HomeBase))
                 {
-                    construct.CheckComplete(buildingData);
-                }
+                    Construct construct = buildingObj.GetComponent<Construct>();
+                    if (construct != null)
+                    {
+                        construct.CheckComplete(buildingData);
+                    }
 
-                if (building is ResourceStorage)
-                {
-                    (building as ResourceStorage).SetVal(buildingData.storage);
-                }
-                else if (building is House)
-                {
-                    Followers.AdjustMaxFollowers(5);
+                    if (building is ResourceStorage)
+                    {
+                        (building as ResourceStorage).SetVal(buildingData.storage);
+                    }
+                    else if (building is House)
+                    {
+                        Followers.AdjustMaxFollowers(5);
+                    }
                 }
             }
 

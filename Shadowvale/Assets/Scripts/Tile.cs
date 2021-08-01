@@ -70,6 +70,10 @@ public class Tile : MonoBehaviour
         selected = false;
         rend.color = currentColour;
     }
+    public Vector2Int GridPos()
+    {
+        return new Vector2Int((int)transform.position.x, (int)transform.position.y);
+    }
 
     public void UpdateSprite(int x, int y)
     {

@@ -62,8 +62,8 @@ public class Save : MonoBehaviour
                 cost = building.construct.cost;
                 remaining = building.construct.remaining;
             }
-            gameData.buildings[i] = new BuildingData(building.type, building.repair, (int)building.transform.position.x, (int)building.transform.position.y,
-                (building is ResourceStorage) ? (building as ResourceStorage).currentStorage : 0, cost, remaining);
+            gameData.buildings[i] = new BuildingData(building.type, building.repair,
+                (building is ResourceStorage) ? (building as ResourceStorage).currentStorage : 0, cost, remaining, building.tiles);
         }
     }
 
@@ -199,18 +199,18 @@ public class ResourceData
 [System.Serializable]
 public class BuildingData
 {
-    public int type, health, x, y, storage;
+    public int type, health, storage;
     public int[] resourceCost, resourceRemaining;
-
-    public BuildingData(int _type, int _health, int _x, int _y, int _storage, int[] _resourceCost, int[] _resourceRemaining)
+    public Vector2Int[] tiles;
+    public BuildingData(int _type, int _health, int _storage, int[] _resourceCost, int[] _resourceRemaining, Vector2Int[] _tiles)
     {
         type = _type;
         health = _health;
-        x = _x;
-        y = _y;
         storage = _storage;
         resourceCost = _resourceCost;
         resourceRemaining = _resourceRemaining;
+
+        tiles = _tiles;
     }
 }
 

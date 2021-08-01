@@ -186,8 +186,8 @@ public static class Pathfinding
             }
             else
             {
-                int dist = Mathf.Abs(current_node.pos.x - endNode.pos.x) + Mathf.Abs(current_node.pos.y - endNode.pos.y);
-                if (dist <= maxDist)
+                int xDist = Mathf.Abs(current_node.pos.x - endNode.pos.x), yDist = Mathf.Abs(current_node.pos.y - endNode.pos.y);
+                if (xDist <= maxDist && yDist <= maxDist)
                 {
                     return GetFinalPath(startNode, current_node);
                 }

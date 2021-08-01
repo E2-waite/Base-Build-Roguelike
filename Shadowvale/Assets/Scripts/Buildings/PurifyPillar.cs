@@ -31,6 +31,11 @@ public class PurifyPillar : Building
         }
     }
 
+    public override void DestroyThis()
+    {
+        Disable();
+    }
+
     void Disable()
     {
         for (int i = 0; i < purifiedTiles.Count; i++)
@@ -39,8 +44,4 @@ public class PurifyPillar : Building
         }
     }
 
-    private void OnDestroy()
-    {
-        Disable();
-    }
 }

@@ -39,7 +39,7 @@ public abstract class Trainer : Building
         }
         return false;
     }
-    public override void Destroy()
+    public override void DestroyThis()
     {
         for (int i = 0; i < 3; i++)
         {

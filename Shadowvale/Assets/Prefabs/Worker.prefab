@@ -110,17 +110,20 @@ MonoBehaviour:
   statusEffects: []
   glow: {fileID: 474161283604422675}
   type: 0
-  state: 0
-  target:
-    interact: {fileID: 0}
-    squad: {fileID: 0}
-    lastPos: {x: 0, y: 0}
-    staticObject: 0
+  currentAction:
+    targetInd: 0
+    state: 0
+    target:
+      interact: {fileID: 0}
+      squad: {fileID: 0}
+      lastPos: {x: 0, y: 0}
+      staticObject: 0
+  actions: []
   squad: {fileID: 0}
   maxHealth: 10
   health: 0
   hitDamage: 1
-  targetDist: 1
+  targetDist: 1.5
   speed: 7
   targetRange: 15
   chaseDist: 0.5
@@ -132,11 +135,10 @@ MonoBehaviour:
   path: []
   currentPos: {x: 0, y: 0}
   torchLight: {fileID: 0}
-  lastState: 0
+  selectable: 1
   gatherTime: 1
   buildTime: 1
   hitTime: 0.5
-  lastTarget: {fileID: 0}
   inventory:
     resources: 000000000000000000000000
     capacity: 10
@@ -157,7 +159,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.6666667, y: 0.6666667}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

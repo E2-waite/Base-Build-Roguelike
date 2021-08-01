@@ -12,7 +12,7 @@ public abstract class Building : Interaction
     public int repair, maxRepair = 25;
     [HideInInspector] public Construct construct;
     protected SpriteRenderer rend;
-
+    public Vector2Int[] tiles;
     private void Start()
     {
         rend = GetComponent<SpriteRenderer>();
@@ -41,6 +41,25 @@ public abstract class Building : Interaction
         }
     }
 
+    public void Centre()
+    {
+        Vector2 pos = tiles[0];
+
+        // Center building if larger than a single tile
+        if (tiles.Length > 1)
+        {
+            Vector2 centre = new Vector2();
+            for (int i = 0; i < tiles.Length; i++)
+            {
+                centre += tiles[i];
+            }
+            pos = centre / tiles.Length;
+        }
+
+        transform.position = pos;
+    }
+
+
     public bool Hit(int damage)
     {
         repair -= damage;
@@ -49,7 +68,7 @@ public abstract class Building : Interaction
         {
             Remove();
             Destroy(gameObject);
-            Destroy();
+            DestroyThis();
             return true;
         }
         return false;
@@ -63,7 +82,7 @@ public abstract class Building : Interaction
         rend.color = Color.white;
     }
 
-    public virtual void Destroy()
+    public virtual void DestroyThis()
     {
 
     }

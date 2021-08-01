@@ -26,7 +26,7 @@ public abstract class Follower : Interaction
     public List<Action> actions = new List<Action>();
     public FollowerSquad squad;
     public int maxHealth = 10, health, hitDamage = 1;
-    public float targetDist = 0.25f, speed = 5f, targetRange = 15, chaseDist = 0.5f;
+    public float targetDist = 1.5f, speed = 5f, targetRange = 15, chaseDist = 0.5f;
     public GameObject highlight, marker, squadPrefab, corpsePrefab, bloodEffect = null;
     public List<Vector2Int> path = new List<Vector2Int>();
     public Vector2Int currentPos;

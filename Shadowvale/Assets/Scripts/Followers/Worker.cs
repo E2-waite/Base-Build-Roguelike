@@ -38,7 +38,7 @@ public class Worker : Follower
 
 
         marker.transform.position = pos;
-        Pathfinding.FindPath(ref path, currentPos, new Vector2Int(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y)), 1);
+
         if (obj != null)
         {
             target = new Target(obj);
@@ -58,7 +58,11 @@ public class Worker : Follower
 
                 if (inventory.AtCapacity())
                 {
-                    FindStorage();
+                    if (!FindStorage())
+                    {
+                        //Idle for now, but needs to be able to go back to store state as soon as storage is built
+                        Idle();
+                    }
                     return;
                 }
             }
@@ -83,15 +87,21 @@ public class Worker : Follower
 
                 if (inventory.AtCapacity())
                 {
-                    currentAction = actions[actions.Count - 1];
-                    FindStorage();
+                    if (!FindStorage())
+                    {
+                        //Idle for now, but needs to be able to go back to store state as soon as storage is built
+                        Idle();
+                    }
                     return;
                 }
             }
+
+            Pathfinding.FindPath(ref path, currentPos, target.Position2D(), 1);
         }
         else
         {
             actions.Add(new Action(new Target(), (int)State.move));
+            Pathfinding.FindPath(ref path, currentPos, new Vector2Int(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y)));
         }
         currentAction = actions[actions.Count - 1];
     }
@@ -283,9 +293,10 @@ public class Worker : Follower
             resource.Gather(inventory);
         }
 
-        if (inventory.AtCapacity())
+        if (inventory.AtCapacity() && !FindStorage())
         {
-            FindStorage();
+            //Idle for now, but needs to be able to go back to store state as soon as storage is built
+            Idle();
         }
 
         interactRoutine = null;
@@ -318,9 +329,10 @@ public class Worker : Follower
                 creature.GatherFood(inventory);
 
                 // Then check if inventory is full, if so stores resources
-                if (inventory.AtCapacity())
+                if (inventory.AtCapacity() && !FindStorage())
                 {
-                    FindStorage();
+                    //Idle for now, but needs to be able to go back to store state as soon as storage is built
+                    Idle();
                 }
             }
         }

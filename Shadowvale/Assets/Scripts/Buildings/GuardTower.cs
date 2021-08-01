@@ -43,7 +43,7 @@ public class GuardTower : Building
         }
     }
 
-    public override void Destroy()
+    public override void DestroyThis()
     {
         RemoveArcher();
     }
