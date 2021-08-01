@@ -39,7 +39,7 @@ public class GameController : MonoSingleton<GameController>
             gameCam.transform.position = new Vector3(Grid.startPos.x, Grid.startPos.y, gameCam.transform.position.z);
         }
 
-        Cursor.lockState = CursorLockMode.Confined;
+        //Cursor.lockState = CursorLockMode.Confined;
         save = GetComponent<Save>();
     }
 

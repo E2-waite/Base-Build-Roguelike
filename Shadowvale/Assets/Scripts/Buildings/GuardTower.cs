@@ -51,7 +51,7 @@ public class GuardTower : Building
     // Update is called once per frame
     void Update()
     {
-        if (detectCol.radius != range)
+        if (detectCol != null && detectCol.radius != range)
         {
             detectCol.radius = range;
         }

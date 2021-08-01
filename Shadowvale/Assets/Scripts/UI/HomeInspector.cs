@@ -18,7 +18,7 @@ public class HomeInspector : InspectorDetails, IPointerClickHandler
 
         foodVal.text = Resources.Value(Resource.Type.food).ToString() + "/" + Spawner.Instance.followerCost.ToString();
 
-        return 50;
+        return 70;
     }
 
     public void OnPointerClick(PointerEventData eventData)
