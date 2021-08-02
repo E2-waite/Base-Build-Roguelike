@@ -15,11 +15,11 @@ D:/Files/Game Dev/Shadowvale/Shadowvale
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-59919
+56975
 Successfully changed project path to: D:/Files/Game Dev/Shadowvale/Shadowvale
 D:/Files/Game Dev/Shadowvale/Shadowvale
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 3740.28 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 190.26 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.1.7f1 (d91830b65d9b)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/2021.1.7f1/Editor/Data/Resources/UnitySubsystems
@@ -36,25 +36,25 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/2021.1.7f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/2021.1.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/2021.1.7f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56164
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56944
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/2021.1.7f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/2021.1.7f1/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/2021.1.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/2021.1.7f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
-Registered in 0.007768 seconds.
+Registered in 0.011232 seconds.
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 223.40 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 261.51 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  7.427 seconds
+- Completed reload, in  5.299 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.006381 seconds.
+Registered in 0.006801 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
@@ -62,33 +62,57 @@ Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 241.99 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 165.58 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  3.882 seconds
+- Completed reload, in  1.850 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.12 seconds
-Refreshing native plugins compatible for Editor in 1.17 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
+Refreshing native plugins compatible for Editor in 0.99 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 4553 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 174.0 MB.
-System memory in use after: 174.1 MB.
+System memory in use before: 173.9 MB.
+System memory in use after: 174.0 MB.
 
 Unloading 27 unused Assets to reduce memory usage. Loaded Objects now: 5014.
-Total: 4.050200 ms (FindLiveObjects: 0.368900 ms CreateObjectMapping: 0.205500 ms MarkObjects: 3.302100 ms  DeleteObjects: 0.171800 ms)
+Total: 3.759700 ms (FindLiveObjects: 0.385200 ms CreateObjectMapping: 0.208200 ms MarkObjects: 3.005600 ms  DeleteObjects: 0.158700 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Scripts/Controllers/Save.cs
-  artifactKey: Guid(2d9c9e3ea78fcfb4fbe95cd606a7cb1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Controllers/Save.cs using Guid(2d9c9e3ea78fcfb4fbe95cd606a7cb1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b771541536552b9096ada236b64414c') in 0.060411 seconds 
+  path: Assets/Scenes/MenuScene.unity
+  artifactKey: Guid(3667956e8ba3e5249b3783ec2be2873f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MenuScene.unity using Guid(3667956e8ba3e5249b3783ec2be2873f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95f6e51972cd6be5608a2a5e5ecf0787') in 0.048641 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 498.195075 seconds.
+  path: Assets/Sprites/UI/Stone L Menu Button.png
+  artifactKey: Guid(3dd126a0d3dc02b49a8163f0aeb297c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/UI/Stone L Menu Button.png using Guid(3dd126a0d3dc02b49a8163f0aeb297c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7aab580ba0c94dce5969f5b2a05eb1ce') in 0.144077 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000355 seconds.
+  path: Assets/Sprites/UI/Stone Menu Button.png
+  artifactKey: Guid(e29ec92279a9e6343b7e69df349277df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/UI/Stone Menu Button.png using Guid(e29ec92279a9e6343b7e69df349277df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6e90a2564842c87c8a4d9be9d7f641f') in 0.027851 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 17.842966 seconds.
+  path: Assets/Sprites/UI/Stone L Menu Button.png
+  artifactKey: Guid(3dd126a0d3dc02b49a8163f0aeb297c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/UI/Stone L Menu Button.png using Guid(3dd126a0d3dc02b49a8163f0aeb297c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f43719c8f6841ddcaec8e3b455ac36fa') in 0.020676 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000400 seconds.
+  path: Assets/Sprites/UI/Stone Menu Button.png
+  artifactKey: Guid(e29ec92279a9e6343b7e69df349277df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/UI/Stone Menu Button.png using Guid(e29ec92279a9e6343b7e69df349277df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d98de03990e2f50a864b68be98c3f7c') in 0.038120 seconds 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.006772 seconds.
+Registered in 0.008180 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
@@ -96,57 +120,37 @@ Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 2.04 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.09 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.135 seconds
+- Completed reload, in  2.002 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.03 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.17 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4488 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 168.4 MB.
-System memory in use after: 168.5 MB.
+Unloading 4490 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 174.2 MB.
+System memory in use after: 174.3 MB.
 
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5018.
-Total: 4.733900 ms (FindLiveObjects: 0.490300 ms CreateObjectMapping: 1.036700 ms MarkObjects: 3.063400 ms  DeleteObjects: 0.141900 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.006710 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.03 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  3.009 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.12 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4488 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 168.5 MB.
-System memory in use after: 168.6 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5022.
-Total: 6.672500 ms (FindLiveObjects: 1.239000 ms CreateObjectMapping: 0.542500 ms MarkObjects: 4.730900 ms  DeleteObjects: 0.157900 ms)
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5084.
+Total: 3.441700 ms (FindLiveObjects: 0.379600 ms CreateObjectMapping: 0.208600 ms MarkObjects: 2.719100 ms  DeleteObjects: 0.132800 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1363.634119 seconds.
-  path: Assets/Scripts/Controllers/Save.cs
-  artifactKey: Guid(2d9c9e3ea78fcfb4fbe95cd606a7cb1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Controllers/Save.cs using Guid(2d9c9e3ea78fcfb4fbe95cd606a7cb1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd58d07076a89a91197bf86812a0b54da') in 0.018663 seconds 
+  Time since last request: 478.650615 seconds.
+  path: Assets/Sprites/UI/DirectionArrow.png
+  artifactKey: Guid(5d54df33db5d30a46b3a4487543a7cc9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/UI/DirectionArrow.png using Guid(5d54df33db5d30a46b3a4487543a7cc9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd5072cc284cf153fd10a638c2632cbd') in 0.115842 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.528579 seconds.
+  path: Assets/Sprites/UI/DirectionArrow.png
+  artifactKey: Guid(5d54df33db5d30a46b3a4487543a7cc9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/UI/DirectionArrow.png using Guid(5d54df33db5d30a46b3a4487543a7cc9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e80c35ff0c3d9ccdb7c9e47db0dcf50a') in 0.025319 seconds 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.005710 seconds.
+Registered in 0.006314 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
@@ -154,25 +158,51 @@ Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.21 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.03 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.944 seconds
+- Completed reload, in  2.227 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.36 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4489 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 175.1 MB.
+System memory in use after: 175.2 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5120.
+Total: 3.732000 ms (FindLiveObjects: 0.535300 ms CreateObjectMapping: 0.238100 ms MarkObjects: 2.824900 ms  DeleteObjects: 0.132100 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007457 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.18 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.068 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Refreshing native plugins compatible for Editor in 1.04 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 4488 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 168.5 MB.
-System memory in use after: 168.7 MB.
+System memory in use before: 175.1 MB.
+System memory in use after: 175.2 MB.
 
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5026.
-Total: 4.175900 ms (FindLiveObjects: 0.481300 ms CreateObjectMapping: 0.439200 ms MarkObjects: 3.123700 ms  DeleteObjects: 0.130200 ms)
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5124.
+Total: 5.511400 ms (FindLiveObjects: 0.542000 ms CreateObjectMapping: 0.462100 ms MarkObjects: 4.366200 ms  DeleteObjects: 0.139200 ms)
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.007291 seconds.
+Registered in 0.016571 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
@@ -180,25 +210,25 @@ Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.07 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.17 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.436 seconds
+- Completed reload, in  2.850 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.85 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.05 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 4488 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 168.6 MB.
-System memory in use after: 168.7 MB.
+System memory in use before: 175.1 MB.
+System memory in use after: 175.2 MB.
 
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5030.
-Total: 6.229300 ms (FindLiveObjects: 0.898200 ms CreateObjectMapping: 0.606600 ms MarkObjects: 4.578200 ms  DeleteObjects: 0.143900 ms)
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5128.
+Total: 6.512500 ms (FindLiveObjects: 0.959900 ms CreateObjectMapping: 2.373600 ms MarkObjects: 3.036700 ms  DeleteObjects: 0.140100 ms)
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.006145 seconds.
+Registered in 0.006651 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
@@ -209,94 +239,16 @@ Native extension for WebGL target not found
 Refreshing native plugins compatible for Editor in 1.03 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.022 seconds
+- Completed reload, in  2.301 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.23 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 5.25 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 4488 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 168.6 MB.
-System memory in use after: 168.7 MB.
+System memory in use before: 175.1 MB.
+System memory in use after: 175.2 MB.
 
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5034.
-Total: 3.679300 ms (FindLiveObjects: 0.405800 ms CreateObjectMapping: 0.247000 ms MarkObjects: 2.884600 ms  DeleteObjects: 0.140100 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.007703 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.00 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.826 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.02 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4488 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 168.6 MB.
-System memory in use after: 168.7 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5038.
-Total: 3.387700 ms (FindLiveObjects: 0.368400 ms CreateObjectMapping: 0.202100 ms MarkObjects: 2.687900 ms  DeleteObjects: 0.127700 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005909 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.20 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.888 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.05 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4488 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 168.6 MB.
-System memory in use after: 168.7 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5042.
-Total: 5.453600 ms (FindLiveObjects: 1.418300 ms CreateObjectMapping: 0.484400 ms MarkObjects: 3.400700 ms  DeleteObjects: 0.148300 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005855 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.52 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.615 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.12 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4488 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 168.6 MB.
-System memory in use after: 168.7 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5046.
-Total: 4.263500 ms (FindLiveObjects: 0.383800 ms CreateObjectMapping: 0.199700 ms MarkObjects: 3.525900 ms  DeleteObjects: 0.152400 ms)
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5132.
+Total: 5.280800 ms (FindLiveObjects: 0.437900 ms CreateObjectMapping: 0.255200 ms MarkObjects: 4.438500 ms  DeleteObjects: 0.147100 ms)
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

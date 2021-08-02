@@ -24,7 +24,8 @@ public class GameController : MonoSingleton<GameController>
     public bool camFocused = false;
     public Cooldown dayTimer = new Cooldown(30);
     public Light2D worldLight;
-    public bool day = true;
+    public bool day = true, paused = false;
+    public GameObject pauseMenu;
     void Start()
     {
         Debug.Log("STARTED");
@@ -45,20 +46,50 @@ public class GameController : MonoSingleton<GameController>
 
     private void Update()
     {
-        ClickControl();
-        CameraControl();
-        if (dayCycle && dayTimer.Tick())
+        if (!paused)
         {
-            dayTimer.Reset();
-            StartCoroutine(DayFade());
+            ClickControl();
+            CameraControl();
+            if (dayCycle && dayTimer.Tick())
+            {
+                dayTimer.Reset();
+                StartCoroutine(DayFade());
+            }
         }
 
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            save.SaveGame();
-            ResetStatics();
-            SceneManager.LoadScene(0);
+            if (paused)
+            {
+                Unpause();
+            }
+            else
+            {
+                Pause();
+            }
         }
+    }
+
+    public void Exit()
+    {
+        save.SaveGame();
+        ResetStatics();
+        Time.timeScale = 1;
+        SceneManager.LoadScene(0);
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0;
+        paused = true;
+        pauseMenu.SetActive(true);
+    }
+
+    public void Unpause()
+    {
+        Time.timeScale = 1;
+        paused = false;
+        pauseMenu.SetActive(false);
     }
 
     void ResetStatics()
