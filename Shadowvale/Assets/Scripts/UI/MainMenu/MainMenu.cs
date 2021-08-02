@@ -26,6 +26,7 @@ public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public GameObject[] menuButtons = new GameObject[3];
     public GameObject[] gameSaves = new GameObject[3];
     public Color textColour, rolloverColour;
+    public GameObject backButton;
     private void Start()
     {
         for (int i = 0; i < gameSaves.Length; i++)
@@ -56,6 +57,12 @@ public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (eventData.pointerCurrentRaycast.gameObject == backButton)
+        {
+            SwitchMenu(Menu.main);
+            return;
+        }   
+        
         if (currentMenu == Menu.main)
         {
             if (eventData.pointerCurrentRaycast.gameObject == menuButtons[(int)Buttons.play])
@@ -97,10 +104,23 @@ public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         menus[(int)currentMenu].SetActive(false);
         currentMenu = menu;
         menus[(int)currentMenu].SetActive(true);
+
+        if (menu == Menu.main)
+        {
+            backButton.SetActive(false);
+        }
+        else
+        {
+            backButton.SetActive(true);
+        }
     }
 
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
+        if (pointerEventData.pointerCurrentRaycast.gameObject == backButton)
+        {
+            backButton.transform.GetChild(0).GetComponent<Image>().color = rolloverColour;
+        }
         if (pointerEventData.pointerCurrentRaycast.gameObject != null && pointerEventData.pointerCurrentRaycast.gameObject.CompareTag("Button"))
         {
             pointerEventData.pointerCurrentRaycast.gameObject.transform.GetChild(0).GetComponent<Text>().color = rolloverColour;
@@ -119,6 +139,7 @@ public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerExit(PointerEventData pointerEventData)
     {
+        backButton.transform.GetChild(0).GetComponent<Image>().color = textColour;
         for (int i = 0; i < 3; i++)
         {
             menuButtons[i].transform.GetChild(0).GetComponent<Text>().color = textColour;
