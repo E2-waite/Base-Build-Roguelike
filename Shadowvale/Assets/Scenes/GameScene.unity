@@ -3441,43 +3441,43 @@ MonoBehaviour:
   buildings:
   - name: Wood Pile
     prefab: {fileID: 938588659906107226, guid: 2c3345279267e0041910a93cc0662d62, type: 3}
-    sprite: {fileID: -8567814636022076339, guid: d8a4920f246412141a628bf06675648f, type: 3}
+    sprite: {fileID: 21300000, guid: 2d6592a4e803d3045ad5d9be218a5ac0, type: 3}
     type: 0
   - name: Stone Pile
     prefab: {fileID: 938588659906107226, guid: b1fea78638a9c694f93d370fd4ea0108, type: 3}
-    sprite: {fileID: 7638442721857622090, guid: b6357c3d164f6444a98546d5f2e1596b, type: 3}
+    sprite: {fileID: 21300000, guid: 94170f5749f16e2489087856828e61a7, type: 3}
     type: 0
   - name: Food Pile
     prefab: {fileID: 938588659906107226, guid: 7f2b48050d471ff44adb4d2a4be2f3f8, type: 3}
-    sprite: {fileID: -3334185611464207529, guid: ca835c895edf0b54db24691e0d97fe1a, type: 3}
+    sprite: {fileID: 21300000, guid: a6cbd1cc337471245b94d723b8ea802d, type: 3}
     type: 0
   - name: Wood House
     prefab: {fileID: 5741391851399633439, guid: a3fb97f6d63357f4fb97fc3eb856ca7c, type: 3}
-    sprite: {fileID: 21300000, guid: a5a2252f741a7bf49b1812694127a48f, type: 3}
+    sprite: {fileID: 21300000, guid: b3ddc63ce029dcb4fb83db90856b4fc0, type: 3}
     type: 0
   - name: Wood Wall
     prefab: {fileID: 3963982256496168285, guid: fd06baf343e15454ab4437bed2862b88, type: 3}
-    sprite: {fileID: 6116906653869191027, guid: 12925ef923cad9849b017f1c26a508d7, type: 3}
+    sprite: {fileID: 21300000, guid: ecc5409d92f3a9140b27d9fc7503b4b5, type: 3}
     type: 0
   - name: Purify Pillar
     prefab: {fileID: 2229980545842200965, guid: 7f37d00c87f66f442936d0bc62d99ad2, type: 3}
-    sprite: {fileID: 1325237055625117177, guid: 4d385f139351d89429655e617e2423a8, type: 3}
+    sprite: {fileID: 21300000, guid: e27d1fc76fc8d0f4d8345a1f4ff16c1c, type: 3}
     type: 0
   - name: GuardTower
     prefab: {fileID: 8409684493181859174, guid: 69e84cf229b8ffc46a8e4f59d1dc06cf, type: 3}
-    sprite: {fileID: 21300000, guid: 35a12ea95ca6593419e9ec062b2734e4, type: 3}
+    sprite: {fileID: 21300000, guid: a06de7e87e571fe4ea8ea51486b1684a, type: 3}
     type: 0
   - name: Archery Range
     prefab: {fileID: 8409684493181859174, guid: c9cc39c57f2ed3f40bc695bd1e6fc530, type: 3}
-    sprite: {fileID: 21300000, guid: 4b6f0a1292334d543ac66ea37695f1aa, type: 3}
+    sprite: {fileID: 21300000, guid: d672c7d7bccdced4aa10a46945680a67, type: 3}
     type: 1
   - name: Barracks
     prefab: {fileID: 8409684493181859174, guid: 809f6bdabf29e6642b09e257c92acb0a, type: 3}
-    sprite: {fileID: 21300000, guid: 9680abfa49ff5334bbd33d7c32aa536e, type: 3}
+    sprite: {fileID: 21300000, guid: f06ff633935fa2b44869dcf32cc2317b, type: 3}
     type: 1
   - name: Temple
     prefab: {fileID: 8409684493181859174, guid: 257c36affca64ff4fb5a93eb46f4aa13, type: 3}
-    sprite: {fileID: 21300000, guid: c414c7fcafe71f24f9ef0657d8ec6d46, type: 3}
+    sprite: {fileID: 21300000, guid: 927df98e8c48f134fa02cba85b70d1e1, type: 3}
     type: 1
   selectedTemplate: 0
   rabbitPrefab: {fileID: 6563278837278293193, guid: e50a273da9c7dff439d70dd735cb9fdd, type: 3}
