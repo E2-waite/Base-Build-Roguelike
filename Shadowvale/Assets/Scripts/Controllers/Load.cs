@@ -250,6 +250,21 @@ public class Load : MonoBehaviour
             creature.health = creatureData.health;
             creature.startPos = creatureData.startPos;
         }
+        return LoadCorpses(gameData);
+    }
+
+    bool LoadCorpses(GameData gameData)
+    {
+        for (int i = 0; i < gameData.corpses.Length; i++)
+        {
+            CorpseData corpseData = gameData.corpses[i];
+            GameObject corpseObj = Instantiate(Spawner.Instance.corpsePrefab[corpseData.type], corpseData.pos, Quaternion.identity);
+            if (corpseData.flipped)
+            {
+                corpseObj.transform.localScale = new Vector2(-1, 1);
+            }
+            Followers.corpses.Add(corpseObj.GetComponent<Corpse>());
+        }
         return LoadSquads(gameData);
     }
 

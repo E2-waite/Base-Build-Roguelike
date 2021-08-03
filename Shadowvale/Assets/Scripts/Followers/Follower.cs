@@ -27,7 +27,7 @@ public abstract class Follower : Interaction
     public FollowerSquad squad;
     public int maxHealth = 10, health, hitDamage = 1;
     public float targetDist = 1.5f, speed = 5f, targetRange = 15, chaseDist = 0.5f;
-    public GameObject highlight, marker, squadPrefab, corpsePrefab, bloodEffect = null;
+    public GameObject highlight, marker, squadPrefab, bloodEffect = null;
     public List<Vector2Int> path = new List<Vector2Int>();
     public Vector2Int currentPos;
     public Light2D torchLight;
@@ -352,7 +352,10 @@ public abstract class Follower : Interaction
         rend.color = Color.white;
         if (health <= 0)
         {
-            Instantiate(corpsePrefab, transform.position, Quaternion.identity);
+            GameObject corpseObj = Instantiate(Spawner.Instance.corpsePrefab[(int)type], transform.position, Quaternion.identity);
+            Corpse corpse = corpseObj.GetComponent<Corpse>();
+            corpse.type = type;
+
             Followers.Remove(this);
             HUD.Instance.UpdateFollowers();
             if (squad != null)

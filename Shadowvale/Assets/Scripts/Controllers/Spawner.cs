@@ -45,6 +45,7 @@ public class Spawner : MonoSingleton<Spawner>
     [Header("Follower Settings")]
     public int followerCost = 10;
     public GameObject[] followerPrefab = new GameObject[4];
+    public GameObject[] corpsePrefab = new GameObject[4];
     public void SpawnFollower(Vector3 pos)
     {
         GameObject follower = Instantiate(followerPrefab[0], Vector3.zero, Quaternion.identity).transform.GetChild(0).gameObject;

@@ -6,6 +6,7 @@ public  static class Followers
 {
     public static List<Follower> followers = new List<Follower>();
     public static List<FollowerSquad> squads = new List<FollowerSquad>();
+    public static List<Corpse> corpses = new List<Corpse>();
     public static Follower selected;
     public static FollowerSquad selectedSquad = null;
     public static int maxFollowers = 1;
@@ -14,6 +15,7 @@ public  static class Followers
     {
         followers = new List<Follower>();
         squads = new List<FollowerSquad>();
+        corpses = new List<Corpse>();
         selected = null;
         selectedSquad = null;
         maxFollowers = 1;

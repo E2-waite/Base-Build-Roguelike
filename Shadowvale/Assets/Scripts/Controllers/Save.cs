@@ -15,6 +15,7 @@ public class Save : MonoBehaviour
         SaveFollowers(gameData);
         SaveEnemies(gameData);
         SaveCreatures(gameData);
+        SaveCorpses(gameData);
         SaveSquads(gameData);
 
         System.IO.File.WriteAllText(Application.persistentDataPath + "/" + file + ".json", JsonUtility.ToJson(gameData));
@@ -116,6 +117,22 @@ public class Save : MonoBehaviour
         }
     }
 
+    private void SaveCorpses(GameData gameData)
+    {
+        for (int i = 0; i < Followers.corpses.Count; i++)
+        {
+            Corpse corpse = Followers.corpses[i];
+            if (corpse != null)
+            {
+                gameData.corpses[i] = new CorpseData((int)corpse.type, corpse.transform.position, corpse.transform.localScale.x <= 0);
+            }
+            else
+            {
+                Followers.corpses.RemoveAt(i);
+            }
+        }
+    }
+
     private void SaveSquads(GameData gameData)
     {
         List<Squad> allSquads = new List<Squad>();
@@ -150,6 +167,7 @@ public class GameData
     public BuildingData[] buildings;
     public AIData[] followers, enemies;
     public CreatureData[] creatures;
+    public CorpseData[] corpses;
     public SquadData[] squads;
     public GameData(int size, int noiseVal, int numResources)
     {
@@ -163,6 +181,7 @@ public class GameData
         followers = new AIData[Followers.followers.Count];
         enemies = new AIData[Enemies.enemies.Count];
         creatures = new CreatureData[Creatures.creatures.Count];
+        corpses = new CorpseData[Followers.corpses.Count];
         squads = new SquadData[Followers.squads.Count + Enemies.squads.Count];
     }
 }
@@ -320,5 +339,20 @@ public class StatusEffectData
         {
             heal = effect as HealEffect;
         }
+    }
+}
+
+[System.Serializable]
+public class CorpseData
+{
+    public int type;
+    public Vector2 pos;
+    public bool flipped;
+
+    public CorpseData(int _type, Vector2 _pos, bool _flipped)
+    {
+        type = _type;
+        pos = _pos;
+        flipped = _flipped;
     }
 }

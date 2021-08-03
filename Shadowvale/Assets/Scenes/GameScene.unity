@@ -3698,6 +3698,11 @@ MonoBehaviour:
   - {fileID: 8840559666961402214, guid: 66d071f54f729b348a98537df379fa2e, type: 3}
   - {fileID: 8840559666961402214, guid: aa27a70a0b3e25b469136317101ae80d, type: 3}
   - {fileID: 8840559666961402214, guid: e527585eeb9171043a3bac4c7574ba53, type: 3}
+  corpsePrefab:
+  - {fileID: 809098620326100432, guid: 4b68942577a839c428900ac02f40917c, type: 3}
+  - {fileID: 809098620326100432, guid: 7754f47f05ebac54aa4201eca1d63503, type: 3}
+  - {fileID: 809098620326100432, guid: e7bebd13c77147b4ca72e24eae4b7d74, type: 3}
+  - {fileID: 809098620326100432, guid: 86f2656a51843ca419b4d9ec8a2495c4, type: 3}
   enemyTemplates:
   - prefab: {fileID: 2743365640547367737, guid: 4f6d634aa3497134eb1b05be31943143, type: 3}
     rarity: 0
@@ -3779,7 +3784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyOnLoad: 1
-  loadGame: 0
+  loadGame: 1
   dayCycle: 0
   gameState: 0
   gameCam: {fileID: 519420031}

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Corpse : Interaction
 {
+    public Follower.Type type;
     public GameObject healthyPrefab, undeadPrefab;
 
     private void Start()
@@ -13,6 +14,7 @@ public class Corpse : Interaction
         {
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
+        Followers.corpses.Add(this);
     }
 
     public void Revive(Priest priest)
@@ -27,6 +29,7 @@ public class Corpse : Interaction
         Enemies.Add(enemy);
         necromancer.undead.Add(enemy);
         enemy.transform.localScale = transform.localScale;
+        Followers.corpses.Remove(this);
         Destroy(gameObject);
     }
 }
