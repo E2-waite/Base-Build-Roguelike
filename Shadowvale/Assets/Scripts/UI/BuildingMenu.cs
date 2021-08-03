@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class BuildingMenu : MonoBehaviour, IPointerClickHandler
+public class BuildingMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     GameObject[] buttons;
     public GameObject button;
@@ -102,6 +102,27 @@ public class BuildingMenu : MonoBehaviour, IPointerClickHandler
         }
         toggling = false;
         open = false;
+    }
+
+    public void OnPointerEnter(PointerEventData pointerEventData)
+    {
+        if (!toggling && open)
+        {
+            for (int i = 0; i < buttons.Length - 1; i++)
+            {
+                if (pointerEventData.pointerCurrentRaycast.gameObject == buttons[i])
+                {
+                    Debug.Log("HOVER");
+                    DescriptionBox.Instance.EnableBox(Spawner.Instance.buildings[i].name);
+                    return;
+                }
+            }
+        }
+    }
+
+    public void OnPointerExit(PointerEventData pointerEventData)
+    {
+        DescriptionBox.Instance.DisableBox();
     }
 
 }

@@ -1,18 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class DescriptionBox : MonoBehaviour
+using UnityEngine.UI;
+public class DescriptionBox : MonoSingleton<DescriptionBox>
 {
-    // Start is called before the first frame update
-    void Start()
+    public Text text;
+    public GameObject box;
+    public bool isEnabled = false;
+
+    public void EnableBox(string name)
     {
-        
+        box.SetActive(true);
+        text.text = name;
+        isEnabled = true;
+    }
+
+    public void DisableBox()
+    {
+        box.SetActive(false);
+        isEnabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (isEnabled)
+        {
+            box.transform.position = Input.mousePosition;
+        }
     }
 }
