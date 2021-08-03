@@ -5,7 +5,7 @@ using System.IO;
 
 public class Load : MonoBehaviour
 {
-    public GameObject squadPrefab;
+    public GameObject friendlySquad, hostileSquad;
     public bool LoadGame()
     {
         Debug.Log(Save.file);
@@ -270,10 +270,19 @@ public class Load : MonoBehaviour
 
     bool LoadSquads(GameData gameData)
     {
+        // need to have instantiate of friendly and hostile squads
         for (int i = 0; i < gameData.squads.Length; i++)
         {
             SquadData squadData = gameData.squads[i];
-            GameObject squadObj = Instantiate(squadPrefab, Vector3.zero, Quaternion.identity);
+            GameObject squadObj = null;
+            if (squadData.friendly)
+            {
+                squadObj = Instantiate(friendlySquad, Vector3.zero, Quaternion.identity);
+            }
+            else
+            {
+                squadObj = Instantiate(hostileSquad, Vector3.zero, Quaternion.identity);
+            }
 
             if (squadObj != null)
             {
@@ -325,6 +334,19 @@ public class Load : MonoBehaviour
 
         Spawner.Instance.StartSpawning();
 
+        return LoadProjectiles(gameData);
+    }
+
+    bool LoadProjectiles(GameData gameData)
+    {
+        for (int i = 0; i < gameData.projectiles.Length; i++)
+        {
+            ProjectileData projectileData = gameData.projectiles[i];
+            GameObject projectileObj = Instantiate(Spawner.Instance.projectilePrefab[projectileData.type], projectileData.pos, Quaternion.identity);
+            Projectile projectile = projectileObj.GetComponent<Projectile>();
+
+            projectile.Setup(Grid.TargetFromIndex(projectileData.target), (projectileData.origin >= 0) ? Grid.TargetFromIndex(projectileData.origin) : null, projectileData.speed, projectileData.damage);
+        }
         return true;
     }
 }

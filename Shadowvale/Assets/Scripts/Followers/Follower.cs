@@ -320,7 +320,7 @@ public abstract class Follower : Interaction
             {
                 if (squad.members[i] != this)
                 {
-                    (squad.members[i] as Enemy).UpdateTarget(interaction, true);
+                    (squad.members[i] as Follower).UpdateTarget(interaction, true);
                 }
             }
         }

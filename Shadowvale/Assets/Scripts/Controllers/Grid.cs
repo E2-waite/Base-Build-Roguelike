@@ -10,6 +10,7 @@ public static class Grid
     public static Vector2Int selectedPos;
     public static int size, noise;
     public static Vector2Int startPos;
+    public static List<Projectile> projectiles = new List<Projectile>();
     public static void Init(int mapSize, int noiseSize)
     {
         size = mapSize;
@@ -145,5 +146,6 @@ public static class Grid
     {
         tiles = null;
         selectedTiles = new List<Tile>();
+        projectiles = new List<Projectile>();
     }
 }

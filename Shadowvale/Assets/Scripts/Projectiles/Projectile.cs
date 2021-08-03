@@ -4,10 +4,22 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    bool move = false;
-    Interaction target, origin;
-    float speed;
-    int damage;
+    public enum Type
+    {
+        arrow,
+        shadow,
+        necro
+    }
+    public Type type;
+    public Interaction target, origin;
+    public float speed;
+    public int damage;
+
+    private bool move = false;
+    private void Start()
+    {
+        Grid.projectiles.Add(this);
+    }
     private void Update()
     {
         if (move)
@@ -23,6 +35,7 @@ public class Projectile : MonoBehaviour
                 if (dist <= 0.1f)
                 {
                     move = false;
+                    Grid.projectiles.Remove(this);
                     Hit(target, origin, damage);
                 }
             }

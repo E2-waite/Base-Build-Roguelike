@@ -3759,6 +3759,10 @@ MonoBehaviour:
   selectedTemplate: 0
   rabbitPrefab: {fileID: 6563278837278293193, guid: e50a273da9c7dff439d70dd735cb9fdd, type: 3}
   creatureScale: 10
+  projectilePrefab:
+  - {fileID: 2050808074673889753, guid: 9ff224e4cbde0cc40bd70de79571ab60, type: 3}
+  - {fileID: 3959727543333110681, guid: 6a53d5d9202102d4bb78745fd3b85ab3, type: 3}
+  - {fileID: 2050808074673889753, guid: 0e5463c4ac6c26f49bbde59e5a99abc4, type: 3}
 --- !u!114 &1263100317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3821,7 +3825,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47dfa85f270044648910b360d20b0a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squadPrefab: {fileID: 8437693019058054867, guid: 4f60460212a58984992ec2ab3a5e4e3b, type: 3}
+  friendlySquad: {fileID: 8437693019058054867, guid: 4f60460212a58984992ec2ab3a5e4e3b, type: 3}
+  hostileSquad: {fileID: 8437693019058054867, guid: 3736310da1bc78f42baeb268d09a99ae, type: 3}
 --- !u!114 &1263100320
 MonoBehaviour:
   m_ObjectHideFlags: 0

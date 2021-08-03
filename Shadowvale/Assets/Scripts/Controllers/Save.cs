@@ -17,7 +17,7 @@ public class Save : MonoBehaviour
         SaveCreatures(gameData);
         SaveCorpses(gameData);
         SaveSquads(gameData);
-
+        SaveProjectiles(gameData);
         System.IO.File.WriteAllText(Application.persistentDataPath + "/" + file + ".json", JsonUtility.ToJson(gameData));
     }
 
@@ -142,7 +142,7 @@ public class Save : MonoBehaviour
         {
             Squad squad = allSquads[i];
             int[] members = SquadMembersIndexes(squad);
-            gameData.squads[i] = new SquadData(members);
+            gameData.squads[i] = new SquadData(members, (squad is FollowerSquad));
         }
     }
 
@@ -154,6 +154,22 @@ public class Save : MonoBehaviour
             memberIndexes[i] = squad.members[i].Index();
         }
         return memberIndexes;
+    }
+
+    private void SaveProjectiles(GameData gameData)
+    {
+        for (int i = 0; i < Grid.projectiles.Count; i++)
+        {
+            Projectile projectile = Grid.projectiles[i];
+            if (projectile != null)
+            {
+                gameData.projectiles[i] = new ProjectileData(projectile);
+            }
+            else
+            {
+                Grid.projectiles.RemoveAt(i);
+            }
+        }
     }
 }
 
@@ -169,6 +185,7 @@ public class GameData
     public CreatureData[] creatures;
     public CorpseData[] corpses;
     public SquadData[] squads;
+    public ProjectileData[] projectiles;
     public GameData(int size, int noiseVal, int numResources)
     {
         mapSize = size;
@@ -183,6 +200,7 @@ public class GameData
         creatures = new CreatureData[Creatures.creatures.Count];
         corpses = new CorpseData[Followers.corpses.Count];
         squads = new SquadData[Followers.squads.Count + Enemies.squads.Count];
+        projectiles = new ProjectileData[Grid.projectiles.Count];
     }
 }
 
@@ -286,9 +304,11 @@ public class CreatureData
 public class SquadData
 {
     public int[] members;
-    public SquadData(int[] _members)
+    public bool friendly;
+    public SquadData(int[] _members, bool _friendly)
     {
         members = _members;
+        friendly = _friendly;
     }
 }
 
@@ -354,5 +374,29 @@ public class CorpseData
         type = _type;
         pos = _pos;
         flipped = _flipped;
+    }
+}
+
+[System.Serializable]
+public class ProjectileData
+{
+    public int type, target, origin, damage;
+    public float speed;
+    public Vector2 pos;
+    public ProjectileData(Projectile projectile)
+    {
+        type = (int)projectile.type;
+        target = projectile.target.Index();
+        if (projectile.origin != null)
+        {
+            origin = projectile.origin.Index();
+        }
+        else
+        {
+            origin = -1;
+        }
+        damage = projectile.damage;
+        speed = projectile.speed;
+        pos = projectile.transform.position;
     }
 }

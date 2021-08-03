@@ -154,4 +154,7 @@ public class Spawner : MonoSingleton<Spawner>
             creature.transform.position = new Vector3(pos.x, pos.y, 0);
         }
     }
+
+    [Header("Projectile Settings")]
+    public List<GameObject> projectilePrefab = new List<GameObject>();
 }
