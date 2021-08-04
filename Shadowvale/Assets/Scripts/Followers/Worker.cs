@@ -177,6 +177,10 @@ public class Worker : Follower
         ResourceStorage storage = currentAction.target.interact as ResourceStorage;
 
         storage.Store(ref inventory.resources[(int)storage.storageType]);
+        if (Followers.selected == this)
+        {
+            Inspector.Enable(this);
+        }
 
         if (!FindStorage())
         {
@@ -301,6 +305,10 @@ public class Worker : Follower
         {
             Resource resource = currentAction.target.interact as Resource;
             resource.Gather(inventory);
+            if (Followers.selected == this)
+            {
+                Inspector.Enable(this);
+            }
         }
 
         if (inventory.AtCapacity() && !FindStorage())
@@ -337,7 +345,10 @@ public class Worker : Follower
             {
                 // If target creature dies, gather food
                 creature.GatherFood(inventory);
-
+                if (Followers.selected == this)
+                {
+                    Inspector.Enable(this);
+                }
                 // Then check if inventory is full, if so stores resources
                 if (inventory.AtCapacity() && !FindStorage())
                 {
