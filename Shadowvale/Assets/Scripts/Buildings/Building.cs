@@ -84,6 +84,15 @@ public abstract class Building : Interaction
         rend.color = Color.white;
     }
 
+    public bool Repair()
+    {
+        if (repair < maxRepair)
+        {
+            repair++;
+            return false;
+        }
+        return true;
+    }
 
     public virtual bool Save(BuildingData data)
     {

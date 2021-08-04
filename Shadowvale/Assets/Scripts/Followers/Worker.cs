@@ -13,9 +13,10 @@ public class Worker : Follower
         store = 4,
         build = 5,
         hunt = 6, 
+        repair = 7
     }
     [Header("Worker Settings")]
-    public float gatherTime = 2, buildTime = 1, hitTime = 0.5f;
+    public float gatherTime = 2, buildTime = 1, hitTime = 0.5f, repairTime = 1;
 
     public Inventory inventory = new Inventory();
     public override void Setup()
@@ -71,6 +72,11 @@ public class Worker : Follower
                 Building building = target.interact as Building;
                 if (building.isConstructed)
                 {
+                    if (building.repair < building.maxRepair)
+                    {
+                        actions.Add(new Action(target, (int)State.repair));
+                    }
+
                     if (building is ResourceStorage)
                     {
                         actions.Add(new Action(target, (int)State.store));
@@ -152,6 +158,10 @@ public class Worker : Follower
                     else if (currentAction.state == (int)State.hunt && interactRoutine == null)
                     {
                         interactRoutine = StartCoroutine(HitRoutine());
+                    }
+                    else if (currentAction.state == (int)State.repair && interactRoutine == null)
+                    {
+                        interactRoutine = StartCoroutine(RepairRoutine());
                     }
                 }
                 else
@@ -335,6 +345,16 @@ public class Worker : Follower
                     Idle();
                 }
             }
+        }
+        interactRoutine = null;
+    }
+
+    IEnumerator RepairRoutine()
+    {
+        yield return new WaitForSeconds(repairTime);
+        if (currentAction.target.interact != null && (currentAction.target.interact as Building).Repair())
+        {
+            Idle();
         }
         interactRoutine = null;
     }
