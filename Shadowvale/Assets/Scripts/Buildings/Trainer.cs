@@ -17,6 +17,19 @@ public abstract class Trainer : Building
     }
     public Training[] training = new Training[3];
 
+
+    public override void Load(BuildingData data)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            if (data.members[i] >= 0)
+            {
+                Debug.Log(data.members[i]);
+                AddFollower(Grid.TargetFromIndex(data.members[i]) as Follower, i, data.timers[i]);
+            }
+        }
+    }
+
     private void Update()
     {
         for (int i = 0; i < 3; i++)
@@ -28,11 +41,11 @@ public abstract class Trainer : Building
         }
     }
 
-    public bool AddFollower(Follower follower, int index)
+    public bool AddFollower(Follower follower, int index, Cooldown time = null)
     {
         if (training[index] == null)
         {
-            training[index] = new Training(follower, new Cooldown(5));
+            training[index] = new Training(follower, (time == null) ? new Cooldown(5) : time);
             Followers.selected = null;
             follower.gameObject.SetActive(false);
             return true;

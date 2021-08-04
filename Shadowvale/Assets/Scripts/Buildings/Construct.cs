@@ -57,22 +57,17 @@ public class Construct : MonoBehaviour
         Destroy(this);
     }
 
-    public void CheckComplete(BuildingData data)
+    public bool CheckComplete(BuildingData data)
     {
-        remaining = data.resourceRemaining;
-        building = GetComponent<Building>();
-        rend = GetComponent<SpriteRenderer>();
-
-        for (int i = 0; i < Resources.NUM; i++)
+        if (data.constructed)
         {
-            if (remaining[i] > 0)
-            {
-                return;
-            }
+            rend = GetComponent<SpriteRenderer>();
+            building = GetComponent<Building>();
+            rend.sprite = constructed;
+            building.Constructed();
+            Destroy(this);
+            return true;
         }
-
-        rend.sprite = constructed;
-        building.Constructed();
-        Destroy(this);
+        return false;
     }
 }

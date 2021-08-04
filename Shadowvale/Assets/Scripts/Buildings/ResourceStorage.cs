@@ -22,6 +22,14 @@ public class ResourceStorage : Building
         Resources.Adjust(storageType, 0, maxStorage);
     }
 
+    public override void Load(BuildingData data)
+    {
+        rend = GetComponent<SpriteRenderer>();
+        currentStorage = data.storage;
+        rend.sprite = stages[(int)Mathf.Ceil((currentStorage * (stages.Count - 1)) / maxStorage)];
+        Resources.Adjust(storageType, currentStorage, 0);
+    }
+
     public void SetVal(int val)
     {
         if (rend == null)

@@ -20,6 +20,15 @@ public class GuardTower : Building
         archerAnim = transform.GetChild(1).GetComponent<Animator>();
     }
 
+    public override void Load(BuildingData data)
+    {
+        if (isConstructed && data.members[0] >= 0)
+        {
+            AddArcher(Grid.TargetFromIndex(data.members[0]) as Archer);
+            shotCooldown = data.timers[0];
+        }
+    }
+
     public void AddArcher(Archer newArcher)
     {
         if (archer == null)

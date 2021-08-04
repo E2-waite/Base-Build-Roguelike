@@ -13,6 +13,7 @@ public abstract class Building : Interaction
     [HideInInspector] public Construct construct;
     protected SpriteRenderer rend;
     public Vector2Int[] tiles;
+    public BuildingData buildingData = null;
     private void Start()
     {
         rend = GetComponent<SpriteRenderer>();
@@ -80,6 +81,11 @@ public abstract class Building : Interaction
         rend.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         rend.color = Color.white;
+    }
+
+    public virtual void Load (BuildingData data)
+    {
+
     }
 
     public virtual void DestroyThis()

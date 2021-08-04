@@ -57,14 +57,7 @@ public class Save : MonoBehaviour
         for (int i = 0; i < Buildings.buildings.Count; i++)
         {
             Building building = Buildings.buildings[i];
-            int[] cost = new int[Resources.NUM], remaining = new int[Resources.NUM];
-            if (building.construct != null)
-            {
-                cost = building.construct.cost;
-                remaining = building.construct.remaining;
-            }
-            gameData.buildings[i] = new BuildingData(building.type, building.repair,
-                (building is ResourceStorage) ? (building as ResourceStorage).currentStorage : 0, cost, remaining, building.tiles);
+            gameData.buildings[i] = new BuildingData(building);
         }
     }
 
@@ -240,15 +233,62 @@ public class BuildingData
     public int type, health, storage;
     public int[] resourceCost, resourceRemaining;
     public Vector2Int[] tiles;
-    public BuildingData(int _type, int _health, int _storage, int[] _resourceCost, int[] _resourceRemaining, Vector2Int[] _tiles)
+    public int[] members;
+    public Cooldown[] timers;
+    public bool constructed = true;
+    public BuildingData(Building building)
     {
-        type = _type;
-        health = _health;
-        storage = _storage;
-        resourceCost = _resourceCost;
-        resourceRemaining = _resourceRemaining;
-
-        tiles = _tiles;
+        type = building.type;
+        health = building.repair;
+        tiles = building.tiles;
+        if (building.construct == null)
+        {
+            if (building is ResourceStorage)
+            {
+                storage = (building as ResourceStorage).currentStorage;
+            }
+            else if (building is Trainer)
+            {
+                Trainer trainer = building as Trainer;
+                members = new int[trainer.training.Length];
+                timers = new Cooldown[trainer.training.Length];
+                for (int i = 0; i < members.Length; i++)
+                {
+                    if (trainer.training[i] != null && trainer.training[i].follower != null)
+                    {
+                        members[i] = trainer.training[i].follower.Index();
+                        timers[i] = trainer.training[i].time;
+                    }
+                    else
+                    {
+                        members[i] = -1;
+                        timers[i] = null;
+                    }
+                }
+            }
+            else if (building is GuardTower)
+            {
+                GuardTower guardTower = building as GuardTower;
+                members = new int[1];
+                timers = new Cooldown[1];
+                if (guardTower.archer == null)
+                {
+                    members[0] = -1;
+                    timers[0] = null;
+                }
+                else
+                {
+                    members[0] = guardTower.archer.Index();
+                    timers[0] = guardTower.shotCooldown;
+                }
+            }
+        }
+        else
+        {
+            constructed = false;
+            resourceCost = building.construct.cost;
+            resourceRemaining = building.construct.remaining;
+        }
     }
 }
 

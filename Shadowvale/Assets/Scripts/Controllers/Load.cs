@@ -148,6 +148,8 @@ public class Load : MonoBehaviour
                 building.Centre();
                 building.type = buildingData.type;
 
+                building.buildingData = buildingData;
+
                 if (!(building is HomeBase))
                 {
                     Construct construct = buildingObj.GetComponent<Construct>();
@@ -155,20 +157,8 @@ public class Load : MonoBehaviour
                     {
                         construct.CheckComplete(buildingData);
                     }
-
-                    if (building is ResourceStorage)
-                    {
-                        (building as ResourceStorage).SetVal(buildingData.storage);
-                    }
-                    else if (building is House)
-                    {
-                        Followers.AdjustMaxFollowers(5);
-                    }
                 }
             }
-
-            // Add to building list based on type
-
         }
         Pathfinding.UpdateNodeGrid();
         return LoadFollowers(gameData);
@@ -333,6 +323,19 @@ public class Load : MonoBehaviour
 
         Spawner.Instance.StartSpawning();
 
+        return LoadBuildingVals(gameData);
+    }
+
+    bool LoadBuildingVals(GameData gameData)
+    {
+        for (int i = 0; i < Buildings.buildings.Count; i++)
+        {
+            Building building = Buildings.buildings[i];
+            if (building.buildingData != null)
+            {
+                building.Load(building.buildingData);
+            }
+        }
         return LoadProjectiles(gameData);
     }
 
