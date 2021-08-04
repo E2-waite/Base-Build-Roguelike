@@ -76,6 +76,8 @@ public class Load : MonoBehaviour
 
     bool LoadResources(GameData gameData)
     {
+        Resources.maxTrees = gameData.maxTrees;
+        Resources.maxStones = gameData.maxStones;
         for (int i = 0; i < gameData.resources.Length; i++)
         {
             ResourceData resourceData = gameData.resources[i];

@@ -3763,6 +3763,14 @@ MonoBehaviour:
   - {fileID: 2050808074673889753, guid: 9ff224e4cbde0cc40bd70de79571ab60, type: 3}
   - {fileID: 3959727543333110681, guid: 6a53d5d9202102d4bb78745fd3b85ab3, type: 3}
   - {fileID: 2050808074673889753, guid: 0e5463c4ac6c26f49bbde59e5a99abc4, type: 3}
+  treePrefab: {fileID: 8087232528035166766, guid: 85f336c396c38ed4f9d91d8e918eb583, type: 3}
+  stonePrefab: {fileID: 8087232528035166766, guid: ec624463330cdfe4d8f49c5f39a6bf81, type: 3}
+  treeSpawn:
+    max: 10
+    current: 10
+  stoneSpawn:
+    max: 10
+    current: 10
 --- !u!114 &1263100317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3788,7 +3796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyOnLoad: 1
-  loadGame: 1
+  loadGame: 0
   dayCycle: 0
   gameState: 0
   gameCam: {fileID: 519420031}

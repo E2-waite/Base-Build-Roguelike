@@ -168,7 +168,7 @@ public class Save : MonoBehaviour
 [System.Serializable]
 public class GameData
 {
-    public int mapSize, noise;
+    public int mapSize, noise, maxTrees, maxStones;
     public float camX, camY;
     public TileData[] tiles;
     public ResourceData[] resources;
@@ -193,6 +193,8 @@ public class GameData
         corpses = new CorpseData[Followers.corpses.Count];
         squads = new SquadData[Followers.squads.Count + Enemies.squads.Count];
         projectiles = new ProjectileData[Grid.projectiles.Count];
+        maxTrees = Resources.maxTrees;
+        maxStones = Resources.maxStones;
     }
 }
 

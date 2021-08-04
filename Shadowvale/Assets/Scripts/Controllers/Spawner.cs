@@ -45,6 +45,16 @@ public class Spawner : MonoSingleton<Spawner>
                 creatureSpawn.Reset();
                 SpawnNewCreature();
             }
+            if (treeSpawn.Tick() && Resources.trees.Count < Resources.maxTrees)
+            {
+                treeSpawn.Reset();
+                SpawnResource(Resource.Type.wood);
+            }
+            if (stoneSpawn.Tick() && Resources.stones.Count < Resources.maxStones)
+            {
+                treeSpawn.Reset();
+                SpawnResource(Resource.Type.stone);
+            }
         }
     }
 
@@ -169,4 +179,41 @@ public class Spawner : MonoSingleton<Spawner>
 
     [Header("Projectile Settings")]
     public List<GameObject> projectilePrefab = new List<GameObject>();
+
+
+    public GameObject treePrefab, stonePrefab;
+    public Cooldown treeSpawn = new Cooldown(10), stoneSpawn = new Cooldown(10);
+    public void SpawnResource(Resource.Type type)
+    {
+        GameObject prefab = null;
+        if (type == Resource.Type.wood)
+        {
+            prefab = treePrefab;
+        }
+        else if (type == Resource.Type.stone)
+        {
+            prefab = stonePrefab;
+        }
+
+        bool placed = false;
+        while(!placed)
+        {
+            Vector2Int pos = new Vector2Int(Random.Range(0, Grid.size), Random.Range(0, Grid.size));
+            Tile tile = Grid.tiles[pos.x, pos.y];
+            if (tile != null && (tile.type == Tile.Type.grass || tile.type == Tile.Type.darkGrass) && tile.structure == null)
+            {
+                GameObject resourceObj = Instantiate(prefab, new Vector3(pos.x, pos.y, 0), Quaternion.identity);
+                Resource resource = resourceObj.GetComponent<Resource>();
+                if (type == Resource.Type.wood)
+                {
+                    Resources.trees.Add(resource);
+                }
+                else if (type == Resource.Type.stone)
+                {
+                    Resources.stones.Add(resource);
+                }
+                placed = true;
+            }
+        }
+    }
 }

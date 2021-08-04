@@ -74,8 +74,8 @@ public class GridBuilder : MonoSingleton<GridBuilder>
         }
 
         // Place trees
-        int numTrees = treeScale * (Grid.size / 10);
-        for (int i = 0; i < numTrees; i++)
+        Resources.maxTrees = treeScale * (Grid.size / 10);
+        for (int i = 0; i < Resources.maxTrees; i++)
         {
             bool treePlaced = false;
             while (!treePlaced)
@@ -93,8 +93,8 @@ public class GridBuilder : MonoSingleton<GridBuilder>
             }
         }
 
-        int numStones = stoneScale * (mapSize / 10);
-        for (int i = 0; i < numStones; i++)
+        Resources.maxStones = stoneScale * (mapSize / 10);
+        for (int i = 0; i < Resources.maxStones; i++)
         {
             bool stonePlaced = false;
             while (!stonePlaced)
