@@ -30,6 +30,7 @@ public class Spawner : MonoSingleton<Spawner>
 
     }
 
+
     private void Update()
     {
         if (start)
@@ -38,6 +39,11 @@ public class Spawner : MonoSingleton<Spawner>
             {
                 enemySpawn = new Cooldown(spawnTime / (1 + (corruptedTiles.Count / 100)));
                 SpawnEnemy();
+            }
+            if (creatureSpawn.Tick())
+            {
+                creatureSpawn.Reset();
+                SpawnNewCreature();
             }
         }
     }
@@ -138,10 +144,19 @@ public class Spawner : MonoSingleton<Spawner>
     [Header("Creatures Settings")]
     public GameObject rabbitPrefab;
     public int creatureScale = 10;
+    Cooldown creatureSpawn = new Cooldown(10);
     public void SpawnCreatures()
     {
         Creatures.maxCreatures = creatureScale * (Grid.size / 10);
         for (int i = 0; i < Creatures.maxCreatures; i++)
+        {
+            SpawnNewCreature();
+        }
+    }
+
+    void SpawnNewCreature()
+    {
+        if (Creatures.creatures.Count < Creatures.maxCreatures)
         {
             Vector3 creaturePos = new Vector3((int)(Random.Range(0, Grid.size)), (int)(Random.Range(0, Grid.size)), 0);
             GameObject obj = Instantiate(rabbitPrefab, creaturePos, Quaternion.identity);

@@ -91,13 +91,14 @@ public static class Pathfinding
                 }
             }
 
-            for (int i = 0; i < Creatures.creatures.Count; i++)
-            {
-                if (Creatures.creatures[i] != null)
-                {
-                    (Creatures.creatures[i] as Creature).FindPath();
-                }
-            }
+            // Updating creature path is too resource heavy
+            //for (int i = 0; i < Creatures.creatures.Count; i++)
+            //{
+            //    if (Creatures.creatures[i] != null)
+            //    {
+            //        (Creatures.creatures[i] as Creature).FindPath();
+            //    }
+            //}
         }
     }
 
