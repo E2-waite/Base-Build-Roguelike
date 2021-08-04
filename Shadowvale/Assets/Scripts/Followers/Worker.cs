@@ -338,4 +338,16 @@ public class Worker : Follower
         }
         interactRoutine = null;
     }
+
+    public override void Save(AIData data)
+    {
+        base.Save(data);
+        data.inventory = inventory;
+    }
+
+    public override void Load(AIData data)
+    {
+        base.Load(data);
+        inventory = data.inventory;
+    }
 }

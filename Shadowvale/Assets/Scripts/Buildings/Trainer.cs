@@ -17,15 +17,38 @@ public abstract class Trainer : Building
     }
     public Training[] training = new Training[3];
 
+    public override bool Save(BuildingData data)
+    {
+        if (!base.Save(data))
+        {
+            return false;
+        }
+        data.members = new int[training.Length];
+        data.timers = new Cooldown[training.Length];
+        for (int i = 0; i < training.Length; i++)
+        {
+            if (training[i] != null && training[i].follower != null)
+            {
+                data.members[i] = training[i].follower.Index();
+                data.timers[i] = training[i].time;
+            }
+            else
+            {
+                data.members[i] = -1;
+                data.timers[i] = null;
+            }
+        }
+        return true;
+    }
 
-    public override void Load(BuildingData data)
+    public override void LoadInstance()
     {
         for (int i = 0; i < 3; i++)
         {
-            if (data.members[i] >= 0)
+            if (buildingData.members[i] >= 0)
             {
-                Debug.Log(data.members[i]);
-                AddFollower(Grid.TargetFromIndex(data.members[i]) as Follower, i, data.timers[i]);
+                Debug.Log(buildingData.members[i]);
+                AddFollower(Grid.TargetFromIndex(buildingData.members[i]) as Follower, i, buildingData.timers[i]);
             }
         }
     }

@@ -6,7 +6,7 @@ public class Necromancer : Enemy
 {
     public List<Corpse> corpses = new List<Corpse>();
     public List<Enemy> undead = new List<Enemy>();
-    readonly Cooldown shotCooldown = new Cooldown(5), raiseCooldown = new Cooldown(10);
+    public Cooldown shotCooldown = new Cooldown(5), raiseCooldown = new Cooldown(10);
     public GameObject shadowBoltPrefab, necroSphere;
     private void Update()
     {
@@ -40,5 +40,16 @@ public class Necromancer : Enemy
     }
 
 
+    public override void Save(AIData data)
+    {
+        base.Save(data);
+        data.cooldowns = new Cooldown[2] { shotCooldown, raiseCooldown };
+    }
 
+    public override void Load(AIData data)
+    {
+        base.Load(data);
+        shotCooldown = data.cooldowns[0];
+        raiseCooldown = data.cooldowns[1];
+    }
 }

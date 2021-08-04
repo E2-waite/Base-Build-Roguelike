@@ -100,4 +100,16 @@ public class Priest : Follower
             healTarget.AddEffect(new HealEffect(healTarget, 3, 1, 1));
         }
     }
+
+    public override void Save(AIData data)
+    {
+        base.Save(data);
+        data.cooldowns = new Cooldown[1] { healCooldown };
+    }
+
+    public override void Load(AIData data)
+    {
+        base.Load(data);
+        healCooldown = data.cooldowns[0];
+    }
 }

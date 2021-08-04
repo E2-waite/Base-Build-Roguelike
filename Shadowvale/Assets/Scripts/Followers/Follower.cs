@@ -35,7 +35,7 @@ public abstract class Follower : Interaction
     protected Animator anim;
     protected SpriteRenderer rend;
     protected Coroutine interactRoutine = null;
-
+    protected AIData aiData;
     private void Start()
     {
         actions.Add(currentAction);
@@ -394,5 +394,59 @@ public abstract class Follower : Interaction
         }
 
         return true;
+    }
+
+
+    public virtual void Save(AIData data) 
+    {
+        data.type = (int)type;
+        data.health = health;
+        data.pos = transform.position;
+        data.markerPos = marker.transform.position;
+        data.gridPos = currentPos;
+        data.statusEffects = new StatusEffectData(statusEffects);
+
+        data.numActions = actions.Count;
+        data.targets = new int[data.numActions];
+        data.states = new int[data.numActions];
+
+        for (int i = 0; i < data.numActions; i++)
+        {
+            actions[i].Save();
+            data.targets[i] = actions[i].targetInd;
+            data.states[i] = actions[i].state;
+        }
+    }
+    public virtual void Load(AIData data)
+    {
+        type = (Type)data.type;
+        health = data.health;
+        transform.position = data.pos;
+        marker.transform.position = data.markerPos;
+        currentPos = data.gridPos;
+        if (data.statusEffects != null)
+        {
+            statusEffects = data.statusEffects.Read(this);
+            glow.SetupGlow(statusEffects);
+        }
+        Followers.Add(this);
+        aiData = data;
+    }
+
+    public void SetTargets()
+    {
+        if (aiData.numActions > 0)
+        {
+            for (int j = 0; j < aiData.numActions; j++)
+            {
+                actions.Add(new Action(aiData.targets[j], aiData.states[j]));
+            }
+            currentAction = actions[actions.Count - 1];
+        }
+        else
+        {
+            currentAction = new Action();
+        }
+        aiData = null;
     }
 }

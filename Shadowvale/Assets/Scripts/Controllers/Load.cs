@@ -8,10 +8,8 @@ public class Load : MonoBehaviour
     public GameObject friendlySquad, hostileSquad;
     public bool LoadGame()
     {
-        Debug.Log(Save.file);
         if (!System.IO.File.Exists(Application.persistentDataPath + "/" + Save.file + ".json"))
         {
-            Debug.Log(Save.file + " Doesn't exist");
             return false;
         }
 
@@ -125,39 +123,21 @@ public class Load : MonoBehaviour
             BuildingData buildingData = gameData.buildings[i];
             Vector2Int pos = new Vector2Int(buildingData.tiles[0].x, buildingData.tiles[0].y);
             GameObject buildingObj;
-            if (buildingData.type > Spawner.Instance.buildings.Count)
+            if (buildingData.type >= 0)
+            {
+                buildingObj = Instantiate(Spawner.Instance.buildings[buildingData.type].prefab, Grid.tiles[pos.x, pos.y].transform.position, Quaternion.identity);
+            }
+            else
             {
                 buildingObj = Instantiate(Spawner.Instance.firepitPrefab, Grid.tiles[pos.x, pos.y].transform.position, Quaternion.identity);
                 Buildings.homeBase = buildingObj.GetComponent<HomeBase>();
             }
-            else
-            {
-                buildingObj = Instantiate(Spawner.Instance.buildings[buildingData.type].prefab, Grid.tiles[pos.x, pos.y].transform.position, Quaternion.identity);
-            }
 
             Building building = buildingObj.GetComponent<Building>();
-            Buildings.Add(building);
 
             if (building != null)
             {
-                building.tiles = buildingData.tiles;
-                for (int j = 0; j < building.tiles.Length; j++)
-                {
-                    Grid.tiles[building.tiles[j].x, building.tiles[j].y].structure = building;
-                }
-                building.Centre();
-                building.type = buildingData.type;
-
-                building.buildingData = buildingData;
-
-                if (!(building is HomeBase))
-                {
-                    Construct construct = buildingObj.GetComponent<Construct>();
-                    if (construct != null)
-                    {
-                        construct.CheckComplete(buildingData);
-                    }
-                }
+                building.Load(buildingData);
             }
         }
         Pathfinding.UpdateNodeGrid();
@@ -174,29 +154,8 @@ public class Load : MonoBehaviour
             if (followerObj != null)
             {
                 Follower follower = followerObj.GetComponent<Follower>();
-                follower.transform.position = followerData.pos;
-                follower.health = followerData.health;
-                follower.currentPos = followerData.gridPos;
-                follower.marker.transform.position = followerData.markerPos;
-                if (followerData.statusEffects != null)
-                {
-                    follower.statusEffects = followerData.statusEffects.Read(follower);
-                    follower.glow.SetupGlow(follower.statusEffects);
-                }
-                else
-                {
-                    Debug.Log("NO STATUS EFFECT CLASS");
-                }
-                Followers.Add(follower);
-
-                if (follower is Worker)
-                {
-                    (follower as Worker).inventory = followerData.inventory;
-                }
+                follower.Load(followerData);
             }
-
-            // Add to building list based on type
-
         }
         return LoadEnemies(gameData);
     }
@@ -211,18 +170,7 @@ public class Load : MonoBehaviour
             if (enemyObj != null)
             {
                 Enemy enemy = enemyObj.GetComponent<Enemy>();
-                enemy.transform.position = enemyData.pos;
-                enemy.currentPos = enemyData.gridPos;
-                enemy.health = enemyData.health;
-                if (enemyData.statusEffects != null)
-                {
-                    enemy.statusEffects = enemyData.statusEffects.Read(enemy);
-                    if (enemy.glow != null)
-                    {
-                        enemy.glow.SetupGlow(enemy.statusEffects);
-                    }
-                }
-                Enemies.Add(enemy);
+                enemy.Load(enemyData);
             }
         }
         return LoadCreatures(gameData);
@@ -284,45 +232,17 @@ public class Load : MonoBehaviour
 
     bool SetTargets(GameData gameData)
     {
-        for (int i = 0; i < gameData.followers.Length; i++)
+        for (int i = 0; i < Followers.followers.Count; i++)
         {
-            AIData aiData = gameData.followers[i];
-            Followers.followers[i].actions = new List<Action>();
-            Debug.Log(aiData.numActions);
-            if (aiData.numActions > 0)
-            {
-                for (int j = 0; j < aiData.numActions; j++)
-                {
-                    Followers.followers[i].actions.Add(new Action(aiData.targets[j], aiData.states[j]));
-                }
-                Followers.followers[i].currentAction = Followers.followers[i].actions[Followers.followers[i].actions.Count - 1];
-            }
-            else
-            {
-                Followers.followers[i].currentAction = new Action();
-            }
+            Followers.followers[i].SetTargets();
         }
 
-        for (int i = 0; i < gameData.enemies.Length; i++)
+        for (int i = 0; i < Enemies.enemies.Count; i++)
         {
-            AIData aiData = gameData.enemies[i];
-            Enemies.enemies[i].actions = new List<Action>();
-            if (aiData.numActions > 0)
-            {
-                for (int j = 0; j < aiData.numActions; j++)
-                {
-                    Enemies.enemies[i].actions.Add(new Action(aiData.targets[j], aiData.states[j]));
-                }
-                Enemies.enemies[i].currentAction = Enemies.enemies[i].actions[Enemies.enemies[i].actions.Count - 1];
-            }
-            else
-            {
-                Enemies.enemies[i].currentAction = new Action();
-            }
+            Enemies.enemies[i].SetTargets();
         }
 
         Spawner.Instance.StartSpawning();
-
         return LoadBuildingVals(gameData);
     }
 
@@ -333,7 +253,7 @@ public class Load : MonoBehaviour
             Building building = Buildings.buildings[i];
             if (building.buildingData != null)
             {
-                building.Load(building.buildingData);
+                building.LoadInstance();
             }
         }
         return LoadProjectiles(gameData);

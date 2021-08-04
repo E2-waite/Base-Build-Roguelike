@@ -17,6 +17,7 @@ public abstract class Enemy : Interaction
     protected SpriteRenderer rend;
     protected Animator anim;
     public GameObject squadPrefab;
+    protected AIData aiData;
     private void Start()
     {
         currentPos = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
@@ -231,5 +232,57 @@ public abstract class Enemy : Interaction
             }
             Destroy(gameObject);
         }
+    }
+
+    public virtual void Save(AIData data)
+    {
+        data.type = type;
+        data.health = health;
+        data.pos = transform.position;
+        data.gridPos = currentPos;
+        data.statusEffects = new StatusEffectData(statusEffects);
+
+        data.numActions = actions.Count;
+        data.targets = new int[data.numActions];
+        data.states = new int[data.numActions];
+
+        for (int i = 0; i < data.numActions; i++)
+        {
+            actions[i].Save();
+            data.targets[i] = actions[i].targetInd;
+            data.states[i] = actions[i].state;
+        }
+    }
+
+    public virtual void Load(AIData data)
+    {
+        type = data.type;
+        health = data.health;
+        transform.position = data.pos;
+        currentPos = data.gridPos;
+        if (data.statusEffects != null)
+        {
+            statusEffects = data.statusEffects.Read(this);
+            glow.SetupGlow(statusEffects);
+        }
+        Enemies.Add(this);
+        aiData = data;
+    }
+
+    public void SetTargets()
+    {
+        if (aiData.numActions > 0)
+        {
+            for (int j = 0; j < aiData.numActions; j++)
+            {
+                actions.Add(new Action(aiData.targets[j], aiData.states[j]));
+            }
+            currentAction = actions[actions.Count - 1];
+        }
+        else
+        {
+            currentAction = new Action();
+        }
+        aiData = null;
     }
 }

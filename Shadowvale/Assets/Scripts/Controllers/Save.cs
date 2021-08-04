@@ -68,8 +68,7 @@ public class Save : MonoBehaviour
             Follower follower = Followers.followers[i];
             if (follower != null)
             {
-                gameData.followers[i] = new AIData((int)follower.type, follower.health, follower.transform.position, follower.currentPos, follower.marker.transform.position, follower.statusEffects, follower.actions, 
-                    (follower is Worker) ? (follower as Worker).inventory : null);
+                gameData.followers[i] = new AIData(follower);
             }
             else
             {
@@ -85,7 +84,7 @@ public class Save : MonoBehaviour
             Enemy enemy = Enemies.enemies[i];
             if (enemy != null)
             {
-                gameData.enemies[i] = new AIData((int)enemy.type, enemy.health, enemy.transform.position, enemy.currentPos, Vector2.zero, enemy.statusEffects, enemy.actions);
+                gameData.enemies[i] = new AIData(enemy);
             }
             else
             {
@@ -238,57 +237,7 @@ public class BuildingData
     public bool constructed = true;
     public BuildingData(Building building)
     {
-        type = building.type;
-        health = building.repair;
-        tiles = building.tiles;
-        if (building.construct == null)
-        {
-            if (building is ResourceStorage)
-            {
-                storage = (building as ResourceStorage).currentStorage;
-            }
-            else if (building is Trainer)
-            {
-                Trainer trainer = building as Trainer;
-                members = new int[trainer.training.Length];
-                timers = new Cooldown[trainer.training.Length];
-                for (int i = 0; i < members.Length; i++)
-                {
-                    if (trainer.training[i] != null && trainer.training[i].follower != null)
-                    {
-                        members[i] = trainer.training[i].follower.Index();
-                        timers[i] = trainer.training[i].time;
-                    }
-                    else
-                    {
-                        members[i] = -1;
-                        timers[i] = null;
-                    }
-                }
-            }
-            else if (building is GuardTower)
-            {
-                GuardTower guardTower = building as GuardTower;
-                members = new int[1];
-                timers = new Cooldown[1];
-                if (guardTower.archer == null)
-                {
-                    members[0] = -1;
-                    timers[0] = null;
-                }
-                else
-                {
-                    members[0] = guardTower.archer.Index();
-                    timers[0] = guardTower.shotCooldown;
-                }
-            }
-        }
-        else
-        {
-            constructed = false;
-            resourceCost = building.construct.cost;
-            resourceRemaining = building.construct.remaining;
-        }
+        building.Save(this);
     }
 }
 
@@ -303,27 +252,13 @@ public class AIData
     public Cooldown[] cooldowns;
     public int[] targets, states;
     public int numActions = 0;
-    public AIData(int _type, int _health, 
-        Vector2 _pos, Vector2Int _gridPos, Vector2 _markerPos, List<StatusEffect> _statusEffects, List<Action> _actions, Inventory _inventory = null, Cooldown[] _cooldowns = null)
+    public AIData(Follower follower)
     {
-        type = _type;
-        health = _health;
-        pos = _pos;
-        gridPos = _gridPos;
-        inventory = _inventory;
-        statusEffects = new StatusEffectData(_statusEffects);
-        cooldowns = _cooldowns;
-        markerPos = _markerPos;
+        follower.Save(this);
+    }
+    public AIData(Enemy enemy)
+    {
 
-        numActions = _actions.Count;
-        targets = new int[numActions];
-        states = new int[numActions];
-        for (int i = 0; i < numActions; i++)
-        {
-            _actions[i].Save();
-            targets[i] = _actions[i].targetInd;
-            states[i] = _actions[i].state;
-        }
     }
 }
 

@@ -4,8 +4,9 @@ using UnityEngine;
 
 public abstract class Building : Interaction
 {
+
+    [System.NonSerialized] public int type = -1;
     [Header("Building Settings")]
-    public int type = 99;
     public bool isConstructed = false;
     public bool selected = false;
 
@@ -83,7 +84,44 @@ public abstract class Building : Interaction
         rend.color = Color.white;
     }
 
+
+    public virtual bool Save(BuildingData data)
+    {
+        data.type = type;
+        data.health = repair;
+        data.tiles = tiles;
+        if (construct == null)
+        {
+            return true;
+        }
+        data.constructed = false;
+        data.resourceCost = construct.cost;
+        data.resourceRemaining = construct.remaining;
+        // If still under construction (return false) then do not load inherrited class.
+        return false;
+    }
+
     public virtual void Load (BuildingData data)
+    {
+        type = data.type;
+        tiles = data.tiles;
+        for (int j = 0; j < tiles.Length; j++)
+        {
+            Grid.tiles[tiles[j].x, tiles[j].y].structure = this;
+        }
+        Centre();
+        Buildings.Add(this);
+        buildingData = data;
+
+        if (!(this is HomeBase) && !data.constructed)
+        {
+            construct = GetComponent<Construct>();
+            construct.CheckComplete(data);
+        }
+    }
+
+
+    public virtual void LoadInstance()
     {
 
     }
