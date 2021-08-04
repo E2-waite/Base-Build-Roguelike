@@ -116,11 +116,8 @@ public class Spawner : MonoSingleton<Spawner>
     {
         if (Build.CanBuild(buildings[selectedTemplate].type))
         {
-
-
             GameObject building = Instantiate(buildings[selectedTemplate].prefab, Vector3.zero, Quaternion.identity);
             Building structure = building.GetComponent<Building>();
-
 
             structure.tiles = new Vector2Int[Grid.selectedTiles.Count];
             for (int i = 0; i < Grid.selectedTiles.Count; i++)

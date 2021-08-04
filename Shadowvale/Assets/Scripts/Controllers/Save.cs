@@ -32,7 +32,7 @@ public class Save : MonoBehaviour
                 if (Grid.tiles[x, y] != null)
                 {
                     Tile tile = Grid.GetTile(new Vector2Int(x, y));
-                    gameData.tiles[ind++] = new TileData((int)tile.type, tile.corruptionVal, x, y);
+                    gameData.tiles[ind++] = new TileData((int)tile.type, tile.corruptionVal, x, y, tile.corruptionMulti);
                     //tilesString += JsonUtility.ToJson(data);
                 }
             }
@@ -209,13 +209,14 @@ public class TileData
 {
     public int type;
     public float corruption;
-    public int x, y;
-    public TileData(int _type, float _corruption, int _x, int _y)
+    public int x, y, multi;
+    public TileData(int _type, float _corruption, int _x, int _y, int _multi)
     {
         type = _type;
         corruption = _corruption;
         x = _x;
         y = _y;
+        multi = _multi;
     }
 }
 

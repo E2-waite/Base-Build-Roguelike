@@ -130,7 +130,7 @@ public class GameController : MonoSingleton<GameController>
 
             if (hit && !Grid.IsSelected(hit.transform.position))
             {
-                if (spawner.buildings[spawner.selectedTemplate].type == Build.Type.multi)
+                if (gameState == GameState.build && spawner.buildings[spawner.selectedTemplate].type == Build.Type.multi)
                 {
                     Grid.SelectTiles(hit.transform.position, spawner.buildings[spawner.selectedTemplate]);
                 }
@@ -158,7 +158,7 @@ public class GameController : MonoSingleton<GameController>
                 if (Grid.selectedTiles[0].structure is Building && !(Grid.selectedTiles[0].structure is HomeBase))
                 {
                     (Grid.selectedTiles[0].structure as Building).DestroyThis();
-                    Destroy(Grid.selectedTiles[0].structure);
+                    Destroy(Grid.selectedTiles[0].structure.gameObject);
                 }
             }
             else

@@ -20,6 +20,7 @@ public class Tile : MonoBehaviour
     public SpriteRenderer rend;
 
     public float corruptionVal = 0;
+    public int corruptionMulti = 0;
     float corruptionSpeed = .25f, purifySpeed = 50;
     private bool selected;
 
@@ -35,14 +36,17 @@ public class Tile : MonoBehaviour
     }
 
     // Load setup
-    public virtual void Setup(float corruption)
+    public virtual void Setup(float corruption, int multi, Vector2Int pos)
     {
         rend = GetComponent<SpriteRenderer>();
         corruptionVal = corruption;
         baseColour = rend.color;
         currentColour = Color.Lerp(baseColour, corruptedColour, corruptionVal / 100);
         rend.color = currentColour;
-
+        for (int i = 0; i < multi; i++)
+        {
+            StartCoroutine(CorruptRoutine(pos));
+        }
     }
     public void StartSpreading()
     {
@@ -115,7 +119,7 @@ public class Tile : MonoBehaviour
 
     IEnumerator CorruptRoutine(Vector2Int pos)
     {
-
+        corruptionMulti++;
         while (corruptionVal < 100)
         {
             corruptionVal += corruptionSpeed * Time.deltaTime;
@@ -131,6 +135,7 @@ public class Tile : MonoBehaviour
         CorruptNeighbours(pos);
         Spawner.Instance.AddCorruptedTile(this);
         StopAllCoroutines();
+        corruptionMulti = 0;
     }
 
     void CorruptNeighbours(Vector2Int pos)

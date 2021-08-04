@@ -54,7 +54,7 @@ public class Load : MonoBehaviour
             if (tile != null)
             {
                 Grid.tiles[tileData.x, tileData.y] = tile.GetComponent<Tile>();
-                Grid.tiles[tileData.x, tileData.y].Setup(tileData.corruption);
+                Grid.tiles[tileData.x, tileData.y].Setup(tileData.corruption, tileData.multi, new Vector2Int(tileData.x, tileData.y));
                 if (tileData.corruption >= 100)
                 {
                     Spawner.Instance.corruptedTiles.Add(Grid.tiles[tileData.x, tileData.y]);
@@ -68,7 +68,6 @@ public class Load : MonoBehaviour
             {
                 if (Grid.tiles[x, y] != null)
                 {
-                    Grid.tiles[x, y].StartSpreading();
                     Grid.tiles[x, y].UpdateSprite(x, y);
                 }
             }
