@@ -45,12 +45,12 @@ public class Spawner : MonoSingleton<Spawner>
                 creatureSpawn.Reset();
                 SpawnNewCreature();
             }
-            if (treeSpawn.Tick() && Resources.trees.Count < Resources.maxTrees)
+            if (Resources.trees.Count < Resources.maxTrees && treeSpawn.Tick())
             {
                 treeSpawn.Reset();
                 SpawnResource(Resource.Type.wood);
             }
-            if (stoneSpawn.Tick() && Resources.stones.Count < Resources.maxStones)
+            if (Resources.stones.Count < Resources.maxStones && stoneSpawn.Tick())
             {
                 treeSpawn.Reset();
                 SpawnResource(Resource.Type.stone);
@@ -182,7 +182,7 @@ public class Spawner : MonoSingleton<Spawner>
 
 
     public GameObject treePrefab, stonePrefab;
-    public Cooldown treeSpawn = new Cooldown(10), stoneSpawn = new Cooldown(10);
+    public Cooldown treeSpawn = new Cooldown(15), stoneSpawn = new Cooldown(30);
     public void SpawnResource(Resource.Type type)
     {
         GameObject prefab = null;

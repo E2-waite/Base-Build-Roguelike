@@ -11,7 +11,7 @@ public class HUD : MonoSingleton<HUD>
     {
         for (int i = 0; i < 3; i++)
         {
-            resourceText[i].text = resources[i].ToString() + "/" + maxResources[i].ToString();
+            resourceText[i].text = ((resources[i] < 1000) ? resources[i].ToString() : ((float)resources[i] / 1000).ToString("f1") + "K") + "/" + ((maxResources[i] < 1000) ? maxResources[i].ToString() : ((float)maxResources[i] / 1000).ToString("f1") + "K");
         }
     }
 

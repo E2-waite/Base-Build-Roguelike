@@ -16,10 +16,12 @@ public class Resource : Interaction
 
     protected Animator anim;
     protected SpriteRenderer rend;
+    AudioSource audio;
     private void Start()
     {
         anim = GetComponent<Animator>();
         rend = GetComponent<SpriteRenderer>();
+        audio = GetComponent<AudioSource>();
     }
 
     public bool Gather(Inventory inv)
@@ -30,11 +32,11 @@ public class Resource : Interaction
         inv.resources[(int)type]++;
 
         val--;
+        audio.Play();
         if (val <= 0)
         {
             Pathfinding.UpdateNodeGrid();
             Remove();
-            Destroy(gameObject);
             return false;
         }
         return true;
@@ -45,6 +47,10 @@ public class Resource : Interaction
         anim.SetBool("Hit", true);
         yield return new WaitForSeconds(0.1f);
         anim.SetBool("Hit", false);
+        if (val <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Remove()

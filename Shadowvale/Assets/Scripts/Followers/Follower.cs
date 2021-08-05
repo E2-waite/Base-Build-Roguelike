@@ -239,7 +239,7 @@ public abstract class Follower : Interaction
     {
         if (currentAction.target.interact != null)
         {
-            Pathfinding.FindPath(ref path, currentPos, currentAction.target.Position2D());
+            Pathfinding.FindPath(ref path, currentPos, currentAction.target.Position2D(), 1);
         }
     }
 

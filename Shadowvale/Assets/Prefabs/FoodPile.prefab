@@ -101,10 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contruction: {fileID: 7209351175884022855, guid: ca835c895edf0b54db24691e0d97fe1a, type: 3}
   constructed: {fileID: 7209351175884022855, guid: ca835c895edf0b54db24691e0d97fe1a, type: 3}
-  woodCost: 0
-  stoneCost: 0
-  woodRemaining: 0
-  stoneRemaining: 0
+  cost: 000000000000000000000000
+  remaining: 000000000000000000000000
 --- !u!114 &938588659906107225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,12 +119,22 @@ MonoBehaviour:
   staticObject: 1
   statusEffects: []
   glow: {fileID: 0}
-  type: 0
   isConstructed: 0
   selected: 0
   repair: 0
   maxRepair: 25
   construct: {fileID: 0}
+  tiles: []
+  buildingData:
+    type: 0
+    health: 0
+    storage: 0
+    resourceCost: 
+    resourceRemaining: 
+    tiles: []
+    members: 
+    timers: []
+    constructed: 0
   storageType: 2
   maxStorage: 100
   currentStorage: 0
