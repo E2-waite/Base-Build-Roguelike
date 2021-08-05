@@ -35,6 +35,11 @@ public class InspectorObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
     }
     public void Open(Interaction selected)
     {
+        if (selected == null)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
         topRect.sizeDelta = new Vector2(topRect.rect.width, startMiddleHeight);
         middleRect.sizeDelta = new Vector2(middleRect.rect.width, startBottomPos);
 

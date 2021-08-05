@@ -117,7 +117,7 @@ public class Worker : Follower
         TickEffects();
         if (currentAction.state == (int)State.move)
         {
-            if (transform.position == marker.transform.position)
+            if (path.Count == 0)
             {
                 Idle();
             }

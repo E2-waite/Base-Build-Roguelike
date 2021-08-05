@@ -290,24 +290,7 @@ public abstract class Follower : Interaction
         }
     }
 
-    public bool Hit(int damage, Enemy attacker)
-    {
-        // Take damage
-        health -= damage;
-        StartCoroutine(HitRoutine());
-        Bleed(attacker.transform.position);
 
-        if (attacker != null && (currentAction.state == (int)DefaultState.idle || currentAction.state == (int)DefaultState.move) && (this is Soldier || this is Archer))
-        {
-            UpdateTarget(attacker);
-        }
-
-        if (health <= 0)
-        {
-            return true;
-        }
-        return false;
-    }
 
     public void UpdateTarget(Interaction interaction, bool fromSquad = false)
     {
@@ -330,9 +313,8 @@ public abstract class Follower : Interaction
         }
 
         // Target desired interaction
-        actions.Add(new Action(new Target(), (int)DefaultState.attack));
+        actions.Add(new Action(new Target(interaction), (int)DefaultState.attack));
         currentAction = actions[actions.Count - 1];
-
     }
 
 
@@ -340,6 +322,37 @@ public abstract class Follower : Interaction
     {
         var lookPos = transform.position - hitPos;
         Instantiate(bloodEffect, transform.position, Quaternion.LookRotation(lookPos));
+    }
+
+    public Detector detector;
+    protected bool GetDetectedTarget()
+    {
+        Interaction newTarget = null;
+        if (detector.GetTarget(ref newTarget))
+        {
+            actions.Add(new Action(new Target(newTarget), (int)DefaultState.attack));
+            currentAction = actions[actions.Count - 1];
+            return true;
+        }
+        return false;
+    }
+    public bool Hit(int damage, Enemy attacker)
+    {
+        // Take damage
+        health -= damage;
+        StartCoroutine(HitRoutine());
+        Bleed(attacker.transform.position);
+
+        if (attacker != null && (currentAction.state == (int)DefaultState.idle || currentAction.state == (int)DefaultState.move) && (this is Soldier || this is Archer))
+        {
+            UpdateTarget(attacker);
+        }
+
+        if (health <= 0)
+        {
+            return true;
+        }
+        return false;
     }
 
     IEnumerator HitRoutine()

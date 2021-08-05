@@ -25,8 +25,8 @@ TagManager:
   - Creature
   - Enemy
   - Corpse
-  - 
-  - 
+  - FollowerCol
+  - EnemyCol
   - 
   - 
   - 

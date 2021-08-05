@@ -350,6 +350,7 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/VSSettingsProvider.ref.dll"
 "Assets/BuildingInspector.cs"
+"Assets/Detector.cs"
 "Assets/InventoryInspector.cs"
 "Assets/PauseMenu.cs"
 "Assets/Scripts/Build.cs"

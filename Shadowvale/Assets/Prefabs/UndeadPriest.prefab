@@ -111,18 +111,22 @@ MonoBehaviour:
   maxHealth: 3
   health: 0
   hitDamage: 1
-  speed: 2
+  speed: 3.5
   targetDist: 1
   targetRange: 15
   buildingMask:
     serializedVersion: 2
     m_Bits: 512
   squad: {fileID: 0}
-  target:
-    interact: {fileID: 0}
-    squad: {fileID: 0}
-    lastPos: {x: 0, y: 0}
-    staticObject: 0
+  currentAction:
+    targetInd: 0
+    state: 0
+    target:
+      interact: {fileID: 0}
+      squad: {fileID: 0}
+      lastPos: {x: 0, y: 0}
+      staticObject: 0
+  actions: []
   path: []
   currentPos: {x: 0, y: 0}
   squadPrefab: {fileID: 8437693019058054867, guid: 3736310da1bc78f42baeb268d09a99ae, type: 3}
@@ -161,7 +165,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.6666667, y: 0.6666667}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

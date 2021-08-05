@@ -30,7 +30,7 @@ public class Archer : Follower
         Swarm();
         if (currentAction.state == (int)State.move)
         {
-            if (transform.position == marker.transform.position)
+            if (path.Count == 0)
             {
                 Idle();
             }
@@ -45,17 +45,10 @@ public class Archer : Follower
             {
                 if (currentAction.state == (int)State.attack)
                 {
-                    //if (Targetting.FindTarget(ref target, squad, transform.position, Enemies.enemies))
-                    //{
-                    //    // Debug.Log("Target Found");
-                    //}
-                    //else
-                    //{
-                    //    state = (int)State.move;
-                    //}
-
-                    // Currently just goes back to move state rather than finding a new target
-                    MoveTo(marker.transform.position);
+                    if (!GetDetectedTarget())
+                    {
+                        MoveTo(marker.transform.position);
+                    }
                 }
                 else
                 {

@@ -124,13 +124,12 @@ MonoBehaviour:
   health: 0
   hitDamage: 1
   targetDist: 1.5
-  speed: 7
+  speed: 5
   targetRange: 15
   chaseDist: 0.5
   highlight: {fileID: 3046307727713805403}
   marker: {fileID: 486432622879390999}
   squadPrefab: {fileID: 0}
-  corpsePrefab: {fileID: 809098620326100432, guid: 4b68942577a839c428900ac02f40917c, type: 3}
   bloodEffect: {fileID: 7454375944046440194, guid: dfa42bf45b8357144baa661b865404ff, type: 3}
   path: []
   currentPos: {x: 0, y: 0}
@@ -139,6 +138,7 @@ MonoBehaviour:
   gatherTime: 1
   buildTime: 1
   hitTime: 0.5
+  repairTime: 1
   inventory:
     resources: 000000000000000000000000
     capacity: 10

@@ -264,6 +264,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healColour: {r: 1, g: 0.75294125, b: 0, a: 0.6862745}
   shadowColour: {r: 0.09019608, g: 0, b: 0.627451, a: 0.6862745}
+--- !u!1 &7288420256908988323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8080170021521379251}
+  - component: {fileID: 6960722517453227519}
+  - component: {fileID: 7924168527945758607}
+  m_Layer: 13
+  m_Name: EnemyDetector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8080170021521379251
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7288420256908988323}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8840559668895825269}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &6960722517453227519
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7288420256908988323}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.5
+--- !u!114 &7924168527945758607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7288420256908988323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 070b8ab2a7cd5f54594dda2a6e5f322d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  follower: {fileID: 8840559668895825268}
+  detected: []
 --- !u!1 &8840559666961402214
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,6 +395,7 @@ Transform:
   - {fileID: 6109867008552908756}
   - {fileID: 251437270405142782}
   - {fileID: 8148119913538434672}
+  - {fileID: 8080170021521379251}
   m_Father: {fileID: 8840559666961402209}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -439,12 +502,15 @@ MonoBehaviour:
   statusEffects: []
   glow: {fileID: 861553174444138377}
   type: 1
-  state: 0
-  target:
-    interact: {fileID: 0}
-    squad: {fileID: 0}
-    lastPos: {x: 0, y: 0}
-    staticObject: 0
+  currentAction:
+    targetInd: 0
+    state: 0
+    target:
+      interact: {fileID: 0}
+      squad: {fileID: 0}
+      lastPos: {x: 0, y: 0}
+      staticObject: 0
+  actions: []
   squad: {fileID: 0}
   maxHealth: 7
   health: 0
@@ -456,11 +522,12 @@ MonoBehaviour:
   highlight: {fileID: 1158189135023345973}
   marker: {fileID: 8840559668946194276}
   squadPrefab: {fileID: 8437693019058054867, guid: 4f60460212a58984992ec2ab3a5e4e3b, type: 3}
-  corpsePrefab: {fileID: 809098620326100432, guid: 7754f47f05ebac54aa4201eca1d63503, type: 3}
   bloodEffect: {fileID: 7454375944046440194, guid: dfa42bf45b8357144baa661b865404ff, type: 3}
   path: []
   currentPos: {x: 0, y: 0}
   torchLight: {fileID: 0}
+  selectable: 1
+  detector: {fileID: 7924168527945758607}
   hitSpeed: 1
 --- !u!114 &520897613099791831
 MonoBehaviour:
@@ -492,7 +559,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.6666667, y: 0.6666667}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

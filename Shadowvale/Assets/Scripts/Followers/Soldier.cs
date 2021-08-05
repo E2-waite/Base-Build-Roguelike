@@ -20,7 +20,7 @@ public class Soldier : Follower
         TickEffects();
         if (currentAction.state == (int)State.move)
         {
-            if (transform.position == marker.transform.position)
+            if (path.Count == 0)
             {
                 Idle();
             }
@@ -35,16 +35,10 @@ public class Soldier : Follower
             {
                 if (currentAction.state == (int)State.attack)
                 {
-                    // Find target
-                    //if (Targetting.FindTarget(ref target, squad, transform.position, Enemies.enemies))
-                    //{
-                    //    Debug.Log("Target Found");
-                    //}
-                    //else
-                    //{
-
-                    //}
-                    MoveTo(marker.transform.position);
+                    if (!GetDetectedTarget())
+                    {
+                        MoveTo(marker.transform.position);
+                    }
                 }
                 else
                 {
