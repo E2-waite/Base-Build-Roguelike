@@ -299,6 +299,7 @@
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.VisualScripting.State.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/UnityEngine.UI.ref.dll"
 "Assets/BuildingInspector.cs"
+"Assets/Detector.cs"
 "Assets/InventoryInspector.cs"
 "Assets/PauseMenu.cs"
 "Assets/Scripts/Build.cs"
