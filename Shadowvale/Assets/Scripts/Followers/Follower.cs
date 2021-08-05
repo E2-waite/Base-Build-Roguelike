@@ -89,11 +89,15 @@ public abstract class Follower : Interaction
                     path.RemoveAt(0);
                 }
             }
-            float diff = pathPos.y - transform.position.y;
-            anim.SetInteger("Direction", Mathf.RoundToInt(diff));
+            FaceTarget(pathPos);
         }
     }
 
+    void FaceTarget(Vector3 pos)
+    {
+        float diff = pos.y - transform.position.y;
+        anim.SetInteger("Direction", Mathf.RoundToInt(diff));
+    }
     public IEnumerator LightFade(bool on)
     {
         Debug.Log("STARTING FADE");
@@ -442,6 +446,11 @@ public abstract class Follower : Interaction
                 actions.Add(new Action(aiData.targets[j], aiData.states[j]));
             }
             currentAction = actions[actions.Count - 1];
+            if (currentAction.target.interact != null)
+            {
+                anim = GetComponent<Animator>();
+                FaceTarget(currentAction.target.Position());
+            }
         }
         else
         {

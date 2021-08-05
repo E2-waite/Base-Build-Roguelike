@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 8052199412311034564}
   - component: {fileID: 4819493926214089216}
   - component: {fileID: 7431801572843477148}
+  - component: {fileID: -7345260006123368900}
   m_Layer: 9
   m_Name: GuardTower
   m_TagString: Building
@@ -165,12 +166,22 @@ MonoBehaviour:
   staticObject: 1
   statusEffects: []
   glow: {fileID: 0}
-  type: 99
   isConstructed: 0
   selected: 0
   repair: 0
   maxRepair: 5
   construct: {fileID: 0}
+  tiles: []
+  buildingData:
+    type: 0
+    health: 0
+    storage: 0
+    resourceCost: 
+    resourceRemaining: 
+    tiles: []
+    members: 
+    timers: []
+    constructed: 0
   range: 5
   archer: {fileID: 0}
   inRange: []
@@ -235,6 +246,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &-7345260006123368900
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8409684493181859174}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7d177429325c6b841933dc92ec4847a3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9213179166466213839
 GameObject:
   m_ObjectHideFlags: 0

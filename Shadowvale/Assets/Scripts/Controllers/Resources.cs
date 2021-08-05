@@ -12,6 +12,7 @@ public class Resources : MonoBehaviour
     public static int maxStones, maxTrees;
     public static void Adjust(Resource.Type type, int val, int maxVal)
     {
+        Debug.Log("ADJUSTED");
         int pos = (int)type;
         resources[pos] += val;
         maxResources[pos] += maxVal;
@@ -27,6 +28,6 @@ public class Resources : MonoBehaviour
     public static void Reset()
     {
         resources = new int[NUM];
-        resources = new int[NUM];
+        maxResources = new int[NUM];
     }
 }

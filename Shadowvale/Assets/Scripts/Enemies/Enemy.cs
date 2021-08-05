@@ -263,7 +263,10 @@ public abstract class Enemy : Interaction
         if (data.statusEffects != null)
         {
             statusEffects = data.statusEffects.Read(this);
-            glow.SetupGlow(statusEffects);
+            if (glow != null)
+            {
+                glow.SetupGlow(statusEffects);
+            }
         }
         Enemies.Add(this);
         aiData = data;

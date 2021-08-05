@@ -101,11 +101,11 @@ public abstract class Building : Interaction
         data.type = type;
         data.health = repair;
         data.tiles = tiles;
-        if (construct == null)
+        data.constructed = isConstructed;
+        if (isConstructed)
         {
             return true;
         }
-        data.constructed = false;
         data.resourceCost = construct.cost;
         data.resourceRemaining = construct.remaining;
         // If still under construction (return false) then do not load inherrited class.
@@ -124,10 +124,10 @@ public abstract class Building : Interaction
         Buildings.Add(this);
         buildingData = data;
 
-        if (!(this is HomeBase) && !data.constructed)
+        if (!(this is HomeBase))
         {
             construct = GetComponent<Construct>();
-            construct.CheckComplete(data);
+            construct.Complete(data);
         }
     }
 

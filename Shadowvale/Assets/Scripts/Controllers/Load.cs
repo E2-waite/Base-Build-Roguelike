@@ -17,7 +17,7 @@ public class Load : MonoBehaviour
         GameData gameData = JsonUtility.FromJson<GameData>(jsonString);
 
         GameController.Instance.gameCam.transform.position = new Vector3(gameData.camX, gameData.camY, GameController.Instance.gameCam.transform.position.z);
-
+        GameController.Instance.gameCam.orthographicSize = gameData.camZoom;
         return LoadTiles(gameData);
     }
 

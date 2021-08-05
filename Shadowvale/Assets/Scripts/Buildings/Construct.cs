@@ -11,7 +11,7 @@ public class Construct : MonoBehaviour
     public int[] cost = new int[Resources.NUM], remaining = new int[Resources.NUM];
     Building building;
     SpriteRenderer rend;
-
+    Animator anim;
     private void Start()
     {
         for (int i = 0; i < Resources.NUM; i++)
@@ -19,26 +19,45 @@ public class Construct : MonoBehaviour
             remaining[i] = cost[i];
         }
         rend = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
         rend.sprite = contruction;
         building = GetComponent<Building>();
         CheckComplete();
     }
 
-    public void Build()
+    public bool Build()
     {
         if (!building.isConstructed)
         {
+            bool success = false;
             for (int i = 0; i < Resources.NUM; i++)
             {
                 if (remaining[i] > 0 && Resources.resources[i] > 0 && Buildings.UseResource((Resource.Type)i, 1))
                 {
                     remaining[i]--;
+                    success = true;
                 }
             }
 
-            building.ReloadInspector();
+            if (success)
+            {
+                StartCoroutine(HitRoutine());
+                building.ReloadInspector();
+                CheckComplete();
+                return true;
+            }
+        }
+        return false;
+    }
 
-            CheckComplete();
+    IEnumerator HitRoutine()
+    {
+        anim.SetBool("Hit", true);
+
+        yield return new WaitForSeconds(0.1f);
+        if (anim != null)
+        {
+            anim.SetBool("Hit", false);
         }
     }
 
@@ -54,10 +73,11 @@ public class Construct : MonoBehaviour
 
         rend.sprite = constructed;
         building.Constructed();
+        Destroy(anim);
         Destroy(this);
     }
 
-    public bool CheckComplete(BuildingData data)
+    public bool Complete(BuildingData data)
     {
         if (data.constructed)
         {
@@ -65,6 +85,8 @@ public class Construct : MonoBehaviour
             building = GetComponent<Building>();
             rend.sprite = constructed;
             building.Constructed();
+            anim = GetComponent<Animator>();
+            Destroy(anim);
             Destroy(this);
             return true;
         }

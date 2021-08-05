@@ -328,7 +328,11 @@ public class Worker : Follower
         if (currentAction.target.interact != null)
         {
             Building building = currentAction.target.interact as Building;
-            building.construct.Build();
+            if (!building.construct.Build())
+            {
+                // Sets to idle if can't construct (either finished or no required resource)
+                Idle();
+            }
         }
         interactRoutine = null;
     }

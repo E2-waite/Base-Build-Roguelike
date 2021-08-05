@@ -169,7 +169,7 @@ public class Save : MonoBehaviour
 public class GameData
 {
     public int mapSize, noise, maxTrees, maxStones;
-    public float camX, camY;
+    public float camX, camY, camZoom;
     public TileData[] tiles;
     public ResourceData[] resources;
     public BuildingData[] buildings;
@@ -184,6 +184,7 @@ public class GameData
         noise = noiseVal;
         camX = GameController.Instance.gameCam.transform.position.x;
         camY = GameController.Instance.gameCam.transform.position.y;
+        camZoom = GameController.Instance.gameCam.orthographicSize;
         tiles = new TileData[size * size];
         resources = new ResourceData[numResources];
         buildings = new BuildingData[Buildings.buildings.Count];

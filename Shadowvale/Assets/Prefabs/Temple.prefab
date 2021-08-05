@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5060367783949343443}
   - component: {fileID: 6996766868963254317}
   - component: {fileID: 785670143068407724}
+  - component: {fileID: 3061129218243470852}
   m_Layer: 9
   m_Name: Temple
   m_TagString: Building
@@ -116,12 +117,22 @@ MonoBehaviour:
   staticObject: 0
   statusEffects: []
   glow: {fileID: 0}
-  type: 99
   isConstructed: 0
   selected: 0
   repair: 0
   maxRepair: 25
   construct: {fileID: 0}
+  tiles: []
+  buildingData:
+    type: 0
+    health: 0
+    storage: 0
+    resourceCost: 
+    resourceRemaining: 
+    tiles: []
+    members: 
+    timers: []
+    constructed: 0
   priestPrefab: {fileID: 8840559666961402214, guid: e527585eeb9171043a3bac4c7574ba53, type: 3}
 --- !u!114 &6996766868963254317
 MonoBehaviour:
@@ -165,3 +176,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
+--- !u!95 &3061129218243470852
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8409684493181859174}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b1a4544c407c00744b958259d086fa6a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

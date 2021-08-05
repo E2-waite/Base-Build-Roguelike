@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4819493926214089216}
   - component: {fileID: -5142671863313911489}
   - component: {fileID: 4584849005243484038}
+  - component: {fileID: 1297550687705089142}
   m_Layer: 9
   m_Name: ArcheryRange
   m_TagString: Building
@@ -103,12 +104,22 @@ MonoBehaviour:
   staticObject: 1
   statusEffects: []
   glow: {fileID: 0}
-  type: 99
   isConstructed: 0
   selected: 0
   repair: 0
   maxRepair: 25
   construct: {fileID: 0}
+  tiles: []
+  buildingData:
+    type: 0
+    health: 0
+    storage: 0
+    resourceCost: 
+    resourceRemaining: 
+    tiles: []
+    members: 
+    timers: []
+    constructed: 0
   archerPrefab: {fileID: 8840559666961402214, guid: aa27a70a0b3e25b469136317101ae80d, type: 3}
 --- !u!114 &4819493926214089216
 MonoBehaviour:
@@ -165,3 +176,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
+--- !u!95 &1297550687705089142
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8409684493181859174}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b1a4544c407c00744b958259d086fa6a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
