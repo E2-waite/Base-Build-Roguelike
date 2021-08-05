@@ -7,7 +7,7 @@ public class InspectorObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
 {
     public Text title;
     public InspectorDetails currentDetails = null;
-    public InspectorDetails storageDetails, constructionDetails, homeDetails, followerDetails, squadDetails, trainerDetails, guardDetails;
+    public InspectorDetails followerDetails, squadDetails, buildingDetails;
     public bool mouseOver = false;
     public float toggleSpeed = 500f;
     int startMiddleHeight, startBottomPos;
@@ -32,17 +32,6 @@ public class InspectorObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        //if (eventData.pointerCurrentRaycast.gameObject == toggleButton && !toggling)
-        //{
-        //    if (open)
-        //    {
-        //        StartCoroutine(Hide());
-        //    }
-        //    else
-        //    {
-        //        StartCoroutine(Show());
-        //    }
-        //}
     }
     public void Open(Interaction selected)
     {
@@ -77,81 +66,27 @@ public class InspectorObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
         bottomRect.anchoredPosition = new Vector2(bottomRect.anchoredPosition.x, startBottomPos - resizeVal);
     }
 
-    IEnumerator Show()
-    {
-        toggling = true;
-        while(bottomRect.anchoredPosition.x != openX)
-        {
-            bottomRect.anchoredPosition = Vector2.MoveTowards(bottomRect.anchoredPosition, new Vector2(openX, bottomRect.anchoredPosition.y), toggleSpeed * Time.deltaTime);
-            yield return null;
-        }
-        toggling = false;
-        open = true;
-    }
-    IEnumerator Hide()
-    {
-        toggling = true;
-        while (bottomRect.anchoredPosition.x != closedX)
-        {
-            bottomRect.anchoredPosition = Vector2.MoveTowards(bottomRect.anchoredPosition, new Vector2(closedX, bottomRect.anchoredPosition.y), toggleSpeed * Time.deltaTime);
-            yield return null;
-        }
-        toggling = false;
-        open = false;
-    }
-
     InspectorDetails GetDetails(Interaction selected)
     {
         if (selected is Building)
         {
-            return BuildingDetails(selected as Building);
+            return buildingDetails;
         }
         else if (selected is Follower)
         {
-            return FollowerDetails(selected as Follower);
+            Follower follower = selected as Follower;
+
+            if (follower.squad == null)
+            {
+                return followerDetails;
+            }
+            else
+            {
+                title.text = "Squad";
+                return squadDetails;
+            }
         }
         return null;
-    }
-
-    InspectorDetails BuildingDetails(Building building)
-    {
-        if (building.isConstructed)
-        {
-            if (building is ResourceStorage)
-            {
-                return storageDetails;
-            }
-            else if (building is HomeBase)
-            {
-                return homeDetails;
-            }
-            else if (building is Trainer)
-            {
-                return trainerDetails;
-            }
-            else if (building is GuardTower)
-            {
-                return guardDetails;
-            }
-        }
-        else
-        {
-            return constructionDetails;
-        }
-        return null;
-    }
-
-    InspectorDetails FollowerDetails(Follower follower)
-    {
-        if (follower.squad == null)
-        {
-            return followerDetails;
-        }
-        else
-        {
-            title.text = "Squad";
-            return squadDetails;
-        }
     }
 }
 

@@ -65,6 +65,7 @@ public abstract class Building : Interaction
     public bool Hit(int damage)
     {
         repair -= damage;
+        ReloadInspector();
         StartCoroutine(HitRoutine());
         if (repair <= 0)
         {
@@ -89,6 +90,7 @@ public abstract class Building : Interaction
         if (repair < maxRepair)
         {
             repair++;
+            ReloadInspector();
             return false;
         }
         return true;
