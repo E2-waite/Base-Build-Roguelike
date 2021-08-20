@@ -95,8 +95,23 @@ public abstract class Follower : Interaction
 
     void FaceTarget(Vector3 pos)
     {
-        float diff = pos.y - transform.position.y;
-        anim.SetInteger("Direction", Mathf.RoundToInt(diff));
+        float yDiff = pos.y - transform.position.y, xDiff = pos.x - transform.position.x;
+        if (yDiff > 0 && xDiff < 0)
+        {
+            anim.SetInteger("Direction", Mathf.RoundToInt(0));
+        }
+        else if (yDiff > 0 && xDiff > 0)
+        {
+            anim.SetInteger("Direction", Mathf.RoundToInt(1));
+        }
+        else if (yDiff < 0 && xDiff > 0)
+        {
+            anim.SetInteger("Direction", Mathf.RoundToInt(2));
+        }
+        else if (yDiff < 0 && xDiff < 0)
+        {
+            anim.SetInteger("Direction", Mathf.RoundToInt(3));
+        }
     }
     public IEnumerator LightFade(bool on)
     {

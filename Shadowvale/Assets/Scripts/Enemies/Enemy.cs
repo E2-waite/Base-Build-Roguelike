@@ -57,8 +57,27 @@ public abstract class Enemy : Interaction
                     path.RemoveAt(0);
                 }
             }
-            float diff = pathPos.y - transform.position.y;
-            anim.SetInteger("Direction", Mathf.RoundToInt(diff));
+            FaceTarget(pathPos);
+        }
+    }
+    void FaceTarget(Vector3 pos)
+    {
+        float yDiff = pos.y - transform.position.y, xDiff = pos.x - transform.position.x;
+        if (yDiff > 0 && xDiff < 0)
+        {
+            anim.SetInteger("Direction", Mathf.RoundToInt(0));
+        }
+        else if (yDiff > 0 && xDiff > 0)
+        {
+            anim.SetInteger("Direction", Mathf.RoundToInt(1));
+        }
+        else if (yDiff < 0 && xDiff > 0)
+        {
+            anim.SetInteger("Direction", Mathf.RoundToInt(2));
+        }
+        else if (yDiff < 0 && xDiff < 0)
+        {
+            anim.SetInteger("Direction", Mathf.RoundToInt(3));
         }
     }
 

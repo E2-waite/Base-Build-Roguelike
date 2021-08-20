@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1158189135023345973}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children: []
   m_Father: {fileID: 8840559668895825269}
   m_RootOrder: 2
@@ -207,7 +207,7 @@ Transform:
   m_GameObject: {fileID: 5808626155654964229}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children: []
   m_Father: {fileID: 8840559668895825269}
   m_RootOrder: 1
@@ -377,7 +377,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4746950884076707963, guid: 90d872cd1266e0042ac56318d0a9e513, type: 3}
+  m_Sprite: {fileID: 1696217335249401975, guid: ad4fc5cdfda436e4796ecad1935c3250, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -431,12 +431,15 @@ MonoBehaviour:
   statusEffects: []
   glow: {fileID: 5484943000779459005}
   type: 3
-  state: 0
-  target:
-    interact: {fileID: 0}
-    squad: {fileID: 0}
-    lastPos: {x: 0, y: 0}
-    staticObject: 0
+  currentAction:
+    targetInd: 0
+    state: 0
+    target:
+      interact: {fileID: 0}
+      squad: {fileID: 0}
+      lastPos: {x: 0, y: 0}
+      staticObject: 0
+  actions: []
   squad: {fileID: 0}
   maxHealth: 5
   health: 0
@@ -448,12 +451,12 @@ MonoBehaviour:
   highlight: {fileID: 1158189135023345973}
   marker: {fileID: 8840559668946194276}
   squadPrefab: {fileID: 8437693019058054867, guid: 4f60460212a58984992ec2ab3a5e4e3b, type: 3}
-  corpsePrefab: {fileID: 809098620326100432, guid: 86f2656a51843ca419b4d9ec8a2495c4, type: 3}
   bloodEffect: {fileID: 7454375944046440194, guid: dfa42bf45b8357144baa661b865404ff, type: 3}
   path: []
   currentPos: {x: 0, y: 0}
   torchLight: {fileID: 0}
   selectable: 1
+  detector: {fileID: 0}
   healAmount: 5
   healRange: 5
   canHeal: 1
@@ -488,7 +491,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.6666667, y: 0.6666667}
+    oldSize: {x: 0.33333334, y: 0.33333334}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -507,7 +510,7 @@ Animator:
   m_GameObject: {fileID: 8840559668895825227}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4985b481539d5c94785de6f1953c9db7, type: 2}
+  m_Controller: {fileID: 9100000, guid: ff7ddf64191984a4fadc7724fa09d1c1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

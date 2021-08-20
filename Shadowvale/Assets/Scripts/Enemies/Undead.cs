@@ -19,25 +19,22 @@ public class Undead : Enemy
     public GameObject bloodEffect;
     private void Update()
     {
-        if (alive)
+        Swarm();
+        if (currentAction.target.interact == null)
         {
-            Swarm();
-            if (currentAction.target.interact == null)
+            PreviousTarget();
+        }
+        else
+        {
+            if (canAttack && Vector2.Distance(transform.position, currentAction.target.Position()) <= targetDist)
             {
-                PreviousTarget();
+                // Attack
+                StartCoroutine(AttackRoutine());
+
             }
             else
             {
-                if (canAttack && Vector2.Distance(transform.position, currentAction.target.Position()) <= targetDist)
-                {
-                    // Attack
-                    StartCoroutine(AttackRoutine());
-
-                }
-                else
-                {
-                    Move();
-                }
+                Move();
             }
         }
     }

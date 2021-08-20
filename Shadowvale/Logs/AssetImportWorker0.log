@@ -1,0 +1,1604 @@
+Using pre-set license
+Built from '2021.1/staging' branch; Version is '2021.1.7f1 (d91830b65d9b) revision 14227504'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Pro; OS build 19042.1165; Version 2009; 64bit' Language: 'en' Physical Memory: 16333 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\2021.1.7f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+D:/Files/Game Dev/Shadowvale/Shadowvale
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+56009
+Successfully changed project path to: D:/Files/Game Dev/Shadowvale/Shadowvale
+D:/Files/Game Dev/Shadowvale/Shadowvale
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 179.62 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.1.7f1 (d91830b65d9b)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/2021.1.7f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Files/Game Dev/Shadowvale/Shadowvale/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 2060 (ID=0x1f08)
+    Vendor:   NVIDIA
+    VRAM:     5980 MB
+    Driver:   27.21.14.5751
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/2021.1.7f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/2021.1.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/2021.1.7f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56344
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/2021.1.7f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/2021.1.7f1/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/2021.1.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/2021.1.7f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0.008029 seconds.
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 181.84 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  4.662 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.006705 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 173.52 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.096 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.13 seconds
+Refreshing native plugins compatible for Editor in 1.12 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4557 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 174.0 MB.
+System memory in use after: 174.2 MB.
+
+Unloading 27 unused Assets to reduce memory usage. Loaded Objects now: 5018.
+Total: 3.591100 ms (FindLiveObjects: 0.370300 ms CreateObjectMapping: 0.206400 ms MarkObjects: 2.869100 ms  DeleteObjects: 0.143700 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Sprites
+  artifactKey: Guid(3d5bc2a2d107b134e9716c28af026e57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites using Guid(3d5bc2a2d107b134e9716c28af026e57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa35370cc697f7cca99cec8c62bf00a4') in 0.014883 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 92.766215 seconds.
+  path: Assets/Sprites/Chara
+  artifactKey: Guid(38cbbfcdb4a71b44ba246c495c638215) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Chara using Guid(38cbbfcdb4a71b44ba246c495c638215) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8695a336bb4a37af8ac85d007a1d999f') in 0.016658 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.166251 seconds.
+  path: Assets/Sprites/Characters
+  artifactKey: Guid(38cbbfcdb4a71b44ba246c495c638215) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters using Guid(38cbbfcdb4a71b44ba246c495c638215) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5d2a1063fe0f8ba71d8cc5d8863fbd2') in 0.013648 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 12.586261 seconds.
+  path: Assets/Sprites/Characters/SoldierSheet.png
+  artifactKey: Guid(c6559a1928e77004983e7514a543a554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/SoldierSheet.png using Guid(c6559a1928e77004983e7514a543a554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5bf571c094d1f89e7d10b4bc19d7d184') in 0.156309 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 17.969101 seconds.
+  path: Assets/Sprites/Characters/SoldierSheet.png
+  artifactKey: Guid(c6559a1928e77004983e7514a543a554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/SoldierSheet.png using Guid(c6559a1928e77004983e7514a543a554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9483b09f6b717c7467349262a74650a') in 0.028276 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 121.283937 seconds.
+  path: Assets/Sprites/Characters/SoldierSheet.png
+  artifactKey: Guid(c6559a1928e77004983e7514a543a554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/SoldierSheet.png using Guid(c6559a1928e77004983e7514a543a554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '250e88f9ff8f2feb2380bb8f61386e8f') in 0.086966 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 76.673707 seconds.
+  path: Assets/Animation/Followers & Enemies/Soldier/SoldierSheet_0.controller
+  artifactKey: Guid(77369428b0b37f64ebcfc581e330aa94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Soldier/SoldierSheet_0.controller using Guid(77369428b0b37f64ebcfc581e330aa94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae9f1416045407599bdea09d2eef67ba') in 0.023177 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.589168 seconds.
+  path: Assets/Animation/Followers & Enemies/Soldier/SoldierDR.anim
+  artifactKey: Guid(8f304b958293eeb49afe87121867ef44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Soldier/SoldierDR.anim using Guid(8f304b958293eeb49afe87121867ef44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '908bace54b5fe22a392d2a508997562a') in 0.015735 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.605306 seconds.
+  path: Assets/Animation/Followers & Enemies/Soldier/SoldierDR 1.anim
+  artifactKey: Guid(aa3a6d83ad5a69f4c851721ad2ad665a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Soldier/SoldierDR 1.anim using Guid(aa3a6d83ad5a69f4c851721ad2ad665a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a750595924bcb200b4c2672101b08a28') in 0.029390 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.652449 seconds.
+  path: Assets/Animation/Followers & Enemies/Soldier/SoldierDL.anim
+  artifactKey: Guid(aa3a6d83ad5a69f4c851721ad2ad665a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Soldier/SoldierDL.anim using Guid(aa3a6d83ad5a69f4c851721ad2ad665a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a14e69279ef953c6bdd7dbdc5817e587') in 0.014415 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.250843 seconds.
+  path: Assets/Animation/Followers & Enemies/Soldier/SoldierDR.anim
+  artifactKey: Guid(8f304b958293eeb49afe87121867ef44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Soldier/SoldierDR.anim using Guid(8f304b958293eeb49afe87121867ef44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f159751e6748a612b7701fc503f3c87') in 0.014958 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.756430 seconds.
+  path: Assets/Animation/Followers & Enemies/Soldier/SoldierDL 1.anim
+  artifactKey: Guid(1b96d75064da90b468eb6009f893a227) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Soldier/SoldierDL 1.anim using Guid(1b96d75064da90b468eb6009f893a227) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9cd512905f0b0001c1b69da0e5c9646f') in 0.016622 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.334233 seconds.
+  path: Assets/Animation/Followers & Enemies/Soldier/SoldierUR.anim
+  artifactKey: Guid(1b96d75064da90b468eb6009f893a227) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Soldier/SoldierUR.anim using Guid(1b96d75064da90b468eb6009f893a227) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7daba0c906fc1d74d42f08a2f5b0b7dc') in 0.014831 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.446657 seconds.
+  path: Assets/Animation/Followers & Enemies/Soldier/SoldierDR 1.anim
+  artifactKey: Guid(9ab5783d6fca349409ac51c1dc9a79bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Soldier/SoldierDR 1.anim using Guid(9ab5783d6fca349409ac51c1dc9a79bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0953971f8ece96cd33443f203f91b8c7') in 0.042822 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.305537 seconds.
+  path: Assets/Animation/Followers & Enemies/Soldier/SoldierUL.anim
+  artifactKey: Guid(9ab5783d6fca349409ac51c1dc9a79bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Soldier/SoldierUL.anim using Guid(9ab5783d6fca349409ac51c1dc9a79bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51bfb374859d2c834f85141cf6b2976b') in 0.017772 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 51.740789 seconds.
+  path: Assets/Animation/Followers & Enemies/Soldier/SoldierSheet_0.controller
+  artifactKey: Guid(77369428b0b37f64ebcfc581e330aa94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Soldier/SoldierSheet_0.controller using Guid(77369428b0b37f64ebcfc581e330aa94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b6a89dab394d753d2c4ed30e5654cdf') in 0.016294 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4421.094902 seconds.
+  path: Assets/Animation/Followers & Enemies/Soldier/SoldierAnimator.controller
+  artifactKey: Guid(77369428b0b37f64ebcfc581e330aa94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Soldier/SoldierAnimator.controller using Guid(77369428b0b37f64ebcfc581e330aa94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3574c31a73f58bee1c2d9b1ca9ad42e2') in 0.021465 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 82.050071 seconds.
+  path: Assets/Prefabs/Soldier.prefab
+  artifactKey: Guid(66d071f54f729b348a98537df379fa2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Soldier.prefab using Guid(66d071f54f729b348a98537df379fa2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1ba2fd3b3e646010df11e9b327485d7') in 0.252772 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 27.612475 seconds.
+  path: Assets/Prefabs/Corpse-Soldier.prefab
+  artifactKey: Guid(7754f47f05ebac54aa4201eca1d63503) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Corpse-Soldier.prefab using Guid(7754f47f05ebac54aa4201eca1d63503) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '503844e1c7fb27ccc583d6a23bb63d24') in 0.032093 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006512 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.18 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.362 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.31 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4493 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 176.1 MB.
+System memory in use after: 176.2 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5117.
+Total: 4.502800 ms (FindLiveObjects: 0.557400 ms CreateObjectMapping: 0.421300 ms MarkObjects: 3.386600 ms  DeleteObjects: 0.135800 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006150 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.04 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.134 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.02 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4492 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 176.1 MB.
+System memory in use after: 176.2 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5121.
+Total: 3.359800 ms (FindLiveObjects: 0.377900 ms CreateObjectMapping: 0.200500 ms MarkObjects: 2.649800 ms  DeleteObjects: 0.129900 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.008471 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.04 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.148 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 21.59 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4492 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 176.1 MB.
+System memory in use after: 176.2 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5125.
+Total: 103.002100 ms (FindLiveObjects: 1.490500 ms CreateObjectMapping: 8.985100 ms MarkObjects: 91.326400 ms  DeleteObjects: 1.197100 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006326 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.03 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.046 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.01 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4492 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 176.1 MB.
+System memory in use after: 176.2 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5129.
+Total: 3.518500 ms (FindLiveObjects: 0.390700 ms CreateObjectMapping: 0.242100 ms MarkObjects: 2.731400 ms  DeleteObjects: 0.152600 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 484.442300 seconds.
+  path: Assets/Sprites/Characters/SoldierSheet.png
+  artifactKey: Guid(c6559a1928e77004983e7514a543a554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/SoldierSheet.png using Guid(c6559a1928e77004983e7514a543a554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44a71a76c9254b40e8220b86433c7370') in 0.106210 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006449 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.16 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.198 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.52 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4492 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 176.5 MB.
+System memory in use after: 176.6 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5148.
+Total: 5.078200 ms (FindLiveObjects: 0.461200 ms CreateObjectMapping: 0.258800 ms MarkObjects: 4.202300 ms  DeleteObjects: 0.153900 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007157 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.27 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.271 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.58 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4492 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 176.5 MB.
+System memory in use after: 176.7 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5152.
+Total: 10.026200 ms (FindLiveObjects: 0.445900 ms CreateObjectMapping: 0.250600 ms MarkObjects: 9.172700 ms  DeleteObjects: 0.154700 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 183.795509 seconds.
+  path: Assets/Sprites/Characters/SoldierSheet.png
+  artifactKey: Guid(c6559a1928e77004983e7514a543a554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/SoldierSheet.png using Guid(c6559a1928e77004983e7514a543a554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '089629f6eaf8bf6f788a414d9dec28e7') in 0.645361 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 122.605045 seconds.
+  path: Assets/Sprites/Characters/ArcherSheet.png
+  artifactKey: Guid(4e2703ad206983b499b6158bbaf35c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/ArcherSheet.png using Guid(4e2703ad206983b499b6158bbaf35c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f00b3fb742c8bd83c94a21db32980a9') in 0.318611 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 22.772333 seconds.
+  path: Assets/Sprites/Characters/ArcherSheet.png
+  artifactKey: Guid(4e2703ad206983b499b6158bbaf35c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/ArcherSheet.png using Guid(4e2703ad206983b499b6158bbaf35c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a10d29f9e5d2855bd3c78370658f2ed6') in 0.045829 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 11.138803 seconds.
+  path: Assets/Sprites/Characters/ArcherSheet.png
+  artifactKey: Guid(4e2703ad206983b499b6158bbaf35c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/ArcherSheet.png using Guid(4e2703ad206983b499b6158bbaf35c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0caad0515f9ce6d186c257b61203b44b') in 0.074498 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 33.875292 seconds.
+  path: Assets/Animation/Followers & Enemies/Archer/ArcherSheet_0.controller
+  artifactKey: Guid(cda953b93b829864d9058926f63530ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Archer/ArcherSheet_0.controller using Guid(cda953b93b829864d9058926f63530ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d8d0a7fc20065b47214bfa785ccaff8') in 0.027554 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.780501 seconds.
+  path: Assets/Animation/Followers & Enemies/Archer/ArcherDL.anim
+  artifactKey: Guid(5390a38d52e364749bc05776f6ca08fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Archer/ArcherDL.anim using Guid(5390a38d52e364749bc05776f6ca08fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d8420067dad367f8c98c556440b66c1') in 0.018070 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.399464 seconds.
+  path: Assets/Animation/Followers & Enemies/Archer/ArcherDL 1.anim
+  artifactKey: Guid(0af2b314e9af69d419315bd2d20114fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Archer/ArcherDL 1.anim using Guid(0af2b314e9af69d419315bd2d20114fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '707444f678b7c8e0e6ef3e80faa82322') in 0.034591 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.772584 seconds.
+  path: Assets/Animation/Followers & Enemies/Archer/ArcherDL.anim
+  artifactKey: Guid(5390a38d52e364749bc05776f6ca08fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Archer/ArcherDL.anim using Guid(5390a38d52e364749bc05776f6ca08fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eae899a9243f012f4ddb77238c9933b3') in 0.023262 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.868623 seconds.
+  path: Assets/Animation/Followers & Enemies/Archer/ArcherDL 2.anim
+  artifactKey: Guid(77841a5cba028f24b89a9632a7440240) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Archer/ArcherDL 2.anim using Guid(77841a5cba028f24b89a9632a7440240) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1bf4aea91452984a87d3bc2d7471acb5') in 0.040098 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.174856 seconds.
+  path: Assets/Animation/Followers & Enemies/Archer/ArcherDL 3.anim
+  artifactKey: Guid(95fd9999e593a3d40ad017304f37c9d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Archer/ArcherDL 3.anim using Guid(95fd9999e593a3d40ad017304f37c9d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dcd28a031d7abd30e627826294be4570') in 0.040693 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.010394 seconds.
+  path: Assets/Animation/Followers & Enemies/Archer/ArcherDR.anim
+  artifactKey: Guid(95fd9999e593a3d40ad017304f37c9d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Archer/ArcherDR.anim using Guid(95fd9999e593a3d40ad017304f37c9d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9743f10b1dbbdcb2837672f2b10a4a1b') in 0.016699 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.156247 seconds.
+  path: Assets/Animation/Followers & Enemies/Archer/ArcherUL.anim
+  artifactKey: Guid(77841a5cba028f24b89a9632a7440240) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Archer/ArcherUL.anim using Guid(77841a5cba028f24b89a9632a7440240) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23bb14e6be58f9188aa7918118785ba8') in 0.017023 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.272880 seconds.
+  path: Assets/Animation/Followers & Enemies/Archer/ArcherDL 1.anim
+  artifactKey: Guid(0af2b314e9af69d419315bd2d20114fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Archer/ArcherDL 1.anim using Guid(0af2b314e9af69d419315bd2d20114fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a0e4314891993e219d60b085df68a860') in 0.011837 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.806247 seconds.
+  path: Assets/Animation/Followers & Enemies/Archer/UR.anim
+  artifactKey: Guid(0af2b314e9af69d419315bd2d20114fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Archer/UR.anim using Guid(0af2b314e9af69d419315bd2d20114fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79ff692ee7313f4bea06ed175476a639') in 0.030090 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 30.657311 seconds.
+  path: Assets/Animation/Followers & Enemies/Archer/ArcherUR.anim
+  artifactKey: Guid(0af2b314e9af69d419315bd2d20114fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Archer/ArcherUR.anim using Guid(0af2b314e9af69d419315bd2d20114fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1235fff3cc6d99f059e2d9369120ca97') in 0.033659 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 28.581910 seconds.
+  path: Assets/Animation/Followers & Enemies/Soldier/SoldierAnimator.controller
+  artifactKey: Guid(77369428b0b37f64ebcfc581e330aa94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Soldier/SoldierAnimator.controller using Guid(77369428b0b37f64ebcfc581e330aa94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b223bd3ba4b908f9108c00a95afea95') in 0.057034 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.551032 seconds.
+  path: Assets/Animation/Followers & Enemies/Soldier/SoldierAnimator 1.controller
+  artifactKey: Guid(06ec3ac684f5a0e4cb2a522804c42643) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Soldier/SoldierAnimator 1.controller using Guid(06ec3ac684f5a0e4cb2a522804c42643) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be68a09e4cf797a4f3058c33e8708fed') in 0.040263 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.888787 seconds.
+  path: Assets/Animation/Followers & Enemies/Archer/SoldierAnimator 1.controller
+  artifactKey: Guid(06ec3ac684f5a0e4cb2a522804c42643) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Archer/SoldierAnimator 1.controller using Guid(06ec3ac684f5a0e4cb2a522804c42643) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10ba77719e956a32e95abf78728726bd') in 0.092792 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.842823 seconds.
+  path: Assets/Animation/Followers & Enemies/Archer/ArcherAnimator.controller
+  artifactKey: Guid(06ec3ac684f5a0e4cb2a522804c42643) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Archer/ArcherAnimator.controller using Guid(06ec3ac684f5a0e4cb2a522804c42643) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49250ed34bacb914a3b7362340127dc9') in 0.018782 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 55.948821 seconds.
+  path: Assets/Prefabs/Archer.prefab
+  artifactKey: Guid(aa27a70a0b3e25b469136317101ae80d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Archer.prefab using Guid(aa27a70a0b3e25b469136317101ae80d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '303dbc69692e225c4e6a3fb73d053a67') in 0.341591 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 18.892551 seconds.
+  path: Assets/Prefabs/Archer.prefab
+  artifactKey: Guid(aa27a70a0b3e25b469136317101ae80d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Archer.prefab using Guid(aa27a70a0b3e25b469136317101ae80d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ae9399039a6f5c29e8a650bcbae2bdc') in 1.170926 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 16.825106 seconds.
+  path: Assets/Prefabs/Corpse-Archer.prefab
+  artifactKey: Guid(e7bebd13c77147b4ca72e24eae4b7d74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Corpse-Archer.prefab using Guid(e7bebd13c77147b4ca72e24eae4b7d74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20515730eb7d6f7c71cd3dab3e18e2d2') in 0.070864 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005816 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.32 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.147 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.12 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4493 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 178.3 MB.
+System memory in use after: 178.4 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5251.
+Total: 5.172700 ms (FindLiveObjects: 0.752300 ms CreateObjectMapping: 0.454900 ms MarkObjects: 3.812400 ms  DeleteObjects: 0.150900 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.018236 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.02 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.222 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.03 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4492 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 178.3 MB.
+System memory in use after: 178.4 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5255.
+Total: 3.749700 ms (FindLiveObjects: 0.407300 ms CreateObjectMapping: 0.201600 ms MarkObjects: 3.006600 ms  DeleteObjects: 0.132800 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 179.392053 seconds.
+  path: Assets/Sprites/Characters/ArcherSheet.png
+  artifactKey: Guid(4e2703ad206983b499b6158bbaf35c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/ArcherSheet.png using Guid(4e2703ad206983b499b6158bbaf35c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '000a93d3f41b9aba6d71249c57f962cf') in 0.086819 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000354 seconds.
+  path: Assets/Sprites/Characters/SoldierSheet.png
+  artifactKey: Guid(c6559a1928e77004983e7514a543a554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/SoldierSheet.png using Guid(c6559a1928e77004983e7514a543a554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf603beecba7c9b3f14295774d70e96a') in 0.045133 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 15.545841 seconds.
+  path: Assets/Prefabs/Archer.prefab
+  artifactKey: Guid(aa27a70a0b3e25b469136317101ae80d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Archer.prefab using Guid(aa27a70a0b3e25b469136317101ae80d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f4a3210377fb4d20994cdfbb675e8e54') in 0.254300 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.686965 seconds.
+  path: Assets/Prefabs/Archer.prefab
+  artifactKey: Guid(aa27a70a0b3e25b469136317101ae80d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Archer.prefab using Guid(aa27a70a0b3e25b469136317101ae80d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f83d008ac820798b186ec64e7cd1a52') in 0.055912 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.737459 seconds.
+  path: Assets/Prefabs/Archer.prefab
+  artifactKey: Guid(aa27a70a0b3e25b469136317101ae80d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Archer.prefab using Guid(aa27a70a0b3e25b469136317101ae80d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b84a10af6f0ebbe51ca0dbf3f4d65c8') in 0.363275 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.155391 seconds.
+  path: Assets/Prefabs/Archer.prefab
+  artifactKey: Guid(aa27a70a0b3e25b469136317101ae80d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Archer.prefab using Guid(aa27a70a0b3e25b469136317101ae80d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b0ed1add70191ec4866a393f1a66347') in 0.042197 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.494187 seconds.
+  path: Assets/Prefabs/Archer.prefab
+  artifactKey: Guid(aa27a70a0b3e25b469136317101ae80d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Archer.prefab using Guid(aa27a70a0b3e25b469136317101ae80d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5faa97a5d6b6883bf6ad9c6f57941f26') in 0.062035 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.140490 seconds.
+  path: Assets/Prefabs/Archer.prefab
+  artifactKey: Guid(aa27a70a0b3e25b469136317101ae80d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Archer.prefab using Guid(aa27a70a0b3e25b469136317101ae80d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2338334c4ee87fd806faf23aa953529a') in 0.039107 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.922673 seconds.
+  path: Assets/Prefabs/Archer.prefab
+  artifactKey: Guid(aa27a70a0b3e25b469136317101ae80d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Archer.prefab using Guid(aa27a70a0b3e25b469136317101ae80d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f76cc994118418d410d1c05c604da2d') in 0.039161 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.846682 seconds.
+  path: Assets/Prefabs/Soldier.prefab
+  artifactKey: Guid(66d071f54f729b348a98537df379fa2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Soldier.prefab using Guid(66d071f54f729b348a98537df379fa2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04ae53be21acebdd0b5080f3b868d585') in 0.056697 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.458561 seconds.
+  path: Assets/Prefabs/Soldier.prefab
+  artifactKey: Guid(66d071f54f729b348a98537df379fa2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Soldier.prefab using Guid(66d071f54f729b348a98537df379fa2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd51fe0bc479ef26b206188d04ba09f52') in 0.058788 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.599945 seconds.
+  path: Assets/Prefabs/Soldier.prefab
+  artifactKey: Guid(66d071f54f729b348a98537df379fa2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Soldier.prefab using Guid(66d071f54f729b348a98537df379fa2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c66fa5b2fc242bc2be897b2bac37956') in 0.031367 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.696907 seconds.
+  path: Assets/Prefabs/Soldier.prefab
+  artifactKey: Guid(66d071f54f729b348a98537df379fa2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Soldier.prefab using Guid(66d071f54f729b348a98537df379fa2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20ca280f872eaa0c88701ae0dd16b8e1') in 0.065959 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.693829 seconds.
+  path: Assets/Prefabs/Archer.prefab
+  artifactKey: Guid(aa27a70a0b3e25b469136317101ae80d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Archer.prefab using Guid(aa27a70a0b3e25b469136317101ae80d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b1247e3327faead25c0496b2152b120') in 0.070758 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.011999 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.63 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.764 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.02 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4492 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 179.2 MB.
+System memory in use after: 179.3 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5325.
+Total: 6.367600 ms (FindLiveObjects: 0.787300 ms CreateObjectMapping: 0.570500 ms MarkObjects: 4.855800 ms  DeleteObjects: 0.152000 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 186.241020 seconds.
+  path: Assets/Sprites/Characters/WorkerSheet.png
+  artifactKey: Guid(84f29ab8ab8070346bf727835deb80bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/WorkerSheet.png using Guid(84f29ab8ab8070346bf727835deb80bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa5a074a5b0319afab97b0dd495e80cc') in 0.091730 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 9.926004 seconds.
+  path: Assets/Sprites/Characters/WorkerSheet.png
+  artifactKey: Guid(84f29ab8ab8070346bf727835deb80bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/WorkerSheet.png using Guid(84f29ab8ab8070346bf727835deb80bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db7e61a7c60ebdd41f9c32e44bf73e41') in 0.086307 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.737426 seconds.
+  path: Assets/Sprites/Characters/WorkerSheet.png
+  artifactKey: Guid(84f29ab8ab8070346bf727835deb80bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/WorkerSheet.png using Guid(84f29ab8ab8070346bf727835deb80bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd338331b85b6f20624212564075d070f') in 0.027332 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.221569 seconds.
+  path: Assets/Sprites/Characters/WorkerSheet.png
+  artifactKey: Guid(84f29ab8ab8070346bf727835deb80bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/WorkerSheet.png using Guid(84f29ab8ab8070346bf727835deb80bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6bd79bd23aaa4cae7f41ccdc2a3a5cfe') in 0.084020 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 26.467971 seconds.
+  path: Assets/Animation/Followers & Enemies/Worker/WorkerSheet_0.controller
+  artifactKey: Guid(cd4db9134b1cae8418a944a55362c1da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Worker/WorkerSheet_0.controller using Guid(cd4db9134b1cae8418a944a55362c1da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '58715b4a40f8581e31ef74fb94fc2f38') in 0.022866 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.096312 seconds.
+  path: Assets/Animation/Followers & Enemies/Worker/WorkerDR.anim
+  artifactKey: Guid(89472fa75f4783e40bf70977147642b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Worker/WorkerDR.anim using Guid(89472fa75f4783e40bf70977147642b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a67b202c78f8021f77d3c10c17d7b06') in 0.080378 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.413073 seconds.
+  path: Assets/Animation/Followers & Enemies/Worker/WorkerDR 1.anim
+  artifactKey: Guid(5a0c2395c711f014a80ad64cfeeca0e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Worker/WorkerDR 1.anim using Guid(5a0c2395c711f014a80ad64cfeeca0e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12215cb70b7a0135a2e7b1c31b8199fe') in 0.019398 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.916726 seconds.
+  path: Assets/Animation/Followers & Enemies/Worker/WorkerDR.anim
+  artifactKey: Guid(89472fa75f4783e40bf70977147642b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Worker/WorkerDR.anim using Guid(89472fa75f4783e40bf70977147642b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '535781da87ca05305c351761734a454b') in 0.020795 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.882790 seconds.
+  path: Assets/Animation/Followers & Enemies/Worker/WorkerDR 2.anim
+  artifactKey: Guid(5915efe1e3084514a8ae4079f9548d79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Worker/WorkerDR 2.anim using Guid(5915efe1e3084514a8ae4079f9548d79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '059d35381a2e99db83e891d986d13add') in 0.024382 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.620785 seconds.
+  path: Assets/Animation/Followers & Enemies/Worker/WorkerDR 1.anim
+  artifactKey: Guid(5a0c2395c711f014a80ad64cfeeca0e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Worker/WorkerDR 1.anim using Guid(5a0c2395c711f014a80ad64cfeeca0e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6baa6706fd4e900e210280caa70efe55') in 0.019893 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.161229 seconds.
+  path: Assets/Animation/Followers & Enemies/Worker/WorkerDL.anim
+  artifactKey: Guid(5a0c2395c711f014a80ad64cfeeca0e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Worker/WorkerDL.anim using Guid(5a0c2395c711f014a80ad64cfeeca0e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bceb0adbebae6f32ebce2e41b56e38d0') in 0.021439 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.283460 seconds.
+  path: Assets/Animation/Followers & Enemies/Worker/WorkerUL.anim
+  artifactKey: Guid(5915efe1e3084514a8ae4079f9548d79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Worker/WorkerUL.anim using Guid(5915efe1e3084514a8ae4079f9548d79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24e56ea27f4eb8da30c4a3d953634adc') in 0.028330 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.625639 seconds.
+  path: Assets/Animation/Followers & Enemies/Worker/WorkerDR 3.anim
+  artifactKey: Guid(a0612307349292946a95513f62adc41f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Worker/WorkerDR 3.anim using Guid(a0612307349292946a95513f62adc41f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bcb17b09b98913cbc6f5725576538d7d') in 0.039639 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.147488 seconds.
+  path: Assets/Animation/Followers & Enemies/Worker/WorkerUR.anim
+  artifactKey: Guid(a0612307349292946a95513f62adc41f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Worker/WorkerUR.anim using Guid(a0612307349292946a95513f62adc41f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b50397b3d2123b8049da83019c236262') in 0.036899 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 48.987162 seconds.
+  path: Assets/Animation/Followers & Enemies/Archer/ArcherAnimator.controller
+  artifactKey: Guid(06ec3ac684f5a0e4cb2a522804c42643) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Archer/ArcherAnimator.controller using Guid(06ec3ac684f5a0e4cb2a522804c42643) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5b58c4d2b74f2482fff7616f0ae29b2') in 0.030131 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.847048 seconds.
+  path: Assets/Animation/Followers & Enemies/Archer/ArcherAnimator 1.controller
+  artifactKey: Guid(7e1bd018e7bdcbd4586b3671ca6210f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Archer/ArcherAnimator 1.controller using Guid(7e1bd018e7bdcbd4586b3671ca6210f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f782efa3de9582878665cf6888e2a21') in 0.042588 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.482067 seconds.
+  path: Assets/Animation/Followers & Enemies/Archer/WorkerAnimator.controller
+  artifactKey: Guid(7e1bd018e7bdcbd4586b3671ca6210f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Archer/WorkerAnimator.controller using Guid(7e1bd018e7bdcbd4586b3671ca6210f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a66d19afeb16f5a1b29db4c3a88e301') in 0.022632 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 32.541349 seconds.
+  path: Assets/Prefabs/Worker.prefab
+  artifactKey: Guid(8ab9b6d2894dcbf47a64f1b6be0fdb01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Worker.prefab using Guid(8ab9b6d2894dcbf47a64f1b6be0fdb01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af57280f78e664b057700105117fa488') in 0.308058 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.823735 seconds.
+  path: Assets/Prefabs/Worker.prefab
+  artifactKey: Guid(8ab9b6d2894dcbf47a64f1b6be0fdb01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Worker.prefab using Guid(8ab9b6d2894dcbf47a64f1b6be0fdb01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '308846d5e5689756511ecb50c32254ff') in 0.041905 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.279643 seconds.
+  path: Assets/Prefabs/Worker.prefab
+  artifactKey: Guid(8ab9b6d2894dcbf47a64f1b6be0fdb01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Worker.prefab using Guid(8ab9b6d2894dcbf47a64f1b6be0fdb01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b948339dddbbf1c8652c60f53669fee') in 0.056158 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.627990 seconds.
+  path: Assets/Prefabs/Worker.prefab
+  artifactKey: Guid(8ab9b6d2894dcbf47a64f1b6be0fdb01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Worker.prefab using Guid(8ab9b6d2894dcbf47a64f1b6be0fdb01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf7eddcfcceefdb5fba82b03b75522f6') in 0.063515 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 21.743809 seconds.
+  path: Assets/Prefabs/Corpse-Worker.prefab
+  artifactKey: Guid(4b68942577a839c428900ac02f40917c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Corpse-Worker.prefab using Guid(4b68942577a839c428900ac02f40917c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '675912b40d2617297065d6fde3aaf46d') in 0.192015 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.008329 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.13 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.107 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.02 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4493 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 181.1 MB.
+System memory in use after: 181.2 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5424.
+Total: 4.614600 ms (FindLiveObjects: 0.470100 ms CreateObjectMapping: 0.205900 ms MarkObjects: 3.717600 ms  DeleteObjects: 0.219300 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 9301.327158 seconds.
+  path: Assets/Sprites/Characters/PriestSheet.png
+  artifactKey: Guid(ad4fc5cdfda436e4796ecad1935c3250) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/PriestSheet.png using Guid(ad4fc5cdfda436e4796ecad1935c3250) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e724ac542389beefd7a9c8f1b1ca2179') in 0.804500 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 20.886581 seconds.
+  path: Assets/Sprites/Characters/PriestSheet.png
+  artifactKey: Guid(ad4fc5cdfda436e4796ecad1935c3250) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/PriestSheet.png using Guid(ad4fc5cdfda436e4796ecad1935c3250) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '18c8d95e8735296df0a1d89891afc278') in 0.095969 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 15.881519 seconds.
+  path: Assets/Sprites/Characters/PriestSheet.png
+  artifactKey: Guid(ad4fc5cdfda436e4796ecad1935c3250) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/PriestSheet.png using Guid(ad4fc5cdfda436e4796ecad1935c3250) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aea9c0eb8aeb1c5fa30fd8b4f1e9dfb5') in 0.070840 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 30.805461 seconds.
+  path: Assets/Animation/Followers & Enemies/Priest/PriestDR.anim
+  artifactKey: Guid(20ce53dd379f67a488cfb9aec3c37e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Priest/PriestDR.anim using Guid(20ce53dd379f67a488cfb9aec3c37e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06ba34937afee047f16ad76f30869a8e') in 0.046782 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.747388 seconds.
+  path: Assets/Animation/Followers & Enemies/Priest/PriestDR 1.anim
+  artifactKey: Guid(ea6d9f10e9a93a547826bae31f282034) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Priest/PriestDR 1.anim using Guid(ea6d9f10e9a93a547826bae31f282034) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b0f7f0f3cc61971bb02dbfb7cb37228e') in 0.020246 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.712851 seconds.
+  path: Assets/Animation/Followers & Enemies/Priest/PriestDR.anim
+  artifactKey: Guid(20ce53dd379f67a488cfb9aec3c37e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Priest/PriestDR.anim using Guid(20ce53dd379f67a488cfb9aec3c37e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5e3f4163ec82928f956c294e0cc5220') in 0.279808 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.670436 seconds.
+  path: Assets/Animation/Followers & Enemies/Priest/PriestDR 2.anim
+  artifactKey: Guid(a2a2abc8c5df7c64e8863de3d6dc72bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Priest/PriestDR 2.anim using Guid(a2a2abc8c5df7c64e8863de3d6dc72bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f46a92441e245a0127d7fcefed23d33') in 0.040625 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.591454 seconds.
+  path: Assets/Animation/Followers & Enemies/Priest/PriestDR 1.anim
+  artifactKey: Guid(ea6d9f10e9a93a547826bae31f282034) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Priest/PriestDR 1.anim using Guid(ea6d9f10e9a93a547826bae31f282034) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '914abe2e5fc2c3ab016d4e65fd866878') in 0.013975 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.169747 seconds.
+  path: Assets/Animation/Followers & Enemies/Priest/PriestDL.anim
+  artifactKey: Guid(ea6d9f10e9a93a547826bae31f282034) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Priest/PriestDL.anim using Guid(ea6d9f10e9a93a547826bae31f282034) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed78befdfc64473464bded6145ce2208') in 0.043249 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.256900 seconds.
+  path: Assets/Animation/Followers & Enemies/Priest/PriestUR.anim
+  artifactKey: Guid(a2a2abc8c5df7c64e8863de3d6dc72bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Priest/PriestUR.anim using Guid(a2a2abc8c5df7c64e8863de3d6dc72bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '372775d2ad15afa64b2b0909790f7038') in 0.015828 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.185710 seconds.
+  path: Assets/Animation/Followers & Enemies/Priest/PriestDR 3.anim
+  artifactKey: Guid(9e86d83c2388b4747b8913c12dd61e91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Priest/PriestDR 3.anim using Guid(9e86d83c2388b4747b8913c12dd61e91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1c2b59f9ab5378546df6a39b4fe5614') in 0.047569 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.617876 seconds.
+  path: Assets/Animation/Followers & Enemies/Priest/PriestUL.anim
+  artifactKey: Guid(9e86d83c2388b4747b8913c12dd61e91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Priest/PriestUL.anim using Guid(9e86d83c2388b4747b8913c12dd61e91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dbb04f1e59e85525389eea8c9e452469') in 0.018425 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 36.569373 seconds.
+  path: Assets/Animation/Followers & Enemies/Priest/PriestSheet_0.controller
+  artifactKey: Guid(7db96b0b1d1ef3d4489f4fa69d8fe5db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Priest/PriestSheet_0.controller using Guid(7db96b0b1d1ef3d4489f4fa69d8fe5db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7a99bfc53b9ba6b151368e163a5f2ac') in 0.348138 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.413160 seconds.
+  path: Assets/Animation/Followers & Enemies/Worker/WorkerAnimator.controller
+  artifactKey: Guid(7e1bd018e7bdcbd4586b3671ca6210f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Worker/WorkerAnimator.controller using Guid(7e1bd018e7bdcbd4586b3671ca6210f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a92668244d25816170a49c93602a76b5') in 0.022050 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.100866 seconds.
+  path: Assets/Animation/Followers & Enemies/Worker/WorkerAnimator 1.controller
+  artifactKey: Guid(ff7ddf64191984a4fadc7724fa09d1c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Worker/WorkerAnimator 1.controller using Guid(ff7ddf64191984a4fadc7724fa09d1c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f94d3627e32cbaae2875da9931c92b33') in 0.020153 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.632047 seconds.
+  path: Assets/Animation/Followers & Enemies/Worker/PriestAnimator.controller
+  artifactKey: Guid(ff7ddf64191984a4fadc7724fa09d1c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Worker/PriestAnimator.controller using Guid(ff7ddf64191984a4fadc7724fa09d1c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '282c5ede30fc9a16af9c84c140a21979') in 0.026631 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 38.595071 seconds.
+  path: Assets/Prefabs/Corpse-Priest.prefab
+  artifactKey: Guid(86f2656a51843ca419b4d9ec8a2495c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Corpse-Priest.prefab using Guid(86f2656a51843ca419b4d9ec8a2495c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a8b5c3f584a79d187b01c4fd6acc88c') in 0.499904 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 20.463731 seconds.
+  path: Assets/Prefabs/Priest.prefab
+  artifactKey: Guid(e527585eeb9171043a3bac4c7574ba53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Priest.prefab using Guid(e527585eeb9171043a3bac4c7574ba53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '518dbacd26dd8edc5cd18789f12f6c67') in 0.080373 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.151347 seconds.
+  path: Assets/Prefabs/Priest.prefab
+  artifactKey: Guid(e527585eeb9171043a3bac4c7574ba53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Priest.prefab using Guid(e527585eeb9171043a3bac4c7574ba53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0b17bfe8d001f28983a410f4a7a7ad7') in 0.034434 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.892446 seconds.
+  path: Assets/Prefabs/Priest.prefab
+  artifactKey: Guid(e527585eeb9171043a3bac4c7574ba53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Priest.prefab using Guid(e527585eeb9171043a3bac4c7574ba53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c59022a3f70b300ce417367fbcd29290') in 0.046279 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.985095 seconds.
+  path: Assets/Prefabs/Priest.prefab
+  artifactKey: Guid(e527585eeb9171043a3bac4c7574ba53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Priest.prefab using Guid(e527585eeb9171043a3bac4c7574ba53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc8a947d88b80b59e8e024864aea649a') in 0.046985 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006790 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.09 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.708 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.20 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4493 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 182.4 MB.
+System memory in use after: 182.5 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5509.
+Total: 13.062900 ms (FindLiveObjects: 0.470500 ms CreateObjectMapping: 0.242900 ms MarkObjects: 7.530400 ms  DeleteObjects: 4.816700 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006596 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.14 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.277 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.19 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4492 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 182.4 MB.
+System memory in use after: 182.5 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5513.
+Total: 8.869100 ms (FindLiveObjects: 1.000400 ms CreateObjectMapping: 0.770100 ms MarkObjects: 6.952100 ms  DeleteObjects: 0.143600 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 364.606112 seconds.
+  path: Assets/Sprites/Characters/UndeadArcherSheet.png
+  artifactKey: Guid(7761a4ed3d30f854fb24fba35be4e9c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/UndeadArcherSheet.png using Guid(7761a4ed3d30f854fb24fba35be4e9c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '124482a3f8709996baba66da1012f13b') in 0.260851 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000867 seconds.
+  path: Assets/Sprites/Characters/UndeadWorkerSheet.png
+  artifactKey: Guid(3e4df12a0951c26458b99f880fc2b66f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/UndeadWorkerSheet.png using Guid(3e4df12a0951c26458b99f880fc2b66f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b99ec87e6291ee55673ed731d1653683') in 0.059756 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000467 seconds.
+  path: Assets/Sprites/Characters/UndeadPriestSheet.png
+  artifactKey: Guid(37dc9f9136b1997469c343c38402391e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/UndeadPriestSheet.png using Guid(37dc9f9136b1997469c343c38402391e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12c860c0c36bba63aa8fa9b1fa417a9f') in 0.067821 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.001635 seconds.
+  path: Assets/Sprites/Characters/UndeadSoldierSheet.png
+  artifactKey: Guid(172af6274a0d1bc408302f984e8cc9f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/UndeadSoldierSheet.png using Guid(172af6274a0d1bc408302f984e8cc9f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0aec733832210e560f58eeaf8cf95a49') in 0.050868 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 27.396317 seconds.
+  path: Assets/Sprites/Characters/UndeadWorkerSheet.png
+  artifactKey: Guid(3e4df12a0951c26458b99f880fc2b66f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/UndeadWorkerSheet.png using Guid(3e4df12a0951c26458b99f880fc2b66f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2aee3b5918b45d0f6e870bed1056f6cc') in 0.047341 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 17.786968 seconds.
+  path: Assets/Sprites/Characters/UndeadArcherSheet.png
+  artifactKey: Guid(7761a4ed3d30f854fb24fba35be4e9c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/UndeadArcherSheet.png using Guid(7761a4ed3d30f854fb24fba35be4e9c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '521da9b7d4749bcfc43cd2339e6c6f6d') in 0.074836 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000278 seconds.
+  path: Assets/Sprites/Characters/UndeadWorkerSheet.png
+  artifactKey: Guid(3e4df12a0951c26458b99f880fc2b66f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/UndeadWorkerSheet.png using Guid(3e4df12a0951c26458b99f880fc2b66f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f3c44450e2ff3e933cbd8e55870e9ca') in 0.068985 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000283 seconds.
+  path: Assets/Sprites/Characters/UndeadPriestSheet.png
+  artifactKey: Guid(37dc9f9136b1997469c343c38402391e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/UndeadPriestSheet.png using Guid(37dc9f9136b1997469c343c38402391e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6dc5d90fad50fd843b04ca5c8e4ccbb') in 0.081173 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000287 seconds.
+  path: Assets/Sprites/Characters/UndeadSoldierSheet.png
+  artifactKey: Guid(172af6274a0d1bc408302f984e8cc9f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/UndeadSoldierSheet.png using Guid(172af6274a0d1bc408302f984e8cc9f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '18495926c3b4cc310d0bb251b0ab3da5') in 0.048191 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 27.607811 seconds.
+  path: Assets/Sprites/Characters/UndeadArcherSheet.png
+  artifactKey: Guid(7761a4ed3d30f854fb24fba35be4e9c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/UndeadArcherSheet.png using Guid(7761a4ed3d30f854fb24fba35be4e9c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05cf1514a2d3333ac0ad44eeeddbd375') in 0.072516 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 12.340171 seconds.
+  path: Assets/Sprites/Characters/UndeadArcherSheet.png
+  artifactKey: Guid(7761a4ed3d30f854fb24fba35be4e9c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/UndeadArcherSheet.png using Guid(7761a4ed3d30f854fb24fba35be4e9c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4510a1d9d4dfc70a4aee09121ef045b6') in 0.078631 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000288 seconds.
+  path: Assets/Sprites/Characters/UndeadWorkerSheet.png
+  artifactKey: Guid(3e4df12a0951c26458b99f880fc2b66f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/UndeadWorkerSheet.png using Guid(3e4df12a0951c26458b99f880fc2b66f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd485f71c1c4f55119aa825522a711d35') in 0.055845 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000267 seconds.
+  path: Assets/Sprites/Characters/UndeadPriestSheet.png
+  artifactKey: Guid(37dc9f9136b1997469c343c38402391e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/UndeadPriestSheet.png using Guid(37dc9f9136b1997469c343c38402391e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ceaaeafeb0423c89391eaee5a124224d') in 0.065868 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000292 seconds.
+  path: Assets/Sprites/Characters/UndeadSoldierSheet.png
+  artifactKey: Guid(172af6274a0d1bc408302f984e8cc9f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/UndeadSoldierSheet.png using Guid(172af6274a0d1bc408302f984e8cc9f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1e7f862cfd7fb7a276dda9b30abdebc') in 0.117724 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 11.001134 seconds.
+  path: Assets/Sprites/Characters/UndeadPriestSheet.png
+  artifactKey: Guid(37dc9f9136b1997469c343c38402391e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/UndeadPriestSheet.png using Guid(37dc9f9136b1997469c343c38402391e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ff2b41b7fe7262f149f9f7672d412f2') in 0.062660 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.052040 seconds.
+  path: Assets/Sprites/Characters/UndeadSoldierSheet.png
+  artifactKey: Guid(172af6274a0d1bc408302f984e8cc9f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/UndeadSoldierSheet.png using Guid(172af6274a0d1bc408302f984e8cc9f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b1dd38df4d6ece531495af885c30a5f') in 0.069201 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 9.646286 seconds.
+  path: Assets/Sprites/Characters/UndeadWorkerSheet.png
+  artifactKey: Guid(3e4df12a0951c26458b99f880fc2b66f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/UndeadWorkerSheet.png using Guid(3e4df12a0951c26458b99f880fc2b66f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b99d6b1e6ff0b1f34987198a1b6c7940') in 0.068999 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 113.225379 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadArcher/UndeadArcherSheet_0.controller
+  artifactKey: Guid(bb7e44b12982dca43ac511060984cb6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadArcher/UndeadArcherSheet_0.controller using Guid(bb7e44b12982dca43ac511060984cb6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83809119a8f675fd9be87430f1b0036f') in 0.037564 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.021383 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadArcher/UndeadArcherDR.anim
+  artifactKey: Guid(e286593ccd0391e41a0b417963c3e4e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadArcher/UndeadArcherDR.anim using Guid(e286593ccd0391e41a0b417963c3e4e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83ee65b853ae350b6b23e64452e83f73') in 0.014925 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.316154 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadArcher/UndeadArcherDR 1.anim
+  artifactKey: Guid(91c4b1306111f0f4abd6ae65e30cae2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadArcher/UndeadArcherDR 1.anim using Guid(91c4b1306111f0f4abd6ae65e30cae2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7a29d77f3f0a998ccc7cd3836268da3') in 0.047742 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.555651 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadArcher/UndeadArcherDR.anim
+  artifactKey: Guid(e286593ccd0391e41a0b417963c3e4e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadArcher/UndeadArcherDR.anim using Guid(e286593ccd0391e41a0b417963c3e4e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd5c6a2676b7795d589de479dae93873') in 0.015876 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.955732 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadArcher/UndeadArcherDR 2.anim
+  artifactKey: Guid(803e11f34fd1d854fb036a0ff5b6ee01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadArcher/UndeadArcherDR 2.anim using Guid(803e11f34fd1d854fb036a0ff5b6ee01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6291176af0d159110743191dd5d05aa2') in 0.022820 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.731276 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadArcher/UndeadArcherDR 1.anim
+  artifactKey: Guid(91c4b1306111f0f4abd6ae65e30cae2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadArcher/UndeadArcherDR 1.anim using Guid(91c4b1306111f0f4abd6ae65e30cae2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '943f12469c8dd24ab30c6030f2f07155') in 0.025873 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.165842 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadArcher/UndeadArcherDL.anim
+  artifactKey: Guid(91c4b1306111f0f4abd6ae65e30cae2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadArcher/UndeadArcherDL.anim using Guid(91c4b1306111f0f4abd6ae65e30cae2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef2f49c056db4968626737a679b50adc') in 0.015690 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.626597 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadArcher/UndeadArcherUR.anim
+  artifactKey: Guid(803e11f34fd1d854fb036a0ff5b6ee01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadArcher/UndeadArcherUR.anim using Guid(803e11f34fd1d854fb036a0ff5b6ee01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1e9481b6f92f6a29c23268bacf8bc39') in 0.016980 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.063203 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadArcher/UndeadArcherDR 3.anim
+  artifactKey: Guid(5415bdaa848dc784395dfef2f44c8d86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadArcher/UndeadArcherDR 3.anim using Guid(5415bdaa848dc784395dfef2f44c8d86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '336f204cb91ac95a1910e7846fba56f2') in 0.033361 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.605485 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadArcher/UndeadArcherUL.anim
+  artifactKey: Guid(5415bdaa848dc784395dfef2f44c8d86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadArcher/UndeadArcherUL.anim using Guid(5415bdaa848dc784395dfef2f44c8d86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26f2e0b9a3f9db03d62f1438456d96e5') in 0.015774 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 46.015836 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadPriest/UndeadPriestSheet_0.controller
+  artifactKey: Guid(9d745d4daa62bb5469525bd1765b5646) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadPriest/UndeadPriestSheet_0.controller using Guid(9d745d4daa62bb5469525bd1765b5646) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8792e73e5dfbe771163d99981eba6968') in 0.035401 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 62.905203 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadPriest/UndeadPriestDR.anim
+  artifactKey: Guid(0a064368e55ce0446ac209471145b3de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadPriest/UndeadPriestDR.anim using Guid(0a064368e55ce0446ac209471145b3de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a852349997cce34d4a0ce40d6da59367') in 0.021794 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 25.575386 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadPriest/UndeadPriestDR 1.anim
+  artifactKey: Guid(20e96268920bccb41abf28340ca53f5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadPriest/UndeadPriestDR 1.anim using Guid(20e96268920bccb41abf28340ca53f5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10b4b8374e6b3072532cfad0cdfd993c') in 0.039126 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.725381 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadPriest/UndeadPriestDR 2.anim
+  artifactKey: Guid(702321d0bbcd5df4f8f93903415262fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadPriest/UndeadPriestDR 2.anim using Guid(702321d0bbcd5df4f8f93903415262fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20447da844629e1b5ce638338e8a4231') in 0.019492 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.638393 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadPriest/UndeadPriestDR 1.anim
+  artifactKey: Guid(20e96268920bccb41abf28340ca53f5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadPriest/UndeadPriestDR 1.anim using Guid(20e96268920bccb41abf28340ca53f5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf0f5fd389686b9475e72b453d789164') in 0.015958 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.286303 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadPriest/UndeadPriestDL.anim
+  artifactKey: Guid(20e96268920bccb41abf28340ca53f5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadPriest/UndeadPriestDL.anim using Guid(20e96268920bccb41abf28340ca53f5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8cc8b4e12eac2787b96b0107ba6ede8c') in 0.019816 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.601719 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadPriest/UndeadPriestUR.anim
+  artifactKey: Guid(702321d0bbcd5df4f8f93903415262fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadPriest/UndeadPriestUR.anim using Guid(702321d0bbcd5df4f8f93903415262fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e25d80ae4dff0955d6e9078824dbc361') in 0.028995 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.020929 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadPriest/UndeadPriestDR 3.anim
+  artifactKey: Guid(2bd04c79fc1a1264da3750d77ac59391) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadPriest/UndeadPriestDR 3.anim using Guid(2bd04c79fc1a1264da3750d77ac59391) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4df47a05e23e94069d68e281a74ee5ba') in 0.019402 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 9.329850 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadPriest/UndeadPriestUL.anim
+  artifactKey: Guid(2bd04c79fc1a1264da3750d77ac59391) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadPriest/UndeadPriestUL.anim using Guid(2bd04c79fc1a1264da3750d77ac59391) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '935ee67f1c8a666599e09f27c1fa33fc') in 0.021415 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 72.066133 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadSoldier/UndeadSoldierSheet_0.controller
+  artifactKey: Guid(62cc82e8ea45f6f478505cfe368176e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadSoldier/UndeadSoldierSheet_0.controller using Guid(62cc82e8ea45f6f478505cfe368176e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'adbd2d62641d12cdc556fe30d74fc876') in 0.038465 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.881650 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadSoldier/UndeadSoldierDR.anim
+  artifactKey: Guid(b6fbdcf47d6dfbc408d7f78cc3dc03e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadSoldier/UndeadSoldierDR.anim using Guid(b6fbdcf47d6dfbc408d7f78cc3dc03e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08758ff84c8483fdd10d4489bc81375a') in 0.020065 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.126257 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadSoldier/UndeadSoldierDR 1.anim
+  artifactKey: Guid(fa86cc117e38b1e429420a9d26285a5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadSoldier/UndeadSoldierDR 1.anim using Guid(fa86cc117e38b1e429420a9d26285a5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd06a5d8a58c08be2c7d86722ffad46de') in 0.038820 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.892760 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadSoldier/UndeadSoldierDR 2.anim
+  artifactKey: Guid(3fd84ac7217ed86478b86fcc1e3565ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadSoldier/UndeadSoldierDR 2.anim using Guid(3fd84ac7217ed86478b86fcc1e3565ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab1e7b1e9856985733c0ec383d13ed55') in 0.020762 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.510422 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadSoldier/UndeadSoldierDR 1.anim
+  artifactKey: Guid(fa86cc117e38b1e429420a9d26285a5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadSoldier/UndeadSoldierDR 1.anim using Guid(fa86cc117e38b1e429420a9d26285a5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ae18b65036d518ce627a96a4fe320b2') in 0.013350 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.620376 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadSoldier/UndeadSoldierDL.anim
+  artifactKey: Guid(fa86cc117e38b1e429420a9d26285a5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadSoldier/UndeadSoldierDL.anim using Guid(fa86cc117e38b1e429420a9d26285a5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1e98f9c549e75bd0511731a18368542') in 0.020669 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.157679 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadSoldier/UndeadSoldierUR.anim
+  artifactKey: Guid(3fd84ac7217ed86478b86fcc1e3565ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadSoldier/UndeadSoldierUR.anim using Guid(3fd84ac7217ed86478b86fcc1e3565ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dee09b1109cf1d85cff1bd5b1ad086fd') in 0.012949 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.358717 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadSoldier/UndeadSoldierDR 3.anim
+  artifactKey: Guid(684641adde877a24590be37d70ae958d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadSoldier/UndeadSoldierDR 3.anim using Guid(684641adde877a24590be37d70ae958d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b32402fb4ee0050899666f335515d51e') in 0.027223 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.631666 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadSoldier/UndeadSoldierUL.anim
+  artifactKey: Guid(684641adde877a24590be37d70ae958d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadSoldier/UndeadSoldierUL.anim using Guid(684641adde877a24590be37d70ae958d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dcf144ea4a1098ce6126bd4057adefef') in 0.017340 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 37.976625 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadWorker/UndeadWorkerSheet_0.controller
+  artifactKey: Guid(c4dbe3ea73feba248a02ca12b59a6b28) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadWorker/UndeadWorkerSheet_0.controller using Guid(c4dbe3ea73feba248a02ca12b59a6b28) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd21baed98b97ffb7d30e998255e18a20') in 0.040151 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.638556 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadWorker/UndeadWorkerDR.anim
+  artifactKey: Guid(e5881a7c91f2fc24ba3ed1dc5a353354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadWorker/UndeadWorkerDR.anim using Guid(e5881a7c91f2fc24ba3ed1dc5a353354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca6bce37e964ee4b65fd0241a476b394') in 0.046245 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.918003 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadWorker/UndeadWorkerDR 1.anim
+  artifactKey: Guid(a15a7f0851cbac342b434ff186d42ae0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadWorker/UndeadWorkerDR 1.anim using Guid(a15a7f0851cbac342b434ff186d42ae0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6f9c75b1bca80643755f418961df924') in 0.024817 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.458420 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadWorker/UndeadWorkerDR 2.anim
+  artifactKey: Guid(d941145b77312794f99bc96383521afb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadWorker/UndeadWorkerDR 2.anim using Guid(d941145b77312794f99bc96383521afb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '443ea3d06a682ee0afbe4ee9ce6b4351') in 0.054875 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.015360 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadWorker/UndeadWorkerDR 1.anim
+  artifactKey: Guid(a15a7f0851cbac342b434ff186d42ae0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadWorker/UndeadWorkerDR 1.anim using Guid(a15a7f0851cbac342b434ff186d42ae0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd461e7821f557cb1aa1bf22b63198cf4') in 0.021260 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.473583 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadWorker/UndeadWorkerDL.anim
+  artifactKey: Guid(a15a7f0851cbac342b434ff186d42ae0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadWorker/UndeadWorkerDL.anim using Guid(a15a7f0851cbac342b434ff186d42ae0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f3de95fdcabbf8fbb4868344a1b1cd0') in 0.026103 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.733353 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadWorker/UndeadWorkerUL.anim
+  artifactKey: Guid(d941145b77312794f99bc96383521afb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadWorker/UndeadWorkerUL.anim using Guid(d941145b77312794f99bc96383521afb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f50a2ba9dfbb84094e41eaefcfd8b45') in 0.012855 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.387353 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadWorker/UndeadWorkerDR 3.anim
+  artifactKey: Guid(76e241ada90245c45a7e455731fd9cf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadWorker/UndeadWorkerDR 3.anim using Guid(76e241ada90245c45a7e455731fd9cf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d3e931efbfe75db6b613d6dca40ef6b') in 0.016315 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.020782 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadWorker/UndeadWorkerUR.anim
+  artifactKey: Guid(76e241ada90245c45a7e455731fd9cf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadWorker/UndeadWorkerUR.anim using Guid(76e241ada90245c45a7e455731fd9cf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'daba89b3411de9c1bf4176cb9c2dd8a2') in 0.037853 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 42.040533 seconds.
+  path: Assets/Animation/Followers & Enemies/Soldier/SoldierAnimator 1.controller
+  artifactKey: Guid(301c2704657755c45bfc1471ec633c87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Soldier/SoldierAnimator 1.controller using Guid(301c2704657755c45bfc1471ec633c87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b95f36e9211e572190e24188bf6c46cb') in 0.053270 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.408173 seconds.
+  path: Assets/Animation/Followers & Enemies/Priest/PriestAnimator.controller
+  artifactKey: Guid(ff7ddf64191984a4fadc7724fa09d1c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Priest/PriestAnimator.controller using Guid(ff7ddf64191984a4fadc7724fa09d1c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33427948818c932944f21fd9809b56bb') in 0.029944 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.298515 seconds.
+  path: Assets/Animation/Followers & Enemies/Priest/PriestAnimator 1.controller
+  artifactKey: Guid(2acd5431933e7024babae863d839438e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Priest/PriestAnimator 1.controller using Guid(2acd5431933e7024babae863d839438e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b061afbf980ec5b7ab32393b2413b71') in 0.019940 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.393174 seconds.
+  path: Assets/Animation/Followers & Enemies/Priest/UndeadArcherAnimator.controller
+  artifactKey: Guid(2acd5431933e7024babae863d839438e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Priest/UndeadArcherAnimator.controller using Guid(2acd5431933e7024babae863d839438e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0f07985b2001818898117e6dfa84c15') in 0.037366 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.918704 seconds.
+  path: Assets/Animation/Followers & Enemies/Priest/PriestAnimator 1.controller
+  artifactKey: Guid(0aaf1a7a7a3bf764ebc32fde5f7f304c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Priest/PriestAnimator 1.controller using Guid(0aaf1a7a7a3bf764ebc32fde5f7f304c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27bcecec291bb2e38cbc3c20a35198a6') in 0.024360 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.599498 seconds.
+  path: Assets/Animation/Followers & Enemies/Priest/UndeadPriestAnimator.controller
+  artifactKey: Guid(0aaf1a7a7a3bf764ebc32fde5f7f304c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Priest/UndeadPriestAnimator.controller using Guid(0aaf1a7a7a3bf764ebc32fde5f7f304c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd53e487428199ac6ac9f0277a5267eff') in 0.023382 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.659820 seconds.
+  path: Assets/Animation/Followers & Enemies/Priest/PriestAnimator 1.controller
+  artifactKey: Guid(b8bc194b4a3089045ae2c68a6cbca89d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Priest/PriestAnimator 1.controller using Guid(b8bc194b4a3089045ae2c68a6cbca89d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9caf72e965085d6c5fc578fb04ddc6d9') in 0.017817 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.306853 seconds.
+  path: Assets/Animation/Followers & Enemies/Priest/UndeadSoldierAnimator.controller
+  artifactKey: Guid(b8bc194b4a3089045ae2c68a6cbca89d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Priest/UndeadSoldierAnimator.controller using Guid(b8bc194b4a3089045ae2c68a6cbca89d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bdd0ea4f7f7fa55071ed6cb6462b2558') in 0.036641 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.492992 seconds.
+  path: Assets/Animation/Followers & Enemies/Priest/PriestAnimator 1.controller
+  artifactKey: Guid(40b1d67f04eeb584ab403e4319ef559b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Priest/PriestAnimator 1.controller using Guid(40b1d67f04eeb584ab403e4319ef559b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd726f62e763589f4c157cb63426258e7') in 0.031252 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.390364 seconds.
+  path: Assets/Animation/Followers & Enemies/Priest/UndeadWorkerAnimator.controller
+  artifactKey: Guid(40b1d67f04eeb584ab403e4319ef559b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/Priest/UndeadWorkerAnimator.controller using Guid(40b1d67f04eeb584ab403e4319ef559b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6fa84ce45692865646352d9afc2bb306') in 0.018000 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 9.718625 seconds.
+  path: Assets/Animation/Followers & Enemies/UndeadArcher/UndeadArcherDL.anim
+  artifactKey: Guid(91c4b1306111f0f4abd6ae65e30cae2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Followers & Enemies/UndeadArcher/UndeadArcherDL.anim using Guid(91c4b1306111f0f4abd6ae65e30cae2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b64591cc1f6a4461234a14cc55db022') in 0.052320 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 88.988286 seconds.
+  path: Assets/Prefabs/UndeadWorker.prefab
+  artifactKey: Guid(4f6d634aa3497134eb1b05be31943143) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UndeadWorker.prefab using Guid(4f6d634aa3497134eb1b05be31943143) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6149ec996407096059c67f604f9150a0') in 0.221138 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.382510 seconds.
+  path: Assets/Prefabs/UndeadWorker.prefab
+  artifactKey: Guid(4f6d634aa3497134eb1b05be31943143) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UndeadWorker.prefab using Guid(4f6d634aa3497134eb1b05be31943143) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e589e6994aa82b8a20472c8336c65b4c') in 0.034397 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 13.622808 seconds.
+  path: Assets/Prefabs/UndeadWorker.prefab
+  artifactKey: Guid(4f6d634aa3497134eb1b05be31943143) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UndeadWorker.prefab using Guid(4f6d634aa3497134eb1b05be31943143) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd0ab6fe5b95bf81e6a9aba8f1fb56a1') in 0.071131 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.942522 seconds.
+  path: Assets/Prefabs/UndeadWorker.prefab
+  artifactKey: Guid(4f6d634aa3497134eb1b05be31943143) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UndeadWorker.prefab using Guid(4f6d634aa3497134eb1b05be31943143) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ff79a2e95900740e9517b23424c93c0') in 0.049081 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.734806 seconds.
+  path: Assets/Prefabs/UndeadSoldier.prefab
+  artifactKey: Guid(b4bf6ca48f781744893a651790ae475a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UndeadSoldier.prefab using Guid(b4bf6ca48f781744893a651790ae475a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3989542da90d3c82c4a2b6ae2a66e4de') in 0.056207 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.730359 seconds.
+  path: Assets/Prefabs/UndeadSoldier.prefab
+  artifactKey: Guid(b4bf6ca48f781744893a651790ae475a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UndeadSoldier.prefab using Guid(b4bf6ca48f781744893a651790ae475a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45b8480b79ca0c7e1789a8986a2f9aec') in 0.046062 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.412869 seconds.
+  path: Assets/Prefabs/UndeadSoldier.prefab
+  artifactKey: Guid(b4bf6ca48f781744893a651790ae475a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UndeadSoldier.prefab using Guid(b4bf6ca48f781744893a651790ae475a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a5ab823d9eb819ebdaf386d41be8bd3') in 0.060847 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.518493 seconds.
+  path: Assets/Prefabs/UndeadSoldier.prefab
+  artifactKey: Guid(b4bf6ca48f781744893a651790ae475a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UndeadSoldier.prefab using Guid(b4bf6ca48f781744893a651790ae475a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b2e7f9b9ca70f0d77c3c3fd54d32077') in 0.037649 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.431908 seconds.
+  path: Assets/Prefabs/UndeadPriest.prefab
+  artifactKey: Guid(c2b13fb2c2e6d9c42825d6ec55cb59db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UndeadPriest.prefab using Guid(c2b13fb2c2e6d9c42825d6ec55cb59db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08dc826956ce0fa6d5e83d7e0be14433') in 0.033357 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.658281 seconds.
+  path: Assets/Prefabs/UndeadPriest.prefab
+  artifactKey: Guid(c2b13fb2c2e6d9c42825d6ec55cb59db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UndeadPriest.prefab using Guid(c2b13fb2c2e6d9c42825d6ec55cb59db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a54de14c0250eeb4bce1665c09a0914') in 0.049668 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.073538 seconds.
+  path: Assets/Prefabs/UndeadPriest.prefab
+  artifactKey: Guid(c2b13fb2c2e6d9c42825d6ec55cb59db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UndeadPriest.prefab using Guid(c2b13fb2c2e6d9c42825d6ec55cb59db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '59c9a483ad7d32a51c2d3f4da8adebe9') in 0.090993 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.030623 seconds.
+  path: Assets/Prefabs/UndeadPriest.prefab
+  artifactKey: Guid(c2b13fb2c2e6d9c42825d6ec55cb59db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UndeadPriest.prefab using Guid(c2b13fb2c2e6d9c42825d6ec55cb59db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '422889a68c01835aca596bc68f5f328b') in 0.031228 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.246999 seconds.
+  path: Assets/Prefabs/UndeadArcher.prefab
+  artifactKey: Guid(b5d859bc39695d445a5fe64a5334f87d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UndeadArcher.prefab using Guid(b5d859bc39695d445a5fe64a5334f87d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e5bca29d9f8886cc13cf57fa2ffce18') in 0.244283 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.814853 seconds.
+  path: Assets/Prefabs/UndeadArcher.prefab
+  artifactKey: Guid(b5d859bc39695d445a5fe64a5334f87d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UndeadArcher.prefab using Guid(b5d859bc39695d445a5fe64a5334f87d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '682e19eb35eb6c0db2eb30df7ddad139') in 0.034193 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.073239 seconds.
+  path: Assets/Prefabs/UndeadArcher.prefab
+  artifactKey: Guid(b5d859bc39695d445a5fe64a5334f87d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UndeadArcher.prefab using Guid(b5d859bc39695d445a5fe64a5334f87d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ebae5bfb0d7856d8a60b624812326fc6') in 0.041543 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.414577 seconds.
+  path: Assets/Prefabs/UndeadArcher.prefab
+  artifactKey: Guid(b5d859bc39695d445a5fe64a5334f87d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/UndeadArcher.prefab using Guid(b5d859bc39695d445a5fe64a5334f87d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9781c594a5d642fcf2eec0827ad47635') in 0.051660 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006120 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.10 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.391 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.31 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4496 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 189.5 MB.
+System memory in use after: 189.8 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5799.
+Total: 7.115100 ms (FindLiveObjects: 0.493700 ms CreateObjectMapping: 0.238700 ms MarkObjects: 6.233500 ms  DeleteObjects: 0.146900 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.008555 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.03 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.664 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.04 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4492 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 189.4 MB.
+System memory in use after: 189.7 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5803.
+Total: 4.677700 ms (FindLiveObjects: 0.609800 ms CreateObjectMapping: 0.244200 ms MarkObjects: 3.674600 ms  DeleteObjects: 0.147600 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005848 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.59 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.340 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.03 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4492 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 189.3 MB.
+System memory in use after: 189.7 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5807.
+Total: 4.497700 ms (FindLiveObjects: 0.602500 ms CreateObjectMapping: 0.298200 ms MarkObjects: 3.454900 ms  DeleteObjects: 0.139800 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005933 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.10 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.205 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.03 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4492 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 189.4 MB.
+System memory in use after: 189.7 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5811.
+Total: 4.065100 ms (FindLiveObjects: 0.461300 ms CreateObjectMapping: 0.221700 ms MarkObjects: 3.242900 ms  DeleteObjects: 0.137600 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007334 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.13 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.111 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.07 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4492 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 189.4 MB.
+System memory in use after: 189.7 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5815.
+Total: 4.558700 ms (FindLiveObjects: 0.699000 ms CreateObjectMapping: 0.316200 ms MarkObjects: 3.400500 ms  DeleteObjects: 0.141200 ms)
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

@@ -261,7 +261,7 @@ public class AIData
     }
     public AIData(Enemy enemy)
     {
-
+        enemy.Save(this);
     }
 }
 
