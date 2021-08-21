@@ -77,33 +77,53 @@ public class Wall : Building
 
     void SetWallSprites(bool[] dirs)
     {
-        if ((dirs[1] | dirs[3]) && !dirs[0] && !dirs[2])
+        if (!dirs[0] && !dirs[1] && !dirs[2] && !dirs[3])
         {
             rend.sprite = wallSprites[0];
         }
-        else if ((dirs[0] | dirs[2]) && !dirs[1] && !dirs[3])
+        else if (!dirs[0] && dirs[1] && !dirs[2] && dirs[3])
         {
             rend.sprite = wallSprites[1];
         }
-        else if (dirs[0] && dirs[1] && !dirs[2] && !dirs[3])
+        else if(dirs[0] && !dirs[1] && dirs[2] && !dirs[3])
         {
             rend.sprite = wallSprites[2];
         }
-        else if (dirs[0] && !dirs[1] && !dirs[2] && dirs[3])
-        {
-            rend.sprite = wallSprites[3];
-        }
-        else if (!dirs[0] && dirs[1] && dirs[2] && !dirs[3])
+        else if (!dirs[0] && dirs[1] && !dirs[2] && !dirs[3])
         {
             rend.sprite = wallSprites[4];
         }
-        else if (!dirs[0] && !dirs[1] && dirs[2] && dirs[3])
+        else if (!dirs[0] && !dirs[1] && !dirs[2] && dirs[3])
         {
             rend.sprite = wallSprites[5];
         }
+        else if (!dirs[0] && !dirs[1] && dirs[2] && !dirs[3])
+        {
+            rend.sprite = wallSprites[6];
+        }
+        else if (dirs[0] && !dirs[1] && !dirs[2] && !dirs[3])
+        {
+            rend.sprite = wallSprites[7];
+        }
+        else if (!dirs[0] && dirs[1] && dirs[2] && !dirs[3])
+        {
+            rend.sprite = wallSprites[8];
+        }
+        else if (!dirs[0] && !dirs[1] && dirs[2] && dirs[3])
+        {
+            rend.sprite = wallSprites[9];
+        }
+        else if (dirs[0] && dirs[1] && !dirs[2] && !dirs[3])
+        {
+            rend.sprite = wallSprites[10];
+        }
+        else if (dirs[0] && !dirs[1] && !dirs[2] && dirs[3])
+        {
+            rend.sprite = wallSprites[11];
+        }
         else
         {
-            rend.sprite = wallSprites[0];
+            rend.sprite = wallSprites[3];
         }
     }
 }

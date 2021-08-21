@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6116906653869191027, guid: 12925ef923cad9849b017f1c26a508d7, type: 3}
+  m_Sprite: {fileID: 2551541108661590903, guid: 32254bfbfa2d05646a4fd647104c3ae2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contruction: {fileID: 21300000, guid: 5b03fdbe90e8e4d4abd4620783ce2b9d, type: 3}
   constructed: {fileID: 6116906653869191027, guid: 12925ef923cad9849b017f1c26a508d7, type: 3}
-  cost: 050000000000000000000000
+  cost: 000000000000000000000000
   remaining: 000000000000000000000000
 --- !u!114 &3963982256496168287
 MonoBehaviour:
@@ -137,12 +137,18 @@ MonoBehaviour:
     timers: []
     constructed: 0
   wallSprites:
-  - {fileID: 6116906653869191027, guid: 12925ef923cad9849b017f1c26a508d7, type: 3}
-  - {fileID: -9054878284588002444, guid: 12925ef923cad9849b017f1c26a508d7, type: 3}
-  - {fileID: 7804723737132097413, guid: 12925ef923cad9849b017f1c26a508d7, type: 3}
-  - {fileID: 2800604949406394454, guid: 12925ef923cad9849b017f1c26a508d7, type: 3}
-  - {fileID: -5549445100241493714, guid: 12925ef923cad9849b017f1c26a508d7, type: 3}
-  - {fileID: 1914801870424575903, guid: 12925ef923cad9849b017f1c26a508d7, type: 3}
+  - {fileID: -3218248262026354849, guid: 32254bfbfa2d05646a4fd647104c3ae2, type: 3}
+  - {fileID: 2551541108661590903, guid: 32254bfbfa2d05646a4fd647104c3ae2, type: 3}
+  - {fileID: -5675400335168754034, guid: 32254bfbfa2d05646a4fd647104c3ae2, type: 3}
+  - {fileID: 8296322472478124191, guid: 32254bfbfa2d05646a4fd647104c3ae2, type: 3}
+  - {fileID: 7317334631700292629, guid: 32254bfbfa2d05646a4fd647104c3ae2, type: 3}
+  - {fileID: 2420863537438956345, guid: 32254bfbfa2d05646a4fd647104c3ae2, type: 3}
+  - {fileID: -14520863135872570, guid: 32254bfbfa2d05646a4fd647104c3ae2, type: 3}
+  - {fileID: -7366180687131401920, guid: 32254bfbfa2d05646a4fd647104c3ae2, type: 3}
+  - {fileID: 6511404109149442792, guid: 32254bfbfa2d05646a4fd647104c3ae2, type: 3}
+  - {fileID: 5198676504368207085, guid: 32254bfbfa2d05646a4fd647104c3ae2, type: 3}
+  - {fileID: -5130587114860513547, guid: 32254bfbfa2d05646a4fd647104c3ae2, type: 3}
+  - {fileID: 5543624403135206190, guid: 32254bfbfa2d05646a4fd647104c3ae2, type: 3}
 --- !u!114 &4958449755118878837
 MonoBehaviour:
   m_ObjectHideFlags: 0

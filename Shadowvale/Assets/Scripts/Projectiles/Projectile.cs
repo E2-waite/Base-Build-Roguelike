@@ -14,7 +14,7 @@ public class Projectile : MonoBehaviour
     public Interaction target, origin;
     public float speed;
     public int damage;
-
+    public bool rotate = false;
     private bool move = false;
     private void Start()
     {
@@ -30,7 +30,15 @@ public class Projectile : MonoBehaviour
             }
             else
             {
+
                 transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+
+                if (rotate)
+                {
+                    Vector3 dir = target.transform.position - transform.position;
+                    float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                    transform.rotation = Quaternion.AngleAxis(angle, Vector3.left);
+                }
                 float dist = Vector3.Distance(transform.position, target.transform.position);
                 if (dist <= 0.1f)
                 {
