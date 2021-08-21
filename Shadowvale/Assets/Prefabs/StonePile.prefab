@@ -119,17 +119,28 @@ MonoBehaviour:
   staticObject: 1
   statusEffects: []
   glow: {fileID: 0}
-  type: 0
   isConstructed: 0
   selected: 0
   repair: 0
   maxRepair: 25
   construct: {fileID: 0}
+  tiles: []
+  buildingData:
+    type: 0
+    health: 0
+    storage: 0
+    resourceCost: 
+    resourceRemaining: 
+    tiles: []
+    members: 
+    timers: []
+    constructed: 0
   storageType: 1
   maxStorage: 100
   currentStorage: 0
   stages:
   - {fileID: 316267046205351191, guid: b6357c3d164f6444a98546d5f2e1596b, type: 3}
+  - {fileID: 8787394236190523114, guid: b6357c3d164f6444a98546d5f2e1596b, type: 3}
   - {fileID: 8787394236190523114, guid: b6357c3d164f6444a98546d5f2e1596b, type: 3}
   - {fileID: -3075109114580801805, guid: b6357c3d164f6444a98546d5f2e1596b, type: 3}
   - {fileID: -6656118302732430328, guid: b6357c3d164f6444a98546d5f2e1596b, type: 3}

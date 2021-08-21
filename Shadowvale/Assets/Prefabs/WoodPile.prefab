@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8567814636022076339, guid: d8a4920f246412141a628bf06675648f, type: 3}
+  m_Sprite: {fileID: 6844203041796764279, guid: 024770e730a050e46bb78821653ba5d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,12 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c58b9d38ba7251f43805cfb6a8667f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contruction: {fileID: -4280781792942571977, guid: d8a4920f246412141a628bf06675648f, type: 3}
-  constructed: {fileID: -4280781792942571977, guid: d8a4920f246412141a628bf06675648f, type: 3}
-  woodCost: 0
-  stoneCost: 0
-  woodRemaining: 0
-  stoneRemaining: 0
+  contruction: {fileID: -7137321482965623706, guid: 024770e730a050e46bb78821653ba5d1, type: 3}
+  constructed: {fileID: -7137321482965623706, guid: 024770e730a050e46bb78821653ba5d1, type: 3}
+  cost: 000000000000000000000000
+  remaining: 000000000000000000000000
 --- !u!114 &938588659906107225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,23 +119,37 @@ MonoBehaviour:
   staticObject: 1
   statusEffects: []
   glow: {fileID: 0}
-  type: 0
   isConstructed: 0
   selected: 0
   repair: 0
   maxRepair: 25
   construct: {fileID: 0}
+  tiles: []
+  buildingData:
+    type: 0
+    health: 0
+    storage: 0
+    resourceCost: 
+    resourceRemaining: 
+    tiles: []
+    members: 
+    timers: []
+    constructed: 0
   storageType: 0
   maxStorage: 100
   currentStorage: 0
   stages:
-  - {fileID: -4280781792942571977, guid: d8a4920f246412141a628bf06675648f, type: 3}
-  - {fileID: 6000586586280672642, guid: d8a4920f246412141a628bf06675648f, type: 3}
-  - {fileID: 3172993884910215034, guid: d8a4920f246412141a628bf06675648f, type: 3}
-  - {fileID: 2606305768493554312, guid: d8a4920f246412141a628bf06675648f, type: 3}
-  - {fileID: -1815520935422146028, guid: d8a4920f246412141a628bf06675648f, type: 3}
-  - {fileID: 8632287575058414989, guid: d8a4920f246412141a628bf06675648f, type: 3}
-  - {fileID: -8567814636022076339, guid: d8a4920f246412141a628bf06675648f, type: 3}
+  - {fileID: -7137321482965623706, guid: 024770e730a050e46bb78821653ba5d1, type: 3}
+  - {fileID: -4062659458481312646, guid: 024770e730a050e46bb78821653ba5d1, type: 3}
+  - {fileID: 2008435726664459497, guid: 024770e730a050e46bb78821653ba5d1, type: 3}
+  - {fileID: 9062222811115946412, guid: 024770e730a050e46bb78821653ba5d1, type: 3}
+  - {fileID: -4102114743632164833, guid: 024770e730a050e46bb78821653ba5d1, type: 3}
+  - {fileID: 1729883344017504865, guid: 024770e730a050e46bb78821653ba5d1, type: 3}
+  - {fileID: 2841015535083257061, guid: 024770e730a050e46bb78821653ba5d1, type: 3}
+  - {fileID: 2238404502608121034, guid: 024770e730a050e46bb78821653ba5d1, type: 3}
+  - {fileID: -5765052047001153134, guid: 024770e730a050e46bb78821653ba5d1, type: 3}
+  - {fileID: 6630305967181659525, guid: 024770e730a050e46bb78821653ba5d1, type: 3}
+  - {fileID: 6844203041796764279, guid: 024770e730a050e46bb78821653ba5d1, type: 3}
 --- !u!61 &136147720213854293
 BoxCollider2D:
   m_ObjectHideFlags: 0

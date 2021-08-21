@@ -15,11 +15,11 @@ D:/Files/Game Dev/Shadowvale/Shadowvale
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-49468
+61333
 Successfully changed project path to: D:/Files/Game Dev/Shadowvale/Shadowvale
 D:/Files/Game Dev/Shadowvale/Shadowvale
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 253.86 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 192.17 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.1.7f1 (d91830b65d9b)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/2021.1.7f1/Editor/Data/Resources/UnitySubsystems
@@ -36,25 +36,25 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/2021.1.7f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/2021.1.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/2021.1.7f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56388
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56796
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/2021.1.7f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/2021.1.7f1/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/2021.1.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/2021.1.7f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
-Registered in 0.009169 seconds.
+Registered in 0.008505 seconds.
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 167.55 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 224.34 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  5.484 seconds
+- Completed reload, in  5.416 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.007787 seconds.
+Registered in 0.006176 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
@@ -62,81 +62,39 @@ Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 251.19 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 175.56 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.607 seconds
+- Completed reload, in  2.824 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.10 seconds
-Refreshing native plugins compatible for Editor in 1.23 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.16 seconds
+Refreshing native plugins compatible for Editor in 1.07 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 4557 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 174.1 MB.
 System memory in use after: 174.2 MB.
 
 Unloading 27 unused Assets to reduce memory usage. Loaded Objects now: 5018.
-Total: 3.248600 ms (FindLiveObjects: 0.369100 ms CreateObjectMapping: 0.201500 ms MarkObjects: 2.531600 ms  DeleteObjects: 0.144600 ms)
+Total: 3.310800 ms (FindLiveObjects: 0.379200 ms CreateObjectMapping: 0.203500 ms MarkObjects: 2.583800 ms  DeleteObjects: 0.142400 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Sprites/Buildings
-  artifactKey: Guid(4169128d05db4274388d8588cc8f6e86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Buildings using Guid(4169128d05db4274388d8588cc8f6e86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '99ca3e325bb62d417bc7e878aa447a26') in 0.020050 seconds 
+  path: Assets/Sprites/Buildings/Walls.png
+  artifactKey: Guid(32254bfbfa2d05646a4fd647104c3ae2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Buildings/Walls.png using Guid(32254bfbfa2d05646a4fd647104c3ae2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'deccf0bb3d6a955e762871246d4eeece') in 0.104537 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 9.208605 seconds.
-  path: Assets/Sprites/Buildings/House.png
-  artifactKey: Guid(bb2c9a969ac9cd741baea3c5f40abb1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Buildings/House.png using Guid(bb2c9a969ac9cd741baea3c5f40abb1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c681e99f087b9908fd2b2441d667c30e') in 0.224271 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 10.031173 seconds.
-  path: Assets/Sprites/Buildings/House.png
-  artifactKey: Guid(bb2c9a969ac9cd741baea3c5f40abb1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Buildings/House.png using Guid(bb2c9a969ac9cd741baea3c5f40abb1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b0144f6d48481eba1b9c7b8cda757391') in 0.027778 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 19.244876 seconds.
-  path: Assets/Sprites/Buildings/House.png
-  artifactKey: Guid(bb2c9a969ac9cd741baea3c5f40abb1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Buildings/House.png using Guid(bb2c9a969ac9cd741baea3c5f40abb1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '590a62027fb895d2a5f199fb0fc7e1ae') in 0.078854 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 15.563607 seconds.
-  path: Assets/Prefabs/WoodHouse.prefab
-  artifactKey: Guid(a3fb97f6d63357f4fb97fc3eb856ca7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/WoodHouse.prefab using Guid(a3fb97f6d63357f4fb97fc3eb856ca7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66a2ed372153ebced5ca2a010d26d8b8') in 0.314965 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 16.299417 seconds.
-  path: Assets/Prefabs/WoodHouse.prefab
-  artifactKey: Guid(a3fb97f6d63357f4fb97fc3eb856ca7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/WoodHouse.prefab using Guid(a3fb97f6d63357f4fb97fc3eb856ca7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f4baf337b485ea575adf6417092a5867') in 0.150895 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 8.714990 seconds.
-  path: Assets/Prefabs/WoodHouse.prefab
-  artifactKey: Guid(a3fb97f6d63357f4fb97fc3eb856ca7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/WoodHouse.prefab using Guid(a3fb97f6d63357f4fb97fc3eb856ca7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b2300191f2ad94dc33bdadb8e7fbc1c') in 0.045548 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 13.669924 seconds.
-  path: Assets/Prefabs/WoodHouse.prefab
-  artifactKey: Guid(a3fb97f6d63357f4fb97fc3eb856ca7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/WoodHouse.prefab using Guid(a3fb97f6d63357f4fb97fc3eb856ca7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd530883d33deebf0bea61f7bd5bf952d') in 0.046506 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.866865 seconds.
-  path: Assets/Prefabs/WoodHouse.prefab
-  artifactKey: Guid(a3fb97f6d63357f4fb97fc3eb856ca7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/WoodHouse.prefab using Guid(a3fb97f6d63357f4fb97fc3eb856ca7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7aec0ab219755fa13053af830a63c2a8') in 0.175325 seconds 
+  Time since last request: 27.991402 seconds.
+  path: Assets/Sprites/Buildings/Walls.png
+  artifactKey: Guid(32254bfbfa2d05646a4fd647104c3ae2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Buildings/Walls.png using Guid(32254bfbfa2d05646a4fd647104c3ae2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '688ea29bdd4bab243b2e548fdaf22f07') in 0.146935 seconds 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.010853 seconds.
+Registered in 0.006323 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
@@ -144,73 +102,109 @@ Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.03 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.30 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.710 seconds
+- Completed reload, in  2.428 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.05 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.06 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 4493 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 176.2 MB.
-System memory in use after: 176.3 MB.
+System memory in use before: 173.6 MB.
+System memory in use after: 173.7 MB.
 
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5115.
-Total: 4.747000 ms (FindLiveObjects: 0.542100 ms CreateObjectMapping: 0.484200 ms MarkObjects: 3.581300 ms  DeleteObjects: 0.137300 ms)
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5058.
+Total: 4.051900 ms (FindLiveObjects: 0.460300 ms CreateObjectMapping: 0.344200 ms MarkObjects: 3.104700 ms  DeleteObjects: 0.141300 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 2371.069308 seconds.
-  path: Assets/Sprites/Buildings/Guard Tower.png
-  artifactKey: Guid(eb843524567e46b4cbd84be3a94aa6c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Buildings/Guard Tower.png using Guid(eb843524567e46b4cbd84be3a94aa6c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '656c10f2c11e2632587d0320a5882925') in 0.778152 seconds 
+  Time since last request: 484.856936 seconds.
+  path: Assets/Prefabs/WoodenWall.prefab
+  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b12fc11fc1ab3c0a38e9aa175ac65ee8') in 0.371177 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 9.767758 seconds.
-  path: Assets/Sprites/Buildings/Guard Tower.png
-  artifactKey: Guid(eb843524567e46b4cbd84be3a94aa6c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Buildings/Guard Tower.png using Guid(eb843524567e46b4cbd84be3a94aa6c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e901912539fe79d831d06998f5918d4') in 0.047001 seconds 
+  Time since last request: 14.609185 seconds.
+  path: Assets/Prefabs/WoodenWall.prefab
+  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc0bde553d1a78aef35e3a2a51965d4e') in 0.053440 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 7.999437 seconds.
-  path: Assets/Sprites/Buildings/Guard Tower.png
-  artifactKey: Guid(eb843524567e46b4cbd84be3a94aa6c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Buildings/Guard Tower.png using Guid(eb843524567e46b4cbd84be3a94aa6c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '697439fc2047b24adde8f4ac6c8bf3a4') in 0.062983 seconds 
+  Time since last request: 8.654428 seconds.
+  path: Assets/Prefabs/WoodenWall.prefab
+  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76c3b7330a57a386c8d08b26f19ec6d9') in 0.046024 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 6.979609 seconds.
-  path: Assets/Sprites/Buildings/Guard Tower.png
-  artifactKey: Guid(eb843524567e46b4cbd84be3a94aa6c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Buildings/Guard Tower.png using Guid(eb843524567e46b4cbd84be3a94aa6c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc7533d1f85a741c7555df53d6061ebd') in 0.042292 seconds 
+  Time since last request: 3.049096 seconds.
+  path: Assets/Prefabs/WoodenWall.prefab
+  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '32d06a458734d99e6c016b1727ad20be') in 0.097518 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 12.716225 seconds.
-  path: Assets/Prefabs/GuardTower.prefab
-  artifactKey: Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/GuardTower.prefab using Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fae129fe8ad71fd5c6b3d48ef84c41e2') in 0.317937 seconds 
+  Time since last request: 2.761406 seconds.
+  path: Assets/Prefabs/WoodenWall.prefab
+  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a9d098a579ba15bacffaf61fbd58ef6') in 0.048744 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 13.956461 seconds.
-  path: Assets/Prefabs/GuardTower.prefab
-  artifactKey: Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/GuardTower.prefab using Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6886c48c9f69a24e560e1d3a370361ac') in 0.047259 seconds 
+  Time since last request: 2.686516 seconds.
+  path: Assets/Prefabs/WoodenWall.prefab
+  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33645683ff3b7ddaaf237419012a4d40') in 0.043673 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 8.797592 seconds.
-  path: Assets/Prefabs/GuardTower.prefab
-  artifactKey: Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/GuardTower.prefab using Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06e9c998608e051cc2b575c9729d2494') in 0.046393 seconds 
+  Time since last request: 3.569346 seconds.
+  path: Assets/Prefabs/WoodenWall.prefab
+  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '441fa26d595cd94d9330a67f932c81f7') in 0.235573 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 7.828656 seconds.
-  path: Assets/Prefabs/GuardTower.prefab
-  artifactKey: Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/GuardTower.prefab using Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87b60abddcf297cd2886db3a36283a48') in 0.049845 seconds 
+  Time since last request: 4.632344 seconds.
+  path: Assets/Prefabs/WoodenWall.prefab
+  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e871abea313e12167bfdb8019a0590a') in 0.051143 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.072745 seconds.
+  path: Assets/Prefabs/WoodenWall.prefab
+  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f127447fd9aee382dfa0770894bc9d0f') in 0.181451 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.871570 seconds.
+  path: Assets/Prefabs/WoodenWall.prefab
+  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5fa726dea1838fedfb2d0c890b76c841') in 0.073287 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.769343 seconds.
+  path: Assets/Prefabs/WoodenWall.prefab
+  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78911e7aaa2d968875272f08571a6384') in 0.029235 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.724419 seconds.
+  path: Assets/Prefabs/WoodenWall.prefab
+  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57ed83f5831fb9bd402d0b33e8e16ba7') in 0.026814 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.346559 seconds.
+  path: Assets/Prefabs/WoodenWall.prefab
+  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff01af3aa4f6962d1211a42e5b0fc010') in 0.035446 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.497801 seconds.
+  path: Assets/Prefabs/WoodenWall.prefab
+  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9567cfc45f1b5b85422c0969d98aef41') in 0.027868 seconds 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.008522 seconds.
+Registered in 0.006815 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
@@ -218,307 +212,31 @@ Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.09 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.06 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  3.750 seconds
+- Completed reload, in  2.070 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.99 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4493 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 177.9 MB.
-System memory in use after: 178.1 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5216.
-Total: 16.186700 ms (FindLiveObjects: 8.716000 ms CreateObjectMapping: 1.663400 ms MarkObjects: 5.595800 ms  DeleteObjects: 0.209200 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 67.652932 seconds.
-  path: Assets/Prefabs/GuardTower.prefab
-  artifactKey: Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/GuardTower.prefab using Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '59f33a518a135059141bd857d04aa745') in 0.558629 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 8.706453 seconds.
-  path: Assets/Prefabs/GuardTower.prefab
-  artifactKey: Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/GuardTower.prefab using Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66e9aa31a4486fbbb8468865cadf499c') in 0.044234 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.085138 seconds.
-  path: Assets/Prefabs/GuardTower.prefab
-  artifactKey: Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/GuardTower.prefab using Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b2b8018f4a47942221f8525a12d12a7') in 0.042330 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 617.049621 seconds.
-  path: Assets/Prefabs/Arrow.png
-  artifactKey: Guid(a4e38e52759e6444e92df65d5a98b51f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Arrow.png using Guid(a4e38e52759e6444e92df65d5a98b51f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '385bdf3ee5c0f4310fc7fd8aa6b91936') in 0.127223 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 14.930344 seconds.
-  path: Assets/Prefabs/Arrow.png
-  artifactKey: Guid(a4e38e52759e6444e92df65d5a98b51f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Arrow.png using Guid(a4e38e52759e6444e92df65d5a98b51f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1c0057b7d3458258c8500651c1f8ef7') in 0.030316 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 12.203493 seconds.
-  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Sprite_Mode@2x.png
-  artifactKey: Guid(cfe99a1afb609b4488d6fc9224a62f74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Sprite_Mode@2x.png using Guid(cfe99a1afb609b4488d6fc9224a62f74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3aba08c2381c293f74eeaa01a36e404') in 0.381443 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000288 seconds.
-  path: Packages/com.unity.2d.spriteshape/Editor/Handles/ss_playhead.png
-  artifactKey: Guid(9ea72647c24be493ba6f15a9cd2a24ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.2d.spriteshape/Editor/Handles/ss_playhead.png using Guid(9ea72647c24be493ba6f15a9cd2a24ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a5837638650734b4614417a369951bf') in 0.072854 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000453 seconds.
-  path: Packages/com.unity.2d.sprite/Editor/ObjectMenuCreation/DefaultAssets/Textures/v2/Square.png
-  artifactKey: Guid(311925a002f4447b3a28927169b83ea6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.2d.sprite/Editor/ObjectMenuCreation/DefaultAssets/Textures/v2/Square.png using Guid(311925a002f4447b3a28927169b83ea6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1cd3bc9fcaca64a4ac8de1d32df7e41') in 0.055201 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000304 seconds.
-  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Sprite_Mode@4x.png
-  artifactKey: Guid(554a30a45860f494ca38586c54b7e5d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Sprite_Mode@4x.png using Guid(554a30a45860f494ca38586c54b7e5d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9dd6ffb3458ee9c314e375e63f918a6e') in 0.074127 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000302 seconds.
-  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Sprite_Mode@4x.png
-  artifactKey: Guid(2223b0a570b66ee42b3e0a79f0789b2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Sprite_Mode@4x.png using Guid(2223b0a570b66ee42b3e0a79f0789b2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9a8f9ad9079c61d8d59dcbc1426824b') in 0.070382 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000311 seconds.
-  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Sprite_Mode@3x.png
-  artifactKey: Guid(ea833d779996e3244b3b567764be9cf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Sprite_Mode@3x.png using Guid(ea833d779996e3244b3b567764be9cf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ebe663640efa9191d8f039aece46a49') in 0.069253 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000236 seconds.
-  path: Packages/com.unity.2d.path/Editor/Handles/TangentContinuousPro.png
-  artifactKey: Guid(8d4a2ded892e27742bb6d4d263639dff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.2d.path/Editor/Handles/TangentContinuousPro.png using Guid(8d4a2ded892e27742bb6d4d263639dff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1cf300f77d0f26e45dd509f9cd50d8fa') in 0.110067 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000259 seconds.
-  path: Packages/com.unity.2d.path/Editor/Handles/TangentBrokenPro.png
-  artifactKey: Guid(3f0215e89d05b544d907d3a7d34fab63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.2d.path/Editor/Handles/TangentBrokenPro.png using Guid(3f0215e89d05b544d907d3a7d34fab63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5594af005bde936dfa37d85d8ca1c517') in 0.146347 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000327 seconds.
-  path: Packages/com.unity.2d.path/Editor/Handles/TangentLinearPro.png
-  artifactKey: Guid(cafc16189f045f445bad6f5eb9e13541) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.2d.path/Editor/Handles/TangentLinearPro.png using Guid(cafc16189f045f445bad6f5eb9e13541) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5dded08493b9747ebd2056d772c6d54b') in 0.128344 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000255 seconds.
-  path: Packages/com.unity.render-pipelines.core/Editor/LookDev/Icons/d_RightArrow.png
-  artifactKey: Guid(99e5d180080c96940a65c6d906ff9131) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.render-pipelines.core/Editor/LookDev/Icons/d_RightArrow.png using Guid(99e5d180080c96940a65c6d906ff9131) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b38039eb94be4c75e2eb3d76ffc91210') in 0.155386 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000105 seconds.
-  path: Packages/com.unity.render-pipelines.core/Editor/LookDev/Icons/d_LeftArrow@2x.png
-  artifactKey: Guid(90335e5423c010749a50f906b965fa54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.render-pipelines.core/Editor/LookDev/Icons/d_LeftArrow@2x.png using Guid(90335e5423c010749a50f906b965fa54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '019cca47222a18a4f6f938d82afd04a1') in 0.094864 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000254 seconds.
-  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Sprite_Mode@3x.png
-  artifactKey: Guid(71d8b2e508f1d9947ba51013600a5eac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Sprite_Mode@3x.png using Guid(71d8b2e508f1d9947ba51013600a5eac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c933cf4056b724bb9463d3b08c31c948') in 0.110658 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000105 seconds.
-  path: Packages/com.unity.render-pipelines.core/Editor/LookDev/Icons/SunPosition.png
-  artifactKey: Guid(aa1dfcb67e8bf664d8d8a1821c118281) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.render-pipelines.core/Editor/LookDev/Icons/SunPosition.png using Guid(aa1dfcb67e8bf664d8d8a1821c118281) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c25fc13d036ef842fe8f095741f9b1c7') in 0.067972 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000614 seconds.
-  path: Packages/com.unity.render-pipelines.core/Editor/LookDev/Icons/LeftArrow@2x.png
-  artifactKey: Guid(f0106cef986be534181a8582cffd29da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.render-pipelines.core/Editor/LookDev/Icons/LeftArrow@2x.png using Guid(f0106cef986be534181a8582cffd29da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01d9df6f73187ca3f3e753963f9d7af4') in 0.053329 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000295 seconds.
-  path: Packages/com.unity.render-pipelines.core/Editor/LookDev/Icons/SunPosition@2x.png
-  artifactKey: Guid(2f75c34a5bc525545916fb8367422dd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.render-pipelines.core/Editor/LookDev/Icons/SunPosition@2x.png using Guid(2f75c34a5bc525545916fb8367422dd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c93896f82467687f943d79dd2d742718') in 0.051604 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000266 seconds.
-  path: Packages/com.unity.render-pipelines.core/Editor/LookDev/Icons/d_LeftArrow.png
-  artifactKey: Guid(84189b4c7caeef3419b6b031b8812685) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.render-pipelines.core/Editor/LookDev/Icons/d_LeftArrow.png using Guid(84189b4c7caeef3419b6b031b8812685) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '710e141bc533802acb937af0ed6ab3b9') in 0.042811 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000274 seconds.
-  path: Packages/com.unity.render-pipelines.core/Editor/LookDev/Icons/RightArrow.png
-  artifactKey: Guid(df4dc708bd8692446a6d5c3531ac377b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.render-pipelines.core/Editor/LookDev/Icons/RightArrow.png using Guid(df4dc708bd8692446a6d5c3531ac377b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6bdcb6a208868324a727581152ec7612') in 0.063147 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000271 seconds.
-  path: Packages/com.unity.2d.spriteshape/Editor/ObjectMenuCreation/DefaultAssets/Sprite Shapes/SpriteShapeEdge.png
-  artifactKey: Guid(0ae2b74b1edd14bb18dd7b65ae916a54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.2d.spriteshape/Editor/ObjectMenuCreation/DefaultAssets/Sprite Shapes/SpriteShapeEdge.png using Guid(0ae2b74b1edd14bb18dd7b65ae916a54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ea66ab6c19b5e3ad5d39ee3764b7b6a') in 0.039973 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000260 seconds.
-  path: Packages/com.unity.2d.sprite/Editor/ObjectMenuCreation/DefaultAssets/Textures/Square.png
-  artifactKey: Guid(db750325989564987a34393247d883b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.2d.sprite/Editor/ObjectMenuCreation/DefaultAssets/Textures/Square.png using Guid(db750325989564987a34393247d883b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10a76ed3ea51d3279294c8812b188bc8') in 0.072585 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000296 seconds.
-  path: Packages/com.unity.2d.spriteshape/Editor/Handles/ss_leftrange.png
-  artifactKey: Guid(9417efc47083f4a1598c1966a6345cdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.2d.spriteshape/Editor/Handles/ss_leftrange.png using Guid(9417efc47083f4a1598c1966a6345cdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd68236472ec3f5189e0ef4219f0cb84') in 0.050437 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000295 seconds.
-  path: Packages/com.unity.2d.spriteshape/Editor/Handles/ss_rightrange.png
-  artifactKey: Guid(ee5df01235032491c8b180741ea820fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.2d.spriteshape/Editor/Handles/ss_rightrange.png using Guid(ee5df01235032491c8b180741ea820fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb75a0533ab2959a3e7ed3a362b20093') in 0.034444 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000308 seconds.
-  path: Packages/com.unity.render-pipelines.core/Editor/LookDev/Icons/d_RightArrow@2x.png
-  artifactKey: Guid(28d47cbaafc98254f8d4f6184dff22cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.render-pipelines.core/Editor/LookDev/Icons/d_RightArrow@2x.png using Guid(28d47cbaafc98254f8d4f6184dff22cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '163b46cec7f767ebb8bc9be540248c40') in 0.049958 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000296 seconds.
-  path: Packages/com.unity.render-pipelines.core/Editor/LookDev/Icons/LeftArrow.png
-  artifactKey: Guid(aba72f93e9005054dba8cb368c0bf724) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.render-pipelines.core/Editor/LookDev/Icons/LeftArrow.png using Guid(aba72f93e9005054dba8cb368c0bf724) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b1422964acfdb8747380d40da450ddc') in 0.103233 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000146 seconds.
-  path: Packages/com.unity.2d.path/Editor/Handles/TangentLinear.png
-  artifactKey: Guid(a728d9332cba5f448a36350199dc573b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.2d.path/Editor/Handles/TangentLinear.png using Guid(a728d9332cba5f448a36350199dc573b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70c01741e08d1e9d87e6e48014e6a21e') in 0.071403 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.093882 seconds.
-  path: Assets/Prefabs/Arrow.prefab
-  artifactKey: Guid(9ff224e4cbde0cc40bd70de79571ab60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Arrow.prefab using Guid(9ff224e4cbde0cc40bd70de79571ab60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0cf72667aea0de655cdf5b148bdd16c1') in 0.032091 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.006541 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.44 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.043 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 4.19 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4517 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 189.7 MB.
-System memory in use after: 190.0 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5666.
-Total: 4.012500 ms (FindLiveObjects: 0.477000 ms CreateObjectMapping: 0.235000 ms MarkObjects: 3.163900 ms  DeleteObjects: 0.134900 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 211.282344 seconds.
-  path: Assets/Prefabs/Arrow.prefab
-  artifactKey: Guid(9ff224e4cbde0cc40bd70de79571ab60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Arrow.prefab using Guid(9ff224e4cbde0cc40bd70de79571ab60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4947d059986bf0fa57ccc68b2e4c2d69') in 0.807947 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000186 seconds.
-  path: Assets/Prefabs/ShadowBolt.prefab
-  artifactKey: Guid(6a53d5d9202102d4bb78745fd3b85ab3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/ShadowBolt.prefab using Guid(6a53d5d9202102d4bb78745fd3b85ab3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5ea8b8af9039252bb472906672133bf') in 0.341114 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.008858 seconds.
-  path: Assets/Prefabs/NecroSphere.prefab
-  artifactKey: Guid(0e5463c4ac6c26f49bbde59e5a99abc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/NecroSphere.prefab using Guid(0e5463c4ac6c26f49bbde59e5a99abc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b6133ee3aeae6627591c2c2415fcb24') in 0.077244 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.015535 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.02 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  3.163 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.42 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4492 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 188.8 MB.
-System memory in use after: 189.1 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5708.
-Total: 6.782800 ms (FindLiveObjects: 1.166700 ms CreateObjectMapping: 0.480600 ms MarkObjects: 4.971900 ms  DeleteObjects: 0.161600 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 12.511618 seconds.
-  path: Assets/Prefabs/Arrow.prefab
-  artifactKey: Guid(9ff224e4cbde0cc40bd70de79571ab60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Arrow.prefab using Guid(9ff224e4cbde0cc40bd70de79571ab60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c23043fb379d61f947d5b3b989d171b0') in 0.929995 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.006013 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
 Refreshing native plugins compatible for Editor in 1.04 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.406 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.00 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 4492 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 188.8 MB.
-System memory in use after: 189.1 MB.
+System memory in use before: 175.9 MB.
+System memory in use after: 176.0 MB.
 
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5750.
-Total: 4.006500 ms (FindLiveObjects: 0.461700 ms CreateObjectMapping: 0.219300 ms MarkObjects: 3.191400 ms  DeleteObjects: 0.132400 ms)
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5107.
+Total: 3.574400 ms (FindLiveObjects: 0.369600 ms CreateObjectMapping: 0.224500 ms MarkObjects: 2.850300 ms  DeleteObjects: 0.128700 ms)
 
+========================================================================
+Received Import Request.
+  Time since last request: 28.475279 seconds.
+  path: Assets/Prefabs/WoodenWall.prefab
+  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a9660c5d7fa31eff50ed1d828973112') in 0.358623 seconds 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.005812 seconds.
+Registered in 0.006797 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
@@ -526,31 +244,51 @@ Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.40 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.20 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.141 seconds
+- Completed reload, in  3.260 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.98 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.45 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 4492 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 188.8 MB.
-System memory in use after: 189.2 MB.
+System memory in use before: 175.9 MB.
+System memory in use after: 176.1 MB.
 
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5754.
-Total: 5.124600 ms (FindLiveObjects: 0.659500 ms CreateObjectMapping: 0.527600 ms MarkObjects: 3.795000 ms  DeleteObjects: 0.140500 ms)
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5149.
+Total: 4.542300 ms (FindLiveObjects: 0.388200 ms CreateObjectMapping: 0.224700 ms MarkObjects: 3.788500 ms  DeleteObjects: 0.139000 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 277.064343 seconds.
-  path: Assets/Prefabs/Arrow.prefab
-  artifactKey: Guid(9ff224e4cbde0cc40bd70de79571ab60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Arrow.prefab using Guid(9ff224e4cbde0cc40bd70de79571ab60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '549a3fa9d847f91e8a019cd79c2e0bbc') in 0.269525 seconds 
+  Time since last request: 207.451348 seconds.
+  path: Assets/Sprites/Buildings/Walls.png
+  artifactKey: Guid(32254bfbfa2d05646a4fd647104c3ae2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Buildings/Walls.png using Guid(32254bfbfa2d05646a4fd647104c3ae2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '067e06693468a437f1181fc7933ddd94') in 0.228710 seconds 
 ========================================================================
-Received Import Request.
-  Time since last request: 21.950024 seconds.
-  path: Assets/Prefabs/SmallHouse.prefab
-  artifactKey: Guid(a3fb97f6d63357f4fb97fc3eb856ca7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/SmallHouse.prefab using Guid(a3fb97f6d63357f4fb97fc3eb856ca7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd3378289a9b0cb4969c8449c71238fd') in 0.100520 seconds 
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.009277 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.08 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.848 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.60 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4492 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 176.3 MB.
+System memory in use after: 176.4 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5168.
+Total: 4.977500 ms (FindLiveObjects: 0.740200 ms CreateObjectMapping: 0.345200 ms MarkObjects: 3.585900 ms  DeleteObjects: 0.259400 ms)
+
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

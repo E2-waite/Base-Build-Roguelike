@@ -21,7 +21,7 @@ public class Tile : MonoBehaviour
 
     public float corruptionVal = 0;
     public int corruptionMulti = 0;
-    float corruptionSpeed = 2.5f, purifySpeed = 50;
+    float corruptionSpeed = 0.5f, purifySpeed = 50;
     private bool selected;
 
     private List<PurifyPillar> pillars = new List<PurifyPillar>();
