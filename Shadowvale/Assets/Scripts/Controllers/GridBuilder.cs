@@ -113,18 +113,18 @@ public class GridBuilder : MonoSingleton<GridBuilder>
 
         Spawner.Instance.SpawnCreatures();
 
-        bool corrupted = false;
-        while (!corrupted)
-        {
-            Vector2Int corruptPos = new Vector2Int(Random.Range(0, mapSize), Random.Range(0, mapSize));
-            float dist = Vector2Int.Distance(corruptPos, Grid.startPos);
-            if (Grid.tiles[corruptPos.x, corruptPos.y] != null && Grid.tiles[corruptPos.x, corruptPos.y].type != Tile.Type.water && dist > Grid.size / 4)
-            {
-                Debug.Log(corruptPos.ToString() + " Started Corruption");
-                Grid.tiles[corruptPos.x, corruptPos.y].Corrupt(corruptPos);
-                corrupted = true;
-            }
-        }
+        //bool corrupted = false;
+        //while (!corrupted)
+        //{
+        //    Vector2Int corruptPos = new Vector2Int(Random.Range(0, mapSize), Random.Range(0, mapSize));
+        //    float dist = Vector2Int.Distance(corruptPos, Grid.startPos);
+        //    if (Grid.tiles[corruptPos.x, corruptPos.y] != null && Grid.tiles[corruptPos.x, corruptPos.y].type != Tile.Type.water && dist > Grid.size / 4)
+        //    {
+        //        Debug.Log(corruptPos.ToString() + " Started Corruption");
+        //        Grid.tiles[corruptPos.x, corruptPos.y].Corrupt(corruptPos);
+        //        corrupted = true;
+        //    }
+        //}
 
         Pathfinding.UpdateNodeGrid();
     }

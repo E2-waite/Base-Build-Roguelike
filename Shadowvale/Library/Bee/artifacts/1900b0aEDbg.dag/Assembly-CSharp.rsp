@@ -353,6 +353,7 @@
 "Assets/Detector.cs"
 "Assets/InventoryInspector.cs"
 "Assets/PauseMenu.cs"
+"Assets/Portal.cs"
 "Assets/Scripts/Build.cs"
 "Assets/Scripts/Buildings/ArcheryRange.cs"
 "Assets/Scripts/Buildings/Barracks.cs"

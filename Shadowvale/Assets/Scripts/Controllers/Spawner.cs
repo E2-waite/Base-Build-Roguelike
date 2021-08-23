@@ -13,6 +13,7 @@ public class Spawner : MonoSingleton<Spawner>
             Followers.Add(follower.GetComponent<Follower>());
         }
 
+        SpawnPortal();
         GameObject[] enemyObjs = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemyObjs)
         {
@@ -81,7 +82,29 @@ public class Spawner : MonoSingleton<Spawner>
     public List<EnemyTemplate> enemyTemplates = new List<EnemyTemplate>();
     public List<Tile> corruptedTiles = new List<Tile>();
     Cooldown enemySpawn = new Cooldown(10);
+    public GameObject portalPrefab;
     public float spawnTime = 10;
+    public void SpawnPortal()
+    {
+        bool placed = false;
+        while (!placed)
+        {
+            Vector2Int pos = new Vector2Int(Random.Range(0, Grid.size), Random.Range(0, Grid.size));
+            if (Grid.CanPath(pos))
+            {
+                Debug.Log("Portal at " + pos);
+                GameObject portalObj = Instantiate(portalPrefab, new Vector3(pos.x, pos.y, 0), Quaternion.identity);
+                Portal portal = portalObj.GetComponent<Portal>();
+                portal.tiles = new Vector2Int[4];
+                portal.tiles[0] = pos;
+                portal.tiles[1] = new Vector2Int(pos.x + 1, pos.y);
+                portal.tiles[2] = new Vector2Int(pos.x, pos.y + 1);
+                portal.tiles[3] = new Vector2Int(pos.x + 1, pos.y + 1);
+                portal.Centre();
+                placed = true;
+            }
+        }
+    }
     public void SpawnEnemy()
     {
         if (corruptedTiles.Count > 0)

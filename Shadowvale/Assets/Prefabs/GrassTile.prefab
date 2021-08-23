@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -32768
   m_Sprite: {fileID: 21300000, guid: 096f970507e29b14b902c377e41f25b1, type: 3}
-  m_Color: {r: 0.021603467, g: 0.3773585, b: 0, a: 1}
+  m_Color: {r: 0.14117648, g: 0.4039216, b: 0.011764707, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -129,7 +129,8 @@ MonoBehaviour:
   - {fileID: 7223950226953391895, guid: a5e72c97990554748a9cbcefffaf7a84, type: 3}
   - {fileID: -8377130690987618698, guid: a5e72c97990554748a9cbcefffaf7a84, type: 3}
   - {fileID: -4684333735789482159, guid: a5e72c97990554748a9cbcefffaf7a84, type: 3}
-  corruptedColour: {r: 0.13267806, g: 0, b: 0.6603774, a: 1}
+  corruptedColour: {r: 0.26535952, g: 0.010679938, b: 0.754717, a: 1}
   rend: {fileID: 0}
   corruptionVal: 0
+  corruptionMulti: 0
   isProtected: 0

@@ -4159,6 +4159,7 @@ MonoBehaviour:
   - prefab: {fileID: 2743365640547367737, guid: 06907b9d74d2b7c4fa1d298a184f09aa, type: 3}
     rarity: 0
   corruptedTiles: []
+  portalPrefab: {fileID: 2421218263039714301, guid: caf640919a846ae4ea1e5bb6df47df7c, type: 3}
   spawnTime: 15
   firepitPrefab: {fileID: 7247006138620438559, guid: 952a997f4442c144ead6ee308f8ba8ce, type: 3}
   buildings:
