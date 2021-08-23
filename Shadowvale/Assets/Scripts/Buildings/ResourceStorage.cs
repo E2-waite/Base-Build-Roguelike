@@ -21,7 +21,12 @@ public class ResourceStorage : Building
 
         Resources.Adjust(storageType, 0, maxStorage);
     }
-
+    public override void Destroy()
+    {
+        Resources.Adjust(storageType, -currentStorage, -maxStorage);
+        Buildings.storages[(int)storageType].Remove(this);
+        base.Destroy();
+    }
     public override bool Save(BuildingData data)
     {
         if (!base.Save(data))
@@ -100,4 +105,6 @@ public class ResourceStorage : Building
             return false;
         }
     }
+
+
 }

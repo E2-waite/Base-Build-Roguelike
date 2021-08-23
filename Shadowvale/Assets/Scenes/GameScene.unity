@@ -2874,6 +2874,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Archer (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8840559668895825226, guid: aa27a70a0b3e25b469136317101ae80d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5fe89197496cc4a448471d7fe0bb2a02, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa27a70a0b3e25b469136317101ae80d, type: 3}
 --- !u!1 &975898018
@@ -4151,6 +4155,8 @@ MonoBehaviour:
   - prefab: {fileID: 2743365640547367737, guid: b4bf6ca48f781744893a651790ae475a, type: 3}
     rarity: 0
   - prefab: {fileID: 2743365640547367737, guid: c2b13fb2c2e6d9c42825d6ec55cb59db, type: 3}
+    rarity: 0
+  - prefab: {fileID: 2743365640547367737, guid: 06907b9d74d2b7c4fa1d298a184f09aa, type: 3}
     rarity: 0
   corruptedTiles: []
   spawnTime: 15

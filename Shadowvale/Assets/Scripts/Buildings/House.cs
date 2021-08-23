@@ -8,4 +8,10 @@ public class House : Building
     {
         Followers.AdjustMaxFollowers(size);
     }
+
+    public override void Destroy()
+    {
+        Followers.AdjustMaxFollowers(-size);
+        base.Destroy();
+    }
 }

@@ -31,9 +31,10 @@ public class PurifyPillar : Building
         }
     }
 
-    public override void DestroyThis()
+    public override void Destroy()
     {
         Disable();
+        base.Destroy();
     }
 
     void Disable()

@@ -20,7 +20,10 @@ public abstract class Interaction : MonoBehaviour
             }
         }
         statusEffects.Add(newEffect);
-        glow.UpdateGlow(statusEffects);
+        if (glow != null)
+        {
+            glow.UpdateGlow(statusEffects);
+        }
     }
 
     public void TickEffects()

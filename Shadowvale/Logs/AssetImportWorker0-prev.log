@@ -15,11 +15,11 @@ D:/Files/Game Dev/Shadowvale/Shadowvale
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-61333
+61566
 Successfully changed project path to: D:/Files/Game Dev/Shadowvale/Shadowvale
 D:/Files/Game Dev/Shadowvale/Shadowvale
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 192.17 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 176.93 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.1.7f1 (d91830b65d9b)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/2021.1.7f1/Editor/Data/Resources/UnitySubsystems
@@ -36,25 +36,25 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/2021.1.7f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/2021.1.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/2021.1.7f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56796
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56084
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/2021.1.7f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/2021.1.7f1/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/2021.1.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/2021.1.7f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
-Registered in 0.008505 seconds.
+Registered in 0.011999 seconds.
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 224.34 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 169.40 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  5.416 seconds
+- Completed reload, in  5.832 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.006176 seconds.
+Registered in 0.006621 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
@@ -62,39 +62,63 @@ Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 175.56 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 169.42 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.824 seconds
+- Completed reload, in  2.066 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.16 seconds
-Refreshing native plugins compatible for Editor in 1.07 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.12 seconds
+Refreshing native plugins compatible for Editor in 1.16 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4557 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 174.1 MB.
-System memory in use after: 174.2 MB.
+Unloading 4559 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 174.5 MB.
+System memory in use after: 174.6 MB.
 
-Unloading 27 unused Assets to reduce memory usage. Loaded Objects now: 5018.
-Total: 3.310800 ms (FindLiveObjects: 0.379200 ms CreateObjectMapping: 0.203500 ms MarkObjects: 2.583800 ms  DeleteObjects: 0.142400 ms)
+Unloading 27 unused Assets to reduce memory usage. Loaded Objects now: 5020.
+Total: 3.620400 ms (FindLiveObjects: 0.371700 ms CreateObjectMapping: 0.207200 ms MarkObjects: 2.894000 ms  DeleteObjects: 0.145600 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Sprites/Buildings/Walls.png
-  artifactKey: Guid(32254bfbfa2d05646a4fd647104c3ae2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Buildings/Walls.png using Guid(32254bfbfa2d05646a4fd647104c3ae2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'deccf0bb3d6a955e762871246d4eeece') in 0.104537 seconds 
+  path: Assets/Sprites/Buildings/Barracks.png
+  artifactKey: Guid(56c6f39dd45008d4e8a424f670a396e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Buildings/Barracks.png using Guid(56c6f39dd45008d4e8a424f670a396e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6ccbd1adca6ff47fbebb362eb7b3e15') in 0.159838 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 27.991402 seconds.
-  path: Assets/Sprites/Buildings/Walls.png
-  artifactKey: Guid(32254bfbfa2d05646a4fd647104c3ae2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Buildings/Walls.png using Guid(32254bfbfa2d05646a4fd647104c3ae2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '688ea29bdd4bab243b2e548fdaf22f07') in 0.146935 seconds 
+  Time since last request: 4.682580 seconds.
+  path: Assets/Sprites/Buildings/Barracks.png
+  artifactKey: Guid(56c6f39dd45008d4e8a424f670a396e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Buildings/Barracks.png using Guid(56c6f39dd45008d4e8a424f670a396e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72f21c663352de3b23be1647a2ee77f1') in 0.053403 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 12.151408 seconds.
+  path: Assets/Prefabs/Barracks.prefab
+  artifactKey: Guid(809f6bdabf29e6642b09e257c92acb0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Barracks.prefab using Guid(809f6bdabf29e6642b09e257c92acb0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17dac94d325164c2e7b3016d17511b9b') in 0.622300 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 27.536355 seconds.
+  path: Assets/Prefabs/Barracks.prefab
+  artifactKey: Guid(809f6bdabf29e6642b09e257c92acb0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Barracks.prefab using Guid(809f6bdabf29e6642b09e257c92acb0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80cb2cd49a87ed3bb89212baf2506b45') in 0.062013 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.999755 seconds.
+  path: Assets/Prefabs/Barracks.prefab
+  artifactKey: Guid(809f6bdabf29e6642b09e257c92acb0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Barracks.prefab using Guid(809f6bdabf29e6642b09e257c92acb0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e008f4947cd4a57954a30d73337f54e0') in 0.054110 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.379195 seconds.
+  path: Assets/Prefabs/Barracks.prefab
+  artifactKey: Guid(809f6bdabf29e6642b09e257c92acb0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Barracks.prefab using Guid(809f6bdabf29e6642b09e257c92acb0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '807f14b37226442c480ed3092e0eeec2') in 0.043400 seconds 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.006323 seconds.
+Registered in 0.005783 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
@@ -102,109 +126,25 @@ Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.30 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.01 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.428 seconds
+- Completed reload, in  2.453 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.06 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.00 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 4493 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 173.6 MB.
-System memory in use after: 173.7 MB.
+System memory in use before: 175.9 MB.
+System memory in use after: 176.1 MB.
 
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5058.
-Total: 4.051900 ms (FindLiveObjects: 0.460300 ms CreateObjectMapping: 0.344200 ms MarkObjects: 3.104700 ms  DeleteObjects: 0.141300 ms)
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5103.
+Total: 4.551200 ms (FindLiveObjects: 0.475500 ms CreateObjectMapping: 0.253300 ms MarkObjects: 3.675400 ms  DeleteObjects: 0.144300 ms)
 
-========================================================================
-Received Import Request.
-  Time since last request: 484.856936 seconds.
-  path: Assets/Prefabs/WoodenWall.prefab
-  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b12fc11fc1ab3c0a38e9aa175ac65ee8') in 0.371177 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 14.609185 seconds.
-  path: Assets/Prefabs/WoodenWall.prefab
-  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc0bde553d1a78aef35e3a2a51965d4e') in 0.053440 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 8.654428 seconds.
-  path: Assets/Prefabs/WoodenWall.prefab
-  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76c3b7330a57a386c8d08b26f19ec6d9') in 0.046024 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.049096 seconds.
-  path: Assets/Prefabs/WoodenWall.prefab
-  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '32d06a458734d99e6c016b1727ad20be') in 0.097518 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2.761406 seconds.
-  path: Assets/Prefabs/WoodenWall.prefab
-  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a9d098a579ba15bacffaf61fbd58ef6') in 0.048744 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2.686516 seconds.
-  path: Assets/Prefabs/WoodenWall.prefab
-  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33645683ff3b7ddaaf237419012a4d40') in 0.043673 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.569346 seconds.
-  path: Assets/Prefabs/WoodenWall.prefab
-  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '441fa26d595cd94d9330a67f932c81f7') in 0.235573 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.632344 seconds.
-  path: Assets/Prefabs/WoodenWall.prefab
-  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e871abea313e12167bfdb8019a0590a') in 0.051143 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.072745 seconds.
-  path: Assets/Prefabs/WoodenWall.prefab
-  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f127447fd9aee382dfa0770894bc9d0f') in 0.181451 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2.871570 seconds.
-  path: Assets/Prefabs/WoodenWall.prefab
-  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5fa726dea1838fedfb2d0c890b76c841') in 0.073287 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2.769343 seconds.
-  path: Assets/Prefabs/WoodenWall.prefab
-  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78911e7aaa2d968875272f08571a6384') in 0.029235 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2.724419 seconds.
-  path: Assets/Prefabs/WoodenWall.prefab
-  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57ed83f5831fb9bd402d0b33e8e16ba7') in 0.026814 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.346559 seconds.
-  path: Assets/Prefabs/WoodenWall.prefab
-  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff01af3aa4f6962d1211a42e5b0fc010') in 0.035446 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2.497801 seconds.
-  path: Assets/Prefabs/WoodenWall.prefab
-  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9567cfc45f1b5b85422c0969d98aef41') in 0.027868 seconds 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.006815 seconds.
+Registered in 0.005794 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
@@ -212,31 +152,69 @@ Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.06 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.07 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.070 seconds
+- Completed reload, in  2.403 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.04 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 6.21 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 4492 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 175.9 MB.
-System memory in use after: 176.0 MB.
+System memory in use before: 176.0 MB.
+System memory in use after: 176.1 MB.
 
 Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5107.
-Total: 3.574400 ms (FindLiveObjects: 0.369600 ms CreateObjectMapping: 0.224500 ms MarkObjects: 2.850300 ms  DeleteObjects: 0.128700 ms)
+Total: 4.871900 ms (FindLiveObjects: 0.537200 ms CreateObjectMapping: 0.587700 ms MarkObjects: 3.608300 ms  DeleteObjects: 0.136800 ms)
 
-========================================================================
-Received Import Request.
-  Time since last request: 28.475279 seconds.
-  path: Assets/Prefabs/WoodenWall.prefab
-  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a9660c5d7fa31eff50ed1d828973112') in 0.358623 seconds 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.006797 seconds.
+Registered in 0.006440 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.02 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.472 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.92 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4492 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 176.0 MB.
+System memory in use after: 176.1 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5111.
+Total: 4.338200 ms (FindLiveObjects: 0.439600 ms CreateObjectMapping: 0.292700 ms MarkObjects: 3.347400 ms  DeleteObjects: 0.256300 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 440.062059 seconds.
+  path: Assets/Prefabs/Barracks.prefab
+  artifactKey: Guid(809f6bdabf29e6642b09e257c92acb0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Barracks.prefab using Guid(809f6bdabf29e6642b09e257c92acb0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2aa72da4619ff64af09cc308a070785') in 0.335129 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.191007 seconds.
+  path: Assets/Prefabs/Barracks.prefab
+  artifactKey: Guid(809f6bdabf29e6642b09e257c92acb0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Barracks.prefab using Guid(809f6bdabf29e6642b09e257c92acb0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff4fdac9f8f2fceba12f981a6b98158d') in 0.057734 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.043339 seconds.
+  path: Assets/Prefabs/Barracks.prefab
+  artifactKey: Guid(809f6bdabf29e6642b09e257c92acb0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Barracks.prefab using Guid(809f6bdabf29e6642b09e257c92acb0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a0c55ed2af3e4f3cc9857c8a322924e8') in 0.058702 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.012119 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
@@ -247,28 +225,28 @@ Native extension for WebGL target not found
 Refreshing native plugins compatible for Editor in 1.20 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  3.260 seconds
+- Completed reload, in  3.900 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.45 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.83 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 4492 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 175.9 MB.
-System memory in use after: 176.1 MB.
+System memory in use before: 176.1 MB.
+System memory in use after: 176.2 MB.
 
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5149.
-Total: 4.542300 ms (FindLiveObjects: 0.388200 ms CreateObjectMapping: 0.224700 ms MarkObjects: 3.788500 ms  DeleteObjects: 0.139000 ms)
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5153.
+Total: 7.893400 ms (FindLiveObjects: 2.025500 ms CreateObjectMapping: 0.412400 ms MarkObjects: 5.313400 ms  DeleteObjects: 0.140100 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 207.451348 seconds.
-  path: Assets/Sprites/Buildings/Walls.png
-  artifactKey: Guid(32254bfbfa2d05646a4fd647104c3ae2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Buildings/Walls.png using Guid(32254bfbfa2d05646a4fd647104c3ae2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '067e06693468a437f1181fc7933ddd94') in 0.228710 seconds 
+  Time since last request: 156.280683 seconds.
+  path: Assets/Sprites/Characters/NecromancerSheet.png
+  artifactKey: Guid(fed5a031c49beb74eae8bd8c306805d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Characters/NecromancerSheet.png using Guid(fed5a031c49beb74eae8bd8c306805d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c88f36a3047872265f4af2e3439051f8') in 0.148660 seconds 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.009277 seconds.
+Registered in 0.013193 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
@@ -276,19 +254,232 @@ Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.08 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 3.06 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.848 seconds
+- Completed reload, in  3.718 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.60 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.17 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4493 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 176.5 MB.
+System memory in use after: 176.7 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5176.
+Total: 3.925800 ms (FindLiveObjects: 0.387500 ms CreateObjectMapping: 0.307700 ms MarkObjects: 3.091800 ms  DeleteObjects: 0.136900 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 711.388362 seconds.
+  path: Assets/Scripts/Buildings/Building.cs
+  artifactKey: Guid(bc8e190913587c1419692552dce61c11) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Buildings/Building.cs using Guid(bc8e190913587c1419692552dce61c11) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e8cb2339e47940c23e41912c5605fb5') in 0.091439 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006494 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.27 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.458 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.17 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 4492 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 176.3 MB.
-System memory in use after: 176.4 MB.
+System memory in use before: 176.5 MB.
+System memory in use after: 176.6 MB.
 
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5168.
-Total: 4.977500 ms (FindLiveObjects: 0.740200 ms CreateObjectMapping: 0.345200 ms MarkObjects: 3.585900 ms  DeleteObjects: 0.259400 ms)
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5180.
+Total: 4.026100 ms (FindLiveObjects: 0.443100 ms CreateObjectMapping: 0.285000 ms MarkObjects: 3.157900 ms  DeleteObjects: 0.138300 ms)
 
-AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+========================================================================
+Received Import Request.
+  Time since last request: 699.099990 seconds.
+  path: Assets/Scripts/Buildings/Building.cs
+  artifactKey: Guid(bc8e190913587c1419692552dce61c11) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Buildings/Building.cs using Guid(bc8e190913587c1419692552dce61c11) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '61629f8166c346782e5414399cafdc44') in 0.489469 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 21.135548 seconds.
+  path: Assets/Prefabs/GuardTower.prefab
+  artifactKey: Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/GuardTower.prefab using Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8033f398924de9d9ae3477180cf14ca') in 0.922083 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 11.473063 seconds.
+  path: Assets/Prefabs/GuardTower.prefab
+  artifactKey: Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/GuardTower.prefab using Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84ea3cdcffb2dff61524202fe1dd321c') in 0.041610 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.405129 seconds.
+  path: Assets/Prefabs/GuardTower.prefab
+  artifactKey: Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/GuardTower.prefab using Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ef68308c111f906698df33e4562da61') in 0.038520 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.960123 seconds.
+  path: Assets/Prefabs/GuardTower.prefab
+  artifactKey: Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/GuardTower.prefab using Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8de2cbcb676bef848fe787f2aaf960f7') in 0.049029 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 9.799926 seconds.
+  path: Assets/Prefabs/GuardTower.prefab
+  artifactKey: Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/GuardTower.prefab using Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '269ab03e46d4161c75352975a973d44e') in 0.066355 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.826046 seconds.
+  path: Assets/Prefabs/GuardTower.prefab
+  artifactKey: Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/GuardTower.prefab using Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2906ef2f04536be9cb441770bb6c2635') in 0.034898 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.399399 seconds.
+  path: Assets/Prefabs/GuardTower.prefab
+  artifactKey: Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/GuardTower.prefab using Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64b955b89f1c84646bccbe1634e4039c') in 0.073568 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.567977 seconds.
+  path: Assets/Prefabs/GuardTower.prefab
+  artifactKey: Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/GuardTower.prefab using Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a0e751ded3ea643eb1bbe3ca457be37') in 0.082024 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005492 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.10 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  4.289 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.09 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4492 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 176.6 MB.
+System memory in use after: 176.8 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5222.
+Total: 3.914100 ms (FindLiveObjects: 0.407800 ms CreateObjectMapping: 0.223300 ms MarkObjects: 3.154000 ms  DeleteObjects: 0.127400 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 74.732576 seconds.
+  path: Assets/Prefabs/GuardTower.prefab
+  artifactKey: Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/GuardTower.prefab using Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dde031cd4eab0c8e59980f0cc4edb196') in 0.911238 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006351 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.07 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  5.106 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 2.41 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4492 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 176.7 MB.
+System memory in use after: 176.8 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5264.
+Total: 6.159700 ms (FindLiveObjects: 0.441200 ms CreateObjectMapping: 0.263200 ms MarkObjects: 4.983000 ms  DeleteObjects: 0.469900 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 46.804426 seconds.
+  path: Assets/Prefabs/GuardTower.prefab
+  artifactKey: Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/GuardTower.prefab using Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c281c6d1328eff2f14dd2ab31ee4f5f9') in 1.105968 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.190299 seconds.
+  path: Assets/Prefabs/GuardTower.prefab
+  artifactKey: Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/GuardTower.prefab using Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b15ecbeb657ac2ac23de99eea578f52') in 0.331123 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007768 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.01 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.489 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.06 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4492 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 176.7 MB.
+System memory in use after: 176.9 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5306.
+Total: 4.326800 ms (FindLiveObjects: 0.694500 ms CreateObjectMapping: 0.344200 ms MarkObjects: 3.154900 ms  DeleteObjects: 0.131200 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 68.476282 seconds.
+  path: Assets/Prefabs/GuardTower.prefab
+  artifactKey: Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/GuardTower.prefab using Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a9ba50dd99943abf6366f198fa0b2b1') in 0.990201 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005777 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.32 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.869 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.05 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4492 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 176.8 MB.
+System memory in use after: 176.9 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5348.
+Total: 4.583700 ms (FindLiveObjects: 0.560400 ms CreateObjectMapping: 0.459700 ms MarkObjects: 3.419700 ms  DeleteObjects: 0.142200 ms)
+

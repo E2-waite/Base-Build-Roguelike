@@ -157,7 +157,7 @@ public class GameController : MonoSingleton<GameController>
             {
                 if (Grid.selectedTiles[0].structure is Building && !(Grid.selectedTiles[0].structure is HomeBase))
                 {
-                    (Grid.selectedTiles[0].structure as Building).DestroyThis();
+                    (Grid.selectedTiles[0].structure as Building).Destroy();
                     Destroy(Grid.selectedTiles[0].structure.gameObject);
                 }
             }

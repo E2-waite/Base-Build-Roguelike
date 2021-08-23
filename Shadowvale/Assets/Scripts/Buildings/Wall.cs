@@ -18,6 +18,13 @@ public class Wall : Building
         UpdateNeighbours(pos);
     }
 
+    public override void Destroy()
+    {
+        Vector2Int pos = new Vector2Int((int)transform.position.x, (int)transform.position.y);
+        Buildings.walls[pos.x, pos.y] = null;
+        base.Destroy();
+    }
+
     public void UpdateSprite(Vector2Int pos)
     {
         CheckDirs(pos);

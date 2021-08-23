@@ -75,7 +75,7 @@ public abstract class Trainer : Building
         }
         return false;
     }
-    public override void DestroyThis()
+    public override void Destroy()
     {
         for (int i = 0; i < 3; i++)
         {
@@ -84,6 +84,7 @@ public abstract class Trainer : Building
                 training[i].follower.gameObject.SetActive(true);
             }
         }
+        base.Destroy();
     }
 
     public virtual void FinishTraining(int index) {}

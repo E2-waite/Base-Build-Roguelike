@@ -8,16 +8,16 @@ public class GuardTower : Building
     public Archer archer;
     public List<Enemy> inRange = new List<Enemy>();
     public Enemy target;
-    CircleCollider2D detectCol;
-    public SpriteRenderer archerRend;
-    public Animator archerAnim;
+    public CircleCollider2D detectCol;
+    //public SpriteRenderer archerRend;
+    public Transform shotPoint;
+    //public Animator archerAnim;
     public Cooldown shotCooldown = new Cooldown(2.5f);
-    // Start is called before the first frame update
     public override void Setup()
     {
-        detectCol = transform.GetChild(0).GetComponent<CircleCollider2D>();
-        archerRend = transform.GetChild(1).GetComponent<SpriteRenderer>();
-        archerAnim = transform.GetChild(1).GetComponent<Animator>();
+        //detectCol = transform.GetChild(0).GetComponent<CircleCollider2D>();
+        //archerRend = transform.GetChild(1).GetComponent<SpriteRenderer>();
+        //archerAnim = transform.GetChild(1).GetComponent<Animator>();
     }
 
 
@@ -59,7 +59,7 @@ public class GuardTower : Building
         {
             archer = newArcher;
             newArcher.gameObject.SetActive(false);
-            archerRend.gameObject.SetActive(true);
+            //archerRend.gameObject.SetActive(true);
             archer.guardTower = this;
         }
     }
@@ -68,7 +68,7 @@ public class GuardTower : Building
     {
         if (archer != null)
         {
-            archerRend.gameObject.SetActive(false);
+            //archerRend.gameObject.SetActive(false);
             archer.gameObject.SetActive(true);
             archer.transform.position = new Vector3(transform.position.x, transform.position.y - 1, 0);
             archer.guardTower = null;
@@ -76,9 +76,10 @@ public class GuardTower : Building
         }
     }
 
-    public override void DestroyThis()
+    public override void Destroy()
     {
         RemoveArcher();
+        base.Destroy();
     }
 
     // Update is called once per frame
@@ -101,8 +102,8 @@ public class GuardTower : Building
             }
             else
             {
-                float diff = target.transform.position.y - transform.position.y;
-                archerAnim.SetInteger("Direction", Mathf.RoundToInt(diff));
+                //float diff = target.transform.position.y - transform.position.y;
+                //archerAnim.SetInteger("Direction", Mathf.RoundToInt(diff));
                 if (shotCooldown.Complete())
                 {
                     StartCoroutine(FireRoutine());
@@ -115,7 +116,7 @@ public class GuardTower : Building
     IEnumerator FireRoutine()
     {
         yield return new WaitForSeconds(archer.shotTime);
-        GameObject arrow = Instantiate(archer.arrowPrefab, archerRend.transform.position, Quaternion.identity);
+        GameObject arrow = Instantiate(archer.arrowPrefab, shotPoint.position, Quaternion.identity);
         arrow.GetComponent<Arrow>().Setup(target, this, archer.shotSpeed, archer.hitDamage);
     }
 }

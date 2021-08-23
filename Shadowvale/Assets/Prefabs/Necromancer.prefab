@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -918961632027572969, guid: ab50be19b905c0c4cb6f1dd53641da9e, type: 3}
+  m_Sprite: {fileID: -9138833267445628099, guid: fed5a031c49beb74eae8bd8c306805d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -111,23 +111,33 @@ MonoBehaviour:
   maxHealth: 3
   health: 0
   hitDamage: 1
-  speed: 2
+  speed: 1
   targetDist: 0.25
   targetRange: 15
   buildingMask:
     serializedVersion: 2
     m_Bits: 0
   squad: {fileID: 0}
-  target:
-    interact: {fileID: 0}
-    squad: {fileID: 0}
-    lastPos: {x: 0, y: 0}
-    staticObject: 0
+  currentAction:
+    targetInd: 0
+    state: 0
+    target:
+      interact: {fileID: 0}
+      squad: {fileID: 0}
+      lastPos: {x: 0, y: 0}
+      staticObject: 0
+  actions: []
   path: []
   currentPos: {x: 0, y: 0}
   squadPrefab: {fileID: 8437693019058054867, guid: 3736310da1bc78f42baeb268d09a99ae, type: 3}
   corpses: []
   undead: []
+  shotCooldown:
+    max: 5
+    current: 5
+  raiseCooldown:
+    max: 10
+    current: 10
   shadowBoltPrefab: {fileID: 3959727543333110681, guid: 6a53d5d9202102d4bb78745fd3b85ab3, type: 3}
   necroSphere: {fileID: 2050808074673889753, guid: 0e5463c4ac6c26f49bbde59e5a99abc4, type: 3}
 --- !u!114 &3438430402389115328
@@ -160,7 +170,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.75, y: 0.75}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -198,9 +208,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2743365640547367737}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a51330daf8b9eca4e81f5dd0ac939e0d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 272d0162f5a7cbe41bf0f7713489fe09, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

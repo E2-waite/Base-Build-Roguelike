@@ -10,6 +10,16 @@ public class Necromancer : Enemy
     public GameObject shadowBoltPrefab, necroSphere;
     private void Update()
     {
+        Swarm();
+        if (currentAction.target.interact == null)
+        {
+            PreviousTarget();
+        }
+        else
+        {
+            Move();
+        }
+
         if (raiseCooldown.Tick() && corpses.Count > 0)
         {
             raiseCooldown.Reset();
@@ -22,6 +32,7 @@ public class Necromancer : Enemy
             GameObject bolt = Instantiate(shadowBoltPrefab, transform.position, Quaternion.identity);
             bolt.GetComponent<Projectile>().Setup(currentAction.target.interact, this, 5, 1);
         }
+
     }
 
     IEnumerator RaiseDead()

@@ -15,4 +15,10 @@ public class HomeBase : Building
         }
         return false;
     }
+
+    public override void Destroy()
+    {
+        GameController.Instance.GameOver();
+        base.Destroy();
+    }
 }

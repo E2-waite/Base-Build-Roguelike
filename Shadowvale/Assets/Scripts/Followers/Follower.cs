@@ -48,6 +48,8 @@ public abstract class Follower : Interaction
         Setup();
     }
 
+    
+
     public virtual void Setup()
     {
 
@@ -356,7 +358,11 @@ public abstract class Follower : Interaction
         // Take damage
         health -= damage;
         StartCoroutine(HitRoutine());
-        Bleed(attacker.transform.position);
+
+        if (attacker != null)
+        {
+            Bleed(attacker.transform.position);
+        }
 
         if (attacker != null && (currentAction.state == (int)DefaultState.idle || currentAction.state == (int)DefaultState.move) && (this is Soldier || this is Archer))
         {

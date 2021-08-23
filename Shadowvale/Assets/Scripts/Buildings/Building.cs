@@ -69,9 +69,7 @@ public abstract class Building : Interaction
         StartCoroutine(HitRoutine());
         if (repair <= 0)
         {
-            Remove();
-            Destroy(gameObject);
-            DestroyThis();
+            Destroy();
             return true;
         }
         return false;
@@ -137,19 +135,19 @@ public abstract class Building : Interaction
 
     }
 
-    public virtual void DestroyThis()
+    public virtual void Destroy()
     {
-
-    }
-
-    void Remove()
-    {
-        Buildings.buildings.Remove(this);
-        Grid.GetTile(new Vector2Int((int)transform.position.x, (int)transform.position.y)).structure = null;
-        if (this is HomeBase)
+        if (Buildings.selected == this)
         {
-            GameController.Instance.GameOver();
+            Inspector.Disable();
+        }
+
+        Buildings.buildings.Remove(this);
+        for (int i = 0; i < tiles.Length; i++)
+        {
+            Grid.GetTile(tiles[i]).structure = null;
         }
         Pathfinding.UpdateNodeGrid();
+        Destroy(gameObject);
     }
 }
