@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c414c7fcafe71f24f9ef0657d8ec6d46, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6499009c2fe66a94f96a7d0da1f12284, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -146,9 +146,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c58b9d38ba7251f43805cfb6a8667f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contruction: {fileID: 21300000, guid: 7babb324eefa77140bfb90a95b47a8d2, type: 3}
-  constructed: {fileID: 21300000, guid: c414c7fcafe71f24f9ef0657d8ec6d46, type: 3}
-  cost: 0f0000000f00000000000000
+  contruction: {fileID: 6904143534674160185, guid: 7babb324eefa77140bfb90a95b47a8d2, type: 3}
+  constructed: {fileID: 21300000, guid: 6499009c2fe66a94f96a7d0da1f12284, type: 3}
+  cost: 000000000000000000000000
   remaining: 000000000000000000000000
 --- !u!61 &785670143068407724
 BoxCollider2D:
