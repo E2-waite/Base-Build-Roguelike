@@ -12,6 +12,7 @@ public class Construct : MonoBehaviour
     Building building;
     SpriteRenderer rend;
     Animator anim;
+    public RuntimeAnimatorController buildingAnimator = null;
     private void Start()
     {
         for (int i = 0; i < Resources.NUM; i++)
@@ -73,7 +74,14 @@ public class Construct : MonoBehaviour
 
         rend.sprite = constructed;
         building.Constructed();
-        Destroy(anim);
+        if (buildingAnimator != null)
+        {
+            anim.runtimeAnimatorController = buildingAnimator;
+        }
+        else
+        {
+            Destroy(anim);
+        }
         Destroy(this);
     }
 
@@ -86,7 +94,14 @@ public class Construct : MonoBehaviour
             rend.sprite = constructed;
             building.Constructed();
             anim = GetComponent<Animator>();
-            Destroy(anim);
+            if (buildingAnimator != null)
+            {
+                anim.runtimeAnimatorController = buildingAnimator;
+            }
+            else
+            {
+                Destroy(anim);
+            }
             Destroy(this);
             return true;
         }

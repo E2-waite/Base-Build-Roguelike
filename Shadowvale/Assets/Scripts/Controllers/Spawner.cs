@@ -203,20 +203,39 @@ public class Spawner : MonoSingleton<Spawner>
     [Header("Projectile Settings")]
     public List<GameObject> projectilePrefab = new List<GameObject>();
 
-
-    public GameObject treePrefab, stonePrefab;
-    public Cooldown treeSpawn = new Cooldown(15), stoneSpawn = new Cooldown(30);
-    public void SpawnResource(Resource.Type type)
+    public GameObject[] trees = new GameObject[2], stones = new GameObject[2];
+    public GameObject ResourcePrefab(Resource.Type type, float rarity)
     {
-        GameObject prefab = null;
         if (type == Resource.Type.wood)
         {
-            prefab = treePrefab;
+            if (rarity < 70)
+            {
+                return trees[0];
+            }
+            else
+            {
+                return trees[1];
+            }
         }
         else if (type == Resource.Type.stone)
         {
-            prefab = stonePrefab;
+            if (rarity < 70)
+            {
+                return stones[0];
+            }
+            else
+            {
+                return stones[1];
+            }
         }
+        return null;
+    }
+    public Cooldown treeSpawn = new Cooldown(15), stoneSpawn = new Cooldown(30);
+    public void SpawnResource(Resource.Type type)
+    {
+
+        float rarity = Random.Range(0, 100);
+        GameObject prefab = ResourcePrefab(type, rarity);
 
         bool placed = false;
         while(!placed)

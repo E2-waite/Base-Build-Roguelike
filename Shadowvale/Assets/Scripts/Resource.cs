@@ -5,15 +5,23 @@ using UnityEngine;
 public class Resource : Interaction
 {
 
-    public int val = 10;
+
     public enum Type : int
     {
         wood,
         stone,
         food
     }
-    public Type type;
+    public enum Size : int
+    {
+        small,
+        medium,
+        large
+    }
 
+    public Type type;
+    public Size size = Size.small;
+    public int val = 10;
     protected Animator anim;
     protected SpriteRenderer rend;
     AudioSource audio;
@@ -66,5 +74,29 @@ public class Resource : Interaction
         Resources.allResources.Remove(this);
         Grid.GetTile(new Vector2Int((int)transform.position.x, (int)transform.position.y)).structure = null;
         Pathfinding.UpdateNodeGrid();
+    }
+
+    public void Save(ResourceData data)
+    {
+        data.type = (int)type;
+        data.val = val;
+        data.size = (int)size;
+        data.pos = new Vector2Int((int)transform.position.x, (int)transform.position.y);
+    }
+
+    public void Load(ResourceData data)
+    {
+        Grid.tiles[data.pos.x, data.pos.y].structure = this;
+
+        if (type == Resource.Type.wood)
+        {
+            Resources.trees.Add(Grid.tiles[data.pos.x, data.pos.y].structure);
+        }
+        else if (type == Resource.Type.stone)
+        {
+            Resources.stones.Add(Grid.tiles[data.pos.x, data.pos.y].structure);
+        }
+
+        Resources.allResources.Add(Grid.tiles[data.pos.x, data.pos.y].structure);
     }
 }

@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1325237055625117177, guid: 4d385f139351d89429655e617e2423a8, type: 3}
+  m_Sprite: {fileID: -3278092676299944171, guid: c044c391bb0ec4842b839320cc8d83eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -132,10 +132,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c58b9d38ba7251f43805cfb6a8667f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contruction: {fileID: 2645662901234962832, guid: 4d385f139351d89429655e617e2423a8, type: 3}
-  constructed: {fileID: 1325237055625117177, guid: 4d385f139351d89429655e617e2423a8, type: 3}
+  contruction: {fileID: 7962271611260255679, guid: c044c391bb0ec4842b839320cc8d83eb, type: 3}
+  constructed: {fileID: 7962271611260255679, guid: c044c391bb0ec4842b839320cc8d83eb, type: 3}
   cost: 000000000000000000000000
   remaining: 000000000000000000000000
+  buildingAnimator: {fileID: 9100000, guid: 7d5a010fac157ed48a69ae7286a5fe48, type: 2}
 --- !u!114 &-1354769442020493335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -718,7 +719,7 @@ Animator:
   m_GameObject: {fileID: 2229980545842200965}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7d177429325c6b841933dc92ec4847a3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7d5a010fac157ed48a69ae7286a5fe48, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -47,7 +47,7 @@ public class Save : MonoBehaviour
             Resource resource = Resources.allResources[i] as Resource;
             if (resource != null)
             {
-                gameData.resources[i] = new ResourceData((int)resource.type, resource.val, (int)resource.transform.position.x, (int)resource.transform.position.y);
+                gameData.resources[i] = new ResourceData(resource);
             }
         }
     }
@@ -218,14 +218,12 @@ public class TileData
 [System.Serializable]
 public class ResourceData
 {
-    public int type, val, x, y;
+    public int type, val, size;
+    public Vector2Int pos;
 
-    public ResourceData(int _type, int _val, int _x, int _y)
+    public ResourceData(Resource resource)
     {
-        type = _type;
-        val = _val;
-        x = _x;
-        y = _y;
+        resource.Save(this);
     }
 }
 

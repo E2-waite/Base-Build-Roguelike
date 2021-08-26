@@ -81,32 +81,23 @@ public class Load : MonoBehaviour
         for (int i = 0; i < gameData.resources.Length; i++)
         {
             ResourceData resourceData = gameData.resources[i];
-            Vector2Int pos = new Vector2Int(resourceData.x, resourceData.y);
-            GameObject resource = null;
+            GameObject resourceObj = null;
             Resource.Type type = (Resource.Type)gameData.resources[i].type;
             if (type == Resource.Type.wood)
             {
-                resource = Instantiate(GridBuilder.Instance.treePrefab, Grid.tiles[pos.x, pos.y].transform.position, Quaternion.identity);
+                resourceObj = Instantiate(Spawner.Instance.trees[resourceData.size], Grid.tiles[resourceData.pos.x, resourceData.pos.y].transform.position, Quaternion.identity);
             }
             else if (type == Resource.Type.stone)
             {
-                resource = Instantiate(GridBuilder.Instance.stonePrefab, Grid.tiles[pos.x, pos.y].transform.position, Quaternion.identity);
+                resourceObj = Instantiate(Spawner.Instance.stones[resourceData.size], Grid.tiles[resourceData.pos.x, resourceData.pos.y].transform.position, Quaternion.identity);
             }
 
+            Resource resource = resourceObj.GetComponent<Resource>();
             if (resource != null)
             {
-                Grid.tiles[pos.x, pos.y].structure = resource.GetComponent<Interaction>();
+                resource.Load(resourceData);
             }
 
-            if (type == Resource.Type.wood)
-            {
-                Resources.trees.Add(Grid.tiles[pos.x, pos.y].structure);
-            }
-            else if (type == Resource.Type.stone)
-            {
-                Resources.stones.Add(Grid.tiles[pos.x, pos.y].structure);
-            }
-            Resources.allResources.Add(Grid.tiles[pos.x, pos.y].structure);
 
         }
         return LoadBuildings(gameData);
