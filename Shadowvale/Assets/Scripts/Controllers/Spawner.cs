@@ -212,9 +212,13 @@ public class Spawner : MonoSingleton<Spawner>
             {
                 return trees[0];
             }
-            else
+            else if (rarity < 90)
             {
                 return trees[1];
+            }
+            else
+            {
+                return trees[2];
             }
         }
         else if (type == Resource.Type.stone)
@@ -223,9 +227,13 @@ public class Spawner : MonoSingleton<Spawner>
             {
                 return stones[0];
             }
-            else
+            else if (rarity < 90)
             {
                 return stones[1];
+            }
+            else
+            {
+                return stones[2];
             }
         }
         return null;

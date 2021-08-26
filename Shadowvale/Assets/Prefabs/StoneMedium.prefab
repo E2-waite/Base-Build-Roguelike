@@ -105,8 +105,9 @@ MonoBehaviour:
   staticObject: 1
   statusEffects: []
   glow: {fileID: 0}
-  val: 25
   type: 1
+  size: 1
+  val: 25
 --- !u!114 &-7974000638023140297
 MonoBehaviour:
   m_ObjectHideFlags: 0

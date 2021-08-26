@@ -15,11 +15,11 @@ D:/Files/Game Dev/Shadowvale/Shadowvale
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-56279
+56613
 Successfully changed project path to: D:/Files/Game Dev/Shadowvale/Shadowvale
 D:/Files/Game Dev/Shadowvale/Shadowvale
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 442.02 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 205.54 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.1.7f1 (d91830b65d9b)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/2021.1.7f1/Editor/Data/Resources/UnitySubsystems
@@ -36,25 +36,25 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/2021.1.7f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/2021.1.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/2021.1.7f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56652
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56904
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/2021.1.7f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/2021.1.7f1/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/2021.1.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/2021.1.7f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
-Registered in 0.009537 seconds.
+Registered in 0.033069 seconds.
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 181.43 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 196.72 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  6.974 seconds
+- Completed reload, in  6.022 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.007709 seconds.
+Registered in 0.006143 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
@@ -62,153 +62,123 @@ Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 181.12 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 201.57 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.401 seconds
+- Completed reload, in  2.263 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.14 seconds
-Refreshing native plugins compatible for Editor in 1.04 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.21 seconds
+Refreshing native plugins compatible for Editor in 1.03 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 4560 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 174.5 MB.
 System memory in use after: 174.6 MB.
 
 Unloading 27 unused Assets to reduce memory usage. Loaded Objects now: 5021.
-Total: 4.263200 ms (FindLiveObjects: 0.540200 ms CreateObjectMapping: 0.487800 ms MarkObjects: 3.088900 ms  DeleteObjects: 0.144800 ms)
+Total: 3.401900 ms (FindLiveObjects: 0.401800 ms CreateObjectMapping: 0.217900 ms MarkObjects: 2.628500 ms  DeleteObjects: 0.151800 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Fonts/8bitlim.ttf
-  artifactKey: Guid(397f1ea929daef64aa7f2b01f036e195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Fonts/8bitlim.ttf using Guid(397f1ea929daef64aa7f2b01f036e195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f26655b3a704b5020ef0ff3b3ca02545') in 0.418839 seconds 
+  path: Assets/Sprites/Enveironment/Small Stone.png
+  artifactKey: Guid(f13b7a513dcd33d48a313b6790175f73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enveironment/Small Stone.png using Guid(f13b7a513dcd33d48a313b6790175f73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c5505a20a8b9a19125e3f6bd16c5eab') in 0.204566 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000116 seconds.
-  path: Assets/Fonts
-  artifactKey: Guid(287fbdf751692234cbe3799dcdfa4059) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Fonts using Guid(287fbdf751692234cbe3799dcdfa4059) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55b7a33288f44db0e1b3b0ee6247c496') in 0.027112 seconds 
+  Time since last request: 0.000311 seconds.
+  path: Assets/Sprites/Enveironment/Medium Stone.png
+  artifactKey: Guid(6b313a8634786834aa4c7c53137d7702) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enveironment/Medium Stone.png using Guid(6b313a8634786834aa4c7c53137d7702) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1925458323ef9a465a9df4002a5e798') in 0.070557 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 58715.361481 seconds.
+  Time since last request: 9.257483 seconds.
+  path: Assets/Sprites/Enveironment/Medium Stone.png
+  artifactKey: Guid(6b313a8634786834aa4c7c53137d7702) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enveironment/Medium Stone.png using Guid(6b313a8634786834aa4c7c53137d7702) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a540a135e09875204c67f43a2470907b') in 0.045163 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000284 seconds.
+  path: Assets/Sprites/Enveironment/Small Stone.png
+  artifactKey: Guid(f13b7a513dcd33d48a313b6790175f73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enveironment/Small Stone.png using Guid(f13b7a513dcd33d48a313b6790175f73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '753c18d36e9788487aad3d84aa545284') in 0.078643 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.223920 seconds.
+  path: Assets/Sprites/Enveironment/Medium Stone.png
+  artifactKey: Guid(6b313a8634786834aa4c7c53137d7702) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enveironment/Medium Stone.png using Guid(6b313a8634786834aa4c7c53137d7702) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a271e30a6f5eb222ece8f0c1602318c') in 0.025404 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000339 seconds.
+  path: Assets/Sprites/Enveironment/Small Stone.png
+  artifactKey: Guid(f13b7a513dcd33d48a313b6790175f73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enveironment/Small Stone.png using Guid(f13b7a513dcd33d48a313b6790175f73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb9c4862911b4e3b5af47fd8c82e6bb1') in 0.045528 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 20.196901 seconds.
+  path: Assets/Sprites/Enveironment/Medium Stone.png
+  artifactKey: Guid(6b313a8634786834aa4c7c53137d7702) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enveironment/Medium Stone.png using Guid(6b313a8634786834aa4c7c53137d7702) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f2abed85813f5e634fb562f6f8057ecb') in 0.043908 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 9.635589 seconds.
+  path: Assets/Sprites/Enveironment/Small Stone.png
+  artifactKey: Guid(f13b7a513dcd33d48a313b6790175f73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enveironment/Small Stone.png using Guid(f13b7a513dcd33d48a313b6790175f73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05cd90952fba8a2b3c4e2cd495090560') in 0.054796 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 71.233899 seconds.
+  path: Assets/Prefabs/StoneSmall.prefab
+  artifactKey: Guid(ec624463330cdfe4d8f49c5f39a6bf81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/StoneSmall.prefab using Guid(ec624463330cdfe4d8f49c5f39a6bf81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '675afb2b784827c4179e40dbd9de60f4') in 0.262027 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 13.978796 seconds.
   path: Assets/Sprites/Buildings/Purification Pillar.png
   artifactKey: Guid(c044c391bb0ec4842b839320cc8d83eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Buildings/Purification Pillar.png using Guid(c044c391bb0ec4842b839320cc8d83eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2de0a33ee251334f964b5a8e85b86634') in 0.329565 seconds 
+Start importing Assets/Sprites/Buildings/Purification Pillar.png using Guid(c044c391bb0ec4842b839320cc8d83eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df47f26d6e1ee76d19979bb849ba70a2') in 0.193156 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 17.434062 seconds.
-  path: Assets/Sprites/Buildings/Purification Pillar.png
-  artifactKey: Guid(c044c391bb0ec4842b839320cc8d83eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Buildings/Purification Pillar.png using Guid(c044c391bb0ec4842b839320cc8d83eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7834e0becc8a9ec113136063c267af94') in 0.045055 seconds 
+  Time since last request: 4.286803 seconds.
+  path: Assets/Prefabs/StoneSmall.prefab
+  artifactKey: Guid(ec624463330cdfe4d8f49c5f39a6bf81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/StoneSmall.prefab using Guid(ec624463330cdfe4d8f49c5f39a6bf81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31e2641ceef87471da5aebc0f18532cc') in 0.028380 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 26.573252 seconds.
-  path: Assets/Sprites/Buildings/Purification Pillar.png
-  artifactKey: Guid(c044c391bb0ec4842b839320cc8d83eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Buildings/Purification Pillar.png using Guid(c044c391bb0ec4842b839320cc8d83eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6babf81b60db711fd65175fa566ddb29') in 0.125613 seconds 
+  Time since last request: 27.735783 seconds.
+  path: Assets/Prefabs/StoneSmall.prefab
+  artifactKey: Guid(ec624463330cdfe4d8f49c5f39a6bf81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/StoneSmall.prefab using Guid(ec624463330cdfe4d8f49c5f39a6bf81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '30f1681e4df8e232279351a60486cd06') in 0.041136 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 47.536246 seconds.
-  path: Assets/Sprites/Buildings/Purification Pillar.png
-  artifactKey: Guid(c044c391bb0ec4842b839320cc8d83eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Buildings/Purification Pillar.png using Guid(c044c391bb0ec4842b839320cc8d83eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '489a6ae1944c0ab29164f9b099bdef0b') in 0.503182 seconds 
+  Time since last request: 3.653349 seconds.
+  path: Assets/Prefabs/StoneSmall 1.prefab
+  artifactKey: Guid(831e167e50212904b84ac306aa7dcfc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/StoneSmall 1.prefab using Guid(831e167e50212904b84ac306aa7dcfc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33d06d6c80b90fbef0cfd9e0d9b9acd9') in 0.034281 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 40.992053 seconds.
-  path: Assets/Sprites/Buildings/Purification Pillar.png
-  artifactKey: Guid(c044c391bb0ec4842b839320cc8d83eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Buildings/Purification Pillar.png using Guid(c044c391bb0ec4842b839320cc8d83eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '378e8d404a2dc05732b115cdf00260f8') in 0.032060 seconds 
+  Time since last request: 6.831033 seconds.
+  path: Assets/Prefabs/StoneMedium.prefab
+  artifactKey: Guid(831e167e50212904b84ac306aa7dcfc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/StoneMedium.prefab using Guid(831e167e50212904b84ac306aa7dcfc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dec656cbca831cfbdb3bb0a452e9d376') in 0.034579 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 9.048843 seconds.
-  path: Assets/Sprites/Buildings/Purification Pillar.png
-  artifactKey: Guid(c044c391bb0ec4842b839320cc8d83eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Buildings/Purification Pillar.png using Guid(c044c391bb0ec4842b839320cc8d83eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b9ba81a5ec5b48562e73e08e0b93f86') in 0.062503 seconds 
+  Time since last request: 17.856907 seconds.
+  path: Assets/Prefabs/StoneMedium.prefab
+  artifactKey: Guid(831e167e50212904b84ac306aa7dcfc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/StoneMedium.prefab using Guid(831e167e50212904b84ac306aa7dcfc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6903c8ea84c17340d9bd3a6cc1e846ac') in 0.029247 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 7.851742 seconds.
-  path: Assets/Sprites/Buildings/Purification Pillar.png
-  artifactKey: Guid(c044c391bb0ec4842b839320cc8d83eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Buildings/Purification Pillar.png using Guid(c044c391bb0ec4842b839320cc8d83eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '068a7a50c1f0aaabd0c0633b32a5c482') in 0.132428 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 151.672558 seconds.
-  path: Assets/Animation/Buildings/PortalActivate.anim
-  artifactKey: Guid(03a9694ecfcb7754c94e2221e14b389c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/Buildings/PortalActivate.anim using Guid(03a9694ecfcb7754c94e2221e14b389c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3dea6f1b237a382dd672fa140fc3310d') in 0.064941 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.304042 seconds.
-  path: Assets/Animation/Buildings/Purification Pillar_0.controller
-  artifactKey: Guid(7d5a010fac157ed48a69ae7286a5fe48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/Buildings/Purification Pillar_0.controller using Guid(7d5a010fac157ed48a69ae7286a5fe48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1103a567b5b8de6549b1ae3407da710') in 0.049909 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.582784 seconds.
-  path: Assets/Animation/Buildings/Purification Pillar_21.controller
-  artifactKey: Guid(4f51f5e76f626e345a20fad1d6773a1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/Buildings/Purification Pillar_21.controller using Guid(4f51f5e76f626e345a20fad1d6773a1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10d6f337e9101fdd9aef921305c38709') in 0.016067 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.966957 seconds.
-  path: Assets/Animation/Buildings/PillarLoop.anim
-  artifactKey: Guid(fe946634dd8cd7e4fb354d51b5f664be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/Buildings/PillarLoop.anim using Guid(fe946634dd8cd7e4fb354d51b5f664be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af4dba36edf0b070e202db38ed2bbc6c') in 0.029743 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.560951 seconds.
-  path: Assets/Animation/Buildings/PillarActivate.anim
-  artifactKey: Guid(5b8d00207d9e18a4b84d7538cea4ac0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/Buildings/PillarActivate.anim using Guid(5b8d00207d9e18a4b84d7538cea4ac0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00d6cfb0c34eaac6cfc218d80ebfd01f') in 0.021438 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 11.104113 seconds.
-  path: Assets/Animation/Buildings/Portal_0.controller
-  artifactKey: Guid(2f1ea548d7e4d4f4d8ddbb0b606af140) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/Buildings/Portal_0.controller using Guid(2f1ea548d7e4d4f4d8ddbb0b606af140) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52ff8038c7baa4fcf6da9ca3fae05b99') in 0.074276 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 9.956972 seconds.
-  path: Assets/Animation/Buildings/PillarAnimatore.controller
-  artifactKey: Guid(7d5a010fac157ed48a69ae7286a5fe48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/Buildings/PillarAnimatore.controller using Guid(7d5a010fac157ed48a69ae7286a5fe48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c480b77012a5e8e26196f60e7ae7a07') in 0.030160 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.697172 seconds.
-  path: Assets/Animation/Buildings/PillarAnimator.controller
-  artifactKey: Guid(7d5a010fac157ed48a69ae7286a5fe48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/Buildings/PillarAnimator.controller using Guid(7d5a010fac157ed48a69ae7286a5fe48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e7862343ca99caf01cac03d612555ca') in 0.034048 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 51.262836 seconds.
-  path: Assets/Prefabs/PurifyPillar.prefab
-  artifactKey: Guid(7f37d00c87f66f442936d0bc62d99ad2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PurifyPillar.prefab using Guid(7f37d00c87f66f442936d0bc62d99ad2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0389128b06c8f532e23d63edbe15b7de') in 0.177429 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 8.766790 seconds.
-  path: Assets/Prefabs/PurifyPillar.prefab
-  artifactKey: Guid(7f37d00c87f66f442936d0bc62d99ad2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PurifyPillar.prefab using Guid(7f37d00c87f66f442936d0bc62d99ad2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e91127ba00a0bb29c5bb9d0578f98fa7') in 0.065216 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 8.387631 seconds.
-  path: Assets/Prefabs/PurifyPillar.prefab
-  artifactKey: Guid(7f37d00c87f66f442936d0bc62d99ad2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PurifyPillar.prefab using Guid(7f37d00c87f66f442936d0bc62d99ad2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b00421958e70f4ac36037230df61008d') in 0.054983 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 30.266836 seconds.
-  path: Assets/Prefabs/PurifyPillar.prefab
-  artifactKey: Guid(7f37d00c87f66f442936d0bc62d99ad2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PurifyPillar.prefab using Guid(7f37d00c87f66f442936d0bc62d99ad2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4bcd289083522d32473a0e43390fb82') in 0.072582 seconds 
+  Time since last request: 7.861426 seconds.
+  path: Assets/Prefabs/StoneMedium.prefab
+  artifactKey: Guid(831e167e50212904b84ac306aa7dcfc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/StoneMedium.prefab using Guid(831e167e50212904b84ac306aa7dcfc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '601c4a77275572d7e4b147027f237285') in 0.029531 seconds 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.013795 seconds.
+Registered in 0.015309 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
@@ -216,25 +186,25 @@ Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.36 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.46 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.948 seconds
+- Completed reload, in  2.562 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.16 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.06 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4495 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 178.9 MB.
-System memory in use after: 179.1 MB.
+Unloading 4496 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 179.1 MB.
+System memory in use after: 179.2 MB.
 
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5229.
-Total: 5.002300 ms (FindLiveObjects: 0.531800 ms CreateObjectMapping: 0.426300 ms MarkObjects: 3.895900 ms  DeleteObjects: 0.146400 ms)
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5206.
+Total: 7.134800 ms (FindLiveObjects: 0.546300 ms CreateObjectMapping: 0.471700 ms MarkObjects: 5.824300 ms  DeleteObjects: 0.290100 ms)
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.018970 seconds.
+Registered in 0.005974 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
@@ -242,407 +212,205 @@ Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.39 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.08 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  3.301 seconds
+- Completed reload, in  3.358 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.04 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4493 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 178.9 MB.
-System memory in use after: 179.1 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5233.
-Total: 5.462700 ms (FindLiveObjects: 0.609700 ms CreateObjectMapping: 0.460000 ms MarkObjects: 4.229900 ms  DeleteObjects: 0.161100 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005636 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.88 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.532 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.02 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.37 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 4493 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 179.0 MB.
 System memory in use after: 179.1 MB.
 
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5237.
-Total: 3.695100 ms (FindLiveObjects: 0.397400 ms CreateObjectMapping: 0.209200 ms MarkObjects: 2.947400 ms  DeleteObjects: 0.138900 ms)
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5210.
+Total: 10.488300 ms (FindLiveObjects: 2.524100 ms CreateObjectMapping: 0.519100 ms MarkObjects: 7.293700 ms  DeleteObjects: 0.149600 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 332.649269 seconds.
-  path: Assets/Prefabs/PurifyPillar.prefab
-  artifactKey: Guid(7f37d00c87f66f442936d0bc62d99ad2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PurifyPillar.prefab using Guid(7f37d00c87f66f442936d0bc62d99ad2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1379d0273b6bc33958e80f18c28d8da2') in 0.337094 seconds 
+  Time since last request: 1376.726707 seconds.
+  path: Assets/Sprites/Enveironment/Medium Tree.png
+  artifactKey: Guid(c645ecd23b71f7d4c8a7f61b055018d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enveironment/Medium Tree.png using Guid(c645ecd23b71f7d4c8a7f61b055018d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3df0b8fcd5d849afdf129124b0213abc') in 0.215686 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000370 seconds.
-  path: Assets/Prefabs/GuardTower.prefab
-  artifactKey: Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/GuardTower.prefab using Guid(69e84cf229b8ffc46a8e4f59d1dc06cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57a193e9d54cf3387d7ec48b5ef414b9') in 0.446876 seconds 
+  Time since last request: 13.972719 seconds.
+  path: Assets/Sprites/Enveironment/Medium Tree.png
+  artifactKey: Guid(c645ecd23b71f7d4c8a7f61b055018d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enveironment/Medium Tree.png using Guid(c645ecd23b71f7d4c8a7f61b055018d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e755503c5707995e60063453e30c4418') in 0.098477 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000729 seconds.
-  path: Assets/Prefabs/WoodPile.prefab
-  artifactKey: Guid(2c3345279267e0041910a93cc0662d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/WoodPile.prefab using Guid(2c3345279267e0041910a93cc0662d62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd60ca27c99785949ba8412878a7f4d39') in 0.086943 seconds 
+  Time since last request: 15.927913 seconds.
+  path: Assets/Sprites/Enveironment/Medium Tree.png
+  artifactKey: Guid(c645ecd23b71f7d4c8a7f61b055018d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Enveironment/Medium Tree.png using Guid(c645ecd23b71f7d4c8a7f61b055018d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80666d3c20475edd181995b15d0f0f46') in 0.092494 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000349 seconds.
-  path: Assets/Prefabs/StonePile.prefab
-  artifactKey: Guid(b1fea78638a9c694f93d370fd4ea0108) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/StonePile.prefab using Guid(b1fea78638a9c694f93d370fd4ea0108) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa9e91b2afd32e216bb670eec57d2b33') in 0.054174 seconds 
+  Time since last request: 45.243094 seconds.
+  path: Assets/Prefabs/TreeSmall.prefab
+  artifactKey: Guid(85f336c396c38ed4f9d91d8e918eb583) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/TreeSmall.prefab using Guid(85f336c396c38ed4f9d91d8e918eb583) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a274ac7cdce2df0a7c88df24d2ae537') in 0.274532 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000299 seconds.
-  path: Assets/Prefabs/SmallHouse.prefab
-  artifactKey: Guid(a3fb97f6d63357f4fb97fc3eb856ca7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/SmallHouse.prefab using Guid(a3fb97f6d63357f4fb97fc3eb856ca7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31c344b57dce0470e118ea7e0a7be3ed') in 0.080485 seconds 
+  Time since last request: 1.735837 seconds.
+  path: Assets/Prefabs/TreeSmall 1.prefab
+  artifactKey: Guid(ea897cedfd82730468813101ed915f0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/TreeSmall 1.prefab using Guid(ea897cedfd82730468813101ed915f0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de4808c8c73af45b94612556e7147d6a') in 0.033817 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000304 seconds.
-  path: Assets/Prefabs/WoodenWall.prefab
-  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/WoodenWall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '13f244afa0a3464d5f90e2a6a3418af8') in 0.122174 seconds 
+  Time since last request: 6.444112 seconds.
+  path: Assets/Prefabs/TreeMedium.prefab
+  artifactKey: Guid(ea897cedfd82730468813101ed915f0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/TreeMedium.prefab using Guid(ea897cedfd82730468813101ed915f0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3a8092d53eebe41d06f58a1598cb050') in 0.070491 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000270 seconds.
-  path: Assets/Prefabs/Barracks.prefab
-  artifactKey: Guid(809f6bdabf29e6642b09e257c92acb0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Barracks.prefab using Guid(809f6bdabf29e6642b09e257c92acb0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '334913c8101323778526ead2e824bd5e') in 0.264029 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000104 seconds.
-  path: Assets/Prefabs/Temple.prefab
-  artifactKey: Guid(257c36affca64ff4fb5a93eb46f4aa13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Temple.prefab using Guid(257c36affca64ff4fb5a93eb46f4aa13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dcb1246e4e435617e82048386af13e70') in 0.114331 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000280 seconds.
-  path: Assets/Prefabs/FoodPile.prefab
-  artifactKey: Guid(7f2b48050d471ff44adb4d2a4be2f3f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/FoodPile.prefab using Guid(7f2b48050d471ff44adb4d2a4be2f3f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb72f6ce4cc61df6647850b547d27f7e') in 0.250667 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000296 seconds.
-  path: Assets/Prefabs/ArcheryRange.prefab
-  artifactKey: Guid(c9cc39c57f2ed3f40bc695bd1e6fc530) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/ArcheryRange.prefab using Guid(c9cc39c57f2ed3f40bc695bd1e6fc530) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab2602bec06bd1cd5d942aea7e273120') in 0.106458 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 14.823254 seconds.
-  path: Assets/Prefabs/PurifyPillar.prefab
-  artifactKey: Guid(7f37d00c87f66f442936d0bc62d99ad2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PurifyPillar.prefab using Guid(7f37d00c87f66f442936d0bc62d99ad2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8473dafd2943cee525eff192808343fe') in 0.046883 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.063590 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.33 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.935 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.04 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4493 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 179.2 MB.
-System memory in use after: 179.3 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5279.
-Total: 5.454200 ms (FindLiveObjects: 0.728000 ms CreateObjectMapping: 0.776700 ms MarkObjects: 3.793000 ms  DeleteObjects: 0.154400 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.016706 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.56 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.657 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.83 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4493 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 179.2 MB.
-System memory in use after: 179.3 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5283.
-Total: 7.236400 ms (FindLiveObjects: 1.692800 ms CreateObjectMapping: 1.614600 ms MarkObjects: 3.773500 ms  DeleteObjects: 0.149400 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.008207 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.24 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.950 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.05 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4493 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 179.2 MB.
-System memory in use after: 179.3 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5287.
-Total: 5.219000 ms (FindLiveObjects: 0.629800 ms CreateObjectMapping: 0.387900 ms MarkObjects: 3.367000 ms  DeleteObjects: 0.827700 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.016591 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.36 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  4.043 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.57 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4493 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 179.2 MB.
-System memory in use after: 179.3 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5291.
-Total: 5.279200 ms (FindLiveObjects: 0.410400 ms CreateObjectMapping: 0.206400 ms MarkObjects: 4.529600 ms  DeleteObjects: 0.131000 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.006367 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.34 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.132 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.06 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4493 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 179.2 MB.
-System memory in use after: 179.3 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5295.
-Total: 4.623700 ms (FindLiveObjects: 0.539500 ms CreateObjectMapping: 0.465900 ms MarkObjects: 3.478600 ms  DeleteObjects: 0.138200 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.026894 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.41 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  3.616 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.33 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4493 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 179.2 MB.
-System memory in use after: 179.3 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5299.
-Total: 5.123000 ms (FindLiveObjects: 0.609400 ms CreateObjectMapping: 0.511100 ms MarkObjects: 3.853400 ms  DeleteObjects: 0.147700 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.013204 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.40 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  3.306 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.56 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4493 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 179.2 MB.
-System memory in use after: 179.3 MB.
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5303.
-Total: 10.609300 ms (FindLiveObjects: 1.863200 ms CreateObjectMapping: 1.036900 ms MarkObjects: 5.840600 ms  DeleteObjects: 1.865300 ms)
-
-========================================================================
-Received Prepare
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 5.65 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 14 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 90.6 MB.
-System memory in use after: 90.7 MB.
-
-Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 5303.
-Total: 3.742300 ms (FindLiveObjects: 0.392800 ms CreateObjectMapping: 0.270800 ms MarkObjects: 2.944500 ms  DeleteObjects: 0.132900 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 14057.953726 seconds.
-  path: Assets/Sprites/environment
-  artifactKey: Guid(a6d907ea2a7245e49af34e0b423b4cb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/environment using Guid(a6d907ea2a7245e49af34e0b423b4cb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5862541e83a422c53fe78b02ab8e8d4') in 0.241496 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 16.143974 seconds.
-  path: Assets/Sprites/environment/Small Tree.png
-  artifactKey: Guid(d0d9e46768aca654ba8cae84308fcc91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/environment/Small Tree.png using Guid(d0d9e46768aca654ba8cae84308fcc91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d9b9e8e9fce1c1da224ec30425062ca') in 0.732483 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 14.693636 seconds.
-  path: Assets/Sprites/environment/Small Tree.png
-  artifactKey: Guid(d0d9e46768aca654ba8cae84308fcc91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/environment/Small Tree.png using Guid(d0d9e46768aca654ba8cae84308fcc91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a60ec83c485b869cae0a7e739fd42dc') in 0.157096 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 20.963490 seconds.
-  path: Assets/Sprites/environment/Small Tree.png
-  artifactKey: Guid(d0d9e46768aca654ba8cae84308fcc91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/environment/Small Tree.png using Guid(d0d9e46768aca654ba8cae84308fcc91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a3ab59c6374a031d28959c69308c98b3') in 0.417274 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 13.484745 seconds.
-  path: Assets/Animation
-  artifactKey: Guid(a71c947b677908341873184cb457642f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation using Guid(a71c947b677908341873184cb457642f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a3017bb7b788112b23057c135d00d0b') in 0.045292 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 5.742208 seconds.
-  path: Assets/Animation/environment
-  artifactKey: Guid(8630b806040dd7f4f9e80a1e85059303) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/environment using Guid(8630b806040dd7f4f9e80a1e85059303) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '132073968324445a168c16fc43ef71aa') in 0.019648 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 13.221606 seconds.
-  path: Assets/Animation/TreeHit.anim
-  artifactKey: Guid(e9d349a899ef9784f8b550f05657b2e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/TreeHit.anim using Guid(e9d349a899ef9784f8b550f05657b2e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26907aa2731eb17d401e0a6f33bc9b31') in 0.115263 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 28.265440 seconds.
-  path: Assets/Animation/environment/TreeHit.anim
-  artifactKey: Guid(813827f1f2c236640af488b6c8d4b472) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/environment/TreeHit.anim using Guid(813827f1f2c236640af488b6c8d4b472) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '479caaba9c9ef03234bb1584b8d177b0') in 0.061818 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.600391 seconds.
-  path: Assets/Animation/environment/TreeHit 1.anim
-  artifactKey: Guid(1b25c92011eb8384a8ffae137d99632f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/environment/TreeHit 1.anim using Guid(1b25c92011eb8384a8ffae137d99632f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9853b533723c7ec9b059bf5d129f30af') in 0.034504 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 7.420354 seconds.
-  path: Assets/Animation/environment/TreeIdlr.anim
-  artifactKey: Guid(1b25c92011eb8384a8ffae137d99632f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/environment/TreeIdlr.anim using Guid(1b25c92011eb8384a8ffae137d99632f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d1a5558640098efe5dde6e73a9c92f7') in 0.017972 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 5.067664 seconds.
-  path: Assets/Animation/environment/TreeIdle.anim
-  artifactKey: Guid(1b25c92011eb8384a8ffae137d99632f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/environment/TreeIdle.anim using Guid(1b25c92011eb8384a8ffae137d99632f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f5069e8416e0b8b345cec56942d27b4') in 0.021729 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 7.434673 seconds.
-  path: Assets/Animation/environment/TreeController.controller
+  Time since last request: 22.082049 seconds.
+  path: Assets/Animation/Enveironment/TreeController.controller
   artifactKey: Guid(41ad73b6629f0474bbf7fdc9673304fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/environment/TreeController.controller using Guid(41ad73b6629f0474bbf7fdc9673304fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '426d17f3bca51cf588ba944c75894eef') in 0.045521 seconds 
+Start importing Assets/Animation/Enveironment/TreeController.controller using Guid(41ad73b6629f0474bbf7fdc9673304fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd64603973baad9eae8e66582415d95bd') in 0.078253 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.852575 seconds.
-  path: Assets/Animation/environment/Small Tree_0.controller
-  artifactKey: Guid(1a88fea5fee4a0747816085258365a8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/environment/Small Tree_0.controller using Guid(1a88fea5fee4a0747816085258365a8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'deb24adfc452f097d12169fb09c628ba') in 0.072770 seconds 
+  Time since last request: 4.350356 seconds.
+  path: Assets/Animation/Enveironment/Small Stone_0.controller
+  artifactKey: Guid(17eace05a4471b34b85091c1e1856916) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Enveironment/Small Stone_0.controller using Guid(17eace05a4471b34b85091c1e1856916) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '618ed68e68e41dcf420bd7d62b8b25ed') in 0.099633 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 30.057085 seconds.
-  path: Assets/Prefabs/Tree.prefab
-  artifactKey: Guid(85f336c396c38ed4f9d91d8e918eb583) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Tree.prefab using Guid(85f336c396c38ed4f9d91d8e918eb583) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2bbba5607813da28b1e08e706a2a7b96') in 0.590203 seconds 
+  Time since last request: 1.301313 seconds.
+  path: Assets/Animation/Enveironment/Medium Tree_0.controller
+  artifactKey: Guid(d408435ceacccd34a816068e00def87d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Enveironment/Medium Tree_0.controller using Guid(d408435ceacccd34a816068e00def87d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cef0a152b470c803ec783693bb2a9681') in 0.057840 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000346 seconds.
-  path: Assets/Prefabs/Tree.prefab
-  artifactKey: Guid(85f336c396c38ed4f9d91d8e918eb583) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Tree.prefab using Guid(85f336c396c38ed4f9d91d8e918eb583) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ad795f0256c0b719b853399d2453f51') in 0.091236 seconds 
+  Time since last request: 7.924662 seconds.
+  path: Assets/Animation/Enveironment/TreeSController.controller
+  artifactKey: Guid(41ad73b6629f0474bbf7fdc9673304fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Enveironment/TreeSController.controller using Guid(41ad73b6629f0474bbf7fdc9673304fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8725a91e2d8cc394012230bb99218754') in 0.044542 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 9.012298 seconds.
-  path: Assets/Prefabs/Tree.prefab
-  artifactKey: Guid(85f336c396c38ed4f9d91d8e918eb583) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Tree.prefab using Guid(85f336c396c38ed4f9d91d8e918eb583) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14072630f5bd454781f11daf536a9e3a') in 0.027739 seconds 
+  Time since last request: 2.248060 seconds.
+  path: Assets/Animation/Enveironment/TreeSController 1.controller
+  artifactKey: Guid(5e31fc32d1d6199428fb298f1fb31cf8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Enveironment/TreeSController 1.controller using Guid(5e31fc32d1d6199428fb298f1fb31cf8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e44d5676cf39340840aedca5241d863') in 0.017700 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.922189 seconds.
+  path: Assets/Animation/Enveironment/TreeMController.controller
+  artifactKey: Guid(5e31fc32d1d6199428fb298f1fb31cf8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Enveironment/TreeMController.controller using Guid(5e31fc32d1d6199428fb298f1fb31cf8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce22aff1476e4af4bbf47a33b1e6bc60') in 0.042605 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.256780 seconds.
+  path: Assets/Animation/Enveironment/TreeMediumHit.anim
+  artifactKey: Guid(5c14e5e4b0bf1ce43be451e46bcfc4ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Enveironment/TreeMediumHit.anim using Guid(5c14e5e4b0bf1ce43be451e46bcfc4ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '541e7e030dbaf68e69fba75376eb3e73') in 0.046489 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.766549 seconds.
+  path: Assets/Animation/Enveironment/TreeMediumHit 1.anim
+  artifactKey: Guid(5d43779af5f5d694c9bf078ec20a8f0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Enveironment/TreeMediumHit 1.anim using Guid(5d43779af5f5d694c9bf078ec20a8f0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a84a0b1e1345171b5e98914fb7ff7715') in 0.019484 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.836896 seconds.
+  path: Assets/Animation/Enveironment/TreeMediumIdle.anim
+  artifactKey: Guid(5d43779af5f5d694c9bf078ec20a8f0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Enveironment/TreeMediumIdle.anim using Guid(5d43779af5f5d694c9bf078ec20a8f0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7f5af8452f5a4d858542de783be3de6') in 0.014611 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 43.618401 seconds.
+  path: Assets/Animation/Enveironment/StoneController.controller
+  artifactKey: Guid(0b4a75858e1c09b41bc676ee7f59a0aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Enveironment/StoneController.controller using Guid(0b4a75858e1c09b41bc676ee7f59a0aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '099a11b9117da34117c71bf0b7dc663f') in 0.014053 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.375931 seconds.
+  path: Assets/Animation/Enveironment
+  artifactKey: Guid(8630b806040dd7f4f9e80a1e85059303) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Enveironment using Guid(8630b806040dd7f4f9e80a1e85059303) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f464daf05d29326d929d0c3438ab9449') in 0.016265 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.217968 seconds.
+  path: Assets/Animation/Enveironment/StoneSController.controller
+  artifactKey: Guid(0b4a75858e1c09b41bc676ee7f59a0aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Enveironment/StoneSController.controller using Guid(0b4a75858e1c09b41bc676ee7f59a0aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fdc0338514d6475ae2a5637f319a5a82') in 0.062627 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.630547 seconds.
+  path: Assets/Animation/Enveironment/StoneSmallHit.anim
+  artifactKey: Guid(9d76b47320ff4624e895b808ef37d0ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Enveironment/StoneSmallHit.anim using Guid(9d76b47320ff4624e895b808ef37d0ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ebbd6614249dff6cf8af0c36b9cf525') in 0.032390 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 9.448550 seconds.
+  path: Assets/Animation/Enveironment/StoneSmallHit 1.anim
+  artifactKey: Guid(9673f0b1bd5e7d84dbe920c532916fa1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Enveironment/StoneSmallHit 1.anim using Guid(9673f0b1bd5e7d84dbe920c532916fa1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ab68df73b53fd1b17cfb4a9f18215d5') in 0.046418 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.237692 seconds.
+  path: Assets/Animation/Enveironment/StoneSmallIdle.anim
+  artifactKey: Guid(9673f0b1bd5e7d84dbe920c532916fa1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Enveironment/StoneSmallIdle.anim using Guid(9673f0b1bd5e7d84dbe920c532916fa1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd541c5878cd84d8dd4ddc9a74f4bda7d') in 0.022197 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.455351 seconds.
+  path: Assets/Animation/Enveironment/StoneMediumHit.anim
+  artifactKey: Guid(de23fd7fa97548547a3df79489825d5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Enveironment/StoneMediumHit.anim using Guid(de23fd7fa97548547a3df79489825d5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '19db9ed3fa63ef2de31d991cd655654a') in 0.018558 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.066163 seconds.
+  path: Assets/Animation/Enveironment/StoneMediumHit 1.anim
+  artifactKey: Guid(a85d9aa5733264a43a71197b193d1d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Enveironment/StoneMediumHit 1.anim using Guid(a85d9aa5733264a43a71197b193d1d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '09845b2c879bf6a339172020591cdca5') in 0.025589 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.928948 seconds.
+  path: Assets/Animation/Enveironment/StoneMediumIdle.anim
+  artifactKey: Guid(a85d9aa5733264a43a71197b193d1d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Enveironment/StoneMediumIdle.anim using Guid(a85d9aa5733264a43a71197b193d1d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef24ae59a8aaa1cd9efa80ab0c1f9186') in 0.024385 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.488946 seconds.
+  path: Assets/Animation/Enveironment/StoneSController 1.controller
+  artifactKey: Guid(9689e324f7f799440904e31e25149074) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Enveironment/StoneSController 1.controller using Guid(9689e324f7f799440904e31e25149074) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cedc3a79a78737a4251dc29840212d73') in 0.023317 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.220086 seconds.
+  path: Assets/Animation/Enveironment/StoneMController.controller
+  artifactKey: Guid(9689e324f7f799440904e31e25149074) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Enveironment/StoneMController.controller using Guid(9689e324f7f799440904e31e25149074) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1db123fa4cc8be698f8799c271cc8b42') in 0.042172 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.359227 seconds.
+  path: Assets/Animation/Enveironment/StoneMediumIdle.anim
+  artifactKey: Guid(a85d9aa5733264a43a71197b193d1d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Enveironment/StoneMediumIdle.anim using Guid(a85d9aa5733264a43a71197b193d1d27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5baea34b52e5057a31db907cdf0cf19') in 0.043629 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 25.069822 seconds.
+  path: Assets/Prefabs/TreeMedium.prefab
+  artifactKey: Guid(ea897cedfd82730468813101ed915f0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/TreeMedium.prefab using Guid(ea897cedfd82730468813101ed915f0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3acb5a8a99383978cb3697fa7ebc783e') in 0.033587 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.304854 seconds.
+  path: Assets/Prefabs/TreeMedium.prefab
+  artifactKey: Guid(ea897cedfd82730468813101ed915f0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/TreeMedium.prefab using Guid(ea897cedfd82730468813101ed915f0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '826d06b868483eb6b3a77eb0eda2fef2') in 0.060323 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.972300 seconds.
+  path: Assets/Prefabs/StoneMedium.prefab
+  artifactKey: Guid(831e167e50212904b84ac306aa7dcfc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/StoneMedium.prefab using Guid(831e167e50212904b84ac306aa7dcfc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73160b93bc8b420f70463a754e04e7c6') in 0.063177 seconds 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.095591 seconds.
+Registered in 0.005731 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
@@ -650,25 +418,71 @@ Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 4.14 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.11 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  4.237 seconds
+- Completed reload, in  3.048 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 6.27 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.09 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 4494 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 180.6 MB.
-System memory in use after: 180.7 MB.
+System memory in use before: 180.4 MB.
+System memory in use after: 180.5 MB.
 
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5390.
-Total: 4.872100 ms (FindLiveObjects: 0.651300 ms CreateObjectMapping: 0.551900 ms MarkObjects: 3.525800 ms  DeleteObjects: 0.141400 ms)
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5295.
+Total: 4.952300 ms (FindLiveObjects: 0.560200 ms CreateObjectMapping: 0.487700 ms MarkObjects: 3.761300 ms  DeleteObjects: 0.141700 ms)
 
 ========================================================================
-Received Import Request.
-  Time since last request: 478.078518 seconds.
-  path: Assets/Prefabs/Wall.prefab
-  artifactKey: Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Wall.prefab using Guid(fd06baf343e15454ab4437bed2862b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2c93f15f841cbd1d6e4afa477091afd') in 1.594943 seconds 
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005706 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.25 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.060 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.08 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4493 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 180.3 MB.
+System memory in use after: 180.5 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5299.
+Total: 4.879500 ms (FindLiveObjects: 0.614700 ms CreateObjectMapping: 0.654300 ms MarkObjects: 3.456900 ms  DeleteObjects: 0.152000 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005841 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Files\Game Dev\Shadowvale\Shadowvale\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.11 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.707 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.93 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4493 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 180.3 MB.
+System memory in use after: 180.4 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 5303.
+Total: 5.081200 ms (FindLiveObjects: 0.677800 ms CreateObjectMapping: 0.518700 ms MarkObjects: 3.735100 ms  DeleteObjects: 0.148000 ms)
+
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
