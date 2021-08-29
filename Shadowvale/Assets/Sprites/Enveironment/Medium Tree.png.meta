@@ -8,6 +8,9 @@ TextureImporter:
   - first:
       213: 6390859083812825928
     second: Medium Tree_1
+  - first:
+      213: -2028701735121056722
+    second: Medium Tree_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -182,6 +185,27 @@ TextureImporter:
       bones: []
       spriteID: 84bed3cf974e0b850800000000000000
       internalID: 6390859083812825928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medium Tree_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2c04ea358a98d3e0800000000000000
+      internalID: -2028701735121056722
       vertices: []
       indices: 
       edges: []

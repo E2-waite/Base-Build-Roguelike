@@ -143,10 +143,13 @@ public abstract class Building : Interaction
         }
 
         Buildings.buildings.Remove(this);
-        for (int i = 0; i < tiles.Length; i++)
+        if (Grid.tiles != null)
         {
-            Grid.GetTile(tiles[i]).structure = null;
-        }
+            for (int i = 0; i < tiles.Length; i++)
+            {
+                Grid.GetTile(tiles[i]).structure = null;
+            }
+        } 
         Pathfinding.UpdateNodeGrid();
         Destroy(gameObject);
     }

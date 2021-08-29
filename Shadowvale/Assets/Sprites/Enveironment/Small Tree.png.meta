@@ -8,6 +8,9 @@ TextureImporter:
   - first:
       213: 6041510504877231856
     second: Small Tree_1
+  - first:
+      213: -8801059077186269195
+    second: Small Tree_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -182,6 +185,27 @@ TextureImporter:
       bones: []
       spriteID: 0fe8ffd7bc1c7d350800000000000000
       internalID: 6041510504877231856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small Tree_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ffc519366b5cd580800000000000000
+      internalID: -8801059077186269195
       vertices: []
       indices: 
       edges: []

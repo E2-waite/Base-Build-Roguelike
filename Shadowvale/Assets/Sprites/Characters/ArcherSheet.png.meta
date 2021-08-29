@@ -157,12 +157,12 @@ TextureImporter:
       name: ArcherSheet_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 31
-        width: 10
-        height: 17
-      alignment: 9
-      pivot: {x: 0.49385548, y: 0.061443776}
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -178,10 +178,10 @@ TextureImporter:
       name: ArcherSheet_1
       rect:
         serializedVersion: 2
-        x: 20
+        x: 16
         y: 32
-        width: 8
-        height: 15
+        width: 16
+        height: 16
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,10 +199,10 @@ TextureImporter:
       name: ArcherSheet_2
       rect:
         serializedVersion: 2
-        x: 4
+        x: 0
         y: 16
-        width: 8
-        height: 15
+        width: 16
+        height: 16
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -220,10 +220,10 @@ TextureImporter:
       name: ArcherSheet_3
       rect:
         serializedVersion: 2
-        x: 20
+        x: 16
         y: 16
-        width: 8
-        height: 15
+        width: 16
+        height: 16
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,8 +243,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 15
-        height: 8
+        width: 16
+        height: 16
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

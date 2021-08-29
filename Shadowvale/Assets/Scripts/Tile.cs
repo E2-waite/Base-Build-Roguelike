@@ -21,7 +21,7 @@ public class Tile : MonoBehaviour
 
     public float corruptionVal = 0;
     public int corruptionMulti = 0;
-    float corruptionSpeed = 5f, purifySpeed = 50;
+    float corruptionSpeed = 25f, purifySpeed = 50;
     private bool selected;
 
     private List<PurifyPillar> pillars = new List<PurifyPillar>();
@@ -120,6 +120,11 @@ public class Tile : MonoBehaviour
     IEnumerator CorruptRoutine(Vector2Int pos)
     {
         corruptionMulti++;
+        Resource resource = null;
+        if (structure != null && structure is Resource && (structure as Resource).type == Resource.Type.wood)
+        {
+            resource = structure.GetComponent<Resource>();
+        }
         while (corruptionVal < 100)
         {
             corruptionVal += corruptionSpeed * Time.deltaTime;
@@ -129,6 +134,10 @@ public class Tile : MonoBehaviour
             if (!selected)
             {
                 rend.color = currentColour;
+                if (resource != null)
+                {
+                    resource.ChangeColour(amount);
+                }
             }
             yield return null;
         }
@@ -164,6 +173,11 @@ public class Tile : MonoBehaviour
 
     IEnumerator PurifyRoutine()
     {
+        Resource resource = null;
+        if (structure != null && structure is Resource && (structure as Resource).type == Resource.Type.wood)
+        {
+            resource = structure.GetComponent<Resource>();
+        }
         while (corruptionVal > 0)
         {
             corruptionVal -= Time.deltaTime * purifySpeed;
@@ -172,8 +186,12 @@ public class Tile : MonoBehaviour
             if (!selected)
             {
                 rend.color = currentColour;
-            }
 
+            }
+            if (resource != null)
+            {
+                resource.ChangeColour(amount);
+            }
             //if (structure != null)
             //{
             //    structure.Corrupt(corruptedColour, amount);

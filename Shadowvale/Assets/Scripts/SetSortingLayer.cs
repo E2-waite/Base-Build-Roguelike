@@ -6,10 +6,19 @@ public class SetSortingLayer : MonoBehaviour
 {
     public bool update = false;
     SpriteRenderer rend;
+    public SpriteRenderer underRend, overRend;
     void Start()
     {
         rend = GetComponent<SpriteRenderer>();
         rend.sortingOrder = (int)-(transform.position.y * 10);
+        if (underRend != null)
+        {
+            underRend.sortingOrder = rend.sortingOrder - 1;
+        }
+        if (overRend != null)
+        {
+            underRend.sortingOrder = rend.sortingOrder + 1;
+        }
     }
 
     // Update is called once per frame
@@ -18,6 +27,14 @@ public class SetSortingLayer : MonoBehaviour
         if (update)
         {
             rend.sortingOrder = (int)-(transform.position.y * 10);
+            if (underRend != null)
+            {
+                underRend.sortingOrder = rend.sortingOrder - 1;
+            }
+            if (overRend != null)
+            {
+                underRend.sortingOrder = rend.sortingOrder + 1;
+            }
         }
     }
 }
