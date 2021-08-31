@@ -21,12 +21,14 @@ public class Tile : MonoBehaviour
 
     public float corruptionVal = 0;
     public int corruptionMulti = 0;
-    float corruptionSpeed = 25f, purifySpeed = 50;
+    float corruptionSpeed = .25f, purifySpeed = 50;
     private bool selected;
 
     private List<PurifyPillar> pillars = new List<PurifyPillar>();
     public bool isProtected = false;
 
+    public Decoration[,] decor = new Decoration[2, 2];
+    public List<GameObject> decorPrefabs = new List<GameObject>();
     // Generate setup
     public virtual void Setup()
     {
@@ -226,5 +228,57 @@ public class Tile : MonoBehaviour
                 Corrupt(pos);
             }
         }
+    }
+
+    public void Save(TileData data)
+    {
+        data.type = (int)type;
+        data.corruption = corruptionVal;
+        data.multi = corruptionMulti;
+        data.x = (int)transform.position.x;
+        data.y = (int)transform.position.y;
+
+        data.decor1 = (decor[0, 0] == null) ? -1 : decor[0, 0].num;
+        data.decor2 = (decor[1, 0] == null) ? -1 : decor[1, 0].num;
+        data.decor3 = (decor[0, 1] == null) ? -1 : decor[0, 1].num;
+        data.decor4 = (decor[1, 1] == null) ? -1 : decor[1, 1].num;
+    }
+
+    public void Load(TileData data)
+    {
+        Grid.tiles[data.x, data.y] = this;
+        Setup(data.corruption, data.multi, new Vector2Int(data.x, data.y));
+        if (data.corruption >= 100)
+        {
+            Spawner.Instance.corruptedTiles.Add(Grid.tiles[data.x, data.y]);
+        }
+
+        if (type != Type.water)
+        {
+            if (data.decor1 >= 0)
+            {
+                SpawnDecor(data.decor1, new Vector2Int(0, 0));
+            }
+            if (data.decor2 >= 0)
+            {
+                SpawnDecor(data.decor2, new Vector2Int(1, 0));
+            }
+            if (data.decor3 >= 0)
+            {
+                SpawnDecor(data.decor3, new Vector2Int(0, 1));
+            }
+            if (data.decor4 >= 0)
+            {
+                SpawnDecor(data.decor4, new Vector2Int(1, 1));
+            }
+        }
+    }
+
+    public void SpawnDecor(int num, Vector2Int pos)
+    {
+        Debug.Log(type + " " + num);
+        GameObject decorObj = Instantiate(decorPrefabs[num], new Vector3((pos.x == 0) ? transform.position.x : transform.position.x + 0.5f, (pos.y == 0) ? transform.position.y : transform.position.y + 0.5f, 0), Quaternion.identity);
+        decor[pos.x, pos.y] = decorObj.GetComponent<Decoration>();
+        decor[pos.x, pos.y].num = num;
     }
 }

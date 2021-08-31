@@ -6,7 +6,7 @@ public class GridBuilder : MonoSingleton<GridBuilder>
 {
     public GameObject grassTile, waterTile, sandTile, dGrassTile;
     public int mapSize = 25, noise = 250;
-    public int treeScale = 10, stoneScale = 10;
+    public int treeScale = 10, stoneScale = 10, decorThreshold = 150;
 
     public void Generate()
     {
@@ -110,6 +110,36 @@ public class GridBuilder : MonoSingleton<GridBuilder>
                     Resources.stones.Add(Grid.tiles[stonePos.x, stonePos.y].structure);
                     Resources.allResources.Add(Grid.tiles[stonePos.x, stonePos.y].structure);
                     stonePlaced = true;
+                }
+            }
+        }
+
+        for (int yi = 0; yi < Grid.size; yi++)
+        {
+            for (int xi = 0; xi < Grid.size; xi++)
+            {
+                if (Grid.tiles[xi, yi] != null)
+                {
+                    Tile tile = Grid.tiles[xi, yi];
+                    if (tile.type != Tile.Type.water && tile.structure == null)
+                    {
+                        for (int yj = 0; yj < 2; yj++)
+                        {
+                            for (int xj = 0; xj < 2; xj++)
+                            {
+                                int rand = Random.Range(0, decorThreshold + tile.decorPrefabs.Count + 1);
+
+                                if (rand > decorThreshold)
+                                {
+                                    tile.SpawnDecor(rand - decorThreshold - 1, new Vector2Int(xj, yj));
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log("Unsuitable");
+                    }
                 }
             }
         }

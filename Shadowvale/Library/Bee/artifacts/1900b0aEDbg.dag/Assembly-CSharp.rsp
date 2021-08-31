@@ -377,6 +377,7 @@
 "Assets/Scripts/Controllers/Spawner.cs"
 "Assets/Scripts/Corpse.cs"
 "Assets/Scripts/Creatures/Creature.cs"
+"Assets/Scripts/Decoration.cs"
 "Assets/Scripts/Detector.cs"
 "Assets/Scripts/Enemies/CorpseCollider.cs"
 "Assets/Scripts/Enemies/Enemy.cs"

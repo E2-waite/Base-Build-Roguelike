@@ -132,4 +132,9 @@ MonoBehaviour:
   corruptedColour: {r: 0.44475523, g: 0.25943398, b: 1, a: 1}
   rend: {fileID: 0}
   corruptionVal: 0
+  corruptionMulti: 0
   isProtected: 0
+  decorPrefabs:
+  - {fileID: 2635289054037770159, guid: 1be3c9a438c07b6448678c63263be46d, type: 3}
+  - {fileID: 2635289054037770159, guid: f73bf5b394179c046a01a3ae31c1534b, type: 3}
+  - {fileID: 2635289054037770159, guid: 4e4fdc09106c32941ab6b1ac2167cbaa, type: 3}

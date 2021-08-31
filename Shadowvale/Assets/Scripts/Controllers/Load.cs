@@ -30,33 +30,28 @@ public class Load : MonoBehaviour
         {
             TileData tileData = gameData.tiles[i];
             Vector2 pos = new Vector2(tileData.x, tileData.y);
-            GameObject tile = null;
+            GameObject tileObj = null;
             Tile.Type type = (Tile.Type)tileData.type;
             if (type == Tile.Type.water)
             {
-                tile = Instantiate(GridBuilder.Instance.waterTile, pos, Quaternion.identity);
+                tileObj = Instantiate(GridBuilder.Instance.waterTile, pos, Quaternion.identity);
             }
             else if (type == Tile.Type.sand)
             {
-                tile = Instantiate(GridBuilder.Instance.sandTile, pos, Quaternion.identity);
+                tileObj = Instantiate(GridBuilder.Instance.sandTile, pos, Quaternion.identity);
             }
             else if (type == Tile.Type.grass)
             {
-                tile = Instantiate(GridBuilder.Instance.grassTile, pos, Quaternion.identity);
+                tileObj = Instantiate(GridBuilder.Instance.grassTile, pos, Quaternion.identity);
             }
             else if (type == Tile.Type.darkGrass)
             {
-                tile = Instantiate(GridBuilder.Instance.dGrassTile, pos, Quaternion.identity);
+                tileObj = Instantiate(GridBuilder.Instance.dGrassTile, pos, Quaternion.identity);
             }
 
-            if (tile != null)
+            if (tileObj != null)
             {
-                Grid.tiles[tileData.x, tileData.y] = tile.GetComponent<Tile>();
-                Grid.tiles[tileData.x, tileData.y].Setup(tileData.corruption, tileData.multi, new Vector2Int(tileData.x, tileData.y));
-                if (tileData.corruption >= 100)
-                {
-                    Spawner.Instance.corruptedTiles.Add(Grid.tiles[tileData.x, tileData.y]);
-                }
+                tileObj.GetComponent<Tile>().Load(tileData);
             }
         }
 
