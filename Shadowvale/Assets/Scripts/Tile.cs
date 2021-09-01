@@ -18,9 +18,11 @@ public class Tile : MonoBehaviour
     public Color corruptedColour;
     private Color highlightColour = Color.red, baseColour, currentColour;
     public SpriteRenderer rend;
-
+    public SpriteRenderer coverRend;
     public float corruptionVal = 0;
     public int corruptionMulti = 0;
+    public bool transitionTile = false, covered = false;
+    public Sprite[] straightSprites = new Sprite[4], innerSprites = new Sprite[4], outerSprites = new Sprite[4];
     float corruptionSpeed = .25f, purifySpeed = 50;
     private bool selected;
 
@@ -29,17 +31,20 @@ public class Tile : MonoBehaviour
 
     public Decoration[,] decor = new Decoration[2, 2];
     public List<GameObject> decorPrefabs = new List<GameObject>();
+    public Vector2Int pos;
     // Generate setup
-    public virtual void Setup()
+    public virtual void Setup(int x, int y)
     {
         rend = GetComponent<SpriteRenderer>();
         baseColour = rend.color;
         currentColour = baseColour;
+        pos = new Vector2Int(x, y);
     }
 
     // Load setup
-    public virtual void Setup(float corruption, int multi, Vector2Int pos)
+    public virtual void Setup(float corruption, int multi, Vector2Int _pos)
     {
+        pos = _pos;
         rend = GetComponent<SpriteRenderer>();
         corruptionVal = corruption;
         baseColour = rend.color;
@@ -83,6 +88,35 @@ public class Tile : MonoBehaviour
 
     public void UpdateSprite(int x, int y)
     {
+        if (transitionTile)
+        {
+            Tile tile = Grid.tiles[x, y];
+            if (tile != null)
+            {
+                Vector2Int[] neighbours = Params.Get8Neighbours(new Vector2Int(x, y));
+                for (int i = 0; i < neighbours.Length; i++)
+                {
+                    if (Grid.InGrid(neighbours[i]))
+                    {
+                        Tile neighbourTile = Grid.tiles[neighbours[i].x, neighbours[i].y];
+                        if (neighbourTile != null && neighbourTile.type < tile.type && !neighbourTile.covered)
+                        {
+                            Vector2Int[] adjecent = Params.Get4Neighbours(neighbours[i]);
+                            bool[] dirs = new bool[4];
+                            for (int j = 0; j < 4; j++)
+                            {
+                                Tile adjecentTile = Grid.tiles[adjecent[j].x, adjecent[j].y];
+                                if (adjecentTile != null && adjecentTile.type == neighbourTile.type)
+                                {
+                                    dirs[j] = true;
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
         bool higherTile = false;
         if (y > 0 && Grid.tiles[x, y - 1] != null && Grid.tiles[x, y - 1].type < type)
         {
@@ -276,7 +310,6 @@ public class Tile : MonoBehaviour
 
     public void SpawnDecor(int num, Vector2Int pos)
     {
-        Debug.Log(type + " " + num);
         GameObject decorObj = Instantiate(decorPrefabs[num], new Vector3((pos.x == 0) ? transform.position.x : transform.position.x + 0.5f, (pos.y == 0) ? transform.position.y : transform.position.y + 0.5f, 0), Quaternion.identity);
         decor[pos.x, pos.y] = decorObj.GetComponent<Decoration>();
         decor[pos.x, pos.y].num = num;

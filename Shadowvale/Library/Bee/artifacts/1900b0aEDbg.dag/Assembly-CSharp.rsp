@@ -429,6 +429,7 @@
 "Assets/Scripts/UI/Inspector/TrainerInspector.cs"
 "Assets/Scripts/UI/InspectorObject.cs"
 "Assets/Scripts/UI/MainMenu/MainMenu.cs"
+"Assets/TileCover.cs"
 -langversion:8.0
 
 /deterministic

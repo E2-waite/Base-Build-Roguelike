@@ -44,7 +44,7 @@ public class GridBuilder : MonoSingleton<GridBuilder>
                     if (tile != null)
                     {
                         Grid.tiles[x, y] = tile.GetComponent<Tile>();
-                        Grid.tiles[x, y].Setup();
+                        Grid.tiles[x, y].Setup(x, y);
                     }
                 }
             }
@@ -67,7 +67,8 @@ public class GridBuilder : MonoSingleton<GridBuilder>
             {
                 if (Grid.tiles[x, y] != null)
                 {
-                    Grid.tiles[x, y].UpdateSprite(x, y);
+                    //Grid.tiles[x, y].UpdateSprite(x, y);
+                    Grid.tiles[x, y].GetComponent<TileCover>().CoverTile(Grid.tiles[x, y]);
                 }
             }
         }

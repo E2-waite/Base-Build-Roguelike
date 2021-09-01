@@ -4248,7 +4248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyOnLoad: 1
-  loadGame: 1
+  loadGame: 0
   dayCycle: 0
   gameState: 0
   gameCam: {fileID: 519420031}

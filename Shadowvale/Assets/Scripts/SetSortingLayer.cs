@@ -17,7 +17,7 @@ public class SetSortingLayer : MonoBehaviour
         }
         if (overRend != null)
         {
-            underRend.sortingOrder = rend.sortingOrder + 1;
+            overRend.sortingOrder = rend.sortingOrder + 1;
         }
     }
 
@@ -33,7 +33,7 @@ public class SetSortingLayer : MonoBehaviour
             }
             if (overRend != null)
             {
-                underRend.sortingOrder = rend.sortingOrder + 1;
+                overRend.sortingOrder = rend.sortingOrder + 1;
             }
         }
     }
