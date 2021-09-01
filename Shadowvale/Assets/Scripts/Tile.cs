@@ -18,12 +18,9 @@ public class Tile : MonoBehaviour
     public Color corruptedColour;
     private Color highlightColour = Color.red, baseColour, currentColour;
     public SpriteRenderer rend;
-    public SpriteRenderer coverRend;
     public float corruptionVal = 0;
     public int corruptionMulti = 0;
-    public bool transitionTile = false, covered = false;
-    public Sprite[] straightSprites = new Sprite[4], innerSprites = new Sprite[4], outerSprites = new Sprite[4];
-    float corruptionSpeed = .25f, purifySpeed = 50;
+    float corruptionSpeed = 50f, purifySpeed = 50;
     private bool selected;
 
     private List<PurifyPillar> pillars = new List<PurifyPillar>();
@@ -32,6 +29,7 @@ public class Tile : MonoBehaviour
     public Decoration[,] decor = new Decoration[2, 2];
     public List<GameObject> decorPrefabs = new List<GameObject>();
     public Vector2Int pos;
+    public TileCover cover;
     // Generate setup
     public virtual void Setup(int x, int y)
     {
@@ -86,63 +84,6 @@ public class Tile : MonoBehaviour
         return new Vector2Int((int)transform.position.x, (int)transform.position.y);
     }
 
-    public void UpdateSprite(int x, int y)
-    {
-        if (transitionTile)
-        {
-            Tile tile = Grid.tiles[x, y];
-            if (tile != null)
-            {
-                Vector2Int[] neighbours = Params.Get8Neighbours(new Vector2Int(x, y));
-                for (int i = 0; i < neighbours.Length; i++)
-                {
-                    if (Grid.InGrid(neighbours[i]))
-                    {
-                        Tile neighbourTile = Grid.tiles[neighbours[i].x, neighbours[i].y];
-                        if (neighbourTile != null && neighbourTile.type < tile.type && !neighbourTile.covered)
-                        {
-                            Vector2Int[] adjecent = Params.Get4Neighbours(neighbours[i]);
-                            bool[] dirs = new bool[4];
-                            for (int j = 0; j < 4; j++)
-                            {
-                                Tile adjecentTile = Grid.tiles[adjecent[j].x, adjecent[j].y];
-                                if (adjecentTile != null && adjecentTile.type == neighbourTile.type)
-                                {
-                                    dirs[j] = true;
-                                }
-                            }
-
-                        }
-                    }
-                }
-            }
-        }
-        bool higherTile = false;
-        if (y > 0 && Grid.tiles[x, y - 1] != null && Grid.tiles[x, y - 1].type < type)
-        {
-            higherTile = true;
-        }
-
-        bool lowerTile = false;
-        if (y < Grid.tiles.GetLength(1) - 1 && Grid.tiles[x, y + 1] != null && Grid.tiles[x, y + 1].type > type)
-        {
-            lowerTile = true;
-        }
-
-        if (higherTile && lowerTile)
-        {
-            rend.sprite = sprites[2];
-        }
-        else if (higherTile && !lowerTile)
-        {
-            rend.sprite = sprites[0];
-        }
-        else if (!higherTile && lowerTile)
-        {
-            rend.sprite = sprites[1];
-        }
-    }
-
     public bool Corrupt(Vector2Int pos)
     {
         if (corruptionVal < 100)
@@ -157,7 +98,7 @@ public class Tile : MonoBehaviour
     {
         corruptionMulti++;
         Resource resource = null;
-        if (structure != null && structure is Resource && (structure as Resource).type == Resource.Type.wood)
+        if (structure != null && structure is Resource)
         {
             resource = structure.GetComponent<Resource>();
         }
@@ -174,11 +115,18 @@ public class Tile : MonoBehaviour
                 {
                     resource.ChangeColour(amount);
                 }
+                if (cover.covered)
+                {
+                    cover.ChangeColour(amount);
+                }
             }
             yield return null;
         }
         CorruptNeighbours(pos);
-        Spawner.Instance.AddCorruptedTile(this);
+        if (type != Type.water)
+        {
+            Spawner.Instance.AddCorruptedTile(this);
+        }
         StopAllCoroutines();
         corruptionMulti = 0;
     }
@@ -191,7 +139,7 @@ public class Tile : MonoBehaviour
             if (Grid.InGrid(neighbours[i]))
             {
                 Tile neighbour = Grid.GetTile(neighbours[i]);
-                if (neighbour != null && neighbour.type != Type.water && !neighbour.isProtected)
+                if (neighbour != null && !neighbour.isProtected)
                 {
                     neighbour.Corrupt(neighbours[i]);
                 }
@@ -210,7 +158,7 @@ public class Tile : MonoBehaviour
     IEnumerator PurifyRoutine()
     {
         Resource resource = null;
-        if (structure != null && structure is Resource && (structure as Resource).type == Resource.Type.wood)
+        if (structure != null && structure is Resource)
         {
             resource = structure.GetComponent<Resource>();
         }
@@ -228,10 +176,10 @@ public class Tile : MonoBehaviour
             {
                 resource.ChangeColour(amount);
             }
-            //if (structure != null)
-            //{
-            //    structure.Corrupt(corruptedColour, amount);
-            //}
+            if (cover.covered)
+            {
+                cover.ChangeColour(amount);
+            }
             yield return null;
         }
         Spawner.Instance.RemoveCorruptedTile(this);
@@ -282,7 +230,7 @@ public class Tile : MonoBehaviour
     {
         Grid.tiles[data.x, data.y] = this;
         Setup(data.corruption, data.multi, new Vector2Int(data.x, data.y));
-        if (data.corruption >= 100)
+        if (data.corruption >= 100 && type != Type.water)
         {
             Spawner.Instance.corruptedTiles.Add(Grid.tiles[data.x, data.y]);
         }

@@ -4,10 +4,21 @@ using UnityEngine;
 
 public class TileCover : MonoBehaviour
 {
-    public bool cover = true;
-    public SpriteRenderer coverRend;
+    public bool cover = true, covered = false;
+    public SpriteRenderer rend;
     public Sprite[] straightSprites = new Sprite[4], innerSprites = new Sprite[4], outerSprites = new Sprite[4];
     public Sprite filledSprite;
+    Color startColour;
+    public Color corruptColour;
+
+    private void Start()
+    {
+        startColour = rend.color;
+    }
+    public void ChangeColour(float val)
+    {
+        rend.color = Color.Lerp(startColour, corruptColour, val);
+    }
     public bool CoverTile(Tile tile)
     {
         if (cover)
@@ -37,63 +48,64 @@ public class TileCover : MonoBehaviour
 
             if (dirs[0] && !dirs[2] && !dirs[4] && !dirs[6])
             {
-                coverRend.sprite = straightSprites[0];
+                rend.sprite = straightSprites[0];
             }
             else if (!dirs[0] && !dirs[2] && !dirs[4] && dirs[6])
             {
-                coverRend.sprite = straightSprites[1];
+                rend.sprite = straightSprites[1];
             }
             else if (!dirs[0] && !dirs[2] && dirs[4] && !dirs[6])
             {
-                coverRend.sprite = straightSprites[2];
+                rend.sprite = straightSprites[2];
             }
             else if (!dirs[0] && dirs[2] && !dirs[4] && !dirs[6])
             {
-                coverRend.sprite = straightSprites[3];
+                rend.sprite = straightSprites[3];
             }
             else
             {
                 if (dirs[0] && dirs[6] && dirs[7] && !dirs[2] && !dirs[4])
                 {
-                    coverRend.sprite = innerSprites[0];
+                    rend.sprite = innerSprites[0];
                 }
                 else if (dirs[0] && dirs[1] && dirs[2] && !dirs[4] && !dirs[6])
                 {
-                    coverRend.sprite = innerSprites[1];
+                    rend.sprite = innerSprites[1];
                 }
                 else if (dirs[2] && dirs[3] && dirs[4] && !dirs[0] && !dirs[6])
                 {
-                    coverRend.sprite = innerSprites[2];
+                    rend.sprite = innerSprites[2];
                 }
                 else if (dirs[4] && dirs[5] && dirs[6] && !dirs[0] && !dirs[2])
                 {
-                    coverRend.sprite = innerSprites[3];
+                    rend.sprite = innerSprites[3];
                 }
                 else
                 {
                     if (dirs[7] && !dirs[0] && !dirs[2] && !dirs[4] && !dirs[6])
                     {
-                        coverRend.sprite = outerSprites[0];
+                        rend.sprite = outerSprites[0];
                     }
                     else if (dirs[1] && !dirs[0] && !dirs[2] && !dirs[4] && !dirs[6])
                     {
-                        coverRend.sprite = outerSprites[1];
+                        rend.sprite = outerSprites[1];
                     }
                     else if (dirs[3] && !dirs[0] && !dirs[2] && !dirs[4] && !dirs[6])
                     {
-                        coverRend.sprite = outerSprites[2];
+                        rend.sprite = outerSprites[2];
                     }
                     else if (dirs[5] && !dirs[0] && !dirs[2] && !dirs[4] && !dirs[6])
                     {
-                        coverRend.sprite = outerSprites[3];
+                        rend.sprite = outerSprites[3];
                     }
                     else
                     {
-                        coverRend.sprite = filledSprite;
+                        rend.sprite = filledSprite;
                         Debug.Log("FILLLED");
                     }
                 }
             }
+            covered = true;
             return true;
         }
         return false;

@@ -133,26 +133,8 @@ MonoBehaviour:
   - {fileID: -4684333735789482159, guid: a5e72c97990554748a9cbcefffaf7a84, type: 3}
   corruptedColour: {r: 0.26535952, g: 0.010679938, b: 0.754717, a: 1}
   rend: {fileID: 0}
-  coverRend: {fileID: 5219360542771378564}
   corruptionVal: 0
   corruptionMulti: 0
-  transitionTile: 0
-  covered: 0
-  straightSprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  innerSprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  outerSprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   isProtected: 0
   decorPrefabs:
   - {fileID: 2635289054037770159, guid: 1be3c9a438c07b6448678c63263be46d, type: 3}
@@ -161,6 +143,7 @@ MonoBehaviour:
   - {fileID: 2635289054037770159, guid: 0364e4d37c7cb094394bff3094b66e87, type: 3}
   - {fileID: 8410107580820353413, guid: d8e89985002ff1c4793c8d2234489b89, type: 3}
   pos: {x: 0, y: 0}
+  cover: {fileID: 167388984763316650}
 --- !u!114 &167388984763316650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,7 +157,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cover: 1
-  coverRend: {fileID: 5219360542771378564}
+  covered: 0
+  rend: {fileID: 5219360542771378564}
   straightSprites:
   - {fileID: -5193762368789738899, guid: 77bebd83775ddef4eb1809b5cdbc30fc, type: 3}
   - {fileID: -4928105418464106813, guid: 77bebd83775ddef4eb1809b5cdbc30fc, type: 3}
@@ -191,6 +175,7 @@ MonoBehaviour:
   - {fileID: 643745229654680249, guid: 77bebd83775ddef4eb1809b5cdbc30fc, type: 3}
   - {fileID: 4526923210200102535, guid: 77bebd83775ddef4eb1809b5cdbc30fc, type: 3}
   filledSprite: {fileID: 21300000, guid: 096f970507e29b14b902c377e41f25b1, type: 3}
+  corruptColour: {r: 0.22352941, g: 0.02745098, b: 0.6039216, a: 1}
 --- !u!1 &4488741244382041048
 GameObject:
   m_ObjectHideFlags: 0

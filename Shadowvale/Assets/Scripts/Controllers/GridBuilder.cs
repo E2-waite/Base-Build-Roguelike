@@ -19,33 +19,31 @@ public class GridBuilder : MonoSingleton<GridBuilder>
             for (int x = 0; x < Grid.size; x++)
             {
                 Vector2 pos = new Vector2(x, y);
-                
-                if (Vector2.Distance(pos, centre) <= Grid.size / 2)
-                {
-                    GameObject tile;
-                    float noise = Mathf.PerlinNoise((noiseStart.x + x) / (Grid.noise / 10), (noiseStart.y + y) / (Grid.noise / 10));
-                    if (noise < .25)
-                    {
-                        tile = Instantiate(waterTile, pos, Quaternion.identity);
-                    }
-                    else if (noise >= .25 && noise < .35)
-                    {
-                        tile = Instantiate(sandTile, pos, Quaternion.identity);
-                    }
-                    else if (noise >= .35 && noise < .75)
-                    {
-                        tile = Instantiate(grassTile, pos, Quaternion.identity);
-                    }
-                    else
-                    {
-                        tile = Instantiate(dGrassTile, pos, Quaternion.identity);
-                    }
+                float dist = Vector2.Distance(pos, centre);
+                GameObject tile;
 
-                    if (tile != null)
-                    {
-                        Grid.tiles[x, y] = tile.GetComponent<Tile>();
-                        Grid.tiles[x, y].Setup(x, y);
-                    }
+                float noise = Mathf.PerlinNoise((noiseStart.x + x) / (Grid.noise / 10), (noiseStart.y + y) / (Grid.noise / 10));
+                if (dist >= (Grid.size / 2) - 25 || noise < .25)
+                {
+                    tile = Instantiate(waterTile, pos, Quaternion.identity);
+                }
+                else if (dist >= (Grid.size / 2) - 27 || (noise >= .25 && noise < .35))
+                {
+                    tile = Instantiate(sandTile, pos, Quaternion.identity);
+                }
+                else if (dist >= (Grid.size / 2) - 29 || (noise >= .35 && noise < .75))
+                {
+                    tile = Instantiate(grassTile, pos, Quaternion.identity);
+                }
+                else
+                {
+                    tile = Instantiate(dGrassTile, pos, Quaternion.identity);
+                }
+
+                if (tile != null)
+                {
+                    Grid.tiles[x, y] = tile.GetComponent<Tile>();
+                    Grid.tiles[x, y].Setup(x, y);
                 }
             }
         }
@@ -67,7 +65,6 @@ public class GridBuilder : MonoSingleton<GridBuilder>
             {
                 if (Grid.tiles[x, y] != null)
                 {
-                    //Grid.tiles[x, y].UpdateSprite(x, y);
                     Grid.tiles[x, y].GetComponent<TileCover>().CoverTile(Grid.tiles[x, y]);
                 }
             }
@@ -136,10 +133,6 @@ public class GridBuilder : MonoSingleton<GridBuilder>
                                 }
                             }
                         }
-                    }
-                    else
-                    {
-                        Debug.Log("Unsuitable");
                     }
                 }
             }

@@ -61,7 +61,7 @@ public class Load : MonoBehaviour
             {
                 if (Grid.tiles[x, y] != null)
                 {
-                    Grid.tiles[x, y].UpdateSprite(x, y);
+                    Grid.tiles[x, y].GetComponent<TileCover>().CoverTile(Grid.tiles[x, y]);
                 }
             }
         }

@@ -108,6 +108,8 @@ MonoBehaviour:
   type: 1
   size: 1
   val: 40
+  destroyedPrefab: {fileID: 0}
+  corruptColour: {r: 0.28627452, g: 0.28627452, b: 0.28627452, a: 1}
 --- !u!114 &-7974000638023140297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   update: 0
+  underRend: {fileID: 0}
+  overRend: {fileID: 0}
 --- !u!61 &8087232528035166754
 BoxCollider2D:
   m_ObjectHideFlags: 0

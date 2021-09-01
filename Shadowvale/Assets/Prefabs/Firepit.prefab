@@ -149,11 +149,10 @@ MonoBehaviour:
   staticObject: 1
   statusEffects: []
   glow: {fileID: 0}
-  type: -1
   isConstructed: 1
   selected: 0
   repair: 0
-  maxRepair: 25
+  maxRepair: 10000
   construct: {fileID: 0}
   tiles: []
   buildingData:
@@ -180,6 +179,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   update: 0
+  underRend: {fileID: 0}
+  overRend: {fileID: 0}
 --- !u!114 &2149615031487632412
 MonoBehaviour:
   m_ObjectHideFlags: 0
