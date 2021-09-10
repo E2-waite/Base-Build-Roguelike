@@ -11,7 +11,7 @@ public class TileCover : MonoBehaviour
     Color startColour;
     public Color corruptColour;
 
-    private void Start()
+    public void Setup()
     {
         startColour = rend.color;
     }

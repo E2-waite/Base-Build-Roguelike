@@ -2,71 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Soldier : Follower
+public class Soldier : Combat
+
 {
     [Header("Soldier Settings")]
     public float hitSpeed = 1;
-    enum State
+
+    public override void Direct(Vector2 pos, Interaction obj)
     {
-        idle = 0,
-        move = 1,
-        attack = 2,
-        defend = 3
+        base.Direct(pos, obj);
+
     }
 
-    private void Update()
+    public override void Update()
     {
-        Swarm();
-        TickEffects();
-        if (currentAction.state == (int)State.move)
-        {
-            if (path.Count == 0)
-            {
-                Idle();
-            }
-            else
-            {
-                Move();
-            }
-        }
-        else
-        {
-            if (currentAction.target.interact == null)
-            {
-                if (currentAction.state == (int)State.attack)
-                {
-                    if (!GetDetectedTarget())
-                    {
-                        MoveTo(marker.transform.position);
-                    }
-                }
-                else
-                {
-                    Idle();
-                }
-            }
-            else
-            {
-                float dist = Vector2.Distance(transform.position, currentAction.target.Position());
-                if (dist <= targetDist)
-                {
-                    if (currentAction.state == (int)State.attack && interactRoutine == null)
-                    {
-                        interactRoutine = StartCoroutine(AttackRoutine());
-                    }
-                }
-                else if (dist <= chaseDist)
-                {
-                    Move(currentAction.target.Position());
-                }
-                else
-                {
-                    Move();
-                }
-            }
-        }
+        base.Update();
     }
 
+    public override bool Attack()
+    {
+        float dist = Vector2.Distance(transform.position, currentAction.target.Position());
+        if (dist <= targetDist)
+        {
+            if (interactRoutine == null)
+            {
+                interactRoutine = StartCoroutine(AttackRoutine());
+            }
+            return true;
+        }
+        else if (dist <= chaseDist)
+        {
+            Move(currentAction.target.Position());
+            return true;
+        }
+        return false;
+    }
     IEnumerator AttackRoutine()
     {
         yield return new WaitForSeconds(1 / hitSpeed);

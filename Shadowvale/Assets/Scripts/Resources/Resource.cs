@@ -23,7 +23,7 @@ public class Resource : Interaction
     public Size size = Size.small;
     public int val = 10;
     protected Animator anim;
-    protected SpriteRenderer rend;
+    public SpriteRenderer rend;
     AudioSource audio;
     public GameObject destroyedPrefab;
     Color startColour;
@@ -31,7 +31,6 @@ public class Resource : Interaction
     private void Start()
     {
         anim = GetComponent<Animator>();
-        rend = GetComponent<SpriteRenderer>();
         audio = GetComponent<AudioSource>();
         startColour = rend.color;
     }
@@ -100,8 +99,12 @@ public class Resource : Interaction
 
     public void Load(ResourceData data)
     {
-        Grid.tiles[data.pos.x, data.pos.y].structure = this;
-
+        Tile tile = Grid.tiles[data.pos.x, data.pos.y];
+        tile.structure = this;
+        if (tile.corruptionVal > 0)
+        {
+            ChangeColour(tile.corruptionVal / 100);
+        }
         if (type == Resource.Type.wood)
         {
             Resources.trees.Add(Grid.tiles[data.pos.x, data.pos.y].structure);

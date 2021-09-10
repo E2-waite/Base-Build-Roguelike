@@ -49,6 +49,11 @@ public abstract class Follower : Interaction
     }
 
     
+    public virtual void Update()
+    {
+        TickEffects();
+        Swarm();
+    }
 
     public virtual void Setup()
     {
@@ -182,7 +187,6 @@ public abstract class Follower : Interaction
 
     public virtual void Direct(Vector2 pos, Interaction obj)
     {
-        // Standard combat based direct (overridden by followers with unique functionality i.e. priests and workers)
         if (interactRoutine != null)
         {
             StopCoroutine(interactRoutine);
@@ -192,8 +196,6 @@ public abstract class Follower : Interaction
         // Clear the action list, before assigning a new action 
         actions = new List<Action>();
         actions.Add(new Action(new Target(), (int)DefaultState.idle));
-        int state = 0;
-        Target target = new Target();
 
         marker.transform.position = pos;
         if (Pathfinding.FindPath(ref path, currentPos, new Vector2Int(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y))))
@@ -204,37 +206,13 @@ public abstract class Follower : Interaction
         {
             Debug.Log("No Path Found");
         }
-
-        if (obj != null)
-        {
-            target = new Target(obj);
-
-            marker.transform.position = obj.transform.position;
-
-
-            if (target.interact is Enemy)
-            {
-                state = (int)DefaultState.attack;
-            }
-            else if (target.interact is Follower)
-            {
-                Follower follower = target.interact as Follower;
-                if (follower is Soldier || follower is Archer || follower is Priest)
-                {
-                    JoinSquad(follower);
-                }
-            }
-        }
-        else
-        {
-            target = new Target();
-            state = (int)DefaultState.move; 
-        }
-
-        // Adds the action to the list of actions and sets as current target
-        actions.Add(new Action(target, state));
-        currentAction = actions[actions.Count - 1];
     }
+
+    public virtual Action NewAction(Target target)
+    {
+        return new Action();
+    }
+
 
     public virtual void BuildingDirect(Building building)
     {

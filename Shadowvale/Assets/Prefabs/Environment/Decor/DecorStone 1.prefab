@@ -113,3 +113,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   num: 0
+  corruptColour: {r: 0.28627452, g: 0.28627452, b: 0.28627452, a: 1}
+  rend: {fileID: 7906024176220612961}

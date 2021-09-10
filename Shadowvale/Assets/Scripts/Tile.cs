@@ -20,7 +20,7 @@ public class Tile : MonoBehaviour
     public SpriteRenderer rend;
     public float corruptionVal = 0;
     public int corruptionMulti = 0;
-    float corruptionSpeed = 50f, purifySpeed = 50;
+    float corruptionSpeed = 0.25f, purifySpeed = 50;
     private bool selected;
 
     private List<PurifyPillar> pillars = new List<PurifyPillar>();
@@ -37,17 +37,33 @@ public class Tile : MonoBehaviour
         baseColour = rend.color;
         currentColour = baseColour;
         pos = new Vector2Int(x, y);
+        cover.Setup();
     }
 
     // Load setup
     public virtual void Setup(float corruption, int multi, Vector2Int _pos)
     {
         pos = _pos;
-        rend = GetComponent<SpriteRenderer>();
         corruptionVal = corruption;
         baseColour = rend.color;
-        currentColour = Color.Lerp(baseColour, corruptedColour, corruptionVal / 100);
+
+        float amount = corruptionVal / 100;
+        currentColour = Color.Lerp(baseColour, corruptedColour, amount);
         rend.color = currentColour;
+        cover.Setup();
+        cover.ChangeColour(amount);
+
+        for (int y = 0; y < 2; y++)
+        {
+            for (int x = 0; x < 2; x++)
+            {
+                if (decor[x, y] != null)
+                {
+                    decor[x, y].ChangeColour(amount);
+                }
+            }
+        }
+
         for (int i = 0; i < multi; i++)
         {
             StartCoroutine(CorruptRoutine(pos));
@@ -119,6 +135,16 @@ public class Tile : MonoBehaviour
                 {
                     cover.ChangeColour(amount);
                 }
+                for (int y = 0; y < 2; y++)
+                {
+                    for (int x = 0; x < 2; x++)
+                    {
+                        if (decor[x,y] != null)
+                        {
+                            decor[x, y].ChangeColour(amount);
+                        }
+                    }
+                }
             }
             yield return null;
         }
@@ -180,6 +206,16 @@ public class Tile : MonoBehaviour
             {
                 cover.ChangeColour(amount);
             }
+            for (int y = 0; y < 2; y++)
+            {
+                for (int x = 0; x < 2; x++)
+                {
+                    if (decor[x, y] != null)
+                    {
+                        decor[x, y].ChangeColour(amount);
+                    }
+                }
+            }
             yield return null;
         }
         Spawner.Instance.RemoveCorruptedTile(this);
@@ -228,8 +264,9 @@ public class Tile : MonoBehaviour
 
     public void Load(TileData data)
     {
+        rend = GetComponent<SpriteRenderer>();
         Grid.tiles[data.x, data.y] = this;
-        Setup(data.corruption, data.multi, new Vector2Int(data.x, data.y));
+
         if (data.corruption >= 100 && type != Type.water)
         {
             Spawner.Instance.corruptedTiles.Add(Grid.tiles[data.x, data.y]);
@@ -254,6 +291,8 @@ public class Tile : MonoBehaviour
                 SpawnDecor(data.decor4, new Vector2Int(1, 1));
             }
         }
+
+        Setup(data.corruption, data.multi, new Vector2Int(data.x, data.y));
     }
 
     public void SpawnDecor(int num, Vector2Int pos)

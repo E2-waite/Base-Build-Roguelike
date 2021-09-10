@@ -7,10 +7,9 @@ public class Decoration : MonoBehaviour
     public int num; 
     public Color corruptColour;
     Color startColour;
-    SpriteRenderer rend;
+    public SpriteRenderer rend;
     private void Start()
     {
-        rend = GetComponent<SpriteRenderer>();
         startColour = rend.color;
     }
 

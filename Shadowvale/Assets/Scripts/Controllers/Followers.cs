@@ -7,6 +7,7 @@ public  static class Followers
     public static List<Follower> followers = new List<Follower>();
     public static List<FollowerSquad> squads = new List<FollowerSquad>();
     public static List<Corpse> corpses = new List<Corpse>();
+    public static Hero hero;
     public static Follower selected;
     public static FollowerSquad selectedSquad = null;
     public static int maxFollowers = 1;

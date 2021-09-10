@@ -2,46 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Priest : Follower
+public class Priest : Support
 {
-    enum State
-    {
-        idle = 0,
-        move = 1,
-        heal = 2,
-    }
     public int healAmount = 5;
     public float healRange = 5;
     public bool canHeal = true, healing = false;
     Cooldown healCooldown = new Cooldown(5);
     Coroutine healthCheck = null;
     Follower healTarget = null;
-    void Update()
+    public override void Update()
     {
-        TickEffects();
         if (healCooldown.Tick() && healthCheck == null)
         {
             // If cooled down and not currently checking health
             healthCheck = StartCoroutine(HealthCheck());
         }
 
-        //if (state == (int)State.move)
-        //{
-        //    if (transform.position == marker.transform.position)
-        //    {
-        //        state = (int)State.idle;
-        //    }
-        //    else
-        //    {
-        //        Move();
-        //    }
-        //}
-
-        if (currentAction.state != (int)State.heal)
-        {
-            Swarm();
-            Move();
-        }
+        base.Update();
     }
 
     public override void Setup()
@@ -84,7 +61,7 @@ public class Priest : Follower
                 }
             }
         }
-        currentAction = new Action(new Target(healTarget), (int)State.heal);
+        currentAction = new Action(new Target(healTarget), (int)SupportState.heal);
         anim.SetBool("Heal", true);
         healCooldown.Reset();
     }
@@ -93,7 +70,7 @@ public class Priest : Follower
     void Heal()
     {
         anim.SetBool("Heal", false);
-        currentAction = new Action(new Target(), (int)State.move);
+        currentAction = new Action(new Target(), (int)SupportState.move);
         healthCheck = null;
         if (healTarget != null)
         {

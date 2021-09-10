@@ -19,10 +19,10 @@ public class GridBuilder : MonoSingleton<GridBuilder>
             for (int x = 0; x < Grid.size; x++)
             {
                 Vector2 pos = new Vector2(x, y);
-                float dist = Vector2.Distance(pos, centre);
                 GameObject tile;
 
                 float noise = Mathf.PerlinNoise((noiseStart.x + x) / (Grid.noise / 10), (noiseStart.y + y) / (Grid.noise / 10));
+                float dist = Vector2.Distance(pos, centre);
                 if (dist >= (Grid.size / 2) - 25 || noise < .25)
                 {
                     tile = Instantiate(waterTile, pos, Quaternion.identity);
@@ -31,7 +31,7 @@ public class GridBuilder : MonoSingleton<GridBuilder>
                 {
                     tile = Instantiate(sandTile, pos, Quaternion.identity);
                 }
-                else if (dist >= (Grid.size / 2) - 29 || (noise >= .35 && noise < .75))
+                else if (dist >= (Grid.size / 2) - 29 || (noise >= .35 && noise < .6))
                 {
                     tile = Instantiate(grassTile, pos, Quaternion.identity);
                 }
@@ -139,19 +139,6 @@ public class GridBuilder : MonoSingleton<GridBuilder>
         }
 
         Spawner.Instance.SpawnCreatures();
-
-        //bool corrupted = false;
-        //while (!corrupted)
-        //{
-        //    Vector2Int corruptPos = new Vector2Int(Random.Range(0, mapSize), Random.Range(0, mapSize));
-        //    float dist = Vector2Int.Distance(corruptPos, Grid.startPos);
-        //    if (Grid.tiles[corruptPos.x, corruptPos.y] != null && Grid.tiles[corruptPos.x, corruptPos.y].type != Tile.Type.water && dist > Grid.size / 4)
-        //    {
-        //        Debug.Log(corruptPos.ToString() + " Started Corruption");
-        //        Grid.tiles[corruptPos.x, corruptPos.y].Corrupt(corruptPos);
-        //        corrupted = true;
-        //    }
-        //}
 
         Pathfinding.UpdateNodeGrid();
     }

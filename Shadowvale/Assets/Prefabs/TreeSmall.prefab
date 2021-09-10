@@ -276,6 +276,7 @@ MonoBehaviour:
   type: 0
   size: 0
   val: 5
+  rend: {fileID: 8087232528035166752}
   destroyedPrefab: {fileID: 1470208806483889978, guid: cc474fac1bf89e2499902bea73fad5f8, type: 3}
   corruptColour: {r: 0.30588236, g: 0, b: 0.54901963, a: 1}
 --- !u!114 &-7974000638023140297

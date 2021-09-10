@@ -25,20 +25,10 @@ public class Worker : Follower
 
     public override void Direct(Vector2 pos, Interaction obj)
     {
-        if (interactRoutine != null)
-        {
-            StopCoroutine(interactRoutine);
-            interactRoutine = null;
-        }
+        base.Direct(pos, obj);
 
-        // Clear the action list, before assigning a new action 
-        actions = new List<Action>();
-        actions.Add(new Action(new Target(), (int)State.idle));
         int state = 0;
         Target target = new Target();
-
-
-        marker.transform.position = pos;
 
         if (obj != null)
         {
@@ -112,9 +102,10 @@ public class Worker : Follower
         currentAction = actions[actions.Count - 1];
     }
 
-    private void Update()
+    public override void Update()
     {
-        TickEffects();
+        base.Update();
+
         if (currentAction.state == (int)State.move)
         {
             if (path.Count == 0)
