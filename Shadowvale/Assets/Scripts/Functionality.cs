@@ -11,6 +11,11 @@ public class Cooldown
         max = time;
         current = max;
     }
+    public Cooldown(float time, float start)
+    {
+        max = time;
+        current = start;
+    }
 
     public bool Tick()
     {

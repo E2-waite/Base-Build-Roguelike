@@ -379,6 +379,8 @@
 "Assets/Scripts/Creatures/Creature.cs"
 "Assets/Scripts/Decoration.cs"
 "Assets/Scripts/Detector.cs"
+"Assets/Scripts/Effects/AOE/AreaOfEffect.cs"
+"Assets/Scripts/Effects/EffectsInterface.cs"
 "Assets/Scripts/Enemies/CorpseCollider.cs"
 "Assets/Scripts/Enemies/Enemy.cs"
 "Assets/Scripts/Enemies/Necromancer.cs"
