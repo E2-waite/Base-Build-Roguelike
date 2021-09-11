@@ -4,20 +4,11 @@ using UnityEngine;
 
 public class Priest : Support
 {
-    public int healAmount = 5;
-    public float healRange = 5;
-    public bool canHeal = true, healing = false;
     Cooldown healCooldown = new Cooldown(5);
-    Coroutine healthCheck = null;
-    Follower healTarget = null;
+
     public override void Update()
     {
-        if (healCooldown.Tick() && healthCheck == null)
-        {
-            // If cooled down and not currently checking health
-            healthCheck = StartCoroutine(HealthCheck());
-        }
-
+        healCooldown.Tick();
         base.Update();
     }
 
@@ -26,56 +17,58 @@ public class Priest : Support
         //StartCoroutine(HealthCheck());
     }
 
-
-    IEnumerator HealthCheck()
+    public override bool FindTarget()
     {
-        bool heal = false;
-        healTarget = null;
-        while (!heal)
+        if (squad != null)
         {
-            yield return new WaitForSeconds(1);
-            if (squad != null)
+            Follower mostDamaged = null;
+            int highestDamage = 0;
+            for (int i = 0; i < squad.members.Count; i++)
             {
-                int highestDamage = 0;
-                foreach (Follower follower in squad.members)
+                Follower member = squad.members[i] as Follower;
+                if (member.maxHealth - member.health > highestDamage)
                 {
-                    int damage = follower.maxHealth - follower.health;
-                    if (damage > highestDamage)
-                    {
-                        highestDamage = damage;
-                        healTarget = follower;
-                    }
+                    mostDamaged = member;
+                    highestDamage = member.maxHealth - member.health;
                 }
+            }
 
-                if (healTarget != null)
-                {
-                    heal = true;
-                }
-            }
-            else
+            if (mostDamaged != null)
             {
-                if (health < maxHealth)
-                {
-                    healTarget = this;
-                    heal = true;
-                }
+                actions.Add(new Action(new Target(mostDamaged), (int)SupportState.support));
+                currentAction = actions[actions.Count - 1];
+                return true;
             }
+            return false;
         }
-        currentAction = new Action(new Target(healTarget), (int)SupportState.heal);
-        anim.SetBool("Heal", true);
-        healCooldown.Reset();
+        else if (health < maxHealth)
+        {
+            actions.Add(new Action(new Target(this), (int)SupportState.support));
+            currentAction = actions[actions.Count - 1];
+            return true;
+        }
+        return false;
+    }
+
+    public override bool SupportFollower()
+    {
+        if (healCooldown.Complete() && currentAction.target != null)
+        {
+            Follower follower = currentAction.target.interact as Follower;
+            follower.AddEffect(new HealEffect(follower, 3, 1, 1));
+            healCooldown.Reset();
+            StartCoroutine(HealRoutine());
+            return true;
+        }
+        return false;
     }
 
 
-    void Heal()
+    IEnumerator HealRoutine()
     {
+        anim.SetBool("Heal", true);
+        yield return new WaitForSeconds(0.01f);
         anim.SetBool("Heal", false);
-        currentAction = new Action(new Target(), (int)SupportState.move);
-        healthCheck = null;
-        if (healTarget != null)
-        {
-            healTarget.AddEffect(new HealEffect(healTarget, 3, 1, 1));
-        }
     }
 
     public override void Save(AIData data)

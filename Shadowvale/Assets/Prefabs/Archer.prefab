@@ -192,7 +192,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8100852275919604701}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.25, z: 0}
+  m_LocalPosition: {x: 0, y: -0.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8840559668895825269}
@@ -239,7 +239,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1001
-  m_Sprite: {fileID: 21300000, guid: b71013a42bc2c24459ff76af1fb3c39b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c9b4140961ac5af4ebebdf17e1305083, type: 3}
   m_Color: {r: 1, g: 0.7534226, b: 0, a: 0.5882353}
   m_FlipX: 0
   m_FlipY: 0
@@ -453,6 +453,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   update: 1
+  underRend: {fileID: 0}
+  overRend: {fileID: 0}
 --- !u!61 &8840559668895825270
 BoxCollider2D:
   m_ObjectHideFlags: 0

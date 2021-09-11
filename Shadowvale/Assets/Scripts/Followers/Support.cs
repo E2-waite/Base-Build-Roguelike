@@ -8,13 +8,16 @@ public class Support : Follower
     {
         idle = 0,
         move = 1,
-        heal = 2,
+        support = 2,
     }
 
+    Cooldown searchCooldown = new Cooldown(1);
+    public float supportRange = 5;
     public override void Update()
     {
         base.Update();
 
+        searchCooldown.Tick();
         //if (state == (int)State.move)
         //{
         //    if (transform.position == marker.transform.position)
@@ -27,10 +30,52 @@ public class Support : Follower
         //    }
         //}
 
-        if (currentAction.state != (int)SupportState.heal)
+        if (currentAction.state == (int)SupportState.idle && searchCooldown.Complete())
         {
-            Move();
+            searchCooldown.Reset();
+            if (FindTarget())
+            {
+                Debug.Log("Found Support Target");
+            }
         }
+
+        if (currentAction.state == (int)SupportState.move)
+        {
+            if (path.Count == 0)
+            {
+                Idle();
+            }
+            else
+            {
+                Move();
+            }
+        }
+        else
+        {
+            if (currentAction.state == (int)SupportState.support)
+            {
+                float dist = Vector2.Distance(transform.position, currentAction.target.Position());
+                if (dist > supportRange)
+                {
+                    Move();
+                }
+                else if (SupportFollower())
+                {
+                    Idle();
+                }
+            }
+        }
+    }
+
+    public virtual bool SupportFollower()
+    {
+        return true;
+    }
+
+    public virtual bool FindTarget()
+    {
+
+        return true;
     }
 
     public override void Direct(Vector2 pos, Interaction obj)
@@ -45,9 +90,9 @@ public class Support : Follower
 
             marker.transform.position = obj.transform.position;
 
-            if (target.interact is Enemy)
+            if (target.interact is Enemy && squad != null)
             {
-                state = (int)SupportState.heal;
+                state = (int)SupportState.support;
                 // Need to target follower
             }
             else if (target.interact is Follower)

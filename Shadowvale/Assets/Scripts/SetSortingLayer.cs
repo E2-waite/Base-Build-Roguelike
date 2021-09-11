@@ -26,11 +26,17 @@ public class SetSortingLayer : MonoBehaviour
     {
         if (update)
         {
-            rend.sortingOrder = (int)-(transform.position.y * 10);
+
             if (underRend != null)
             {
-                underRend.sortingOrder = rend.sortingOrder - 1;
+                underRend.sortingOrder = (int)-(transform.position.y * 10);
+                rend.sortingOrder = underRend.sortingOrder + 1;
             }
+            else
+            {
+                rend.sortingOrder = (int)-(transform.position.y * 10);
+            }
+
             if (overRend != null)
             {
                 overRend.sortingOrder = rend.sortingOrder + 1;
