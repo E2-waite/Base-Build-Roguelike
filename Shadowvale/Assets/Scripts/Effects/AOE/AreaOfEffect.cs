@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEditor;
 public class AreaOfEffect : MonoBehaviour
 {
     public enum Type
@@ -9,7 +9,6 @@ public class AreaOfEffect : MonoBehaviour
         singleBurst,
         byTick
     }
-
 
     const int MAX_RADIUS = 2;
 
@@ -121,3 +120,24 @@ public class AreaOfEffect : MonoBehaviour
     }
 
 }
+//[CustomEditor(typeof(AreaOfEffect))]
+//public class ClientEditor : Editor
+//{
+//    override public void OnInspectorGUI()
+//    {
+//        AreaOfEffect client = (AreaOfEffect)target;
+
+//        // Display dropdown
+//        client.type = (AreaOfEffect.Type)EditorGUILayout.EnumPopup("Type", client.type);
+
+//        // Display conditional for one    
+//        if (client.type == AreaOfEffect.Type.byTick)
+//        {
+//            client.ticks = EditorGUILayout.IntField("Num Ticks", client.ticks);
+//            client.duration = EditorGUILayout.FloatField("Effect Duration", client.duration);
+//        }
+
+//        // Display always
+//        client.fadeSpeed = EditorGUILayout.FloatField("Fade Speed", client.fadeSpeed);
+//    }
+//}

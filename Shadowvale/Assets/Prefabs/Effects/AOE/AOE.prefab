@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7426b1369cd8a5e449d539761a4601ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   glowRadius:
   - {fileID: 21300000, guid: b79d97a5ff9a4d147826aa10b92e6f4c, type: 3}
   - {fileID: 21300000, guid: ea8c4cb0949ee3a4c962554a85d6320d, type: 3}
